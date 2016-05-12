@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插入排序</title>
+</head>
+<body>
+
+</body>
+<script>
+    var ary=[1,2,3,6,4,2,3];
+    function insertSort(ary){
+        var left=[];
+        var first=ary.splice(0,1)[0];
+             left.push(first);
+        for(var i=0;i<ary.length;i++){
+            var cur=ary[i];
+            for(var j=left.length-1;j>=0;){
+                if(cur<left[j]){
+                    j--;
+                    if(j==-1){
+                        left.unshift(cur);
+                    }
+                }else{
+                    left.splice(j+1,0,cur);
+                    break;
+                }
+            }
+        }
+        return left;
+    }
+    console.log(insertSort(ary));
+</script>
+</html>

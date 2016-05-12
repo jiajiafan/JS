@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //原型模式,可以解决复用的问题,可以设置公共的属性和方法
+    function Shirt(material){
+        this.size = "XXL";
+        this.material = material||"棉";
+
+    }
+    Shirt.prototype.holdwarm = function(){
+        console.log("保暖");
+    }
+    var cloth1 = new Shirt();
+    var cloth2 = new Shirt();
+    console.log(cloth1.holdwarm == cloth2.holdwarm);//true;
+    cloth1.holdwarm();
+    //prototype属性里面就是存储的是公有的属性和方法
+    //每一个函数都有一个prototype属性,指向浏览器默认开辟的一个堆内存,prototype只有在构造函数这边才有意义,在普通函数那边是没有意义
+    //prototype上面天生自带一个constructor属性,指向构造函数
+    console.log(Shirt.prototype.constructor);
+    //实例是怎么查找到原型(prototype)上的属性-->__proto__
+    //每一个对象(实例,prototype)天生自带一个属性__proto__,指向所属类的原型
+
+    console.log(Shirt.prototype == cloth1.__proto__);
+</script>
+
+</body>
+</html>

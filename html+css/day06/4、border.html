@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>border</title>
+</head>
+<body>
+<style type="text/css">
+    div{
+        width: 0px;
+        height: 300px;
+        /*border: 10px solid #ff0000;*/
+        /*控制四个方向 并且四个方向的各种样式都想同*/
+        border-width: 10px;
+        /*边框的宽度*/
+        /*border-style: solid;*/
+        /*边框的样式*/
+        /*border-color: #ff0000;*/
+        /*边框的颜色*/
+        border-right-width: 10px;
+        border-right-style: solid;
+        /*实线*/
+        border-right-color: red;
+        border-left-style: double;
+        /*双实线*/
+        border-left-color: blue;
+        border-top-style: dashed;
+        /*虚线*/
+        border-top-color: yellow;
+        border-bottom-style: dotted;
+        /*点状线*/
+        border-bottom-color: green;
+        border: 2px #63a7ce;
+        /*复合的css属性中 没有写值 代表有值 只是这个值是默认或者空 这个空值会覆盖掉上面已有的css属性值*/
+    }
+    div{
+        width: 200px;
+        height: 300px;
+    }
+</style>
+
+<div>
+
+</div>
+</body>
+</html>

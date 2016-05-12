@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    正则是用来处理字符串,是用来处理负责复杂的方法
+    正则表达式:相当于定义了一个模型(模式/规则);
+    正则作用:
+        1)用这个模式去匹配字符串的某一部分是否和模型相匹配
+        2)把相匹配的内容提取出来
+    正则的组成部分:元字符(具有特殊含义的元字符和普通的字符)和修饰符组成
+<script>
+    var reg = /\d/;//字符串只要包含0-9之间的一个数字就和这个正则相匹配
+    //通过字面量的方式定义了一个正则表达式,reg是RegExp类的实例
+    var str = "aa1122";
+    //console.log(RegExp.prototype);
+    //1)匹配的方法 test ->字符串是否和定义的模型相匹配
+        console.log(reg.test(str));//如果匹配返回true,不匹配返回false
+    //2)捕获的方法 exec-->从字符串中把相匹配的内容提取出来
+       console.log(reg.exec(str));//["1", index: 2, input: "aa1122"]
+
+    //修饰符 g,i,m
+    //1)global 全文查找
+    //2)ignoreCase 匹配时忽视大小写
+    //3)multiline  多行匹配
+
+
+</script>
+</body>
+</html>

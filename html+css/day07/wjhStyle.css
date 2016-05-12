@@ -1,0 +1,104 @@
+body,ul,li,span,a{
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft Yahei", Arial, SimSun, "宋体";
+    font-size: 14px;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #bfbdc4;
+}
+/**/
+.nav{
+    margin-top: 60px;
+    width: 100%;
+    height: 40px;
+    /*line-height: 40px;*/
+    /*line-height 是可继承属性 .NAV下面的所有元素都会继承在这个样式，但是 最后一级的li line-height<40 所以不在此处设置 以免影响下面元素的正常显示*/
+    background-color: #343f50;
+}
+.nav .list{
+    position: relative;
+    float: left;
+    margin-right: 5px;
+    padding: 0 15px;
+    line-height: 40px;
+
+}
+/*.nav .list1{
+    padding-right: 20px;
+}*/
+/*.nav .list span{
+    position: absolute;
+    top: 19px;
+    right: 5px;
+    border: 4px solid;
+    border-color: #343f50 transparent transparent transparent;
+}*/
+/*.nav .list span{
+    float: right;
+    margin: 19px 0 0 2px;
+    border: 4px solid;
+    border-color: #343f50 transparent transparent transparent;
+}*/
+.nav .list span{
+    display: inline-block;
+    /*margin-top: 1px;*/
+    /*span 和 a 这两个元素 在文档流内 给其中一个元素 margin 另一个元素也会受到影响*/
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    border: 4px solid;
+    border-color: #c4c2c8 transparent transparent transparent;
+    vertical-align: -1px;
+}
+.nav .list:hover,.nav .home{
+    background-color: #c4c2c8;
+}
+.nav .list:hover a,.nav .home a{
+    color: #343f50;
+}
+.nav .list:hover span{
+    border-top-color: #343f50;
+}
+/*.nav .home{
+    background-color: #c4c2c8;
+}
+.nav .home a{
+    color: #343f50;
+}*/
+.nav .list ul{
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    /*在不设置四个方向值的时候，定位元素会从内容开始进行排版*/
+    border: 1px solid #c4c2c8;
+    padding: 5px 0;
+    width: 158px;
+    background-color: #343f50;
+}
+.nav .list ul .link{
+    display: block;
+    padding-left: 20px;
+    height: 26px;
+    line-height: 26px;
+    color: #c4c2c8;
+}
+.nav .list ul .link:hover{
+    background-color: #c4c2c8;
+    color: #343f50;
+}
+.nav .list:hover ul{
+    display: block;
+}
+
+
+
+
+
+
+

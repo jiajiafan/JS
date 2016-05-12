@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //alert(str1.length)//str.length 字符串的长度；
+    //每个字符串都有下标（也叫索引），从0开始
+    //字符串的查找：
+    //1.charAt(index):通过下标找到目标小字符串
+    //2.charCodeAt(index):找到汉字的ASCII值；
+    /*alert(str1.charAt(3))*/
+    // alert(str1.charCodeAt(3)==str1.charCodeAt(4))//ASCII
+    //通过汉字找到下标
+    //3.indexOf(string)从前往后找
+    //4.lastIndexOf(string)从后往前找
+    //特点：
+    // 相同：不管是indexOf,还是lastIndexOf，如果找不到，都返回-1；
+    //不同点：查找的起始位置不同
+    //alert(str1.indexOf('等'))//indexOf 从前往后找
+    //alert(str1.lastIndexOf('蕾'))//不管是indexOf,还是lastIndexOf，如果找不到，都返回-1；
+    /*if(str1.indexOf('峰')!=-1){
+        alert('找到了') //aa();
+    }else{
+        alert('没到找')//bb();
+    }*/
+    //截取字符串：
+    //5.substr(从哪里开始截取) substr(从哪里开始截取,截取的长度)
+    //6.substring(从哪里开始截取) substring(从哪里开始截取,截取到哪里)--特点：包前不包后
+   //alert(str1.substr(2))
+   //alert(str1.substr(2,4))
+    //alert(str1.substr())
+  /*alert(str1.substring(2,4))*/
+    //alert(str1.indexOf('峰'))
+    //转成数组
+    //7.字符串转成数组 str.split(截取的方式)
+    //console.log(str1.split('-'));
+    //8.转成大小写
+    //alert(str1.toUpperCase())
+    var str1='ABCDE';
+    var str2=new String();
+    //alert(str1.substring(0,1).toLowerCase()+str1.substring(1));
+    //alert(str1.charAt(0).toLowerCase()+str1.substr(1));
+    var bOk=false;
+</script>
+</body>
+</html>

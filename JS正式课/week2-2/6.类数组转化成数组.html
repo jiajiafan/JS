@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+类数组是元素的集合时,是否还是可以通过间接调用数组上slice方法,将类数组转化成数组
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+</body>
+</html>
+<script>
+    var oUl = document.getElementById("list");
+    var oLis = oUl.getElementsByTagName("li");//获得的就是所有的li标签的集合
+    //console.dir(oLis);
+    //元素集合 (HTMLCollection)也是一个类数组
+    //    var ary = Array.prototype.slice.call(oLis,0);//在ie6-ie8不兼容,报错
+    //    console.log(ary );
+    //处理兼容性问题
+    //可以捕获浏览器的异常信息,并且浏览器不会抛出异常,下面的js语句正常执行
+    //    try{
+    //       执行这边的代码,如果出现异常,则走到catch语句里 ,
+    //       如果浏览器没有出现异常,则不会走到catch语句里
+    //    }catch(e){
+    //        浏览器报错则走到这边
+    //    }finally{
+    //       不管有没有出现异常都会走到这边
+    //    }
+    //    console.log(111);
+//    try {
+//        var ary = Array.prototype.slice.call(oLis, 0);
+//        console.log(ary);
+//    } catch (e) {
+//        //e表示Error类的一个实例
+//        //console.dir(e);
+//        //console.log(e.message);//捕获到异常信息
+//        var ary = [];
+//        for (var i = 0; i < oLis.length; i++) {
+//            ary[ary.length] = oLis[i];
+//        }
+//        console.log(ary);
+//    }
+//    console.log("ok");
+
+    //封装一个方法:将类数组转化成数组
+    function listToArray(likeAry) {
+        var ary = [];
+        try {
+            //标准浏览器支持的方式
+            ary = Array.prototype.slice.call(likeAry, 0);
+        } catch (e) {
+            //ie支持的方式
+            for (var i = 0; i < likeAry.length; i++) {
+                ary[ary.length] = likeAry[i];
+            }
+        }
+        return ary;
+    }
+
+    var res = listToArray(oLis);
+    console.log(res);
+
+    //抛出异常,所有的代码都不再执行.....
+
+
+</script>

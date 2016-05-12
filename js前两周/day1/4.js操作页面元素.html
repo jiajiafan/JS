@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="div1" style="width: 100px;height: 100px;background: red;">测试的盒子</div>
+</body>
+</html>
+<script>
+    //1.获得这个元素->style属性->css属性
+    //下面js这种设置元素样式的方式相当于通过css行内式设置的样式
+//        document.getElementById("div1").style.color = "green";
+//        document.getElementById("div1").style.fontSize = "20px";
+//        document.getElementById("div1").innerHTML = "你们是不是饿了呀~";
+//        //innerHTML是元素的属性,修改或添加元素的内容
+//        document.getElementById("div1").style.backgroundColor="orange";
+        var oDiv  = document.getElementById("div1");
+        oDiv.style.color = "green";
+        oDiv.style.fontSize = "20px";
+        //变量(可变的量) -- 常量(固定一个值) PI = 3.14
+        //var 变量名 = 值
+        //变量名不是随随便便起的,是遵循一定规范的
+        /*
+        * 严格区分大小写 var a /var A
+        * 首字符只能是字母,下划线,$(美元符)(首字符不能是数字),其他的字符可以是字母,数字,下划线,$
+        * 开始是$符一般是jquery库或者其他的类库里声明的变量
+        * 首字符是下划线的,一般表示私有的变量 var _total;
+        * 采用驼峰式的命名法(由多个单词组合,从第二个单词开始首字符大写)
+        * 可以是中文,但是不推荐
+        * */
+        var studentInfo;
+        var doSomething;
+        var checkEmail;
+        var removeInfo;
+        var remove_info
+        var oLis;
+        //命名常用的技巧
+        //add/get/rm/remove/del/set.....
+        //o -- object  n --number boo -- boolean nu -- null u --undefined
+        //fn--- function ary -- array reg -- RegExp  m -- Math str --- string
+
+
+
+
+
+    /*
+    * window 浏览器
+    * 只要是script标签下的代码都是在window下的,因此这边的window.可以省略不写
+    * document 文档
+    * . 表示从属的关系
+    * get 得到
+    * Element 元素(标签)
+    * By  通过
+    * Id  id名
+    * 在整个文档里,通过id名找到相对应的元素
+    * = 赋值的意思 把右边的值赋值给左边
+    * */
+
+
+</script>

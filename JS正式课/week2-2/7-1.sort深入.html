@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //1.sort深入
+    var ary = [12,3,4,10,6];
+    ary.sort(function(a,b){
+        return a-b;
+    })
+
+
+    var ary = [
+        {"name":"曹晓阳",age:28},
+        {"name":"李鹏飞",age:"20.5px"},
+        {"name":"安洁",age:18}
+    ];
+    ary.sort(function(a,b){
+        //a 前一项的对象 b 后一项的对象
+        //return  parseFloat(a.age) - parseFloat(b.age)
+        return a.name.localeCompare(b.name); //按照字母在26个字母表中的顺序进行排列
+    })
+    console.log(ary);
+
+
+
+</script>
+</body>
+</html>

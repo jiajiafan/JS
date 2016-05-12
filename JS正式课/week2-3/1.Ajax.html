@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //AJAX实现的步骤:
+    //1.创建一个XMLHttpRequest实例
+    var xhr = new XMLHttpRequest();//xml表示可扩展的html语言
+    //2.打开一个链接地址(这个链接地址就是向服务器端请求的数据地址) API(application programming interfact)
+    //请求的方式 get post delete put....
+    //请求的链接地址
+    //同步还是异步 true是异步 false是同步
+    xhr.open("get","json/userInfo.txt",false);
+    //请求的时候会一直触发onreadystatechange 监听请求的状态码和响应的状态码
+    //请求的状态码:xhr.readyState
+    //响应的状态码:xhr.status 200 203 204 205...都表示响应成功
+     //  /^2\d{2}$/.test(xhr.status);
+    var data = null;
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4&&(/^2\d{2}$/.test(xhr.status))){
+            data = xhr.responseText; //后台返回的JSON格式的字符串
+            console.log(toJSON(data));//把JSON格式的字符串转换成JSON对象
+        }
+    }
+    xhr.send(null);//向服务器端发送数据,没有数据也得写,写下null
+
+    function toJSON(str){
+       return  "JSON" in window?JSON.parse(str):eval("("+str+")");
+    }
+
+
+</script>
+</body>
+</html>

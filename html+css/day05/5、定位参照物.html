@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+参照物是可视窗口--{
+    绝对定位（在人为不设置参照物的情况下）
+    固定定位
+}
+参照物是本身{相对定位}
+
+在给父级元素相对定位属性的时候，父级元素就变成了参照物
+
+<div style="width: 600px;height: 600px;background-color: red;position: relative;">
+    <div style="width: 300px;height: 400px;background-color: green;position: absolute;top: 20px;left: 40px;">
+
+    </div>
+    <div style="width: 100px;height: 100px;background-color:gray;position: absolute;top: 30px;left: 60px;">
+
+</div>
+</div>
+
+子级盒子在进行绝对定位的时候，父级盒子只要有相对定位、绝对定位、固定定位之中的一个，就可以是子级盒子的参照物
+但是，固定定位的参照物永远是可视窗口
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+*{margin: 0;padding: 0;font-family: arial,"微软雅黑";font-size: 12px;}
+ul,ol{list-style: none}
+img,input{border: none;vertical-align: middle;outline: none;}
+/*outline: none; 点击表单元素的时候 浏览器会默认有一个颜色的框 这个属性 可以去除掉这个框*/
+a{text-decoration: none;}
+.clear{clear: both;height: 0;line-height: 0;font-size: 0;}
+.w1200{width: 1200px;margin: 0 auto;}
+/*全局默认样式的重置*/
+.header{width: 100%;height: 190px;border-top: 1px solid #aaaaab;}
+.navTop{width: 100%;height: 29px;border-bottom: 1px solid #ededed;background: #fafafa;}
+.navTop .navLeft{float: left;}
+.navTop .navRight{float: right;}
+
+.navLeft li,.navRight li{float: left;padding: 0 10px;background: url("../images/bg65.png") no-repeat 0 9px;line-height: 29px;position: relative;}
+.navLeft li a,.navRight li a{color: #8c8c8c;}
+
+.navLeft li span,.navRight li span{display: inline-block;margin-left:11px;width: 7px;height: 4px;background: url("../images/sprites3.png") no-repeat -34px 0;vertical-align: middle;}
+.navLeft li:hover span,.navRight li:hover span{background-position: 0 0;}
+
+.navTop .noBg{background: none;padding-left: 0;}
+/*.navRight li{float: left;background: url("../images/bg65.png") no-repeat 0 9px;line-height: 29px;padding: 0 10px;}
+.navRight li a{color: #8c8c8c;}
+.navRight li span{display: inline-block;width: 7px;height: 4px;background: url("../images/sprites3.png") no-repeat -34px 0;margin-left: 11px;vertical-align: middle;}
+.navRight li:hover span{background-position: 0 0;}*/
+/*.navRight .login{background: none;}*/
+.navRight .login a{padding-left: 10px;color: #585858;}
+
+/*.navTop .list{position: absolute;top: 29px;left: -1px;background: #FFFFFF;width: 76px;padding-left: 10px;border: 1px solid #cccccc;border-top: none;}
+.navTop .list a{display: block;line-height: 24px;color: #8c8c8c;}
+.navTop .hover{border: 1px solid transparent;border-top: none;border-bottom: none;}
+.navTop .hover:hover{background: #fff;border: 1px solid #cccccc;border-top: none;border-bottom: none;}*/
+
+.navTop .list{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background: #FFFFFF;
+    width: 76px;
+    padding-left: 10px;
+    top: 29px;
+    left: -1px;
+    border: 1px solid #cccccc;
+    border-top: none;
+}
+.navTop .list a{
+    display: block;
+    line-height: 24px;
+}
+.navTop .hover{
+    left: 1px;
+    border: 1px solid transparent;border-top: none;border-bottom: none;
+}
+.navTop .hover:hover{
+    left: 1px;
+    background: #FFFFFF;
+    border: 1px solid #cccccc;
+    border-top: none;border-bottom: none;
+
+}
+.navTop .hover:hover .list{display: block;}
+.navTop a:hover{
+    color: #ca151e;
+}
+/*end*/
+.logo{ float: left;padding: 43px 120px 0 0;}
+.logo img{width: 223px;height: 32px;}
+.ser{float: left; padding-top: 43px;}
+.ser input[type=text]{padding-left:10px;width: 354px;height: 28px;border: 2px solid #ca141d;color: red;}
+.ser input[type=button]{width: 64px;height: 32px;background: #ca141d;color: #fff;font-size: 14px;cursor: pointer;}
+/*表单元素一旦出现了错位 可以用定位来写*/
+.ser p,.ser p a{line-height: 26px;color: #999;}
+.ser p a{padding-left: 16px;}
+.ser p a:hover{color: #ca141d;text-decoration: underline;}
+
+.i_mall{float: left;margin: 43px 0 0 7px;width: 197px;height: 30px;border: 1px solid #000;}
+.i_mall .tMall,.i_mall .line,.i_mall .shopping{float: left;}
+.i_mall .line{margin-top:9px;width: 1px;height: 11px;background: #000;}
+.i_mall .tMall,.i_mall .shopping{width: 98px;text-align: center;line-height: 30px;position: relative;}
+.i_mall span{display: inline-block;width: 6px;height: 3px;background: url("../images/icon1.png") no-repeat -234px -2px;vertical-align: middle;margin-left: 10px;}
+.i_mall .iMall_link{color: #333;}
+.i_mall .tMall:hover span,.i_mall .shopping:hover span{
+    background-position: -234px 0;
+}
+/*.i_mall .tMall{border-right: 1px solid transparent;width: 97px;position: relative;left:1px;}
+.i_mall .tMall:hover{
+    width: 97px;
+    border-right: 1px solid #000;
+}*/
+.i_mall:hover .line{margin-top: 0;width: 1px;height: 30px;background: #000;}
+/*.i_mall .shopping:hover{
+    margin-left: -1px;
+    border-left: 1px solid #000;
+}*/
+.i_mall .tMall:hover i{position: absolute;width: 98px;height: 2px;background: #fff;left: 0;top:30px;}
+.iMall_list{
+    display: none;
+    position: absolute;
+    top: 31px;
+    left: -1px;
+    width: 197px;
+    background: #FFFFFF;
+    border: 1px solid #000;
+    border-top: none;
+}
+.iMall_list .iMall_login{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #000;
+    color: #666;
+}
+.iMall_list .iMall_login a{color: #333;padding: 0 7px;}
+.iMall_list ul li{
+    float: left;
+    border-left: 1px solid #000;
+    margin-top: 30px;
+    width: 98px;
+    margin-left: -1px;
+    line-height: 14px;
+}
+.iMall_list ul li a{color: #333;}
+.iMall_list .iMall_img{
+    padding: 26px 10px 10px;
+}
+.iMall_list .iMall_img img{
+    width: 177px;
+    height: 58px;
+}
+.tMall:hover .iMall_list{display: block;}
+.i_mall a:hover{color: red;text-decoration: underline;}
+.ewm{position: relative;float: right;width: 95px;padding-top: 17px;}
+.ewm dl dt img{width: 76px;height: 76px;}
+.ewm dl dd{line-height: 18px;color: #333;}
+.ewm ul{position: absolute;top:17px;right: 0;}
+.ewm ul li{width: 8px;height: 8px;background: #888888;margin-top: 6px;border-radius: 50%;}
+.ewm ul .on{background: #ca141c;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

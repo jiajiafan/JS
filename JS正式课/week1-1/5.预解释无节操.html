@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+关于函数的无节操：
+1.变量声明，只走"="的左边；声明，不定义；（如果把函数赋值给变量，按变量来声明；）
+2.自执行函数不预解释，只有执行到他的时候，声明+定义+执行同步完成；
+3.不管if条件是否成立，都走预解释；
+4.如果函数有返回值return； return后面的值不进行预解释；return下面的代码不执行，但是要进行预解释；
+5.在变量名相同的情况下，不重复声明，但会重新赋值；
+<script>
+    /*
+    * 自执行函数：声明+定义+执行
+    * 预解释：var f=function (){ return 2; }
+    * alert(f())
+    * */
+    /*(function f(){
+        function f(){ return 1; }
+        alert (f());
+        function f(){ return 2; }
+    })();*/
+    /*alert(a)
+    var a=function (){alert(1)}*/
+    /*
+    *预解释：var a; var sum=function sum(){alert('奇数')}
+    *JS代码：
+    * */
+    /*var a=12;
+    if(a%2==0){
+        function sum(){
+            alert('偶数')
+        }
+        sum();
+    }else{
+        function sum(){
+            alert('奇数')
+        }
+        sum();
+    }*/
+    /*function fn(){
+        alert(a);
+        var a=12;
+        alert(bb);
+        return function aa(){
+            alert('珠峰培训')
+        }
+        function bb(){
+            alert('我7岁了')
+        }
+    }
+    fn();*/
+    /*预解释 var a;
+    Js执行：
+    * a=2;
+    * */
+    /*var a=function(){alert(1)};
+    var a=2;
+    alert(a);*/
+    /*var a=function(){ alert('zhufeng')};
+    *a=12;
+    * alert(a);
+    * */
+    /*var a=12;
+    function a(){
+        alert('zhufeng')
+    }
+    alert(a);*/
+
+    /*function fn(){
+        alert(a)//undefined
+        var a=12;
+        alert(c);//undefined;
+        return function aa(){
+            alert(111);
+        }
+        var c=18;
+    }
+    fn();*/
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

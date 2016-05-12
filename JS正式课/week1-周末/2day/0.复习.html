@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+注意：不要再if语句中写函数，因为各大浏览器对他的预解释不一样；
+<script>
+    var n=12;
+    if(n%2==0){
+        function sum(){
+            alert('偶数')
+        }
+    }else{
+        function sum(){
+            alert('奇数')
+        }
+    }
+    sum()
+</script>
+</body>
+</html>

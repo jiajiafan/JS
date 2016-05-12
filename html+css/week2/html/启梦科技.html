@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>启梦科技</title>
+    <meta content="电商专家 启梦科技 打造No1" name="keywords">
+    <meta name="description" content="网页描述">
+    <!--利于搜索 利于推广 以上三行是网页必须有的 content可以不写内容 但是在网页上必须有所显示-->
+    <link rel="stylesheet" href="../css/qmstyle.css">
+    <link href="" type="image/x-icon" rel="shortcut icon">
+    <!--ico图标的制作 直接百度ico 或者直接找设计师-->
+</head>
+<body>
+    <!--一个网站公用的部分 我们编辑结构的时候 放置在一个盒子中 如header  footer-->
+    <!--网页还会按照什么来区分结构呢?-->
+    <!--1.根据样式来进行结构区分 不同的样式 写成不同的盒子 或者几个重复出现的结构 我们只需要书写一个结构来复用即可 样式 内容 功能 重复的模块-->
+        <!--html5很好的实现了标签语义化-->
+        <!--header footer nav 等HTML5等新标签不兼容IE678-->
+    <div class="header">
+            <div class="top w960">
+                <a href=""><img src="../images/tu-1.png" alt="启梦科技"></a>
+                <div>
+                    <h3>启梦中国的践行者</h3>
+                    <p>以电商之行实现强企之梦，以强企之行实现强国之梦</p>
+                </div>
+                <span><img src="../images/tu-3.png" alt="客户服务热线 4000-3894-4898"></span>
+            </div>
+            <div class="nav">
+                <ul class="w960">
+                    <li class="list"><a href="">首页</a></li><span></span>
+                    <li><a href="">产品服务</a></li><span></span>
+                    <li><a href="">成功案例</a></li><span></span>
+                    <li><a href="">媒体报道</a></li><span></span>
+                    <li><a href="">启梦观点</a></li><span></span>
+                    <li><a href="">关于我们</a></li><span></span>
+                    <li><a href="">合作伙伴</a></li><span></span>
+                    <li><a href="">联系我们</a></li><span></span>
+                    <!--行内元素尽量不包裹块元素-->
+                    <!--ul li里边不能有别的标签 只能是ul里边包li-->
+                </ul>
+            </div>
+    </div>
+    <div class="banner">
+        <!--渐变背景的平铺-->
+        <div class="conBan w960">
+            <!--盛放内容 包括960的背景图片  和三个样式相同 的盒子-->
+            <ul>
+                <li>
+                    <h5>打造类目NO.1</h5>
+                    <p>熟悉各大平台运营规则,平均每月缔造1家类目第一</p>
+                </li>
+                <li class="on">
+                    <h5>16位电商专家</h5>
+                    <p>从事电商行业数十年的资深电商专家,深懂电商,丰富的实操经验</p>
+                </li>
+                <li>
+                    <h5>淘宝资源0接触</h5>
+                    <p>淘宝(淘拍档)荣誉资质,天猫/聚划算/京东等深度的合作关系</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="conList">
+        <div class="w960">
+            <div class="btnL"></div>
+            <div class="btnR"></div>
+            <ul>
+                <li>
+                    <p class="img img1"></p>
+                    <h4>电商顾问</h4>
+                    <p class="text">启梦科技</p>
+                </li>
+                <li>
+                    <p class="img img2"></p>
+                    <h4>电商顾问</h4>
+                    <p class="text">启梦科技</p>
+                </li>
+                <li>
+                    <p class="img img3"></p>
+                    <h4>电商顾问</h4>
+                    <p class="text">启梦科技</p>
+                </li>
+                <li>
+                    <p class="img img4"></p>
+                    <h4>电商顾问</h4>
+                    <p class="text">启梦科技</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 300px;
+            height:300px;
+            color: #fff;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<!--
+1.创建元素：
+document.createElement('标签名') 创建一个元素
+obj.cloneNode(boolean)  true：连子元素一起克隆 false：只克隆他自己，不含他里面的子元素
+2.插入元素
+oParent.appendChild(创建的元素) 插入到父容器的最后面；
+oParent.insertBefore(newEle,oldeEle) 插入到父容器中指定的元素的前面；
+3.删除元素
+oParent.removeChild(要删除的元素)
+4.替换元素
+oParent.replaceChild(newEle,oldEle);
+
+//操作属性的方式：
+1.通过点和[]来操作；
+2.通过setAttribute()设置元素属性
+obj.setAttribute(name,value)设置元素属性
+obj.getAttribute(name)得到元素属性
+obj.removeAttribute(name)移出元素属性
+注意:.和setAttribute一定不能混着来；
+思考题：通过"."设置自定义属性后，你看看通过obj.getAttribute(name)能否获取到；
+-->
+<div id="divWrap" index="1111">1111</div>
+<script>
+    var obj={name:value};
+    //document.body.innerHTML='<p>1111111</p>';
+    var oDiv1=document.createElement('div');
+    var oDivWrap=document.getElementById('divWrap');
+    oDiv1.id='div1';
+   // oDiv1.index='111111';
+    oDiv1.setAttribute('index','1111111111');
+    oDiv1.className='box';
+    oDiv1.style.background='red';
+    oDiv1.innerHTML='我是创建的div';
+    var oP=document.createElement('P');
+    oP.innerHTML='我是一个p元素';
+    var oSpan = document.createElement('span');
+    oSpan.innerHTML='我就是插队了';
+    oDiv1.appendChild(oP);
+    oDiv1.insertBefore(oSpan,oP);
+   // document.body.appendChild(oDiv1);
+    oDivWrap.appendChild(oDiv1);
+    oDiv1.onclick=function(){
+        //alert(oDiv1['index'])
+        this.removeAttribute('index')
+    }
+</script>
+</body>
+</html>

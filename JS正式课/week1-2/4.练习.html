@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    var num = 18;
+    var str = "lily";
+    function fn2(){
+        console.log(str,num);//lily undefined
+        num = 19;
+        str = "wyz";
+        var num = 14;
+        console.log(str,num);//wyz   14
+    }
+    fn2();
+    console.log(str,num);// str 和 num 都表示全局下的num
+
+
+</script>
+</body>
+</html>

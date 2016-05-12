@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,li{list-style:none;}
+        #tab li{float:left;width:100px;height:30px;line-height:30px;text-align:center;border:1px solid #ccc}
+        #tab div{clear:both;width:300px;height:300px;border:1px solid #ccc;display:none;}
+        #tab ul .select{background:red;}
+        #tab .select{display:block;}
+    </style>
+
+</head>
+<body>
+   <div id="tab">
+       <ul>
+           <li id="1">1</li>
+           <li id="2">2</li>
+           <li id="3">3</li>
+       </ul>
+       <div>1</div>
+       <div>2</div>
+       <div>3</div>
+   </div>
+<script>
+   var oLis=document.getElementsByTagName("li");
+    var ary=["red","green","orange"];
+ //  for(var i=0;i<oLis.length;i++){
+//   (function(index){
+//            oLis[i].onclick=function(){
+//                document.body.style.backgroundColor=ary[index]
+//            }
+//
+//  })(i)
+//   }
+    for(var i=0;i<oLis.length;i++){
+        oLis[i].onclick=(function(index){
+            return function(){document.body.style.backgroundColor=ary[index];}
+        })(i)
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

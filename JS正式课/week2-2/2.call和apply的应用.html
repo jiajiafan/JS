@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //需求:求数组中的最大值和最小值
+
+    //汪聪思想:
+    //先排序下,然后求出最大值和最小值
+    ary.sort(function (a, b) {
+        return a - b;
+    })
+    //console.log(ary[0]);
+    //console.log(ary[ary.length-1]);
+
+    //魏潇思想:假设法
+    //var max = ary[0];
+    //var min = ary[0];
+    //    var max = min = ary[0];这种方式后面的min会定义成全局变量
+    var max, min;
+    max = min = ary[0];
+    for (var i = 1; i < ary.length; i++) {
+        max > ary[i] ? null : max = ary[i];//如果条件判断成立,则什么都不用做,条件判断失败,则把后面比较的值(ary[i])假设成最大值
+        // max = max > ary[i] ? max : ary[i];
+        min < ary[i] ? null : min = ary[i];//如果条件判断成立,则什么都不用做,条件判断失败,则把后面比较的值(ary[i)假设成最小值
+    }
+    //console.log(max);
+   // console.log(min);
+
+    //最优的解决方案
+    //    Math.max.apply(null,ary);
+    //    Math.min.apply(null,ary);
+</script>
+</body>
+</html>

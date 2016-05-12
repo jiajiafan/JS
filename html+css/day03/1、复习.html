@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>复习</title>
+    <!-- 唯一性 -->
+</head>
+<body>
+    1、标签语义化
+    合理的标签做合理的事情
+    h1-h6  div，span是无意义的 em，strong强调 除了标签 标签属性也很重要 例如 title
+    <a href="" title=""></a> alt <img src="" alt=""/>
+    2、css引入的三种方式
+    1）行内式 写在标签中 通过style（标签的属性）="css属性"  权重最高  100
+    2）内嵌式 写在style标签内
+    <style type="text/css">
+        /*通常放在head标签中   权重10*/
+    </style>
+    3）外联式 通过link标签引入一个单独的文件 link标签放置在head中
+    <link rel="stylesheet" href="css.css" type="text/css"/>
+    <!--权重10-->
+
+    3、css的选择器
+
+    基本选择器 ---- 选择要操作的元素 给予一定的css样式  好处可以批量的选择html元素，可以精确的选择任意元素
+
+    标签选择器  标签名{}    权重1
+    <ul><li></li></ul>
+    <ol><li></li></ol>
+    <dl><dt></dt><dd></dd></dl>
+    类选择器
+    .className(类名){}         权重10
+    <div class="className"></div>
+    id选择器
+    #idName{}                 权重100
+    <div id="idName"></div>
+
+    交集选择器  在一个标签内，同时满足两种情况  增加权重
+    <p class="name1 name2" id="idName1"></p>
+
+    <ul class="parent">
+        <li class="list">交集选择器  在一个标签内，同时满足两种情况  增加权重</li>
+        <li class="list">交集选择器  在一个标签内，同时满足两种情况  增加权重</li>
+        <li class="list">交集选择器  在一个标签内，同时满足两种情况  增加权重</li>
+        <li class="list">交集选择器  在一个标签内，同时满足两种情况  增加权重</li>
+        <li class="list">交集选择器  在一个标签内，同时满足两种情况  增加权重</li>
+    </ul>
+    <ul class="parent">
+        <li class="list list1">交集选择器  在一个标签内，同时满足两种情况  增加权重</li>
+        <li class="list">交集选择器  在一个标签内，同时满足两种情况  增加权重</li>
+        <li class="list">交集选择器  在一个标签内，同时满足两种情况  增加权重</li>
+        <li class="list">交集选择器  在一个标签内，同时满足两种情况  增加权重</li>
+        <li class="list">交集选择器  在一个标签内，同时满足两种情况  增加权重</li>
+    </ul>
+    <style type="text/css">
+        /*li.list{
+            color: red;
+        }*/
+        .list.list1{
+            color: red;
+        }
+        .list{
+            /* ul > li*/
+            line-height: 24px;
+            /*行高 在一定高度中 文字垂直居中*/
+            text-align: center;
+            /*水平方向居中*/
+            font-size: 18px;
+            color: #1b66c7;
+        }
+        /*.parent{
+            /!*ul *!/
+            color: red;
+        }*/
+
+    </style>
+                        1           1           1             1
+    并集选择器    选择器的名称,选择器的名称,选择器的名称,选择器的名称{}
+    让不同的元素具有相同的css属性   逗号两侧都是独立的个体 是分别对每一个元素进行css属性的赋值
+    div,ul,ol,li,.className,#idName{}
+    1   1  1  1   10        100
+    好处：可以简化代码  减少代码量 加快加载速度（网页）
+
+    后代选择器    父级 子级{}  可以一直的选择子级元素  用空格隔开
+
+    子代选择器    父级>子级{}  只能选择第一代的子级元素 用>隔开
+
+    通配符选择器  *{}  表示全部的选择 （标签和超文本）
+
+    伪类选择器     选择器:伪类    a:hover{} 只有a元素是全部浏览器兼容  如果hover用在其他元素上，例如li:hover ie6不兼容
+
+    类型选择器      标签名[type=type值]{}  一般在表单上用的比较多
+
+
+</body>
+</html>

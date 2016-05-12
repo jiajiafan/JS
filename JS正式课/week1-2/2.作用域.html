@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function fn(){
+        //console.log(num);
+        num = 12; //给查找不到的变量直接赋值,就相当于给window增加了个属性num ->window.num = 12;
+        console.log(num);
+    }
+    fn();
+
+    console.log(num);
+
+    var windowColor = "blue";
+    function fn(){
+        var oneColor = "red";
+        function fn1(){
+            var otherColor = "yellow";
+            console.log(oneColor);
+        }
+        //console.log(otherColor);
+        fn1();
+    }
+    fn();
+    console.log(num);
+
+    //怎么查找上级作用域?
+    //当前的这个函数是在哪个作用域下定义的,上一级作用域就是谁 ,跟函数在哪儿执行的是没有关系
+    //作用域链(为了保证执行环境里的函数或者变量之间有序访问)
+    //window作用域是最外层的作用域链  当前执行的函数是最前端的作用域链
+
+
+</script>
+</body>
+</html>

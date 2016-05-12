@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style type="text/css">
+        *{margin:0;padding:0;font-family:"微软雅黑";font-size:14px;}
+        ul,li{list-style:none;}
+        #tab{width:500px;margin:20px auto;}
+        #tab ul{position: relative;top:1px;}
+        #tab ul li{float:left;border:1px solid #ddd;width:100px;height:30px;line-height:30px;text-align:center;cursor:pointer;}
+        #tab div{clear:both;border:1px solid #ddd;height:100px;line-height:100px;text-align: center;display:none;}
+        #tab ul li.select{background-color:orange;}
+        #tab div.select{display: block;}
+    </style>
+</head>
+<body>
+  <div id="tab">
+      <ul>
+          <li>视频</li>
+          <li>综艺</li>
+          <li>秒拍</li>
+      </ul>
+      <div>视频内容</div>
+      <div>综艺内容</div>
+      <div>秒拍内容</div>
+  </div>
+</body>
+<script>
+   var oTab=document.getElementById("tab");
+    var oLis=oTab.getElementsByTagName("li");
+    var oDivs=oTab.getElementsByTagName("div");
+    for(var i=0;i<oLis.length;i++){
+        oLi=oLis[i];
+        oLi.zhufeng=i;
+        oLi.onmouseover=function(){
+            for(var j=0;j<oLis.length;j++){
+                oLis[j].className="";
+                oDivs[j].className="";
+            }
+            this.className="select";
+            oDivs[this.zhufeng].className="select";
+        }
+    }
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

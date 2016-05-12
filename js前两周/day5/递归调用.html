@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    //1-10之间不能被3整除的数之和
+    <script>
+//        var total=null;
+//        for(var i=o;i<=10;i++){
+//            //第二种写法
+//            if(i%3){
+//                total+=i;
+//            }
+//        }
+        //第三种
+       // 0%3==0?null:total+=i;
+        //*****递归思想:自己调用自己
+//        function sum(n){
+//            if(n==0){
+//                return 0;
+//            }
+//            return n+sum(n-1);
+//        }
+//         var result=sum(10);
+//        console.log(result);
+//
+        function sum(n){
+            if(n==0){
+                return 0;
+            }
+            if(n%3==0){
+                return sum(n-1);
+            }
+            return n+sum(n-1);
+        }
+        var result=sum(10);
+        console.log(result);
+        //1-5之间的数相乘
+//        function fn(n){
+//            if(n==1){
+//                return 1;
+//            }
+//            return n*fn(n-1);
+//        }
+//        var result=fn(5);
+//        console.log(result);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

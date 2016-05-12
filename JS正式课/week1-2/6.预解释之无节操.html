@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //in用来检测对象里是否有这个属性
+    //1.不管if条件是否成立,都会预解释
+   /* if(!("a" in window)){//在预解释时声明了变量a,就表示在window下有个属性a
+        var a = "珠峰培训";
+    }
+    alert(a); //undefined
+
+    fn();//在预解释时;fn已经定义过了,因此在这边可以直接执行 "坑爹的预解释"
+    if( 9 == 8 ){
+        function fn(){alert("坑爹的预解释")}
+    }*/
+    //fn();
+
+    //2.方法当值存在时,是不预解释的
+    //fn();
+    var fn = function f(){alert("here~~~")};
+    fn();
+    //oDiv.onclick = function(){console.log(111)};
+    window.setTimeout(function(){},1000);
+
+    //3.自执行函数,定义+执行一起做了
+    ;(function (){console.log(111)})();
+    ~function (){console.log(222)}();
+    !function (){console.log(333)}();
+
+    ;(function(){
+        console.log(num);//undefined
+        var num = 12;
+        //形参赋值
+        //预解释
+        //代码从上往下执行
+    })()
+
+    //4.关于函数这边
+    //return "下面"的代码不再执行,但是要预解释
+    //return "后面" 的函数不进行预解释
+//    function sum(){
+//        console.log(aa);//undefined
+//        b();//报错
+//        return function b(){alert("fn1")};
+//        var aa = 12;
+//    }
+//    sum();
+    //5.重名变量
+   /* var b =  12;
+    var b = 13;
+    console.log(b);*///变量名重复只会声明一次,但是会赋值多次
+
+    var b = 13;
+    function b(){//方法预解释的时候已经定义过了,代码执行到这边时就忽视了(跳过这一步)
+        console.log("111");
+    }
+    console.log(b);
+
+
+
+
+</script>
+</body>
+</html>

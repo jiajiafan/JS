@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="ul">111111111
+    <li></li><!--22222-->
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<!--
+节点类型       nodeType     nodeName    nodeValue
+文本节点        3            #text      文本内容
+元素节点        1            标签名大写    null
+注释节点        8            #comment    注释内容
+document       9           #document    null
+
+节点之间的关系：
+childNodes：获取当前元素下所有的节点
+children:获取当前元素下所有的元素节点（但IE8除外：IE8包含注释节点）
+parentNode:父节点
+previousSibling:当前元素的上一个哥哥节点
+nextSibling:当前元素的下一个弟弟节点
+firstChild:大儿子
+lastChild:小儿子
+-->
+<script>
+    var oUl=document.getElementById('ul');
+   // var aChild=oUl.childNodes;
+    var aChild=oUl.children;
+    alert(aChild.length)
+    //alert(aChild[0].nodeName)
+    //alert(document.nodeValue)
+</script>
+</body>
+</html>

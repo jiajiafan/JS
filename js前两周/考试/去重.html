@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ary=[1,2,3,4,3,2,2,1];
+        for(var i=0;i<ary.length-1;i++){
+            for(var j=i+1;j<ary.length;j++){
+                if(ary[i]==ary[j]){
+                    ary.splice(j,1);
+                    j--;
+                }
+            }
+        }
+    console.log(ary);
+    var obj=[];
+    for(var i=0;i<ary.length;i++){
+        var cur=ary[i];
+        if(obj[cur]==cur){
+            ary.splice(i,1);
+            i--;
+        }else{
+            obj[cur]=cur;
+        }
+
+    }
+    console.log(ary);
+</script>
+</body>
+</html>

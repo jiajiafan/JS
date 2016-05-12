@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Shirt(material){//构造函数(类)名首字母一定要大写,为了和普通函数区别开头
+        this.size = "XXL";
+        this.material = material||"棉";
+        this.holdwarm = function(){console.log("保暖")};
+    }
+    //new Shirt("棉");
+    //console.log(new Shirt);
+    var cloth1 = new Shirt;//把返回的对象成为实例
+    var cloth2 = new Shirt;
+    console.log(cloth1.holdwarm==cloth2.holdwarm);
+
+    //console.log(cloth1.hasOwnProperty("aa"));//是私有的返回true,不是私有的返回false
+//    console.log(cloth1 instanceof Shirt);
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+    * 预解释：
+    * var name; var age;
+    * name='珠峰';->undefined
+    * age=500;
+    *name=xxff00;
+    *   私有作用域：
+    *   1.形参赋值： name='珠峰', age=undefined;
+    *   2.name='珠峰培训'; age=500;
+    *   console.log(name,age);->'珠峰培训',500
+    *console.log(name,age)->undefined,500;
+    * */
+    var name='珠峰';
+    var age=500;
+    name=(function(name,age){
+        arguments[0]='珠峰培训';
+        age=age||this.age;
+        console.log(name,age);
+    })(name);
+    console.log(name,age)
+</script>
+</body>
+</html>
+
+
+
+

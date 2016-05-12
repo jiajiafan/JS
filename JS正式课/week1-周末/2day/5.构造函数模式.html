@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.什么构造函数模式：目的是为了实现一个自定义的类，并能创建一些实例；
+2.工厂模式和构造函数模式的区别：
+1）在执行的时候：
+工厂模式：函数调用->函数
+构造函数模式：new 类();
+所有的类都是函数，但是通过new之后创建出来的实例都是对象
+2）在里面JS代码执行时候：
+构造函数模式：系统会自动创建一个对象，添加完属性和方法之后，系统自动返回一个对象；
+3.构造函数的细节：
+1）创建一个实例是，如果没有参数，小括号可以省略；
+2）关于this指向问题：
+构造函数中的this，指向实例；
+方法中的this：方法调用时，看前面是否有点，点前面是谁，this就是谁；
+3）构造函数中，只有this.xx跟实例有关系，和里面变量没有任何关系；
+4）构造函数执行完，系统会默认返回一个对象，如果我们自己return一个返回值的话：
+    1.return 基本数据类型值， 无效，返回的还是当前这个实例；
+    2.return 引用数据类型，会替换掉当前这个实例，此时，实例上的属性和方法都无效了；
+5.构造函数优缺点：
+优点：自定义一个类（函数封装），可以创立实例；而且系统会自动创建对象和返回对象
+缺点：每个相同的方法都是私有的，导致大量冗余代码；
+解决办法：prototype ，把相同的代码放在一个公共区域；
+<script>
+    /*function Person(name,age){
+        //var obj={};//1.创建一个控对象
+        //2.给对象添加属性和方法
+        this.name=name;
+        this.age=age;
+        this.showName=function(){
+            alert('我的名字是'+this.name)
+        }
+        //3.输出对象
+        //return obj;
+    }
+    var p1=new Person('杜宏俊',28);
+    p1.showName();*/
+    function Fn(){
+        //obj={}
+        var index=10000;
+        this.x=100;
+        this.showX=function(){
+            alert(this.x)
+        }
+        //return obj
+    }
+    var f1=new Fn;
+    var f2=new Fn;
+    /*var ary=new Array('1','2','3');
+    ary.push(4);
+    alert(ary)*/
+    //f1.showX();
+    alert(f1.showX==f2.showX)
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

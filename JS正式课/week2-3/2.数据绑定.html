@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 800px;
+            border: 1px solid palegreen;
+            margin: 0 auto;
+        }
+
+        ul li {
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px dashed orange;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li>习近平指出，摩洛哥是最早同新中国建交的非洲和阿拉伯国家之一</li>
+    <li>习近平指出，摩洛哥是最早同新中国建交的非洲和阿拉伯国家之一</li>
+    <li>习近平指出，摩洛哥是最早同新中国建交的非洲和阿拉伯国家之一</li>
+    <li>习近平指出，摩洛哥是最早同新中国建交的非洲和阿拉伯国家之一</li>
+</ul>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    var oUl = document.getElementById("list");
+    var oLis = oUl.getElementsByTagName("li");
+    for (var i = 0; i < oLis.length; i++) {
+        oLis[i].onmouseover = function () {
+            this.style.backgroundColor = "pink";
+        };
+        oLis[i].onmouseout = function () {
+            this.style.backgroundColor = "";
+        }
+    }
+    //把后台返回的数据在页面上显示出现
+    //1.AjAX请求数据的四步
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("get", "json/json1.txt", false);
+    //true 表示异步 ,false表示同步的
+    var jsonDate = null;
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && (/^2\d{2}$/.test(xhr.status))) {
+            jsonDate = xhr.responseText;//JSON格式的字符串
+            jsonDate = utils.toJSON(jsonDate);//转换成JSON
+        }
+    };
+    xhr.send(null);
+    //console.log(jsonDate);
+
+    //数据绑定:1.动态创建元素的方式
+//    for (var i = 0; i < jsonDate.length; i++) {
+//        //console.log(jsonDate[i]);
+//        var oLi = document.createElement("li");
+//        oLi.innerHTML = jsonDate[i].content;
+//        oUl.appendChild(oLi); //会引发10次回流
+//    }
+    //数据绑定:2.字符串拼接的方式
+//    var str = "";
+//    for (var i = 0; i < jsonDate.length; i++) {
+//        str += "<li>" + jsonDate[i].content + "</li>";
+//    }
+//    oUl.innerHTML += str; //把之前的DOM元素先转变成字符串(之前所有元素的操作都消失了),和拼接好的Str连在一起,形成一个新的字符串 ,再把拼接好的新的字符串作为oUl的内容 ,浏览器把字符串转换成DOM节点
+
+    //数据绑定3 :利用文档碎片(可以理解成一个仓库)来操作
+    var frg = document.createDocumentFragment();//创建了一个文档碎片
+    for(var i = 0;i<jsonDate.length;i++){
+        var oLi = document.createElement("li");
+        oLi.innerHTML = jsonDate[i].content;
+        frg.appendChild(oLi);//把创建完的li标签都先放在仓库里,先别放页面
+    }
+    oUl.appendChild(frg);//引发一次回流
+
+    //DOM回流和重绘
+    //DOM回流 -->页面的结构(添加,删除,位置移动... padding,margin,width,height..)发生改变的时候,浏览器需要重新计算页面的结构,这就称为DOM回流
+    //重绘 : 指页面元素的样式(字体颜色,字体大小,背景颜色)发生改变的时候,浏览器只需要重新渲染当前的元素即可
+
+
+</script>

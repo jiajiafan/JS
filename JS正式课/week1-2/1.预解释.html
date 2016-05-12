@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    预解释(变量提升):在当前作用域下,代码执行之前,对带var或者function关键字的提前声明或定义,带var关键字和带function关键字的预解释是不一样的
+    预解释:
+        1)var关键字的是提前声明(declare)
+        2)function关键字的是定义(声明+赋值)defined
+<script>
+    //页面加载的时候,浏览器会提供一个供js代码执行的环境 -->全局作用域
+    //函数运行的时候,也会提供一个供js代码执行的环境-->私有的作用域
+    //var str = "珠峰培训";//定义一个变量Str
+    //var str;//声明了一个变量str
+    //执行步骤
+        //1.在代码执行之前,声明一个变量str (预解释)
+        //2.在代码执行时,开辟一个内存空间,保存珠峰培训这个数值
+        //3.把珠峰培训这个数据赋值给变量str,变量和值之间就关联起来的,这时才定义了一个变量str
+
+   // console.log(num);//undefined  1.预解释时已经声明了一个变量
+    //在全局作用域下,声明了一个变量也相当于给window增加了一个属性 window.num但是没有值,undefined
+    //var num = 12;
+    //console.log(num);
+
+    //方法分为两步(方法定义和方法的执行)
+    //fn();//在预解释时是定义
+    //function fn(){ //方法的定义 (当代码执行到这边时,由于在预解释时已经定义过了,所以这边就不再理会了)
+        console.log("在预解释时是定义")
+    //}
+    //fn();
+
+    //function(){} //函数的声明
+    //var  fn1 = function(){} //函数表达式
+//    fn1();
+ //   (function(){})(); 自执行函数
+
+    //预解释也是发生在私有作用域中
+    var num = 13;
+    function fn(num){ //当形参和私有变量名一样时,可以当成一直是对形参的赋值过程
+        //console.log(num);
+        var num =12;
+        console.log(num);//12
+    }
+    fn(num);
+    console.log(num);
+    //函数里私有变量:形参,私有变量(var 申明的变量)
+    //方法运行的时候,代码执行之前:1.形参赋值 2.预解释 3.代码从上往下执行
+    var num = 13;
+    function fn(){
+        console.log(num);//全局下的num的值获得到13
+        var num = 12;//把全局作用域下的num的值改成12
+        console.log(num);//把现在全局作用域下num的值输出 12
+    }
+    fn();
+
+    //var和不带var的变量有什么区别
+
+    var num = 13;
+        num = 12;
+    //1.var关键字的变量要预解释,不带var关键字的变量不需要预解释
+    //2.var num = 13;在全局作用域下定义了一个变量num= 13 ;给window增加了一个属性 window.num = 13
+    //num = 12;仅仅是给window增加了一个属性 window.num = 12;
+
+    //在私有作用域中,不带var关键字的变量称为非私有变量,去它的上级作用域查找看是否有这个变量,如果有的话,则把值获取到,如果没有找到的话再继续往上级查找....一直找到window为止.如果window下也没有找到,则报错...
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

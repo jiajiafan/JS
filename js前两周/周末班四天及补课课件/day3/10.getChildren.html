@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="ul1">11111111111111
+    <li></li><!--33333333-->
+    <li></li><!--33333333-->
+    <li></li><!--33333333-->
+    <li></li>
+</ul>
+<script>
+    var oUl=document.getElementById('ul1');
+    var aLi=getChildren(oUl);
+    function getChildren(oEle){
+        var aChildren=oEle.childNodes;//获取所有节点：文本节点，元素节点，注释节点，document节点
+        var ary=[];//将来用来存放元素的盒子
+        //思路：循环遍历所有的节点，如果符和"元素.nodeType===1"这个条件，就是我们要找的元素节点，把他放到ary这个盒子里；最后通过return返回ary;
+        for(var i=0; i<aChildren.length; i++){
+            var cur=aChildren[i];
+            if(cur.nodeType===1){
+                ary.push(cur)
+            }
+        }
+        return ary;
+
+    }
+    alert(aLi.length)
+</script>
+</body>
+</html>

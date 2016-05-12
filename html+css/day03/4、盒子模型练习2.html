@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .box1{
+            width: 200px;
+            height: 100px;
+            padding-bottom: 30px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            background-color: #63a7ce;
+        }/*box1顶部 距离box2底部 的距离是多少*/
+        .box2{
+            width: 300px;
+            height: 0;
+            padding-bottom: 200px;
+            border: 20px solid #2fbc71;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+
+</div>
+<div class="box2">
+
+</div>
+
+
+width
+height
+指的内容的宽度和高度
+
+整个盒子的宽度=内容的宽度（width）+padding-left+padding-right+border-left+border-right
+整个盒子的宽度=内容的高度（height）+padding-top+padding-bottom+border-top+border-bottom
+
+padding 内边距  四个方向
+padding-left  padding-top  padding-bottom  padding-right
+如果四个方向值相同的时候 可以padding:30px; 这个代表四个方向都是30px
+如果值各不相同   padding:10px 20px 30px 40px;
+                         top right bottom left
+padding:20px 40px;  20px--上下各20px  40px-- 左右各40px
+padding:20px 30px 40px;   20px -- 上  30px -- 左右  40px 下
+margin  外边距  四个方向
+margin-left  margin-top  margin-bottom  margin-right
+如果四个方向值相同的时候 可以margin:30px; 这个代表四个方向都是30px
+如果值各不相同   margin:10px 20px 30px 40px;
+                        top right bottom left
+margin:20px 40px;  20px--上下各20px  40px-- 左右各40px
+margin:20px 30px 40px;   20px -- 上  30px -- 左右  40px 下
+
+</body>
+</html>

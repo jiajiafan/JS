@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //数组这边从四个维度来学习
+    //1.数组的这个方法是什么意思? 吧
+    //2.数组的这个方法有没有参数?
+    //3.数组的这个方法有没有返回值?
+    //4.原数组是否发生了改变?
+    //var ary=[1,2,32,23,4,3]
+    //*1.push()往数组的末尾添加一项内容,参数:添加的内容 返回值:添加完内容后数组的长度
+    //ary.push(66);
+   // var result=ary.push(66);
+    //console.log(result);//7
+    //console.log(ary);
+    //*2.pop()表示把数组的最后一项内容删除,没有参数,返回值:删除的内容
+    // var result=ary.pop();
+    //console.log(result);
+    //console.log(ary);
+    //*3.shift()删除数组的第一项内容,没有参数,返回值:删除的内容
+    //*4.unshift()将内容添加到数组的首位置,参数:添加的内容,返回值:添加完内容的长度;
+   // var result=ary.unshift(11,22);
+    //console.log(result);//8;
+    //console.log(ary);
+    //*原生的添加一项内容和删除最好一项内容的办法
+   // ary[ary.length]=5;//往最后一项的后面添加内容,最后一项的后面的索引就是ary.length;
+    //console.log(ary);
+   // ary.length--;
+    //console.log(ary);
+   //* 5.splice(n) 表示从索引n 的位置一直删除到最后,返回值:删除的内容,
+    //var result=ary.splice(2);
+    //console.log(ary);
+    //console.log(result);
+    //*6.splice(n,m)从索引n的位置开始一直删除m个,返回值:删除的内容;
+    //*7.splice(n,m,x)从索引n 的位置开始一直删除m个,用x(可以使一项,也可以是多项)的内容替换删除的内容;
+
+  //*8.ary.splice(1,0,4,6);如果m值为0,表示没有删除的内容,x的内容添加到索引n 之前
+//    var result=ary.splice(1,0,4,6);
+//    console.log(result);
+//    console.log(ary);
+    //*9.reverse 将数组倒着排列;返回值:倒着排列后的数组;
+    //*10.sort() 10以内的数字可以从小到大排列,大于10就不可以了
+  // var ary=[1,2,7,4,3,2,6];
+//    var result=ary.sort();
+//    console.log(result);
+
+//*11.对10以上的数字排列我们可以指定规则
+   // ary.sort(function(a,b){//a表示数组的前一项,b 表示数组的后一项
+   //     return a-b;//从到到小
+  //  });
+
+   // 以下是原有数组都没有发生改变的
+    //slice(n) 后从索引n开始一直截取到最
+    //slice(n,m)从索引n开始截取,一直取到索引m(包前不包后,包含索引n这一项,不包含索引m这一项),返回值:截取的新的数组,原有数组不发生改变;
+    //slice的参数可以是负数(这时候的索引=负数索引+索引的长度)
+    //join() 按照指定的字符拼接成字符串
+//     var ary=[2,34,15,12,78,43];
+//     var result=ary.join("+");
+//    console.log(result);
+    //不是数组的方法,eval把字符串转换成js语句;
+    // console.log(eval(result));
+    //concat() 将多个数组拼接成一个数组
+//    var ary1=[1,2];
+//    var ary2=[3,4];
+//    var ary3=[6,7];
+//    var result=ary1.concat(ary2,ary3);
+//    console.log(result);
+  //indexOf() lastIndexOf()//IE6-IE8不兼容;
+    //indexOf(n) 从数组的前面往后找,如果找不到返回—1,如果能找到,则返回这一项的索引值 参数n表示数组里面的某一项
+   // lastIndexOf(n) 从数组的后面往前找,如果找不到返回-1,如果能找到则返回这一项的索引值;
+    //这两个方法可以判断数组里是否有这一项
+    //toString() 把数组转换成字符串
+    ary=[2,34,15,12,78,43];
+    var result=ary.toString();
+    console.log(result);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

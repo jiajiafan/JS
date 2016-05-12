@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        li{
+            width:450px;
+            height:200px;
+            overflow: hidden;
+            margin: 10px;
+            float: left;
+        }
+        .li1{
+            width: 600px;
+        }
+        .li2{
+            width: 750px;
+        }
+        li input{
+            display: block;
+            width:150px;
+            height:40px;
+            line-height: 40px;
+            text-align: center;
+            float: left;
+        }
+        li input.on{
+            background: red;
+        }
+        li div{
+            clear: both;
+            width: 100%;
+            height:100%;
+            background: lightgreen;
+            display: none;
+            font-size: 30px;
+        }
+        li div.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+        <input type="button" value="按钮1" class="on"/>
+        <input type="button" value="按钮2"/>
+        <input type="button" value="按钮3"/>
+        <div class="show">内容1</div>
+        <div>内容2</div>
+        <div>内容3</div>
+    </li>
+    <li>
+        <input type="button" value="按钮1" class="on"/>
+        <input type="button" value="按钮2"/>
+        <input type="button" value="按钮3"/>
+        <div class="show">内容1</div>
+        <div>内容2</div>
+        <div>内容3</div>
+    </li>
+    <li>
+        <input type="button" value="按钮1" class="on"/>
+        <input type="button" value="按钮2"/>
+        <input type="button" value="按钮3"/>
+        <div class="show">内容1</div>
+        <div>内容2</div>
+        <div>内容3</div>
+    </li>
+    <li class="li1">
+        <input type="button" value="按钮1" class="on"/>
+        <input type="button" value="按钮2"/>
+        <input type="button" value="按钮3"/>
+        <input type="button" value="按钮4"/>
+        <div class="show">内容1</div>
+        <div>内容2</div>
+        <div>内容3</div>
+        <div>内容4</div>
+    </li>
+    <li class="li2">
+        <input type="button" value="按钮1" class="on"/>
+        <input type="button" value="按钮2"/>
+        <input type="button" value="按钮3"/>
+        <input type="button" value="按钮4"/>
+        <input type="button" value="按钮5"/>
+        <div class="show">内容1</div>
+        <div>内容2</div>
+        <div>内容3</div>
+        <div>内容4</div>
+        <div>内容5</div>
+    </li>
+</ul>
+<script>
+    var aLi=document.getElementsByTagName('li');
+    for(var i=0; i<aLi.length; i++){
+        tab(aLi[i]);
+    }
+    tab(aLi[1],2);
+    function tab(oLi,startIndex){
+        var light=startIndex||0;
+        var aInput=oLi.getElementsByTagName('input');
+        var aDiv=oLi.getElementsByTagName('div');
+        for(var i=0; i<aInput.length; i++){
+            aInput[i].className='';
+            aDiv[i].className='';
+        }
+        aInput[light].className='on';
+        aDiv[light].className='show';
+        for(var i=0; i<aInput.length; i++){
+            (function(index){
+                aInput[i].onclick=function(){
+                    for(var i=0; i<aInput.length; i++){
+                        aInput[i].className='';
+                        aDiv[i].className='';
+                    }
+                    aInput[index].className='on';
+                    aDiv[index].className='show';
+                }
+            })(i);
+        }
+    }
+</script>
+</body>
+</html>

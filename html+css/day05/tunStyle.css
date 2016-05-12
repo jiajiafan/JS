@@ -1,0 +1,181 @@
+body,div,ul,ol,li,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,a,span,em,b,strong,i,font,form,input,select,option,img{
+    /*只要是页面中用到的标签就要进行全局默认样式的清除*/
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft Yahei", Arial, SimSun,"宋体";
+    /*font-family: "微软雅黑" , "Microsoft Yahei", Arial, "宋体";*/
+}
+/*
+*{  浏览器兼容
+    margin: 0;padding: 0;
+}*/
+ul,ol{
+    list-style: none;
+    /*列表样式的清除*/
+}
+img,input{
+    border: none;
+    /*边框去除*/
+    vertical-align: middle;
+    /*行内元素的垂直对齐方式 也支持数值*/
+}
+a{
+    text-decoration: none;
+    /*下划线的去除*/
+}
+.clearF{
+    clear: both;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+/*
+.clearF:after{
+    display: block;
+    /!*一个不存在的元素（行内元素）需要转变成块级元素 让他在页面上有所显示（能起到作用）*!/
+    content: "";
+    /!*给伪类增加内容 内容是空 在页面上也没有具体的显示 还是一个不存在的元素*!/
+    height: 0;
+    line-height: 0;
+    clear: both;
+    zoom: 1;
+    /!*针对ie浏览器 6 7 8*!/
+
+}*/
+/*只要是有关全局的属性设置，都放在css文件的上面（头部）*/
+/*默认样式的重置*/
+.clearF:after{
+    clear: both;
+    display: block;
+    content: "";
+    zoom: 1;
+    height: 0;
+}
+.nav{
+    margin: 0 auto;
+    /*上下0  左右自动*/
+    border-bottom: 3px solid #cccccc;
+    /*border-bottom: 3px solid rgb(236,238,244);*/
+    /*color: rgba(0,0,0,.2);*/
+    /*
+    色值：
+    #000000  十六进制的色值  #000 #ffcc00  --  #fc0
+    rgb(0,0,0)  三原色  000代表黑色  255，255，255 代表白色 所有的值都在0-255之间
+    rgba(0,0,0,.5)   a代表透明度  值是0-1 0.1 0.2 0.3  简写 .3 .2 .1
+    英文 不推荐使用
+    */
+    padding-top: 14px;
+    /*如果最初测量时，取得是整个盒子的高度或者宽度，再进行border和padding赋值的时候，一定要做减法*/
+    width: 950px;
+    height: 23px;
+}
+.nav h3{
+    float: left;
+    padding-left: 10px;
+    width: 230px;
+    font-size: 18px;
+    color: #333333;
+    line-height: 18px;
+}
+.nav ul,.nav ul li{
+    /*.nav ul,li  .nav ul 浮动  所有的li 浮动*/
+    float: left;
+}
+.nav ul li{
+    /*float: left;*/
+    margin-right: 18px;
+    padding: 0 5px;
+    font-size: 15px;
+    color: #222222;
+}
+.nav ul li:hover,.nav ul .on{
+    cursor: pointer;
+    /*鼠标样式:小手*/
+    padding-bottom: 3px;
+    color: #08afb1;
+    border-bottom: 3px solid #08afb1;
+}
+.nav a{
+    float: right;
+    font-size: 12px;
+    color: #999;
+    font-family: "宋体";
+}
+.content{
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 950px;
+}
+.content .conL{
+    float: left;
+    width: 215px;
+}
+.conL h4{
+    padding-left: 10px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #222222;
+}
+.conL ul{
+    /*overflow: hidden;*/
+    padding-left: 10px;
+    border-bottom: 1px dashed #000;
+}
+.conL ul li{
+    float: left;
+    margin-bottom: 5px;
+    width: 101px;
+    line-height: 19px;
+    color: #c0c0c0;
+    font-size: 12px;
+}
+.conL ul li a{
+    padding-left: 5px;
+    color: #333333;
+}
+.conL ul li a:hover{
+    color: #f60;
+}
+.conL .img img{
+    width: 215px;
+    height: 202px;
+}
+.content .conR{
+    float: right;
+    width: 726px;
+}
+.content .conR li{
+    float: left;
+    padding-left: 17px;
+    height: 190px;
+}
+.content .conR li img{
+    width: 225px;
+    height: 127px;
+    padding-bottom: 10px;
+}
+.content .conR li p .rmb{
+    float: left;
+    font-size: 12px;
+    color: #f60;
+}
+.content .conR li p .rmb b{
+    padding-right: 3px;
+    font-size: 20px;
+}
+.conR li p .satisfaction{
+    float: right;
+    padding-top: 8px;
+    font-size: 12px;
+    color: #999;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //预解释:在当前作用域下,代码执行之前,对带var关键字和带function关键字的进行声明和定义(声明+赋值)
+    //重名变量 在预解释时只会声明一次,但是在执行时,可以赋值多次
+    var num = 13;
+    var num = 14;
+    function fn() {//代码执行时,遇到方法的定义(忽视),直接跳过这一步
+        console.log(num);
+        var num = 12;
+        console.log(num);
+    }
+    fn();
+    console.log(num);//全局作用域下的num,num = 14
+    //在一个作用域里,分析时一定要参照这三个步骤:1.形参赋值 2.预解释 3.代码从上往下执行
+
+
+
+</script>
+</body>
+</html>

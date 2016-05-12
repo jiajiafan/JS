@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function fo() {
+        var i = 0;
+        return function (n) { //先方法定义后返回
+            return n+(++i);
+        }
+    }
+    var f = fo();//把fo返回结果赋值给f
+    var a = f(15);//把返回结果赋值给a a->16
+    var b = fo()(15);//16
+    var c = fo()(20);//21
+    var d = f(20);//22
+
+    //思考
+     var  i = 5;
+     var m = 3;
+     var n = 7;
+    var res = 5+(++i)+(m++)+6+(++n)+(m++);
+
+</script>
+</body>
+</html>
