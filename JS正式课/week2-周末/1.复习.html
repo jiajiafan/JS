@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1.所有的类都是函数类型数据,也说明这些类都是构造函数Function()的实例(实例都是对象);
+2.原型图上的各种关系
+1)任何对象(new出来的任何实例对象)最终都能通过__proto__找到Object;
+2)所有类都是构造函数Function的实例
+3)Function是Object的爹
+  Object.prototype是Function.prototype的爹
+**call,apply,bind的区别
+1)call和apply基本一样,传参方面:call(this指向,参数1,参数2,参数3...)
+  apply(this指向,[参数1,参数2,参数3...])参数放在一个数组里,但是相对形参来说,也是一个个传
+2)bind:
+  预处理机制:提前把this指向改了,,参数也改好了;bind会返回一个函数;什么时候需要,什么时候调用即可
+</body>
+</html>
