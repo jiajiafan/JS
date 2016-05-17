@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+回调函数：把函数A做为实参传给另一个函数B的形参；在B中根据条件执行A函数；A函数可以执行无数次；
+<script>
+    function fn1(v){
+        v();
+    }
+    function fn2(){
+        alert('22222');
+
+    }
+    //fn1(fn2());fn2千万不能加括号，否则返回值是undefined,但如果fn2返回一个函数除外；
+    fn1(fn2);
+    /*这里函数参数传的是对象；
+    var b={name:'zhufeng',fn:fn2};//JSON数据格式；严格的JSON{“name”:'zhufeng'};
+    setInterval(function(){},300)
+    function fn1(v){
+        alert(v.name)
+        v.fn();
+
+    }
+    function fn2(){
+        alert(this)
+        alert('我就是那个回调函数')
+    }
+    fn1(b);*/
+</script>
+</body>
+</html>

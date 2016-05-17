@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //字符串的方法replace不改变原有的字符串,返回替换后的新的字符串
+    //    var reg = /\w+/g;
+    //    var str = "www.zhufengpeixun.cn";
+    //    str =str.replace(reg,"zf");//把每次匹配的内容全部替换"zf"
+    //    console.log(str);
+
+    var reg = /(\w+).(\w+).(\w+)/g;
+    var str = "www.zhufengpeixun.cn";
+    str = str.replace(reg, "$3.$2.$1");//$3表示第三个分组匹配的内容
+    console.log(str);
+
+    var reg = /[a-z]/g;
+    var str = "zf2016";
+    str = str.replace(reg, function () {//replce的这边的回调函数,捕获多少次则会执行多少次
+        console.log(arguments);
+        //没有分组的情况下:
+        //1.arguments[0]表示匹配的内容
+        //2.arguments[1]表示匹配内容的索引
+        //3.arguments[2]表示原字符串
+
+        return "珠峰";  //return 后面的值是替换匹配的内容
+    })
+    //"zf2016"->"珠峰f2016"->"珠峰珠峰2016";
+
+
+    var str = "adfsd";//给每个字符加上索引号
+    //"a(0)d(1)f(2)s(3)d(4)";
+    var reg = /[a-z]/g;
+    str = str.replace(reg, function (result, index, str) {
+        return result + "(" + index + ")";
+    });
+
+    console.log(str);
+
+    //把字符串里的数字用中文表示
+    var str = "459876";
+    var ary = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"];
+    var reg = /\d/g;
+    str = str.replace(reg, function (result, index, str) {
+        return ary[result];
+    })
+    console.log(str);
+
+
+    var ary = ["赵医生", "28", "china", "医生"];
+    var str = "my name is {0}，my age is {1}，i com from {2}，my work is  {3}~~";
+    var reg = /{(\d)}/g;
+    str = str.replace(reg, function () {
+        //有分组的情况下
+        //第一个参数是大正则匹配的内容
+        //从第二参数开始是第一个分组匹配的内容
+        //第三个参数是第二个分组匹配的内容
+        //......
+        //倒数第二个参数 是大正则匹配内容的起始索引
+        //倒数第一个参数是原字符串
+        // arguments[1] //第一个分组匹配的内容
+        // console.log(arguments);//["{0}", "0", 11, "my name is {0}，my age is {1}，i com from {2}，my work is  {3}~~"]
+        return ary[arguments[1]];
+    })
+    console.log(str);
+
+
+    //单词首字母大写
+    var str = "my name is zhufeng peixun,my age is eight years old~~";
+    var reg = /\w+/g;
+    str = str.replace(reg, function (result) {
+        return result.charAt(0).toUpperCase() + result.substring(1);
+    })
+    console.log(str);
+
+    var str = "zhufengpeixun2015yangfanqihang";
+    //获取一个字符串中出现次数最多的字符和对应的次数
+    str = str.split("");//[z,h,....]
+    str.sort(function (a, b) {
+        return a.localeCompare(b);
+    })//[0,1,2,5,"a","a","a",....]
+    str = str.join("");
+    //0125aaaeeffggghhiinnnnnpquuxyz
+    var reg = /(\w)\1+/g;//\1和第一个分组匹配的内容的相同
+    var str2 = "";
+    var res = "";
+    var max = 0;//假设匹配字符次数最多是0次
+    str.replace(reg, function () {
+        var len = arguments[0].length;
+        if (len > max) {
+            max = len;//保存次数
+            res = arguments[1] + "," + max; //把字符和相应的次数
+        }
+        str2 += "匹配的字符:" + arguments[1] + "出现的次数:" + len + "\n";
+
+    })
+    console.log(str2);
+    console.log(res);
+
+
+    //queryURLParameter 获取地址栏中的参数
+    var str = "http://kbs.sports.qq.com/kbsweb/game.htm?mid=1467588&age=18";
+    //->{mid:"1467588",age:18}
+    var reg = /([^?=&]+)=([^?=&]+)/g;
+    var obj = {};
+    str = str.replace(reg,function(){
+        obj[arguments[1]] = arguments[2];
+    })
+    console.log(obj);
+
+
+
+
+
+
+</script>
+</body>
+</html>

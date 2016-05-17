@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+正则表达式的定义:定义一个模式/模型->1.用这个模型去检测字符串是否相匹配2.把匹配的内容提取
+正则表达式的组成部分:元字符(特殊含义的元字符和普通的字符)和修饰符
+特殊含义的元字符:
+\ : 用来转义后面字符
+^ : 以某一个字符开始
+$ : 以某一个字符结束
+\n: 换行
+. : 除换行以外其他的字符
+\b : 匹配单词的边界 "a c b"
+\d : 0-9之间的一个数字
+\D : 和\d相反
+\w : 常用的单词 a-zA-Z0-9_
+\W : 和\w相反
+\s : 任何的空白字符 空格 制表符 换页符....
+\S : 非空白字符
+
+x|y x或者y |左右两边都是一个整体
+[xyz] x或者y或z
+[^xyz] 除了xyz的其他字符
+[a-z] ascii码里a-z之间任意一个字符
+
+量词元字符
+* 0到多次
++ 1到多次
+? 0到1次
+{n} 匹配n次
+{n,m} 最少匹配n次,最多匹配m次
+{n,} 最少匹配n次,最后不限制
+(?:) 匹配不捕获
+(?=) 正向预查
+(?!) 负向预查
+?在量词的后面,表示非贪婪匹配 比如 +?
+() 1.分组 可以改变顺序 ,改变优先级 2.分组的反向引用
+[] 1.[]里的字符表示元字符本身 2.[]里没法识别两位数
+
+通过查看RegExp.prototype,学习正则上的方法和属性
+1.test() ->字符串相匹配
+2.exec() ->把匹配的内容捕获出来
+
+修饰符 g,i,m
+global 全文查找
+ignoreCase 忽视大小写
+multiline 换行匹配
+
+1.匹配常用的符号 .+/()*?
+<input type="text" value="" id="input1"/>
+</body>
+</html>
+
+<script>
+    var reg = /^\d+$/;//定义了"一个到多个数字"的模型
+    var reg = /^\d8\d$/;//严格定义了一个三位的字符串.第一个字符和最后一个字符是0-9之间的数字,中间是字符8
+    var reg = /\d8\d/;
+
+    var reg = /\d.8/;
+    var reg = /^\d\.8$/;
+    var reg = /^http:\/\/www\.zhufengpeixun\.\(cn\)$/;//"http://www.zhufengpeixun.cn"
+    var reg = /\s.*/;
+    var str = "this is right!";
+    reg.exec(str); //[" is right!"]
+    var reg = /\s*/;
+    reg.exec(str)
+    //匹配空白符字符0次到多次
+    if(reg.test(input1.value )){
+        alert("请输入内容")
+    }
+    //表示所有的字符
+    var reg = /\s|\S/
+    var reg= /[\d\D]/
+    var reg = /[\w\W]/
+    var reg = /[.\n]/
+
+    var reg = /^18|19$/ ;//181 189 119 aa119 18bbb19
+    var reg = /^(18|19)$/;//只能是18或者19
+    var reg = /^[a-c]/;// /^(a|b|c)/
+    var reg = /^[^a-c]/
+    var reg = /^[^a-c]$/
+
+    //()反向引用
+    var reg= /(\w+)(\w+)/;
+    var str = "bbbbss.zhufengpeixun.cn";
+    reg.exec(str);//exec返回值是个数组,既能把大正则的内容捕获到,也能把小括号的内容捕获到.
+    var reg = /(\w)(\w)\1\2/g;//分组的反向引用 \1表示第一个分组的内容\2表示第二个分组内容
+    var str = "bbs.zfzfengpeixuxu.cn";
+    reg.exec(str)//捕获不到返回的是null
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

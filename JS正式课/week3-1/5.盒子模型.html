@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            width: 100px;
+            height: 100px;
+            border:2px solid red;
+            padding: 20px;
+            overflow: hidden;
+
+        }
+    </style>
+</head>
+<body>
+盒子模型:width+padding+border+margin
+js当中没有直接获得宽高的属性,但是有直接获得与宽高相关的属性
+clientWidth clientHeight offsetWidth offsetHeight scrollWidth scrollHeight
+以上这些值都不会出现小数,会四舍五入
+clientWidth :内容的宽度 + 左右padding
+clientHeight:内容的高度 + 上下padding
+offsetWidth : clientWidth+左右border
+offsetHeight: clientHeight+上下border
+clientWidth/clientHeight/offsetWidth/offsetHeight 和内容溢出没有关系
+
+如果要获得溢出的内容,scrollWidth/scrollHeight
+    scrollWidth 约等于真实内容的宽+左padding
+    scrollHeight 约等于真实内容的高+上padding
+    如果没有溢出的部分 scrollWidth和clientWidth相同 scrollHeight和clientHeight相同
+
+对浏览器的操作
+1.获得整屏的宽高(窗口的高度)
+document.documentElement.clientWidth || document.body.clientWidth
+2.获得整个文档的宽高(真实的高度)
+document.documentElement.scrollHeight ||document.body.scrollHeight
+
+能直接获得上边框和左边框的属性,没有直接获得下边框和右边框的属性
+clientTop ->上边框
+clientLeft->左边框
+
+<div id="div1">
+    <!--站在台风口上,猪都能飞起来~~;要得到你必须要付出,要付出你还需要学会坚持,如果你真的觉得很难,那你就放弃,但是一但放弃就不要在抱怨,我觉得人生就是这样,世界真的是平衡的,每个人都是通过自己的努力,去决定自己生活的样子;-->
+
+
+</div>
+<script>
+
+    var oDiv = document.getElementById("div1");
+    //console.dir(oDiv);
+    //alert(oDiv.scrollHeight);
+  //alert(oDiv.offsetHeight);
+
+//    alert(document.documentElement.clientHeight)
+//    alert(document.body.clientHeight);
+//    alert(oDiv.clientTop);
+//    alert(oDiv.clientLeft);
+    alert(oDiv.clientRight);//undefined
+    alert(oDiv.clientBottom);//undefined
+
+    //常常需要获取clientWidth/clientHeight/scrollWidth/scrollHeight或者对这个属性赋值
+    //因此封装一个方法用来读取或赋值这个四个属性
+    /*
+    * @parameter attr 属性
+    * @parameter value 值
+    * */
+    function getWin(attr,value){
+        if(typeof  value =="undefined"){
+            //没有传value的值,是读取
+            return document.documentElement[attr]||document.body[attr];
+        }
+        //传了value的值是赋值
+        document.documentElement[attr] = value;
+        document.body[attr] = value;
+
+    }
+    getWin("clientWidth");
+    getWin("clientWidth","500px");
+    getWin("scrollHeight","1200px");
+
+
+
+
+</script>
+</body>
+</html>

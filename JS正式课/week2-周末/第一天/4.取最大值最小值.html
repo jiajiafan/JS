@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.需求：求最大值和最小值
+1）思想1：sort思想
+2）思想2：假设法
+3）思想3：Math思想-eval
+4）思想4：Math思想-apply
+<script>
+    var ary=[56,21,12,3,1];
+    //1.sort思想
+    /*ary.sort(function (a,b){
+        return a-b;
+    })
+    var min=ary.shift();
+    var max=ary.pop();*/
+    //2.假设法：
+    /*var max=ary[0];
+    var min=ary[0];
+    for(var i=0; i<ary.length; i++){
+        if(ary[i]>max){
+            max=ary[i];
+        }
+        if(ary[i]<min){
+            min=ary[i];
+        }
+    }
+    alert(min+';'+max);*/
+    //3.Math思想-eval：把字符串做为JS代码来执行；
+    /*var min=Math.min('56','21','12','3','1')
+    //var min=Math.min('56,21,12,3,1');
+    //var min=Math.min(56,21,12,3,1);
+    //alert(min)
+    var str=ary.join(',');//56,21,12,3,1
+    var mathStr='Math.min('+str+')';//'Math.min(56,21,12,3,1)'
+    var mathStr2='Math.max('+str+')';
+    console.log(eval(mathStr))
+    console.log(eval(mathStr2))*/
+    //4.Math思想-apply
+    var min=Math.min.apply(null,ary);
+    alert(min)
+
+</script>
+</body>
+</html>

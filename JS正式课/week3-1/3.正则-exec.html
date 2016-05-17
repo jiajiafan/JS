@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //正则:懒惰和贪婪
+    var reg = /\d+/g;
+    var str = "zhufeng2015zhufeng2016";
+    console.log(reg.exec(str));
+    console.log(reg.lastIndex);
+    console.log(reg.exec(str));
+    console.log(reg.lastIndex);
+    console.log(reg.exec(str));//捕获不到内容时,exec的返回值是null
+    console.log(reg.lastIndex);//lastIndex的值重新归0
+
+    //在没有加全文查找的修饰符g时,每次查找都是从起始位置开始,可以通过正则对象上的lastIndex
+    //解决正则的懒惰性 ->加修饰符g
+
+    //封装一个方法能把捕获到的内容全部获得到
+    var reg = /\d+/g;
+    var str = "zhufeng2015zhufeng2016";
+    function getExec(reg,str){
+        //1.判断下是否加修饰符g
+        //2.循环判断reg.exec()的返回值是否为null
+        var ary = [];
+        var res = null;
+        if(!reg.global){
+            return reg.exec(str);
+        }
+        while(res = reg.exec(str)){//["大正则匹配的内容",index:"匹配字符的起始索引",input:"原始字符串"]
+            ary[ary.length] = res[0];
+        }
+        return ary;
+    }
+    //console.log(getExec(reg,str));
+
+    //字符串上的方法match
+
+    console.log(str.match(reg));
+    //exec和match  加g之后:exec是能把大正则和小正则匹配的内容都捕获到,但是match只能捕获到大正则的内容,不加g时,exec和match是一样的
+
+    var reg = /[+-]?(?:[1-9]\d+|\d)(?:\.\d+)?/g;//匹配不捕获
+    var str = "zhufeng2015.6zhufeng2016.5";
+    console.log(reg.exec(str));
+
+    //贪婪性
+    var reg = /\d{2,6}?/g;//匹配数字最少2个,最多6个
+    var str = "zhufeng20154562zhufeng2016";
+    console.log(str.match(reg));
+    //在量词的后面加?,解决正则的贪婪性 ,每次则是尽可能少的捕获
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
