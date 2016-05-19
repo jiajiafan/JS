@@ -5,60 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14189045-065c-48ae-8daa-06057cf88532" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS基础理论知识/第一周作业.doc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS基础理论知识/第二周作业.doc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/课堂配图/1.复习.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/课堂配图/前后台交互.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/utils/utils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/1.复习.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/10.sort深入.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/11.绑定数据.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/12.JSON.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/13.隔行换色的表格排序.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/2.call,apply,bind.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/3.replace复习.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/4.取最大值最小值.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/5.关于applythis指向.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/6.求平均值.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/7.mySlice.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/8.类数组转数组.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/9.try..catch.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/css/tab.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/data.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/js/tab.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/js/utils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/json/json-bind.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/json/json-sort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第一天/响应请求参考地址" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/1.DOM映射.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/2.回调函数.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/3.隔行换色的表格排序.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/4.为什么学正则.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/5.正则的基础知识.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/6.test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/7.正则捕获.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/8.小括号.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/css/tab.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/data.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/js/tab.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/js/utils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week2-周末/第二天/题" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week3-1/1.复习正则.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week3-1/2.常用正则的应用.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week3-1/3.正则-exec.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week3-1/4.正则-replace.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/week3-1/5.盒子模型.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/练习/json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/练习/lianxi.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/练习/lianxi.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS正式课/练习/lianxi.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/JS基础理论知识/~$正式课理论知识.docx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/JS正式课/week2-周末/1.复习.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/JS正式课/练习.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS基础理论知识/JS免费课理论知识.docx" afterPath="$PROJECT_DIR$/JS基础理论知识/JS免费课理论知识.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS基础理论知识/JS正式课理论知识.docx" afterPath="$PROJECT_DIR$/JS基础理论知识/JS正式课理论知识.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS正式课/week2-2/6.类数组转化成数组.html" afterPath="$PROJECT_DIR$/JS正式课/week2-2/6.类数组转化成数组.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS正式课/utils/utils.js" afterPath="$PROJECT_DIR$/JS正式课/utils/utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS正式课/week3-1/3.正则-exec.html" afterPath="$PROJECT_DIR$/JS正式课/week3-1/3.正则-exec.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS正式课/week3-1/5.盒子模型.html" afterPath="$PROJECT_DIR$/JS正式课/week3-1/5.盒子模型.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS正式课/练习/lianxi.html" afterPath="$PROJECT_DIR$/JS正式课/练习/lianxi.html" />
     </list>
     <ignored path="JS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,17 +26,37 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+            <file leaf-file-name="lianxi.html" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/JS正式课/练习/lianxi.html">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.56580937">
+                    <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="JS" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="utils.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JS正式课/utils/utils.js">
+      <file leaf-file-name="5.盒子模型.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/JS正式课/week3-1/5.盒子模型.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5878962">
-              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.535445">
+              <caret line="77" column="26" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -117,14 +90,20 @@
         <option value="$PROJECT_DIR$/JS正式课/week2-2/6.类数组转化成数组.html" />
         <option value="$PROJECT_DIR$/JS正式课/week2-3/3.综合练习-表格排序二.html" />
         <option value="$PROJECT_DIR$/JS正式课/练习/tsconfig.json" />
-        <option value="$PROJECT_DIR$/JS正式课/utils/utils.js" />
-        <option value="$PROJECT_DIR$/JS正式课/练习/lianxi.html" />
         <option value="$PROJECT_DIR$/JS正式课/练习/json" />
         <option value="$PROJECT_DIR$/JS正式课/练习/lianxi.css" />
         <option value="$PROJECT_DIR$/JS正式课/练习/lianxi.js" />
         <option value="$PROJECT_DIR$/JS正式课/week3-1/1.正则的属性方法.html" />
         <option value="$PROJECT_DIR$/JS正式课/week2-周末/第一天/js/tab.js" />
         <option value="$PROJECT_DIR$/JS正式课/week3-1/1.盒子模型.html" />
+        <option value="$PROJECT_DIR$/JS正式课/练习/lianxi.html" />
+        <option value="$PROJECT_DIR$/JS正式课/week3-1/3.正则-exec.html" />
+        <option value="$PROJECT_DIR$/JS正式课/week3-2/2.伪元素.html" />
+        <option value="$PROJECT_DIR$/JS正式课/week3-2/1盒子模型.html" />
+        <option value="$PROJECT_DIR$/JS正式课/utils/utils.js" />
+        <option value="$PROJECT_DIR$/JS正式课/week3-1/5.盒子模型.html" />
+        <option value="$PROJECT_DIR$/JS正式课/week3-2/2.盒子的偏移量.html" />
+        <option value="$PROJECT_DIR$/JS正式课/week3-2/3.无缝滚动.html" />
       </list>
     </option>
   </component>
@@ -134,8 +113,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="1" />
     <option name="y" value="23" />
-    <option name="width" value="1428" />
+    <option name="width" value="824" />
     <option name="height" value="791" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -197,8 +177,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,10 +269,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1428" height="791" extended-state="0" />
-    <editor active="true" />
+    <frame x="1" y="23" width="824" height="791" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13025211" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16019417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.504142" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -309,24 +289,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.504142" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.49585798" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15838733" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -346,56 +308,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/JS正式课/utils/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS正式课/week2-3/1.Ajax.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS正式课/week2-3/3.综合练习-表格排序二.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS正式课/练习/lianxi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS正式课/week2-2/5.求平均数.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS正式课/utils/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS正式课/练习/lianxi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JS正式课/week2-3/utils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -648,13 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS正式课/练习/lianxi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.387097">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JS正式课/week2-3/3.综合练习-表格排序二.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-62.322582">
@@ -684,10 +589,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/JS正式课/week3-1/3.正则-exec.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6304676">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/JS正式课/utils/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5878962">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.5389049">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS正式课/week3-1/1.复习正则.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46153846">
+          <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS正式课/week3-1/2.常用正则的应用.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4494721">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js前两周/周末班四天及补课课件/day4/11.定时器.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49773756">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js前两周/周末班四天及补课课件/day4/13.时钟.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26998493">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS正式课/练习/lianxi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56580937">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS正式课/week3-1/5.盒子模型.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.535445">
+          <caret line="77" column="26" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
           <folding />
         </state>
       </provider>

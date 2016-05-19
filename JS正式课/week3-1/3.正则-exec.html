@@ -7,7 +7,7 @@
 <body>
 <script>
     //正则:懒惰和贪婪
-    var reg = /\d+/g;
+    var reg = /(\d)+/g;
     var str = "zhufeng2015zhufeng2016";
     console.log(reg.exec(str));
     console.log(reg.lastIndex);
@@ -18,9 +18,8 @@
 
     //在没有加全文查找的修饰符g时,每次查找都是从起始位置开始,可以通过正则对象上的lastIndex
     //解决正则的懒惰性 ->加修饰符g
-
     //封装一个方法能把捕获到的内容全部获得到
-    var reg = /\d+/g;
+    var reg= /\d+/g;
     var str = "zhufeng2015zhufeng2016";
     function getExec(reg,str){
         //1.判断下是否加修饰符g

@@ -1,8 +1,8 @@
 var utils={
     /**
-     * listToArray:把类数组转成数组
-     * @param arg 类数组
-     * @returns [] 返回一个新数组
+     * listToArray
+     * @param arg
+     * @returns []
      */
     listToArray:function listToArray(arg){
         try{
@@ -16,9 +16,9 @@ var utils={
         }
     },
     /**
-     *jsonParson:把JSON字符串转化成JSON对象
-     * @param str:JSON字符串
-     * @returns {*} JSON对象
+     *jsonParson
+     * @param str(jsonString)
+     * @returns jsonObject
      */
     jsonParse:function jsonParse(str){
         return "JSON" in window?JSON.parse(str):JSON.eval("("+str+")")
