@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li class="aa bb cc dd" id="li1"></li>
+
+</ul>
+</body>
+</html>
+<script>
+    var oLi = document.getElementById("li1");
+    function removeClass(ele,strClass){
+        var aryName = strClass.replace(/(^ +| +$)/g,"").split(/ +/g);
+        for(var i = 0;i<aryName.length;i++){
+            var curName = aryName[i];
+            var reg = new RegExp("(^| +)"+curName+"( +|$)","g");
+            if(reg.test(ele.className)){
+              ele.className = ele.className.replace(reg," ");
+            }
+        }
+    }
+    removeClass(oLi," cc  ");
+    console.log(oLi.className);
+</script>

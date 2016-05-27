@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #banner {
+            width: 1000px;
+            height: 300px;
+        }
+
+        #banner div {
+            background: url(banner1.jpg);
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="banner"></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script src="animate.js"></script>
+<script>
+    var oBanner = document.getElementById('banner');
+    var frg = document.createDocumentFragment();
+    var col = 10;//列
+    var row = 3;//行
+    var boxW = oBanner.offsetWidth / 10;//每个盒子的宽
+    var boxH = oBanner.offsetHeight / 3;//每个盒子的高
+    for (var j = 0; j < row; j++) {//行
+        for (var i = 0; i < col; i++) {//列
+            var oDiv = document.createElement("div");
+            oDiv.style.width = boxW + "px";
+            oDiv.style.height = boxH + "px";
+            var l = boxW * i;//左偏移
+            var t = boxH * j;//上偏移
+            oDiv.style.left = l+"px";
+            oDiv.style.top = t+"px";
+            oDiv.style.backgroundPosition = "-"+l+"px -"+t+"px";
+            frg.appendChild(oDiv);
+        }
+    }
+    oBanner.appendChild(frg);
+
+
+</script>

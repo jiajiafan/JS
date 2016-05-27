@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        li{
+            width: 100px;
+            height: 40px;
+            background: green;
+            margin: 20px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<!--
+同步--做饭煮着粥--等着煮完了-- 看电视/敲代码
+异步--煮着粥同时去看看电视,敲敲代码
+异步:
+定时器,事件的操作,ajax操作,回调函数
+-->
+<ul id="list">
+    <li>第一步</li>
+    <li>第二步</li>
+    <li>第三步</li>
+</ul>
+<script>
+    //异步的操作都是先放在队列里,先执行主线程,然后再执行队列里的
+//    console.log("ok0");
+//    window.setTimeout(function(){
+//        console.log(3);
+//    });//3-5ms 10-15ms
+//    console.log("ok2");
+    var oUl = document.getElementById("list");
+    var oLis = oUl.getElementsByTagName("li");
+//    //利用闭包的知识解决这个问题
+//    for(var i = 0;i<oLis.length;i++){
+////        ~(function(i){
+////            oLis[i].onclick = function(){
+////                console.log(i+"点击")
+////            }
+////        })(i)
+//
+//        oLis[i].onclick = function(i){
+//           return function(){
+//               console.log(i);
+//           }
+//        }(i);
+//
+//    }
+//    console.log(i)
+    for(var i = 0;i<oLis.length;i++){
+        ~(function(i){
+            window.setTimeout(function(){
+                oLis[i].style.left = 50*i+"px";
+            },500*(i+1))
+        })(i)
+
+    }
+
+
+</script>
+</body>
+</html>

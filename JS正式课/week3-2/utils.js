@@ -1,4 +1,4 @@
-var util = (function () {
+var utils = (function () {
     return {
         /**
          *

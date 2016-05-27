@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" style="background: red"></div>
+<div id="div2" style="background: paleturquoise"></div>
+<div id="div3" style="background: cornsilk"></div>
+<div id="div4" style="background: pink"></div>
+<div id="div5" style="background: deepskyblue"></div>
+<div id="div6" style="background: orange"></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    /**
+     *
+     * @param ele 当前的元素
+     * @param attr 运动的方向 可以多维度的运动
+     * @param target 目标位置
+     * @param duration 总的时间
+     */
+    function move(ele,attr,target,duration,callBack){
+        window.clearInterval(ele.timer);
+        var interval = 15;
+        var times = 0;
+        var begin = utils.getCss(ele,attr);//起始值
+        var change = target - begin;
+        function step(){
+            times +=interval;//消耗的时间
+            if(times<duration){
+                ele.style[attr] =  times/duration*change +begin +"px";
+            }else{//超过或者等于总时间时,停留在目标位置
+                ele.style[attr] = target+"px";
+                window.clearInterval(ele.timer);
+               if(typeof callBack =="function"){
+                   callBack.call(ele);
+               }
+            }
+        }
+        ele.timer = window.setInterval(step,interval);
+    }
+    move(div1,"left",300,600,fn);
+    move(div2,"left",400,600,fn);
+    move(div3,"left",500,600,fn);
+    move(div4,"left",600,600,fn);
+    move(div5,"left",700,600,fn);
+    move(div6,"left",800,600,fn);
+
+    function fn(){
+        this.style.background="purple";
+    }
+
+    //回调函数:把一个函数(a)作为另一个函数(b)的参数存在,当另一个函数(b)运行的时候,把这个函数(a)也给执行了
+    //把一件事情做完了,然后再做另外一件事
+    //同步
+    //异步 : 定时器,事件绑定,回调函数,ajax
+
+
+</script>

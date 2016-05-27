@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative;
+            top:0;
+            left:0;
+            opacity: 1;
+            filter:alpha(opacity = 100);
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<script src="utils.js"></script>
+<div id="div1"></div>
+</body>
+</html>
+<script>
+    function move(ele,obj,duration,callBack){
+        // var obj = {"width":300,"height":400,"top":200,"left":400,"opacity":1}
+        window.clearInterval(ele.timer);
+        var interval = 15;
+        var times = 0;
+        var oBegin = {};//每个方向起始的值(起始值)
+        var oChange = {};//每个方向的总路程
+        var flag = 0;
+        for(var attr in obj){
+            var begin = utils.getCss(ele,attr);//起始值
+            var change = obj[attr] - begin;
+            if(change){//某个方向起始值和终点值一样,则不用去处理
+                flag++;
+                oBegin[attr] = begin;
+                oChange[attr] =change;
+            }
+
+        }
+        //每个方法如果起始值和终点值都一样,flag = 0,则不需要处理,退出整个方法
+        if(flag==0){
+            return ;
+        }
+        console.log(oBegin);
+        console.log(oChange);
+        console.log(obj);
+
+        function step(){
+            times +=interval;//消耗的时间
+            if(times<duration){
+                for(var attr in oChange){//每个方向都需要处理
+                    var begin = oBegin[attr];
+                    var change = oChange[attr];
+                    var val = times/duration*change +begin;
+                    utils.setCss(ele,attr,val);
+                }
+
+
+            }else{//超过或者等于总时间时,停留在目标位置
+                for(var attr in obj){
+                    utils.setCss(ele,attr,obj[attr]);
+                }
+
+                window.clearInterval(ele.timer);
+                if(typeof callBack =="function"){
+                    callBack.call(ele);
+                }
+            }
+        }
+       ele.timer = window.setInterval(step,interval);
+    }
+    var obj = {"width":400,"height":400,"top":200,"left":400,"opacity":0.5}
+    move(div1,obj,600);
+
+
+</script>

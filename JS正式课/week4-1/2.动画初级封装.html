@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 500px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
+
+<script>
+    /**
+     *
+     * @param ele 当前运动的元素
+     * @param target 目标位置
+     * @param duration 总时间
+     */
+    function move(ele,target,duration){
+        var interval = 15;
+        var times = 0;
+        var begin = ele.offsetLeft;
+        var change = target - begin;//总路程
+        function step(){
+            //消耗的时间 = 单步时间的累积
+            //当前位置 = 消耗的时间/总的时间*总的路程 + 起始位置;
+            times += interval;
+            if(times<duration){
+               ele.style.left =  times/duration*change + begin+"px";
+            }else {
+                //消耗时间超过总时间:强制停留在目标位置,并且清除定时器
+                ele.style.left = target+"px";
+                window.clearInterval(timer);
+
+            }
+        }
+       var timer =  window.setInterval(step,interval);
+
+
+    }
+    move(div1,200,600);
+
+</script>

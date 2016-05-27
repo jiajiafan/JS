@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 800px;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
+<script>
+    //单步走的时间 interval  15ms
+    //消耗时间 times +=interval
+    //总时间 duration 600ms
+    //起始位置  begin
+    //终点位置 target
+    //总路程 change  = target - begin
+    //当前的位置 = 消耗的时间/总时间*总距离+起始位置
+    function move(ele,target,duration){
+        var interval = 15;
+        var times = 0;
+        var begin = ele.offsetLeft;//距离body的偏移量
+        var change = target - begin;
+        function step(){
+            times +=interval;//消耗的时间
+            if(times<duration){
+                ele.style.left =  times/duration*change +begin +"px";
+            }else{//超过或者等于总时间时,停留在目标位置
+                ele.style.left = target+"px";
+                window.clearInterval(timer);
+            }
+        }
+        var timer = window.setInterval(step,interval);
+    }
+    move(div1,0,600)
+
+</script>

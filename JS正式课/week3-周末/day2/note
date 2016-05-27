@@ -1,0 +1,104 @@
+一、复习
+1)元素获取
+1.id
+2.tagName
+3.name
+4.className
+5.documentElement
+6.document.body
+7.querySelector
+8.querySelectorAll
+二、节点类型
+类型          nodeType    nodeName       nodeValue
+元素节点        1           大写的标签      null
+文本节点        3           #text         文本内容
+注释节点        8           #comment      注释内容
+document       9           #document     null
+三、节点关系
+parentNode
+childNodes ---children
+previousSibling     prev  prevAll
+nextSibling         next   nextAll
+firstChild
+lastChild
+index
+四、DOM动态关系
+document.createElement
+dopcument.createDocument
+parent.appendChild
+parent.insertBefore
+parent.removeChild
+obj.cloneNode(boolean)
+parent.replaceChild(newEle,oldEle)
+五、属性操作
+1.通过“.”
+2.通过attribute
+getAttribute
+setAttribute
+removeAttribute
+二。DOM库封装    utils :ListTOArray jsonParse   2+24=26
+1）.元素获取这里
+1.getByClass(curEle,strClass)
+    1.在一定范围内通过className获取元素 -ary ；return ary
+    2.判断高级和低级浏览器，分别处理--高级兼容
+    3.低级浏览器 strClass-转数组aryclass
+    4.拿到当前元素curEle下所有元素
+    5.循环：目的是为了匹配每个元素的className是否符合要求，匹配要求：是这个元素上的className符合aryclass中的每一个className字符串
+    6.经过匹配后还活下来的元素，就是我们要找的：这里匹配方式，我们用的正则和假设法；
+    7.最后return ary；
+2.hasClass(curEle,strClass)
+    1.return boolean;
+    2.需求：判断当前元素上是否有这个strClass（class名）
+3.addClass
+    1.判断：如果当前元素上没有className，可以添加
+    2.添加：元素.className+=' '+strClass; --记住：一定要加空格；
+4.removeClass
+    1.原理跟addClass相似：如果当前元素上有这个className，就可以移除
+    2.移除用replace；
+5.getCss 获取非行间样式
+6.setCss 设置行间样式；
+    1.设置的是行间样式
+    2.加单位做了单独处理
+    3.透明度做了单独处理： return；
+    4.float兼容处理： return；
+7.setGroupCss
+    1.首先判断options如果不是对象直接返回；
+    2.遍历options，分别设置样式；
+8.css
+    思路：
+    首先判断第二个参数
+        如果第二个参数是字符串
+            1）如果存在第三个参数-》单个设置
+            2）如果不存在第三个参数-》获取
+        如果第二个参数是对象-》设置一组
+
+
+9.win封装     浏览器盒子模型
+10.offset
+2)节点关系
+1)children-升级
+2)prev
+3)prevAll
+4)next
+5)nextAll
+6)sibling
+7)siblings
+8)firstChild
+9)lastChild
+10)index
+11)appendChild
+12)prepengChild
+13)insertBefore
+14)insertAfter
+
+
+
+
+
+
+
+
+
+
+
+

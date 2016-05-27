@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 500px;
+            top:0;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: green;
+            position: absolute;
+            right:500px;
+            top:200px;
+        }
+        .box{
+            width: 100%;
+            text-align: center;
+            margin-top: 350px;
+        }
+        #redLeft,#redRight,#greenLeft,#greenRight{
+            width: 100px;
+            height: 40px;
+            background: red;
+            margin: 0 20px;
+            display: inline-block;
+            font-size: 30px;
+        }
+        #greenLeft,#greenRight{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+<div class="box">
+    <div id="redLeft">left</div>
+    <div id="redRight">Right</div>
+</div>
+    <div class="box" style="margin-top: 20px">
+        <div id="greenLeft">left</div>
+        <div id="greenRight">Right</div>
+    </div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    //var timer = null; //全局污染的问题
+    function move(ele,attr,target,duration){
+        window.clearInterval(ele.timer);//timer预解释 timer值是undefined
+        //ele - div1 -->div1.timer
+        //ele - div2 -->div2.timer
+        var interval = 15;
+        var times = 0;
+        var begin = utils.getCss(ele,attr);//起始值
+        var change = target - begin;
+        function step(){
+            times +=interval;//消耗的时间
+            if(times<duration){
+                ele.style[attr] =  times/duration*change +begin +"px";
+            }else{//超过或者等于总时间时,停留在目标位置
+                ele.style[attr] = target+"px";
+                window.clearInterval(ele.timer);
+            }
+        }
+        ele.timer = window.setInterval(step,interval);
+        //把定时器的编号都保存在各自的元素
+    }
+
+    redLeft.onclick = function(){
+        move(div1,"left",0,1000);
+    }
+    redRight.onclick = function(){
+        move(div1,"left",900,1000);
+    }
+    greenLeft.onclick = function(){
+        move(div2,"right",900,600);
+    }
+    greenRight.onclick = function(){
+        move(div2,"right",100,600);
+    }
+
+    //动画积累 多个动画同时在运行着
+    //解决动画积累的办法 ->把之前运动的动画停止 ->在之前的定时器清除掉
+
+
+</script>

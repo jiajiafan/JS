@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .container{
+            width:100%;
+            background: #2192bc;
+            height: 400px;
+            text-align: center;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left:50%;
+            margin-left: -50px;
+            top:20%;
+            border-radius: 50%;
+            background:#2c9dc4 url(images/img1.png) no-repeat center center;
+
+            box-shadow: 0 0 0 20px transparent;/*transparent透明*/
+            transition: box-shadow 0.5s ease-in;
+            transform :  translate3d(0,0,0) ;/*利用硬件,来开启GPU加速,可以解决闪烁,卡顿,有条纹等问题*/
+
+        }
+        .box:hover{
+            box-shadow: 0 0 0 0 rgba(255,255,255,0.2);
+        }
+        /*
+        起始值 : 透明度(0)  扩展半径 20px
+        结束值 : 透明度(0.5) 扩展半径 0
+        */
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="box"></div>
+</div>
+</body>
+</html>

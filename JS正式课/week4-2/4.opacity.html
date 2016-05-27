@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>淡进淡出</title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            top:0;
+            left:0;
+            opacity: 0.1;
+            filter:alpha(opacity = 10);
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" style="background: red"></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    /**
+     *
+     * @param ele 当前的元素
+     * @param attr 运动的方向 可以多维度的运动
+     * @param target 目标位置
+     * @param duration 总的时间
+     */
+    function move(ele,attr,target,duration,callBack){
+        window.clearInterval(ele.timer);
+        var interval = 15;
+        var times = 0;
+        var begin = utils.getCss(ele,attr);//起始值
+        var change = target - begin;
+        function step(){
+            times +=interval;//消耗的时间
+            if(times<duration){
+                var val = times/duration*change +begin;
+                utils.setCss(ele,attr,val);
+
+            }else{//超过或者等于总时间时,停留在目标位置
+                utils.setCss(ele,attr,target);
+                window.clearInterval(ele.timer);
+                if(typeof callBack =="function"){
+                    callBack.call(ele);
+                }
+            }
+        }
+        ele.timer = window.setInterval(step,interval);
+    }
+    move(div1,"opacity",1,600);
+
+
+</script>

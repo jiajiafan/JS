@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+实例创建的方式才是标准的面向对象创建,创建出来的是严谨的实例,字面量创建的方式不是严谨的实例,只是由于js的松散性导致了可以使用对应类原型上的方法
+    //检测数据类型的四种方式:typeof instanceof constructor Object.proto
+    1.typeof
+     通过type value检测数据类型返回的结果首先先是一个字符串,然后在字符串中包含了相应的数据类型
+    typeof 数组/正则/对象 返回的结果都是"object",所以不能用其区分是数组还是正则
+ typeof null=="object" 空对象指针
+    typeof undefined=="undefined"
+    在真实的项目中,其实我们最长应用的就是typeof
+2.instanceof 检测当前实例是否属于这个类
+  在真实项目中,我们经常使用instanceof是数组还是正则还是其他的某个数据类型
+如果我们的项目源码是采用的是面向对象编程思想开发的(我们创建了类和实例),我们也会经常用instanceof检测某个实例是否属于某个类
+    instanceof的不足:1)常规的数据类型值,不能使用instanceof来检测,不是不能检测,是我们书写的方式不严禁
+     2)只要这个类在当前实例的原型链上可以找到,那么用instanceof检测出来的结果永远为true
+[]--Array--object.prototype
+3.constructor和instanceof非常类似,但是我们的constructor是可以自己随意修改的,这样的话容易出现检测出来的结果是不准确的,所以项目中基本上不用constructor来检测
+  console.log(b.constructor===Array)
+4.Object.prototype.toString.call()
+</body>
+</html>

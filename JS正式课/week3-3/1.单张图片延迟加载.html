@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body style="height:5000px;">
+<!--
+图片延迟加载 :
+    首次打开网页时,不是一次性的把所有的图片都加载完成,只是先加载可视区域(首屏)的内容,其他的屏的内容当出现在可视区域时才加载 ,也称之延后加载/懒加载/缓存加载
+图片延迟加载的作用:
+    1.提高网站打开的速度
+    2.可以减少服务器的负担
+图片延迟加载原理 :
+    图片进入到可视区域时才加载,没有进入可视区域时不加载
+如何判断图片是否进入到可视区域?
+
+//可视窗口底端到文档顶端偏移量
+-->
+<p style="height: 2000px"></p>
+<img width="200" height="200" src="img/default.gif" realImg = "img/1.jpg">
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    //图片底端到body的偏移量<可视窗口底端到body偏移量时->图片出现在可视窗口里
+    //图片底端到body的偏移量 = 图片自身的高度+图片到body的偏移量
+    //可视窗口底端到body偏移量 = 窗口的高度+卷出去的高度
+    var oImg = document.getElementsByTagName("img")[0];
+    var imgBottom = oImg.offsetHeight + utils.offset(oImg).t;
+    var clientH = utils.getWin("clientHeight");
+    window.onscroll = function(){
+
+        if(oImg.loaded){
+            return;
+        }
+        var scrollT = utils.getWin("scrollTop");
+        //var realImg = oImg.getAttribute("realImg")+"?"+Math.random();//可以达到欺骗服务器的目的,重新把这张图片返回
+        var realImg = oImg.getAttribute("realImg");
+        if(imgBottom<=(clientH+scrollT)){//进入可视区域
+            //得先判断下,这张图片是否加载成功,如果加载成功了再显示在页面上
+            //利用图片的缓存机制
+            var tempImg = new Image;
+            tempImg.src = realImg;//则会在后台加载,加载成功后并非显示在页面,而是显示在缓存文件
+
+            tempImg.onload = function(){ //加载成功时触发
+                console.log("ok");
+                //图片不会再向后台服务器发送请求,而直接去缓存文件里找出这张图片
+                oImg.src = realImg;//不会向后台发送请求,而是直接去缓存里读取这张图片
+                oImg.loaded = true;//标识的作用
+             }
+            tempImg.onerror = function(){//加载失败时触发
+
+            }
+        }
+    }
+
+
+</script>

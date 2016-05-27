@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    //1、
+    //->中括号 [abc] [^abc] [a-z] [^a-z]
+    //    var reg = /\w+/;
+    //    reg = /[0-9a-zA-Z_]+/;
+    //    reg = /[\w+]/;//->在中括号中出现的任何字符都是代表本身意思的元字符:数字、字母、下划线或者+中的一个
+    //    reg = /^[\d.]$/;
+    //    reg = /^[12]$/;//->在中括号中出现的多位数字是每一个数字中的一个,并不是一个多位数:1或者2中的某一个
+
+    //2、
+    //->小括号:分组
+    //    var reg = /^(\d+)\.(\d+)$/;
+    //->分组的作用
+
+    //->改变默认的优先级:18或者29
+    //var reg = /^(18|29)$/;
+    //有效数字：正数、负数、小数、零
+    //    var reg = /^-?\d+(\.\d+)?$/;
+
+    //->分组引用:规定和某一个分组出现的内容需要一模一样
+    //wood、good、foot、food、feel、cool、beef、beer、book、look...
+    //var reg = /^[a-zA-Z]([a-zA-Z])\1[a-zA-Z]$/;//->\1、\2...和第N个分组出现的内容需要一模一样
+    //var reg = /^([a-zA-Z])\1\1\1$/;
+    //var reg = /^-?(\d|([1-9]\d+))(\.\d+)?$/;
+
+    //->分组捕获:在捕获大正则匹配内容的时候,还可以顺便把每一个小分组匹配的内容单独的捕获到
+
+    //3、问号的作用
+    //-> 如果问号的左边是一个非量词元字符,例如:var reg=/\d?/,代表的意思是:当前的问号本身是一个量词元字符,出现0-1次
+    //-> 如果问号的左边是一个量词元字符,例如:var reg=/\d+?/,代表的意思是:在正则捕获的时候取消它的贪婪捕获
+    //-> ?:,例如：var reg=/(?:\d+)/,只出现在分组中,代表只匹配不捕获
+    //-> ?=,正向预查(不管是正向还是负向其实都是在设定一些条件)
+    //-> ?!,负向预查
+
+
+    //4、常用正则
+    //->手机号:var reg=/^1\d{10}$/;
+    //->邮箱:var reg = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+    //    \w+((-\w+)|(\.\w+))* ->包含"数字、字母、下划线、-、.",并且不能以-或者.开头,而且-后者.不能连着出现
+    //    [A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)* zhu-feng-pei-xun
+    //    \.[A-Za-z0-9]+ 一个.后面出现一到多位数字或者字母,例如:.com/.cn/.org
+    //->中文姓名:var reg = /^[\u4e00-\u9fa5]{2,4}$/;
+    //->年龄介于18-65:var reg = /^((1[8-9])|([2-5]\d)|(6[0-5]))$/;
+
+    //->身份证
+    //130828 1990 12 04 (06) 1 (7|X)
+
+    //5、正则的捕获
+    //->RegExp.$n:不管是使用test/exec匹配捕获一次后,RegExp.$n记录了第n个分组中所匹配的内容 ->n的最大值到9
+    //    var reg = /^(\d{6})(\d{4})(\d{2})(\d{2})\d{2}(\d)(?:\d|X)$/;
+    //    var str = "130828199012040617";
+    //    console.log(reg.test(str));
+    //    console.log(RegExp.$1);
+    //    console.log(RegExp.$2);
+    //    console.log(RegExp.$3);
+    //    console.log(RegExp.$4);
+    //    console.log(RegExp.$5);
+    //    console.log(RegExp.$6);//->"" 第六个分组加了?:,只能匹配不能捕获
+
+    //->exec:捕获到的结果是一个数组，索引0大正则捕获的内容，索引1是第一个分组捕获内容...，index:大正则本次捕获的起始索引位置 input:原始字符串
+    //    var reg = /^(\d{6})(\d{4})(\d{2})(\d{2})\d{2}(\d)(?:\d|X)$/;
+    //    var str = "130828199012040617";
+    //    var ary = reg.exec(str);
+    //    console.log(ary);
+
+    //->正则捕获的懒惰性和贪婪性
+    //懒惰性:多次执行exec也只能把正则第一个匹配的内容捕获到,后面匹配的内容无法获取;出现懒惰性的原因取决于正则的lastIndex这个属性的值->lastIndex正则的下一次捕获开始查找的索引的位置
+    //    var reg = /\d+/;
+    //    var str = "zhufeng2016peixun2017";
+    //    console.log(reg.lastIndex);//->0
+    //    console.log(reg.exec(str));//->["2016"...]
+    //    console.log(reg.lastIndex);//->0 每一次执行exec并没有把其lastIndex值进行修改,导致下一次依然是从字符串索引为零的这个位置开始查找的
+    //    console.log(reg.exec(str));//->["2016"...]
+
+    //解决懒惰性我们只需要加一个全局修饰符g(global)即可,其它的修饰符:i(ignoreCase忽略大小写)、m(multiline可以匹配换行)、g(global)全局匹配
+    //    var reg = /\d+/g;
+    //    var str = "zhufeng2016peixun2017";
+    //    console.log(reg.lastIndex);//->0
+    //    console.log(reg.exec(str));//->["2016"...]
+    //    console.log(reg.lastIndex);//->11
+    //    console.log(reg.exec(str));//->["2017"...]
+
+    //    var reg = /\d+/g;
+    //    var str = "zhufeng2016peixun2017";
+    //    console.log(reg.test(str));//->true 如果加入了全局修饰符g,每一次执行test依然可以把我们的lastIndex值进行修改,导致下一次的捕获从11开始了
+    //    console.log(reg.lastIndex);//->11
+    //    console.log(reg.exec(str));//->["2017"...]
+
+    //    var reg = /\d+/g;
+    //    var str = "zhufeng2016peixun2017";
+    //    console.log(reg.test(str));//->true
+    //    console.log(reg.test(str));//->true
+    //    console.log(reg.test(str));//->false
+    //    //reg.lastIndex = 0;  ->当有一次查找不到的时候,浏览器会自己把lastIndex=0,所以下一次又会从头开始找
+    //    console.log(reg.test(str));//->true
+
+    //自己编写循环把所有匹配的都捕获到:大正则/小分组的内容都可以分别的捕获到
+    //    var reg = /(\d)+/g;
+    //    var str = "zhufeng2016peixun2017yangfan2018";
+    //    var ary = [], ary2 = [];
+    //    var res = reg.exec(str);
+    //    while (res) {
+    //        console.log(res);
+    //        ary.push(res[0]);
+    //        ary2.push(res[1]);//==>ary2.push(RegExp.$1);
+    //        res = reg.exec(str);
+    //    }
+    //    console.log(ary, ary2);//->["2016", "2017", "2018"] ["6", "7", "8"]
+
+    //字符串match:(在加了g的情况下)执行一次可以把所有需要捕获的内容都捕获到;但是只能捕获到大正则所匹配的内容,无法获取小分组捕获的内容;
+    //    var reg = /(\d)+/g;
+    //    var str = "zhufeng2016peixun2017yangfan2018";
+    //    console.log(str.match(reg));//->["2016", "2017", "2018"]
+
+    //如果只需要捕获一次即可捕获全,那么match和exec获取的结果是一样的,也可以捕获到小分组匹配的内容
+    //    var reg = /^(\d{6})(\d{4})(\d{2})(\d{2})\d{2}(\d)(?:\d|X)$/;
+    //    var str = "130828199012040617";
+    //    console.log(reg.exec(str));
+    //    console.log(str.match(reg));
+
+    //正则的贪婪性:在每一次捕获的时候,总是按照匹配最长的字符串进行捕获
+    //    var reg = /\d+?/g;
+    //    var str = "zhufeng2016peixun2017yangfan2018";
+    //    //->2016 2017 2018 但是我只想匹配2 0 1 6 2 0 1 7...
+    //    console.log(str.match(reg));
+
+    //6、replace
+    //str=str.replace(RegExp,function)
+    //->传递进入的这个匿名函数执行几次:正则和字符串匹配的次数,匹配一次执行一次
+    //->每执行一次匿名函数都会把当前匹配/捕获的内容当做参数传递给这个匿名函数
+    //->每一次执行匿名函数,在方法中return后面返回啥,都相当于把当前这一次大正则所匹配的内容替换成啥
+    //    var reg = /(\d)+/g;
+    //    var str = "zhufeng2016peixun2017yangfan2018";
+    //    str = str.replace(reg, function () {
+    //        //console.log(arguments);//->arguments中存储的值和我们每一次执行exec获取的数组是非常的相似的
+    //        return " " + arguments[0] + "年 ";
+    //    });
+    //    console.log(str);
+
+    //->"2016-05-23" 替换成 "2016年05月23日"
+    //    var str = "2016-05-23";
+    //    var reg = /^(\d{4})-(\d{1,2})-(\d{1,2})$/;
+    //    str = str.replace(reg, "$1年$2月$3日");//->$1、$2、$3代表的每一个分组捕获的内容
+    //    //    str = str.replace(reg, function () {
+    //    //        //->在匿名函数中使用RegExp.$n在IE下存在兼容的问题
+    //    //        return RegExp.$1 + "年" + RegExp.$2 + "月" + RegExp.$3 + "日";
+    //    //    });
+    //    console.log(str);
+
+    //->在外面使用RegExp.$n是不存在兼容问题的
+    //    reg.test(str);
+    //    console.log(RegExp.$1);
+
+    String.prototype.myFormatTime = function myFormatTime() {
+        var reg = /^(\d{4})(?:-|\/|\.|:)(\d{1,2})(?:-|\/|\.|:)(\d{1,2})(?: +)?(\d{1,2})?(?:-|\/|\.|:)?(\d{1,2})?(?:-|\/|\.|:)?(\d{1,2})?$/g, ary = [];
+        this.replace(reg, function () {
+            ary = ([].slice.call(arguments)).slice(1, 7);
+        });
+        var format = arguments[0] || "{0}年{1}月{2}日{3}:{4}:{5}";
+        return format.replace(/{(\d+)}/g, function () {
+            var val = ary[arguments[1]];
+            return val.length === 1 ? "0" + val : val;
+        });
+    };
+
+    var str = "2016-5-23 18:24:6";
+    console.log(str.myFormatTime("{0}年{1}月{2}日"));
+    console.log(str.myFormatTime("{1}-{2}"));
+    console.log(str.myFormatTime("{0}年{1}月{2}日 {3}:{4}:{5}"));
+
+
+</script>
+</body>
+</html>

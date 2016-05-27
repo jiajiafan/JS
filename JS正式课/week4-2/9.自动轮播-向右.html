@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding:0;
+        }
+        #outer{
+            width: 500px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            margin:  0 auto;
+            border:1px solid #000
+        }
+        #inner{
+            width: 2500px;
+            height: 200px;
+            position: absolute;
+            left :0;
+            top:0;
+            list-style: none;
+        }
+        #inner li{
+            width: 500px;
+            height: 200px;
+            float: left;
+            font-size:100px;
+            text-align: center;
+        }
+        /* #inner li:nth-child(1){/!*ul下第一个子元素并且第一个子元素的标记名是li*!/
+
+         }*/
+        /*  #inner li:nth-of-type(1){/!*ul下的li子元素,然后再找到第一个*!/
+              background: red;
+          }
+          #inner li:nth-of-type(2){
+              background: blue;
+          }
+          #inner li:nth-of-type(3){
+              background: green;
+          }
+          #inner li:nth-of-type(4){
+              background: paleturquoise;
+          }
+          #inner li:nth-of-type(5){
+              background: pink;
+          }*/
+        #btn{
+            position: absolute;
+            bottom: 10%;
+            right: 5%;
+        }
+        #btn span{
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            background: palegreen;
+            text-align: center;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        #btn span.select{
+            background: plum;
+        }
+
+    </style>
+</head>
+<body>
+<div id="outer">
+    <ul id="inner">
+        <li style="background: red">一</li>
+        <li style="background: blue">二</li>
+        <li style="background: green;">三</li>
+        <li style="background: paleturquoise;">四</li>
+        <li style="background: pink;">五</li>
+    </ul>
+    <div id="btn">
+        <span class="select">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+    </div>
+</div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script src="animate.js"></script>
+
+<script>
+    var oSpans = document.getElementById("btn").getElementsByTagName("span");
+    var oInner = document.getElementById("inner");
+    /*for(var i = 0;i<oSpans.length;i++){
+        oSpans[i].zhufeng = i;
+        oSpans[i].onclick = function(){
+            var index = this.zhufeng;//点击焦点的索引也是相对应图片的索引
+            //oInner往左移动的距离 = 图片的索引(index)*图片的宽度(500);
+            animate(oInner,{"left":-500*index},600,1);
+            selectCur(index);
+        }
+    }*/
+
+    //克隆第一个张放到ul的最后
+    var first = oInner.getElementsByTagName("li")[0];
+    var oDivClone = first.cloneNode(true);
+    oInner.appendChild(oDivClone);
+    oInner.style.width = oInner.offsetWidth+first.offsetWidth+"px";
+
+
+    var step = 0;
+    function autoRight(){//往右翻
+        step--;
+        if(step<0){
+            //立马回到最后一张,最后一张的索引是5
+            oInner.style.left = "-2500px";
+            step = 4;
+        }
+        animate(oInner,{"left":-500*step},600,1);
+        selectCur(step);
+    }
+     window.setInterval(autoRight,2000);
+    function selectCur(n){//n点击元素的索引
+        for(var i = 0;i<oSpans.length;i++){
+            oSpans[i].className = "";
+        }
+        oSpans[n].className = "select";
+    }
+
+</script>
