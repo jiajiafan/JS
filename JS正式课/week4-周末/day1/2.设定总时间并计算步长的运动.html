@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: red;
+        }
+
+        #temp {
+            width: 1px;
+            height: 200px;
+            position: absolute;
+            left: 1000px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<div id="temp"></div>
+<script src="js/utils.js"></script>
+<script>
+    /*
+     *总时间duration：2000
+     *target： utils.win('clientWidth')-oDiv.offsetWidth;
+     * interval：10；
+     * step=target/duration*interval
+     *
+     * */
+    var oDiv = document.getElementById('div');
+    var duration = 1000;
+    var target = 1000;
+    var interval = 10;
+    var step = target / duration * interval;
+    var timer = setInterval(function () {
+        var curL = utils.css(oDiv, 'left');
+        if (curL >= target) {
+            utils.css(oDiv, 'left', target);
+            clearInterval(timer);
+            return;
+        }
+        curL += step;
+        utils.css(oDiv, 'left', curL);
+    }, interval)
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

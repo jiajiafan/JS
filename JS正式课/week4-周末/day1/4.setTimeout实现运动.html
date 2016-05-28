@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 600px;
+            top: 100px;
+            background: red;
+        }
+        #btn input{
+            width: 100px;
+            height:40px;
+        }
+    </style>
+</head>
+<body>
+<div id="btn">
+    <input type="button" value="向左走"/>
+    <input type="button" value="向右走"/>
+</div>
+<div id="div"></div>
+<script src="js/utils.js"></script>
+<script>
+    var oDiv = document.getElementById('div');
+    var oBtnLeft=document.getElementsByTagName('input')[0];
+    var oBtnRight=document.getElementsByTagName('input')[1];
+    var target=1000;
+    var step=10;
+    oBtnRight.onclick=function(){
+        move(1200)
+    };
+    oBtnLeft.onclick=function(){
+        move(0)
+    };
+    function move(target){
+        _move()
+        function _move(){
+            clearInterval(oDiv.timer);
+            var curLeft=utils.css(oDiv,'left');
+            if(target>curLeft){//right
+                if(curLeft+step>=target){
+                    utils.css(oDiv,'left',target);
+                    clearInterval(oDiv.timer);
+                    return;
+                }
+                curLeft+=step;
+            }else if(target<curLeft){//left
+                if(curLeft-step<=target){
+                    utils.css(oDiv,'left',target);
+                    clearInterval(oDiv.timer);
+                    return;
+                }
+                curLeft-=step;
+            }else{//=
+                return;
+            }
+
+            utils.css(oDiv,'left',curLeft);
+            oDiv.timer=setTimeout(_move,10)
+        }
+    }
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

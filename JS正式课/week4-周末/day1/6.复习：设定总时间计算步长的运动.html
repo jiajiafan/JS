@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: red;
+        }
+
+        #temp {
+            width: 1px;
+            height: 200px;
+            position: absolute;
+            left: 1200px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<div id="temp"></div>
+<script src="js/utils.js"></script>
+<script>
+    /*
+    * 1.总时间 duration：2000
+    * 2.总距离 target：1200；
+    * 3.频率 interval
+    * 4.step=target/duration*interval;
+    * 核心思路：在每次最新的距离上累加step；求出现在的新距离；（定时器）
+    * */
+
+    var oDiv = document.getElementById('div');
+    //通过设置duration，target，interval 求出step；
+    var duration=2000;
+    var target=1200;
+    var interval=10;
+    var step=target/duration*interval;
+    //开启一个定时器，每次在最新的距离上累加step；然后设置最新的位置；
+    //停止条件：当最新的位置 >= target;到达最终目标；停止运动；同时；后面语句不再执行；
+    var timer=setInterval(move,interval);
+    function move(){
+        var curL=utils.css(oDiv,'left');
+        //停止条件：当最新的位置 >= target;
+        if(curL>=target){
+            //到达最终目标；
+            utils.css(oDiv,'left',target);
+            //停止运动
+            clearInterval(timer);
+            //后面语句不再执行；
+            return;
+        }
+        //在获取到的新位置上累加；
+        curL+=step;
+        //设置最新位置；
+        utils.css(oDiv,'left',curL);
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

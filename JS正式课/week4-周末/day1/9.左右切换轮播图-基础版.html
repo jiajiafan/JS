@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .box{
+            width: 1000px;
+            height: 300px;
+            position: relative;
+            margin:20px auto;
+            overflow: hidden;
+        }
+        .box .imgWrap{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        .box .imgWrap div{
+            width: 1000px;
+            height: 300px;
+            float: left;
+            background:url("img/default.gif") center center no-repeat #e1e1e1;
+        }
+        .box ul{
+            position: absolute;
+            bottom: 20px;
+            right:20px;
+        }
+        .box ul li{
+            width: 18px;
+            height: 18px;
+            background: #ccc;
+            float: left;
+            margin-left:10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .box ul li.bg{
+            background: lightblue;
+        }
+        .box a{
+            width: 30px;
+            height: 45px;
+            background-image: url("img/pre.png");
+            background-repeat: no-repeat;
+            position: absolute;
+            top:127.5px;
+            opacity: 0.5;
+            filter:'alpha(opacity=50)';
+            display: none;
+        }
+        .box a:hover{
+            opacity: 1;
+            filter:'alpha(opacity=100)'
+        }
+        .box a.btnLeft{
+            background-position: 0 0;
+            left:30px;
+        }
+        .box a.btnRight{
+            background-position: -50px 0;
+            right:30px;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <div class="imgWrap">
+        <div><img src="img/banner1.jpg" alt=""/></div>
+        <div><img src="img/banner2.jpg" alt=""/></div>
+        <div><img src="img/banner3.jpg" alt=""/></div>
+        <div><img src="img/banner4.jpg" alt=""/></div>
+    </div>
+    <ul>
+        <li class="bg"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <a href="javascript:;" class="btnLeft"></a>
+    <a href="javascript:;" class="btnRight"></a>
+</div>
+<script src="js/utils.js"></script>
+<script src="js/move.js"></script>
+<script>
+    var oBox=document.getElementById('box');
+    var oImgWrap=oBox.getElementsByTagName('div')[0];
+    var aDiv=oImgWrap.getElementsByTagName('div');
+    var aImg=oImgWrap.getElementsByTagName('img');
+    var oUl=oBox.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    var oBtnLeft=oBox.getElementsByTagName('a')[0];
+    var oBtnRight=oBox.getElementsByTagName('a')[1];
+    var autoTimer=null;
+    var interval=1000;
+    var step=0;
+    oImgWrap.innerHTML+='<div><img src="img/banner1.jpg" alt=""/></div>';
+    oImgWrap.style.width=aDiv.length*aDiv[0].offsetWidth+'px';
+    //1.图片自动轮播
+    clearInterval(autoTimer);
+    autoTimer=setInterval(autoMove,interval);
+    function autoMove(){
+        if(step>=aDiv.length-1){
+            step=0;
+            utils.css(oImgWrap,'left',-step*1000)
+        }
+        step++;
+        //utils.css(oImgWrap,'left',-step*1000);
+        zhufengAnimate(oImgWrap,{'left':-step*1000},500);
+        bannerTip();
+
+    }
+    //2.焦点随图片自动轮播
+    function bannerTip(){
+        var tmpStep=step>=aLi.length?0:step;
+        for(var i=0; i<aLi.length; i++){
+            var curLi=aLi[i];
+            i===tmpStep?utils.addClass(curLi,'bg'):utils.removeClass(curLi,'bg');
+        }
+    }
+    //3.鼠标移入停止播放，移出继续播放
+    oBox.onmouseover=function(){
+        clearInterval(autoTimer);
+        utils.css(oBtnLeft,'display','block');
+        utils.css(oBtnRight,'display','block');
+    };
+    oBox.onmouseout=function(){
+        autoTimer=setInterval(autoMove,interval);
+        utils.css(oBtnLeft,'display','none');
+        utils.css(oBtnRight,'display','none');
+    };
+    //4.点击焦点实现手动图片切换
+    handleChange();
+    function handleChange(){
+        for(var i=0; i<aLi.length; i++){
+            var curLi=aLi[i];
+            curLi.index=i;
+            curLi.onclick=function(){
+                step=this.index;
+                zhufengAnimate(oImgWrap,{'left':-step*1000},500);
+                bannerTip();
+            }
+        }
+    }
+    //5.点击左右按钮实现左右切换
+    oBtnRight.onclick=autoMove;
+    oBtnLeft.onclick=function(){
+        if(step<=0){
+            step=aDiv.length-1;
+            utils.css(oImgWrap,'left',-step*1000)
+        }
+        step--;
+        zhufengAnimate(oImgWrap,{'left':-step*1000},500);
+        bannerTip();
+    };
+</script>
+</body>
+</html>
