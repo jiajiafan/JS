@@ -4,46 +4,95 @@
     <meta charset="UTF-8">
     <title></title>
     <style type="text/css">
-
+        *{margin:0;padding:0;list-style:none;}
+        #outer{position:relative;margin:20px auto;border:1px solid #333;width:500px;height:300px;overflow:hidden;}
+        #inner{width:3000px;position:absolute;left:0;cursor:pointer;}
+        #inner li{float:left;width:500px;height:300px;line-height:300px;text-align:center;font-size:30px;font-weight:900;}
+        #btn{position:absolute;left:180px;bottom:20px;width:150px;height:30px}
+        #btn span{display:inline-block;cursor:pointer;margin-left:8px;width:20px;height:20px;line-height:20px;font-size:12px;text-align:center;border-radius:50%;background:#c0c0c0;}
+        #btn .select{background:#c25f13}
+        #btnL,#btnR{display:none;cursor:pointer;position:absolute;top:38%;width:26px;height:60px;line-height:60px;font-size:24px;color:#fff;text-align:center;background:rgba(166,199,193,0.4)}
+       #btnL{left:0}
+        #btnR{right:0}
     </style>
 </head>
 <body>
-<div class="banner">
-    <div class=" a b c "></div>
-    <div class="b c "></div>
-    <div class="c"></div>
+<div id="outer">
+    <ul id="inner">
+        <li style="background:coral">一</li>
+        <li style="background:green">二</li>
+        <li style="background:hotpink">三</li>
+        <li style="background: deepskyblue">四</li>
+        <li style="background:indigo">五</li>
+    </ul>
+    <div id="btn"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    <p id="btnL"><</p>
+    <p id="btnR">></p>
 </div>
 </body>
-</html>
-<script src="tween.js"></script>
 <script src="utils.js"></script>
+<script src="animate.js"></script>
 <script>
-    var flag="getComputedStyle" in window;
-    function getByClass(strClass,context) {
-        context=context||document;
-//        if (flag) {//高级
-//            return Array.prototype.slice.call(context.getElementsByClassName(strClass));
-//        }
-        var ary = [];
-        var aryClass = strClass.replace(/(^\s+)|(\s+$)/g, '').split(/\s+/g);
-        var nodeList = context.getElementsByTagName('*');//拿到当前元素下所有元素
-        for (var i = 0; i < nodeList.length; i++) {//循环：目的是为了匹配每个元素的className是否符合要求，匹配要求：是这个元素上的className符合aryclass中的每一个className字符串
-            var curNode = nodeList[i];
-            var bOk = true;//假设法：假设都符合
-            for (var k = 0; k < aryClass.length; k++) {
-                var curClass = aryClass[k];
-                //var reg=new RegExp('(\\b)'+curClass+'(\\b)');
-                var reg = new RegExp('(^| +)' + curClass + '( +|$)');
-                if (!reg.test(curNode.className)) {
-                    bOk = false;
-                }
-            }
-            if (bOk) {
-                ary.push(curNode)
+    var banner= document.getElementById("outer");
+    var oInner = document.getElementById("inner")
+    var first = oInner.getElementsByTagName("li")[0];
+    var oBtnL = document.getElementById("btnL");
+    var oBtnR = document.getElementById("btnR");
+    var oDiv = first.cloneNode(true);
+    oInner.appendChild(oDiv);
+    var oSpans = document.getElementsByTagName("span");
+    var step = 0, autoTime = null;
+    //单击实现焦点
+    ~function () {
+        for (var i = 0; i < oSpans.length; i++) {
+            var oSpan = oSpans[i];
+            oSpan.index = i;
+            oSpan.onclick = function () {
+                step = this.index;
+                changeTip();
+                animate(oInner, {left: -step * 500}, 600,1);
             }
         }
-        return ary;
+    }();
+    //焦点的切换
+    function changeTip() {
+        var tempStep = step >= oSpans.length ? 0 : step;
+        for (var i = 0; i < oSpans.length; i++) {
+            i === tempStep ? oSpans[i].className = "select" : oSpans[i].className = "";
+        }
     }
-    var oDiv=document.getElementById("banner")
-console.log(getByClass("banner"))
+    autoTime = window.setInterval(left, 1000);
+    function left() {
+        if (step == 5) {
+            step = 0;
+            oInner.style.left = 0;
+        }
+        step++;
+        animate(oInner, {left: -step * 500}, 600,1);
+        changeTip()
+    }
+    function right() {
+        if (step == 0) {
+            step = 5;
+            oInner.style.left = "-" + step * 500 + "px";
+        }
+        step--;
+        animate(oInner, {left: -step * 500}, 600,1);
+        changeTip()
+    }
+    oBtnL.onclick = right;
+    oBtnR.onclick = left;
+    banner.onmousemove = function () {
+        window.clearInterval(autoTime)
+        oBtnL.style.display='block'
+        oBtnR.style.display='block'
+    }
+    banner.onmouseout = function () {
+        autoTime = window.setInterval(left, 1000);
+        oBtnL.style.display='none'
+        oBtnR.style.display='none'
+
+    }
+
 </script>
+</html>

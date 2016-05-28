@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{margin:0;padding:0;list-style:none;}
+        #outer{position:relative;margin:20px auto;border:1px solid #333;width:500px;height:300px;overflow:hidden;}
+        #inner{width:3000px;position:absolute;left:0}
+        #inner li{float:left;width:500px;height:300px;line-height:300px;text-align:center;font-size:30px;font-weight:900;}
+        #btn{position:absolute;left:180px;bottom:20px;width:150px;height:30px}
+        #btn span{display:inline-block;margin-left:8px;width:20px;height:20px;line-height:20px;font-size:12px;text-align:center;border-radius:50%;background:#c0c0c0;}
+        #btn .select{background:#c25f13}
+        #btnL,#btnR{display:none;position:absolute;top:38%;width:30px;height:60px;line-height:60px;font-size:24px;color:#fff;text-align:center;background:rgba(166,199,193,0.4)}
+        #btnL{left:0}
+        #btnR{right:0}
+    </style>
+</head>
+<body>
+<div id="outer">
+    <ul id="inner">
+        <li style="background:coral">一</li>
+        <li style="background:green">二</li>
+        <li style="background:hotpink">三</li>
+        <li style="background: deepskyblue">四</li>
+        <li style="background:indigo">五</li>
+    </ul>
+    <div id="btn"><span class="select">1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    <p id="btnL"><</p>
+    <p id="btnR">></p>
+</div>
+</body>
+<script src="utils.js"></script>
+<script src="animate.js"></script>
+<script>
+    var outer=document.getElementById("outer")
+    var oInner=document.getElementById("inner")
+    var first=oInner.getElementsByTagName("li")[0]
+    var oSpans=document.getElementById("btn").getElementsByTagName("span")
+    var oBtnL=document.getElementById("btnL")
+    var oBtnR=document.getElementById("btnR")
+    var oDiv=first.cloneNode(true);
+    oInner.appendChild(oDiv);
+    function animate(ele,obj,duration,effect,callback){
+
+    }
+</script>
+</html>

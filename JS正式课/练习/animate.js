@@ -207,13 +207,11 @@ function animate(ele,obj,duration,effect,callback){
             }
             window.clearInterval(ele.timer);
             if(typeof callback =="function"){
-               callback.call(ele);
+                callback.call(ele);
             }
         }
     }
     ele.timer = window.setInterval(step,interval);
-
-
 
 }
 
