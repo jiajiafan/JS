@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<div id="box" class="box">
+    <div class="imgWrap">
+        <!--<div><img src="img/banner1.jpg" alt=""/></div>
+        <div><img src="img/banner2.jpg" alt=""/></div>
+        <div><img src="img/banner3.jpg" alt=""/></div>
+        <div><img src="img/banner4.jpg" alt=""/></div>-->
+    </div>
+    <ul>
+        <!--<li class="bg"></li>
+        <li></li>
+        <li></li>
+        <li></li>-->
+    </ul>
+    <a href="javascript:;" class="btnLeft"></a>
+    <a href="javascript:;" class="btnRight"></a>
+</div>
+<script src="js/utils.js"></script>
+<script src="js/move.js"></script>
+<script>
+    var oBox=document.getElementById('box');
+    var oImgWrap=oBox.getElementsByTagName('div')[0];
+    var aDiv=oImgWrap.getElementsByTagName('div');
+    var aImg=oImgWrap.getElementsByTagName('img');
+    var oUl=oBox.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    var oBtnLeft=oBox.getElementsByTagName('a')[0];
+    var oBtnRight=oBox.getElementsByTagName('a')[1];
+    var data=null;
+    //1.获取数据
+    getData();
+    function getData(){
+        //创建一个对象
+        var xml=new XMLHttpRequest();
+        //打开地址-随机数是为了解决缓存问题 false:同步
+        xml.open('get','json/data.txt?_='+Math.random(),false);
+        //查看准备状态和响应
+        xml.onreadystatechange=function(){
+            if(xml.readyState===4&&/^2\d{2}$/.test(xml.status)){
+                data=utils.jsonParse(xml.responseText);
+            }
+        };
+        //发送请求
+        xml.send()
+    }
+    //2.绑定数据-字符串拼接绑定
+    bind();
+    function bind(){
+        var str='';//有图片的div
+        var str2='';//存焦点li
+        for(var i=0; i<data.length; i++){
+            str+='<div><img src="" realImg="'+data[i].imgSrc+'" alt=""/></div>';
+            str2+=i==0?'<li class="bg"></li>':'<li></li>';
+        }
+        oImgWrap.innerHTML=str;
+        oUl.innerHTML=str2;
+    }
+    //3.延迟加载
+    lazyImg();
+    function lazyImg(){
+        for(var i=0; i<aImg.length; i++){
+            (function(index){
+                var curImg=aImg[index];
+                var oImg=new Image;//通过缓存测试图片地址是否正确，如果正确会走onload
+                oImg.src=curImg.getAttribute('realImg');
+                oImg.onload=function(){
+                    curImg.src=this.src;
+                    oImg=null;
+                    //等图片加载成功后，让第一张图片索引1；同时透明度1
+                    utils.css(aDiv[0],'zIndex',1);
+                    zhufengAnimate(aDiv[0],{'opacity':1},600)
+                }
+            })(i);
+        }
+    }
+    //4.自动播放
+    var step=0;
+    clearInterval(autoTimer)
+    var autoTimer=setInterval(autoMove,2000);
+    function autoMove(){
+        if(step>=aDiv.length-1){
+            step=-1;
+        }
+        step++;
+        setBanner();
+    }
+    function setBanner(){
+        for(var i=0; i<aDiv.length; i++){
+            var curDiv=aDiv[i];
+            if(i==step){
+                //当某张图片的索引等于step的时候，这张图片就是我们要显示的图片，让他的层级为1；同时让其他元素的层级为0
+                utils.css(curDiv,'zIndex',1);
+                //让层级为1的这个元素，透明度从0-1；运动结束后，让他兄弟元素透明度为0；
+                zhufengAnimate(curDiv,{opacity:1},600,function(){
+                    var siblings=utils.siblings(this);
+                    for(var i=0; i<siblings.length; i++){
+                        utils.css(siblings[i],'opacity',0);
+                    }
+                });
+                continue;
+            }
+            utils.css(curDiv,'zIndex',0)//其他元素层级为0；
+        }
+        bannerTip();
+    }
+    //5.焦点自动播放
+    function bannerTip(){
+        for(var i=0; i<aLi.length; i++){
+            var curLi=aLi[i];
+            i==step?utils.addClass(curLi,'bg'):utils.removeClass(curLi,'bg');
+        }
+    }
+    //6.鼠标移入停止，移出继续
+    oBox.onmouseover=function(){
+        clearInterval(autoTimer);
+        utils.css(oBtnLeft,'display','block');
+        utils.css(oBtnRight,'display','block');
+    };
+    oBox.onmouseout=function(){
+        autoTimer=setInterval(autoMove,2000);
+        utils.css(oBtnLeft,'display','none');
+        utils.css(oBtnRight,'display','none');
+    };
+    //7.手动轮播
+    handleChange();
+    function handleChange(){
+        for(var i=0; i<aLi.length; i++){
+            (function(index){
+                var curLi=aLi[index];
+                curLi.onclick=function(){
+                    step=index;
+                    setBanner();
+                }
+            })(i)
+        }
+    }
+    //8.按钮左右切换
+    oBtnRight.onclick=autoMove;
+    oBtnLeft.onclick=function(){
+        if(step<=0){
+            step=aLi.length;
+        }
+        step--;
+        setBanner();
+    }
+
+</script>
+</body>
+</html>

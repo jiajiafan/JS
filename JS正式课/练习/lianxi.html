@@ -1,98 +1,44 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Title</title>
     <style type="text/css">
-        *{margin:0;padding:0;list-style:none;}
-        #outer{position:relative;margin:20px auto;border:1px solid #333;width:500px;height:300px;overflow:hidden;}
-        #inner{width:3000px;position:absolute;left:0;cursor:pointer;}
-        #inner li{float:left;width:500px;height:300px;line-height:300px;text-align:center;font-size:30px;font-weight:900;}
-        #btn{position:absolute;left:180px;bottom:20px;width:150px;height:30px}
-        #btn span{display:inline-block;cursor:pointer;margin-left:8px;width:20px;height:20px;line-height:20px;font-size:12px;text-align:center;border-radius:50%;background:#c0c0c0;}
-        #btn .select{background:#c25f13}
-        #btnL,#btnR{display:none;cursor:pointer;position:absolute;top:38%;width:26px;height:60px;line-height:60px;font-size:24px;color:#fff;text-align:center;background:rgba(166,199,193,0.4)}
-       #btnL{left:0}
-        #btnR{right:0}
+        *{margin:0;padding:0;list-style: none;text-decoration: none;}
+        .box{position: relative;margin:20px auto;width:1000px;height:300px;}
+        .box .imgWrap{width:100%;height:100%;background: url(img/default.gif) center center no-repeat #c0c0c0;}
+        .box .imgWrap div{position:absolute;left:0;top:0;width:1000px;height:300px;opacity:0}
+        .box .imgWrap img{width:1000px;height:300px;}
+        .box ul{position: absolute;right:10px;bottom:10px;overflow: hidden;z-index:2;}
+        .box ul li{float:left;width:18px;height:18px;margin-left:8px;border-radius:50%;background: #f0f0f0;}
+        .box ul .bg{background:#c25f13}
+        .box a{position:absolute;top:120px;width:30px;height:60px;line-height:60px;font-size:24px;font-weight: 800;color:#fff;text-align:center;background:rgba(18,18,18,.4);z-index:2;display:none}
+        .box a.btnLeft{left:20px;}
+        .box a.btnRight{right:20px;}
+        .box a:hover{background:rgba(18,18,18,.8)}
     </style>
 </head>
 <body>
-<div id="outer">
-    <ul id="inner">
-        <li style="background:coral">一</li>
-        <li style="background:green">二</li>
-        <li style="background:hotpink">三</li>
-        <li style="background: deepskyblue">四</li>
-        <li style="background:indigo">五</li>
-    </ul>
-    <div id="btn"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
-    <p id="btnL"><</p>
-    <p id="btnR">></p>
+<div class="box" id="box">
+    <div class="imgWrap">
+        <div><img src="img/banner1.jpg" alt=""></div>
+        <div><img src="img/banner2.jpg" alt=""></div>
+        <div><img src="img/banner3.jpg" alt=""></div>
+        <div><img src="img/banner4.jpg" alt=""></div>
+    </div>
+        <ul>
+            <li class="bg"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <a href="javascript:;" class="btnLeft"><</a>
+        <a href="javascript:;" class="btnRight">></a>
 </div>
 </body>
-<script src="utils.js"></script>
-<script src="animate.js"></script>
+<script src="../utils.js"></script>
+<script src="move.js"></script>
 <script>
-    var banner= document.getElementById("outer");
-    var oInner = document.getElementById("inner")
-    var first = oInner.getElementsByTagName("li")[0];
-    var oBtnL = document.getElementById("btnL");
-    var oBtnR = document.getElementById("btnR");
-    var oDiv = first.cloneNode(true);
-    oInner.appendChild(oDiv);
-    var oSpans = document.getElementsByTagName("span");
-    var step = 0, autoTime = null;
-    //单击实现焦点
-    ~function () {
-        for (var i = 0; i < oSpans.length; i++) {
-            var oSpan = oSpans[i];
-            oSpan.index = i;
-            oSpan.onclick = function () {
-                step = this.index;
-                changeTip();
-                animate(oInner, {left: -step * 500}, 600,1);
-            }
-        }
-    }();
-    //焦点的切换
-    function changeTip() {
-        var tempStep = step >= oSpans.length ? 0 : step;
-        for (var i = 0; i < oSpans.length; i++) {
-            i === tempStep ? oSpans[i].className = "select" : oSpans[i].className = "";
-        }
-    }
-    autoTime = window.setInterval(left, 1000);
-    function left() {
-        if (step == 5) {
-            step = 0;
-            oInner.style.left = 0;
-        }
-        step++;
-        animate(oInner, {left: -step * 500}, 600,1);
-        changeTip()
-    }
-    function right() {
-        if (step == 0) {
-            step = 5;
-            oInner.style.left = "-" + step * 500 + "px";
-        }
-        step--;
-        animate(oInner, {left: -step * 500}, 600,1);
-        changeTip()
-    }
-    oBtnL.onclick = right;
-    oBtnR.onclick = left;
-    banner.onmousemove = function () {
-        window.clearInterval(autoTime)
-        oBtnL.style.display='block'
-        oBtnR.style.display='block'
-    }
-    banner.onmouseout = function () {
-        autoTime = window.setInterval(left, 1000);
-        oBtnL.style.display='none'
-        oBtnR.style.display='none'
-
-    }
 
 </script>
 </html>

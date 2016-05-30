@@ -122,9 +122,9 @@ var utils = (function () {
                 val = curEle.currentStyle[attr];
             }
 
-      }
+        }
         reg = /^([+-]?\d+(\.\d+)?)(px|pt|em|rem)?$/i;//-200px +200px 22.33px px pt em rem
-        reg=/^((\+|-)?\d+(\.\d+)?)(px|pt|em|rem)?$/i;
+        // reg=/^((\+|-)?\d+(\.\d+)?)(px|pt|em|rem)?$/i;
         return reg.test(val) ? parseFloat(val) : val;
     }
 

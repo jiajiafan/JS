@@ -27,7 +27,6 @@
         }
     }
     window.$t = window.check = check;
-}();
-
+}()
 console.log($t.isAry([]));
 console.log($t.isReg(/^$/));
