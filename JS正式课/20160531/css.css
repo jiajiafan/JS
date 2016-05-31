@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.box {
+    position: relative;
+    margin: 20px auto;
+    width: 1000px;
+    height: 300px;
+    /*overflow: hidden;*/
+}
+
+.box .imgWrap {
+    /*position: absolute;*/
+    /*left: 0;*/
+    width: 100%;
+    height: 100%;
+    background: url(img/default.gif) center center no-repeat #f0f0f0;
+
+}
+
+.box .imgWrap div {
+    position:absolute;
+    left:0;
+    float: left;
+    width: 1000px;
+    height: 300px;
+    opacity:0
+}
+
+.box .imgWrap div img {
+    width: 1000px;
+    height: 300px;
+}
+
+.box ul {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    overflow:hidden;
+    z-index: 2;
+}
+
+.box ul li {
+    float: left;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.box ul .bg {
+    background: orange;
+}
+
+.box a {
+    position: absolute;
+    display: none;
+    top: 120px;
+    width: 30px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+    color: #f0f0f0;
+    cursor: pointer;
+    z-index:2;
+    background: rgba(18, 19, 18, .5);
+}
+
+.box a:hover {
+    background: rgba(18, 19, 18, .8);
+}
+
+.box .btnL {
+    left: 20px;
+}
+
+.box .btnR {
+    right: 20px;
+}

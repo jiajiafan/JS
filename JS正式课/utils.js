@@ -143,7 +143,7 @@ var utils = (function () {
             return;
         }
         //加单位的处理；
-        var reg = /(width|height|top|right|bottom|left|((margin|padding)(top|right|bottom|left)?))/
+        var reg = /(width|height|top|right|bottom|left|((margin|padding)(top|right|bottom|left)?))/;
         if (reg.test(attr)) {
             value += 'px';
         }

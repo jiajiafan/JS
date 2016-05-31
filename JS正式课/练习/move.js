@@ -179,5 +179,39 @@
             }
         }
     };
+    function move(curEle,target,duration,effect,callback) {
+        var tempEffect=zhufengEffect.Linear;
+        var ary=['Linear','Elastic-easeInOut','Elastic-easeIn','Elastic-easeOut'];
+        if(typeof effect=='number'){
+            var str=ary[effect%ary.length];
+            ary=str.split('-');
+            tempEffect=ary.length>=2?zhufengEffect[ary[0]][ary[1]]:zhufengEffect[ary[0]];
+        }else if(typeof effect=='function'){
+            callback=effect;
+        }
+        clearInterval(curEle.timer);
+        var time = 0;
+        var begin = {};
+        var change = {};
+        duration = duration || 2000;
+        for (var attr in target) {
+            begin[attr] = utils.css(curEle, attr);
+            change[attr] = target[attr] - begin[attr];
+        }
+        curEle.timer = setInterval(function () {
+            if(time>=duration){
+                utils.css(curEle,target);
+                clearInterval(curEle.timer);
+                callback&&callback.call(curEle);
+                return;
+            }
+            time += 10;
+            for (var attr in change) {
+                var curPos = zhufengEffect.Linear(time, begin[attr], change[attr], duration);
+                utils.css(curEle,attr,curPos)
+            }
+        }, 10);
+    }
+        window.zhufengAnimate = move;
 
 })();

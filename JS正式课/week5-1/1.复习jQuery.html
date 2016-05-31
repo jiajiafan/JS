@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1.jQuery选择器:通过传递对应的规则,获取到所匹配的元素/元素集合
+->把私有的jQuery方法的执行,需要传递两个参数值:selector(这个值的类型可以是字符串,DOM对象.函数.每一个类型都有自己不同的作用),context,第二个参数可以不传,默认值是document,限定了当前获取元素的范围
+//window.jQuery=window.$=jQuery;
+//2.jQuery本身是一个类,我们通过选择器获取到的结果是这个类的一个实例
+->我们通过选择器获取到的结果(jQuery对象)可以调取jQuery.prototype上的方法
+$().addClass();
+$().removeClass();
+$('#div1')
+//3.jQuery选择器
+//4.jQuery的常用方法
+-->定义在jQuery.prototype上的公共方法,供jQuery的实例(通过jQuery选择器获得的结果)来调用
+比如 $('.w1').add()
+-->把jQuery看做和obj一样的一个普通对象,定义在其属性上的
+例如:Callbacks,ajax,each....
+jQuery.ajax()/$.ajax
+//5.给jQuery这个类库扩展方法
+-->extend:在jQuery对象的属性上存在,同时在jQuery类的原型上也存在;
+-->$.extend()扩展到对象的属性上,完善类库,给类库中提供一些常用的核心方法
+-->$.fn.extend()扩展到类的原型上:给类的实例提供更多的操作方法,主要用于基于jQuery的插件编写
+//6.关于jQuery的each
+jQuery内置循环系统
+
+<div class="w1"></div>
+<div class="w1 w2"></div>
+<div class="w2 w3"></div>
+<div class="w1 w3"></div>
+<div class="w4"></div>
+</body>
+<script charset="utf-8" src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script type='text/javascript'>
+    console.log($(".w4")[0]);
+    console.log($('.w4').get(0));//获取的结果是原生的Dom对象
+    console.log($('.w4').eq(0));//获取的结果依然是jQuery这个类的一个实例
+    //原生的DOM对象,不能直接使用jQuery.prototype上提供的方法
+    $(oDiv5)
+</script>
+</html>
