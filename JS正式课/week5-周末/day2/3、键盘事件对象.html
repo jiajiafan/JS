@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件对象-珠峰培训</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+<script type="text/javascript" src="js/utils.min.js"></script>
+<script type="text/javascript">
+    var box = document.getElementById("box");
+    document.body.onkeydown = function (ev) {
+        ev = ev || window.event;
+        //ev.keyCode ->存储的是按下键的编码值,键盘上的每一个按键都有一个自己的固定编码值
+        //->Ctrl:17
+        //->Alt:18
+        //->Space:32
+        //->Enter:13
+        //->BackSpace:8
+        //->Del:46
+        //->Shift:16
+        //->Alt+Tab:9
+        //->左、上、右、下：37、38、39、40
+
+        var oldLeft = utils.css(box, "left");
+        var oldTop = utils.css(box, "top");
+        switch (ev.keyCode) {
+            case 37:
+                utils.css(box, "left", oldLeft - 10);
+                break;
+            case 38:
+                utils.css(box, "top", oldTop - 10);
+                break;
+            case 39:
+                utils.css(box, "left", oldLeft + 10);
+                break;
+            case 40:
+                utils.css(box, "top", oldTop + 10);
+                break;
+        }
+    };
+</script>
+</body>
+</html>

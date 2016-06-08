@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训精简菜单案例</title>
+    <link type="text/css" rel="stylesheet" href="css/menu.css"/>
+</head>
+<body>
+<div class="box">
+    <ul class="boxList">
+        <li>
+            <a href="#" target="_blank">
+                <span>苹果</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>小米</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>华为</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>三星</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>HTC</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>诺基亚</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>中兴</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>联想</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>锤子</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>vivo</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>索尼</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>步步高</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>乐视</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span>其它品牌</span>
+                <span class="last">(30400)</span>
+            </a>
+        </li>
+    </ul>
+    <div class="boxBtn">
+        <em></em>
+        <span>显示全部品牌</span>
+    </div>
+</div>
+<script charset="utf-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    //->当页面中的HTML结构加载完成才会执行匿名回调函数中的内容(异步编程),并且这样还可以形成一个私有的作用域
+    $(function () {
+        var $boxList = $(".boxList>li");
+
+        //->让苹果、小米、华为、锤子这几个品牌高亮显示
+        $boxList.find("span").each(function (index, item) {
+            var reg = /(苹果|小米|华为|锤子)/;
+            if (reg.test($(this).html())) {
+                $(this).addClass("bg");
+            }
+        });
+
+        //->让所有的LI中索引大于5并且小于13的LI默认是隐藏的
+        var $boxListPart = $boxList.filter(":lt(13):gt(5)");//->":gt(5):not(:last)"/":gt(5):lt(7)"
+        $boxListPart.css("display", "none").attr("isBok", false);//->使用ATTR设置一个自定义属性值,不管你的值是什么类型的,设置成功后统一是一个字符串类型的值
+
+        //->点击按钮控制显示隐藏
+        $(".boxBtn").on("click", function () {
+            //$(this)->$(".boxBtn")
+            var $em = $(this).children("em"), $span = $(this).children("span");
+
+            var isBok = $boxListPart.attr("isBok");
+            if (isBok === "false") {
+                //->说明之前是隐藏的,我们让其显示即可
+                $boxListPart.css("display", "block").attr("isBok", true);
+                $span.html("精简显示品牌");
+                $em.addClass("up");
+                return;
+            }
+            //->说明之前是显示的,我们让其隐藏即可
+            $boxListPart.css("display", "none").attr("isBok", false);
+            $span.html("显示全部品牌");
+            $em.removeClass("up");
+        });
+    });
+</script>
+</body>
+</html>

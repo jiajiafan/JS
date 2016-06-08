@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训-树形结构菜单</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            font-size: 14px;
+            color: #424242;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        .menu {
+            margin: 20px;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid green;
+
+            /*--CSS3实现多背景颜色,体现出‘渐进增强的处理方案’:我们按照最低版本的浏览器实现样式,然后分别的对高版本的浏览器增加更人性化的效果--*/
+            background: lightgoldenrodyellow;
+            background: -webkit-linear-gradient(top left, lightblue, lightcyan, lightgoldenrodyellow, lightpink);
+            background: -moz-linear-gradient(top left, lightblue, lightcyan, lightgoldenrodyellow, lightpink);
+            background: -o-linear-gradient(top left, lightblue, lightcyan, lightgoldenrodyellow, lightpink);
+            background: -ms-linear-gradient(top left, lightblue, lightcyan, lightgoldenrodyellow, lightpink);
+            background: linear-gradient(top left, lightblue, lightcyan, lightgoldenrodyellow, lightpink);
+
+            /*--CSS3兼容处理之‘优雅降级’:我们使用CSS3或者H5的一些新的属性,高版本的浏览器是支持的,但是对于低版本的浏览器我们根据情况进行处理(使用其它的技术代替或者如果不影响大局可以不管)--*/
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px 0 #444;
+        }
+
+        .two, .three, .four {
+            display: none;
+        }
+
+        .two {
+            margin-left: 20px;
+        }
+
+        .three {
+            margin-left: 40px;
+        }
+
+        .four {
+            margin-left: 60px;
+        }
+
+        .menu span {
+            display: inline-block;
+            padding-left: 20px;
+            height: 35px;
+            line-height: 35px;
+            cursor: pointer;
+        }
+
+        .menu li {
+            position: relative;
+        }
+
+        .menu em {
+            position: absolute;
+            top: 9px;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            background: url("img/icon.png") no-repeat;
+            background-position: -59px -28px;
+        }
+
+        .menu em.bg {
+            background-position: -42px -28px;
+        }
+    </style>
+</head>
+<body>
+<div class="menu" id="menu">
+    <ul class="fir">
+        <li>
+            <em></em><span>服装服饰</span>
+            <ul class="two">
+                <li><span>短裤</span></li>
+                <li>
+                    <em></em><span>男装</span>
+                    <ul class="three">
+                        <li><span>西装</span></li>
+                        <li><span>休闲裤</span></li>
+                        <li><span>皮鞋</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <em></em><span>女装</span>
+                    <ul class="three">
+                        <li>
+                            <em></em><span>裙子</span>
+                            <ul class="four">
+                                <li><span>长裙</span></li>
+                                <li><span>短裙</span></li>
+                                <li><span>连衣裙</span></li>
+                            </ul>
+                        </li>
+                        <li><span>太阳帽</span></li>
+                        <li><span>墨镜</span></li>
+                        <li><span>高跟鞋</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <em></em><span>服装服饰</span>
+            <ul class="two">
+                <li><span>短裤</span></li>
+                <li>
+                    <em></em><span>男装</span>
+                    <ul class="three">
+                        <li><span>西装</span></li>
+                        <li><span>休闲裤</span></li>
+                        <li><span>皮鞋</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <em></em><span>女装</span>
+                    <ul class="three">
+                        <li><span>裙子</span></li>
+                        <li><span>太阳帽</span></li>
+                        <li><span>墨镜</span></li>
+                        <li><span>高跟鞋</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <em></em><span>服装服饰</span>
+            <ul class="two">
+                <li><span>短裤</span></li>
+                <li>
+                    <em></em><span>男装</span>
+                    <ul class="three">
+                        <li><span>西装</span></li>
+                        <li><span>休闲裤</span></li>
+                        <li><span>皮鞋</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <em></em><span>女装</span>
+                    <ul class="three">
+                        <li><span>裙子</span></li>
+                        <li><span>太阳帽</span></li>
+                        <li><span>墨镜</span></li>
+                        <li><span>高跟鞋</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="js/utils.min.js"></script>
+<script type="text/javascript">
+    var oMenu = document.getElementById("menu");
+    oMenu.onclick = function (ev) {
+        ev = ev || window.event;
+        var tar = ev.target || ev.srcElement,
+                tarTag = tar.tagName.toUpperCase();
+
+        //->如果点击的是EM/SPAN,我们控制子集列表的显示和隐藏
+        if (tarTag === "EM" || tarTag === "SPAN") {
+            //->获取父级节点及里面的子集UL,如果没有子集UL,我们不进行任何的操作处理
+            var tarP = tar.parentNode, childUL = utils.children(tarP, "ul");
+            if (childUL.length <= 0) {
+                return;
+            }
+
+            //->获取到具体的子集,判断当前它是显示还是隐藏的,以此来控制其显示还是隐藏:当前是显示的让其隐藏,当前是隐藏的让其显示
+            var oEm = utils.children(tarP, "em")[0];
+            childUL = childUL[0];
+            var isBok = utils.css(childUL, "display");
+            if (isBok === "none") {
+                utils.css(childUL, "display", "block");
+                utils.addClass(oEm, "bg");
+            } else {
+                utils.css(childUL, "display", "none");
+                utils.removeClass(oEm, "bg");
+
+                //->外层大级别收起,里面的小子集列表也要跟着收起
+                var oUls = tarP.getElementsByTagName("ul");
+                var childEms = tarP.getElementsByTagName("em");
+                for (var i = 0; i < oUls.length; i++) {
+                    utils.css(oUls[i], "display", "none");
+                    utils.removeClass(childEms[i], "bg");
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

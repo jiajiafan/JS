@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训-鼠标跟随</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            position: relative;
+            margin: 20px auto;
+            width: 300px;
+            height: 300px;
+            background: green;
+        }
+
+        #mark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+<script type="text/javascript">
+    var oBox = document.getElementById("box");
+
+    function computedMarkPos(ev) {
+        //->处理事件对象的兼容
+        if (!ev) {
+            ev = window.event;
+            ev.pageX = ev.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+            ev.pageY = ev.clientY + (document.documentElement.scrollTop || document.body.scrollTop);
+        }
+
+        //->计算MARK的位置
+        var tarLeft = ev.pageX - oBox.offsetLeft + 10;
+        var tarTop = ev.pageY - oBox.offsetTop + 10;
+        var oMark = document.getElementById("mark");
+        if (oMark) {
+            oMark.style.left = tarLeft + "px";
+            oMark.style.top = tarTop + "px";
+        }
+    }
+
+    //->问题:当鼠标从上向下移动的时候,会出现短暂的进入到红盒子MARK区域上,触发了MARK的OVER行为,由于事件的冒泡传播机制,导致BOX盒子的OVER行为此时也会被触发,在此把MARK这个盒子创建一个,也就出现了重复创建的效果了....
+    //    oBox.onmouseover = function (ev) {
+    //        //->创建一个MARK,把其放入BOX中
+    //        var oMark = document.createElement("div");
+    //        oMark.id = "mark";
+    //        this.appendChild(oMark);
+    //
+    //        //->需要把MARK的mouseover事件的冒泡传播阻止掉
+    //        oMark.onmouseover = function (evMark) {
+    //            evMark = evMark || window.event;
+    //            evMark.stopPropagation ? evMark.stopPropagation() : evMark.cancelBubble = true;
+    //        };
+    //
+    //        //->根据当前鼠标的位置计算MARK盒子的位置
+    //        computedMarkPos(ev);
+    //    };
+    //    oBox.onmousemove = computedMarkPos;
+
+
+    //->onmouseenter/onmouseover的区别:
+    //1)onmouseenter默认阻止了事件的冒泡传播,子元素的onmouseenter事件被触发,父级元素的相关事件不会被触发;但是onmouseover存在冒泡传播;
+    //2)红盒子是绿盒子的子元素,当鼠标从绿盒子进入红盒子,在从红盒子进入绿盒子,会重新的触发绿盒子的onmouseover事件,但是不会触发绿盒子的onmouseenter事件;
+    oBox.onmouseenter = function (ev) {
+        var oMark = document.createElement("div");
+        oMark.id = "mark";
+        this.appendChild(oMark);
+        computedMarkPos(ev);
+    };
+    oBox.onmousemove = computedMarkPos;
+    oBox.onmouseleave = function (ev) {
+        var oMark = document.getElementById("mark");
+        if (oMark) {
+            this.removeChild(oMark);
+        }
+    };
+</script>
+</body>
+</html>

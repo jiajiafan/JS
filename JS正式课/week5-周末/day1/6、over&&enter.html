@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训-鼠标跟随</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            position: relative;
+            margin: 20px auto;
+            width: 300px;
+            height: 300px;
+            background: green;
+        }
+
+        #mark, #mark2 {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        #mark2 {
+            left: 320px;
+            top: 320px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="mark"></div>
+    <div id="mark2"></div>
+</div>
+
+<script type="text/javascript">
+    var oBox = document.getElementById("box");
+
+    var oMark2 = document.getElementById("mark2");
+    //    oMark2.onmouseover = function (ev) {
+    //        ev.stopPropagation();
+    //    };
+    //    oMark2.onmouseout = function (ev) {
+    //        ev.stopPropagation();
+    //    };
+    //    oBox.onmouseover = function () {
+    //        console.log("over");
+    //    };
+    //    oBox.onmouseout = function () {
+    //        console.log("out");
+    //    };
+
+    oBox.onmouseenter = function () {
+        console.log("enter");
+    };
+    oBox.onmouseleave = function () {
+        console.log("leave");
+    };
+</script>
+</body>
+</html>

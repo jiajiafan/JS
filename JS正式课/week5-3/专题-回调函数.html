@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>回调函数-珠峰培训</title>
+</head>
+<body>
+<script type="text/javascript">
+    //1、回调函数:把一个函数当做一个参数的值,传递给另外一个函数,在另外一个函数中,把传递进来的这个函数执行一次或者多次...
+    var obj = {name: "珠峰"};
+
+    //    function A(callback) {
+    //        //console.log(callback === B); ->true
+    //        //->我们接下来可以在A函数中尽情的操作B函数:
+    //        //-->我可以在A函数中的任何位置执行B函数
+    //        //-->我们还可把B函数想执行多少次就执行多少次
+    //        //-->我们不仅仅可以执行B函数,还可以给B函数传递对应的参数值
+    //        //-->不仅仅可以传递参数值,还可以把回调函数中的THIS指向进行修改(默认的THIS->window)
+    //        //-->不仅仅可以改变this,还可以接受到回调函数执行的返回值
+    //
+    ////        console.log("A");
+    ////        if (typeof callback === "function") {
+    ////            var total = callback.call(obj, 10, 20);
+    ////            console.log(total);
+    ////        }
+    //
+    ////        console.log("A");
+    ////        if (typeof callback === "function") {
+    ////            //callback(10, 20);//->B中的this是window
+    ////            callback.call(obj, 10, 20); //->B中的this是obj
+    ////        }
+    //
+    ////        console.log("A");
+    ////        for (var i = 0; i < 10; i++) {
+    ////            callback && callback(10, 20);
+    ////        }
+    //
+    ////        typeof callback === "function" ? callback() : null;
+    ////        console.log("A");
+    ////        callback && callback();
+    //    }
+    //    function B(num1, num2) {
+    //        //console.log(num1 + num2, this);
+    //        return num1 + num2;
+    //    }
+    //    A(B);
+
+
+    //    function A(callback) {
+    //        console.log("A");
+    //        for (var i = 0; i < 3; i++) {
+    //            if (typeof callback === "function") {
+    //                var total = callback.call(obj, 100, 200);
+    //                console.log(total);
+    //            }
+    //        }
+    //    }
+    //    A(function (num1, num2) {
+    //        console.log(this);
+    //        var total = num1 + num2;
+    //        return total;
+    //    });
+
+    var ary = [12, 34, 24, 25, 35, 17];
+    //    ary.sort(function (a, b) {
+    //        console.log("ok", this);//->回调函数中的THIS,SORT执行的时候并没有给进行修改,所以还是默认的window
+    //        return a - b;
+    //    });
+
+    //->forEach:用来循环遍历数据中的每一项的,它的一个参数值是一个匿名回调函数(A)
+    //1)数组中有几项,我们就让A执行几次
+    //2)不仅仅执行了A,而且还可以A传递了三个参数值:
+    //->item:数组当前这一项的值
+    //->index:数组当前这一项的索引
+    //->input:原始数组
+    //3)默认情况下,我们的forEach方法并没有改变回调函数中的this执行,默认的this依然是window;但是forEach支持第二个参数,第二个参数写啥,都是让回调函数A中的this变为啥;
+    //4)forEach方法仅仅是用来遍历数组中的每一项的,它本身并不支持返回值(所以用一个变量接收其执行的返回结果是undefined),它的回调函数A里面写return xxx对程序本身也是不存在任何的影响的;
+    //    ary = ary.forEach(function (item, index, input) {
+    //        //console.log(item, index, input, this);
+    //        return "@";
+    //    }, obj);
+    //    console.log(ary);//->undefined
+
+    //->map:和forEach基本操作是一模一样的,但是map是支持返回值的
+    var newAry = ary.map(function (item, index) {
+        console.log(item, index, this);
+
+        return item * 10;//->在匿名回调函数中,每一次return的是啥,都相当于把当前数组中的这一项改变为啥
+    }, obj);
+    console.log(newAry);
+    console.log(ary);//->原始的数组是不发生任何的改变的
+
+
+</script>
+</body>
+</html>

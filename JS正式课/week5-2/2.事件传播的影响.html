@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 300px;
+            height: 300px;
+            background: green;
+        }
+        #mask{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<!--
+第一个事件 mouseover ->创建遮罩层,记录鼠标当前位置
+第二个事件 mousemove ->遮罩层随着鼠标的移动而移动
+第三个事件 mouseout  ->遮罩层隐藏或者消失
+-->
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById("div1");
+    oDiv.onmouseover = function(e){/*划过*/
+       //arguments[0]  //浏览器是把事件对象作为形参传给事件驱动运行的那个方法,这个方法则就自动带有一个形参(事件对象)
+        e = e||window.event;
+        var oMask = document.createElement("div");
+        oMask.id = "mask";
+        oMask.style.left = e.clientX+"px";
+        oMask.style.top = e.clientY+"px";
+        this.appendChild(oMask);
+        oMask.onmouseover = function(e){
+            //阻止事件传播
+            if(e.stopPropagation){
+                e.stopPropagation();
+            }else{
+                e.cancelBubble = true;
+            }
+        }
+    }
+    oDiv.onmousemove = function(e){
+        var oMask = document.getElementById("mask");
+        if(oMask){
+            oMask.style.left = e.clientX+"px";
+            oMask.style.top = e.clientY+"px";
+        }
+    }
+    oDiv.onmouseout = function(e){/*离开绿盒子时,如果有红盒子存在,则把红盒子删了*/
+        var oMask = document.getElementById("mask");
+        if(oMask){
+            this.removeChild(oMask);
+        }
+    };
+
+    /*
+    * 1.画龙的现象 - mouseover事件自带传播机制,把事件的影响传播给父标签
+    * 事件传播 (冒泡(从里往外冒),捕获(从外往里捕获));
+    * */
+
+
+</script>

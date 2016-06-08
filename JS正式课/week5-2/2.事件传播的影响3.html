@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding:0
+        }
+        #div1{
+            width: 300px;
+            height: 300px;
+            position: relative;
+            background: green;
+        }
+        #mask{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top:0;
+            background: red;
+        }
+    </style>
+
+</head>
+<body>
+<div id="div1"></div>
+<!--
+第一个事件 mouseover ->创建遮罩层,记录鼠标当前位置
+第二个事件 mousemove ->遮罩层随着鼠标的移动而移动
+第三个事件 mouseout  ->遮罩层隐藏或者消失
+-->
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById("div1");
+    //事件对象作为形参传给绑定的方法 ,事件对象里存着鼠标操作的相关信息
+    //window.event
+    oDiv.onmouseenter = function(e){
+        e = e ||window.event;
+        var oMask = document.createElement("div");
+        oMask.id = "mask";
+        oMask.style.left = e.clientX+"px";
+        oMask.style.top = e.clientY+"px";
+        this.appendChild(oMask);
+
+
+    }
+    oDiv.onmousemove = function(e){
+        var oMask = document.getElementById("mask");
+        if(oMask){
+            oMask.style.left = e.clientX+"px";
+            oMask.style.top = e.clientY+"px";
+        }
+    }
+    oDiv.onmouseleave = function(e){
+        var oMask = document.getElementById("mask");
+        if(oMask){
+            this.removeChild(oMask);
+        }
+    }
+
+    /*
+    * mouseover的问题:
+    * 1.子元素的事件会影响父元素
+    * 2.子元素进入父元素时,会触发父元素的mouseover事件
+    * mouseenter解决上述两问题,如果子元素离开父元素,则还是会存在事件传播的问题
+    * mouseenter ->mouseover
+    * mouseleave ->mouseout
+    * */
+
+
+</script>

@@ -1,7 +1,7 @@
 /**
  * Created by xiao lei on 2016/5/28.
  */
-(function (){
+(function () {
     var zhufengEffect = {
         //匀速
         Linear: function (t, b, c, d) {
@@ -179,61 +179,63 @@
             }
         }
     };
-    function move(curEle,target,duration,effect,callback){
-        var tempEffect=zhufengEffect.Linear;
+
+    function move(curEle, target, duration, effect, callback) {
+        var tempEffect = zhufengEffect.Linear;
         var ary = ["Linear", "Elastic-easeOut", "Back-easeOut", "Bounce-easeOut", "Expo-easeIn"];
         //当effect传的是数字的话，把数字当做数组的索引取值；
-        if(typeof effect==='number'){
-            var str=ary[effect%ary.length];
-            ary=str.split('-');
-            tempEffect=ary.length>=2?zhufengEffect[ary[0]][ary[1]]:zhufengEffect[ary[0]];
-        }else if(effect instanceof  Array){//当effect传的是数组，进行拼接
-            var ary1=effect[0];
-            var ary2=effect[1];
-            tempEffect=effect.length>=2?zhufengEffect[ary1][ary2]:zhufengEffect[ary1];
-        }else if(typeof effect==='function'){//当effect传的是函数，把它直接赋给callback；
-            callback=effect;
+        if (typeof effect === 'number') {
+            var str = ary[effect % ary.length];
+            ary = str.split('-');
+            tempEffect = ary.length >= 2 ? zhufengEffect[ary[0]][ary[1]] : zhufengEffect[ary[0]];
+        } else if (effect instanceof Array) {//当effect传的是数组，进行拼接
+            var ary1 = effect[0];
+            var ary2 = effect[1];
+            tempEffect = effect.length >= 2 ? zhufengEffect[ary1][ary2] : zhufengEffect[ary1];
+        } else if (typeof effect === 'function') {//当effect传的是函数，把它直接赋给callback；
+            callback = effect;
         }
         //开启一个定时器前先关闭没用的定时器；
         clearInterval(curEle.timer);
         //要给公式传参的参数初始值；
-        var time=null;
-        var begin={};
-        var change={};
-        duration=duration||3000;
+        var time = null;
+        var begin = {};
+        var change = {};
+        duration = duration || 3000;
         //为了拿到begin的初始值和change的初始值
-        for(var attr in target){
+        for (var attr in target) {
             //求当前元素的begin初始值；
-            begin[attr]=utils.css(curEle,attr);
-            change[attr]=target[attr]-begin[attr];
+            begin[attr] = utils.css(curEle, attr);
+            change[attr] = target[attr] - begin[attr];
         }
         //开启定时器，进行时间的不断累加；
-        curEle.timer=setInterval(function(){
+        curEle.timer = setInterval(function () {
             //当累加的事件超过总时间时
-            if(time>=duration){
+            if (time >= duration) {
                 /*for(var attr in target){
-                    utils.css(curEle,attr,target[attr]);
-                    clearInterval(curEle.timer);
-                    return;
-                }*/
+                 utils.css(curEle,attr,target[attr]);
+                 clearInterval(curEle.timer);
+                 return;
+                 }*/
                 //让元素的样式直接到达目标值；
-                utils.css(curEle,target);
+                utils.css(curEle, target);
                 //停止定时器，并且后面语句不再执行；
                 clearInterval(curEle.timer);
-                callback&&callback.call(curEle);
+                callback && callback.call(curEle);
                 return;
             }
             //不满足条件时，继续时间累加；
-            time+=10;
+            time += 10;
             //通过公式求出元素的最新的位置，并设置最新位置；
-            for(var attr in change){
-                var curPos=tempEffect(time,begin[attr],change[attr],duration);
-                utils.css(curEle,attr,curPos);
+            for (var attr in change) {
+                var curPos = tempEffect(time, begin[attr], change[attr], duration);
+                utils.css(curEle, attr, curPos);
             }
-        },10);
+        }, 10);
 
 
     }
+
     //把闭包中封装好的方法通过window，让外面可以调用；
-    window.zhufengAnimate=move;
+    window.zhufengAnimate = move;
 })();

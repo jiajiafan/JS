@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+
+       #box{
+            width: 300px;
+           margin: 50px auto;
+        }
+        ul li{
+            line-height: 40px;
+            margin: 10px 0;
+            background: green;
+        }
+        ul li span{
+            display: block;
+            background: deepskyblue;
+        }
+       ul li span.close:before{
+           content: "+";
+           color: red;
+           font-size: 20px;
+       }
+        ul li span.open:before{
+            content: "-";
+            color: red;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<ul id="box">
+    <li><span>1第一级第一个</span>
+        <ul>
+            <li>
+               <span> 2-1第一级第一个</span>
+                <ul>
+                    <li>
+                        <span>3-1第一级第一个</span>
+                        <ul>
+                            <li>4-1第一级第一个</li>
+                            <li>4-1第一级第二个</li>
+                            <li>4-1第一级第三个</li>
+                            <li>4-1第一级第四个</li>
+                        </ul>
+                    </li>
+                    <li>3-2第一级第二个</li>
+                    <li>3-3第一级第三个</li>
+                    <li>3-4第一级第四个</li>
+                </ul>
+            </li>
+            <li>2-1第一级第二个</li>
+            <li>2-1第一级第三个</li>
+            <li>2-1第一级第四个</li>
+        </ul>
+    </li>
+    <li>1第一级第二个</li>
+    <li><span>1第一级第三个</span>
+        <ul>
+            <li>2-1第一级第一个</li>
+            <li>2-1第一级第二个</li>
+            <li>2-1第一级第三个</li>
+            <li>2-1第一级第四个</li>
+        </ul>
+    </li>
+    <li>1第一级第四个</li>
+</ul>
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    var oSpans = box.getElementsByTagName("span");
+    for(var i = 0;i<oSpans.length;i++){
+        var oSpan = oSpans[i];
+        oSpan.nextElementSibling.style.display = "none";
+        oSpan.className = "close";
+    }
+    box.onclick = function(e){
+       e = e||window.event;
+       var target = e.target|| e.srcElement;
+        if(target.tagName == "SPAN"){
+            var oUl = target.nextElementSibling;
+                if(oUl.style.display == "none"){
+                    oUl.style.display = "block";
+                    oUl.previousElementSibling.className = "open";
+                }else{
+                    oUl.style.display = "none";
+                    oUl.previousElementSibling.className = "close";
+                    var oUls = oUl.getElementsByTagName("ul");
+                    for(var i = 0;i<oUls.length;i++){
+                        oUls[i].style.display = "none";
+                        oUls[i].previousElementSibling.className = "close";
+                    }
+                }
+
+        }
+
+
+
+    }
+
+
+
+
+</script>

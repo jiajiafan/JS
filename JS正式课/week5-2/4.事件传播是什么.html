@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        html *{
+            padding: 20px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="outer" style="background: red">outer-div
+    <ul id="inner" style="background: green">inner-ul
+        <li id="middle" style="background: pink">middle-li<br>
+            <a href="http://www.zhufengpeixun.cn" id="center" style="background: orange;display: block">a<br>
+                <br>
+                <br>
+                <span id="span1" style="background: deepskyblue">span</span>
+            </a>
+        </li>
+    </ul>
+
+</div>
+</body>
+</html>
+<script>
+    function fn(e){
+        alert(this.tagName||this.id);
+        if(e.preventDefault){
+            e.preventDefault();//阻止默认行为
+        }else{
+            e.returnValue = false;
+        }
+        if(e.stopPropagation){//阻止事件传播
+            e.stopPropagation()
+        }else{
+            e.cancelBubble = true;
+        }
+    }
+
+    //事件传播(冒泡 ->由里往外  ,捕获 ->外往里冒)
+    var eles = document.getElementsByTagName("*");
+    for(var i = 0;i<eles.length;i++){
+//        eles[i].onclick = function(){ /*DOM0级事件绑定*/
+//            alert(this.tagName);
+//        }
+        eles[i].addEventListener("click",fn,false);
+        // false以冒泡的方式传播
+        //true以捕获的方式传播
+    }
+//    标准浏览器DOM2级事件增加的两个绑定事件和移除事件的方法:
+//            ele.addEventListener(type,fn,false)
+//            ele.removeEventListener(type,fn,false)
+
+//    ie浏览器里DOM2级事件
+//    ele.attachEvent("on"+type,fn)
+//    ele.detachEvent("on"+type,fn);
+
+</script>

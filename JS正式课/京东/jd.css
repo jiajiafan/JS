@@ -1,0 +1,195 @@
+body,div,ul,li,ol,a,img,input,i,em,b,strong,span,p,h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    padding: 0;
+    font-family: Arial,Verdana,"\5b8b\4f53";
+    color:#666;
+}
+ul,li{
+    list-style:none;
+}
+img,input{
+    outline:none;
+}
+a{
+    text-decoration: none;
+}
+.w1210{
+    margin:0 auto;
+    width:1210px;
+}
+/*以上是全局默认样式的清除*/
+.shortcut{
+    width:100%;
+    height:30px;
+    font-size: 12px;
+    line-height:30px;
+    background-color:#f1f1f1;
+}
+.shortcut .psCity{
+    position: relative;
+    float:left;
+    border:1px solid transparent;
+    border-top:none;
+    width:98px;
+    height:29px;
+}
+.shortcut .psCity .ps{
+    float:left;
+    padding-left:10px;
+}
+.shortcut .psCity .city{
+    padding-left:5px;
+}
+.shortcut .arrows{
+    float:left;
+    position: relative;
+    width:8px;
+    height:30px;
+    padding-left:10px;
+}
+.shortcut .arrows b{
+    position: absolute;
+    top:-2px;
+}
+.shortcut .arrows i{
+    position: absolute;
+    width:8px;
+    height:8px;
+    top:5px;
+    background-color:#f1f1f1;
+    z-index:1;
+}
+.shortcut .mask{
+    position:absolute;
+    z-index:1;
+    width:100%;
+    height:1px;
+    border-bottom:1px solid #fff;
+    top:29px;
+    display: none;
+}
+.shortcut .psCity:hover,.shortcut .two:hover,.shortcut .three:hover,.shortcut .four:hover,.shortcut .five:hover,.shortcut .six:hover,.shortcut .seven:hover{
+    background-color: #fff;
+    border-left:1px solid #ddd;
+    border-right:1px solid #ddd;
+}
+.shortcut .psCity:hover .mask,.shortcut .two:hover .mask,.shortcut .three:hover .mask,.shortcut .four:hover .mask,.shortcut .five:hover .mask,.shortcut .six:hover .mask,.shortcut .seven:hover mask{
+    display: block;
+    left:0;
+}
+.shortcut .psCity:hover b,.shortcut .two:hover b,.shortcut .three:hover b,.shortcut .four:hover b,.shortcut .five:hover b,.shortcut .six:hover b,.shortcut .seven:hover b{
+    top: 2px;
+}
+.shortcut .psCity:hover i,.shortcut .two:hover i,.shortcut .three:hover i,.shortcut .four:hover i,.shortcut .five:hover i,.shortcut .six:hover i,.shortcut .seven:hover i{
+    top:17px;
+    background-color: #fff;
+}
+.shortcut .psCity ul{
+    position:absolute;
+    border:1px solid #ddd;
+    padding:0 0 10px 10px;
+    left:-1px;
+    top:30px;
+    width:300px;
+    background-color:#fff;
+    overflow: hidden;
+    display: none;
+}
+.shortcut .psCity:hover ul,.shortcut .four:hover .fourH,.shortcut .five:hover .fiveH,.shortcut .six:hover .sixH{
+    display: block;
+}
+.shortcut .psCity ul li{
+    float:left;
+    padding:5px 0;
+    width:60px;
+    height:22px;
+}
+.shortcut .psCity ul li a{
+    padding:5px 8px;
+}
+.shortcut .psCity ul li a:hover{
+    color:#c81623;
+    background-color: rgba(204,204,204,.3);
+}
+.shortcut .psCity ul li a.bg{
+    color:#fff;
+    background-color: #c81623;
+}
+/*以上是快捷键行左侧*/
+.shortcut .shortcutR{
+    float:right;
+}
+.shortcut .shortcutR li{
+    float:left;
+    padding:0 8px;
+    position: relative;
+    border:1px solid transparent;
+    border-top:none;
+}
+.shortcut .shortcutR .spacer{
+    padding:0;
+    border:none;
+    color:rgba(204,204,204,.7)
+}
+.shortcut .shortcutR a{
+    float:left;
+}
+.shortcut .shortcutR a:hover,.shortcut .shortcutR .one .zc{
+    color:#c81623;
+}
+.shortcut .shortcutR .four p{
+    display: inline-block;
+    float:left;
+    width:18px;
+    height:29px;
+    background:url(img/short.png) 0 5px no-repeat;
+}
+.shortcut .four:hover p{
+    background-position: 0 -20px;
+}
+.shortcut .four .fourH,.shortcut .five .fiveH,.shortcut .six .sixH{
+    position:absolute;
+    border:1px solid #ddd;
+    left:-1px;
+    top:30px;
+    background-color:#fff;
+    display: none;
+}
+.shortcut .four .fourH{
+    width:250px;
+    height:194px;
+    background: url(img/ewm.png) center center no-repeat;
+}
+.shortcut .five .fiveH,.shortcut .five .fiveH img{
+    width:82px;
+    height:104px;
+}
+.shortcut .sixH{
+    width:160px;
+    line-height:24px;
+    display: none;
+}
+.shortcut .sixH h4{
+    padding-left:10px;
+}
+.shortcut .sixH  ul{
+    overflow:hidden;
+}
+.shortcut .sixH  ul li{
+   width:60px;
+}
+.shortcut .sixH .tenant{
+    border-top:1px dashed #ddd;
+    padding:5px 0;
+}
+
+
+
+
+
+
+
+
+
+
+

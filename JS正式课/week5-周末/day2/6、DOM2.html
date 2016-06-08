@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM2-珠峰培训</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<script type="text/javascript" src="js/event.js"></script>
+<script type="text/javascript">
+    var oDiv = document.getElementById("div1");
+
+    //    for (var i = 1; i <= 20; i++) {
+    //        var str = "function fn" + i + "(){console.log(" + i + ");}";
+    //        eval(str);
+    //        bind(oDiv, "click", eval("fn" + i));
+    //    }
+
+
+    function fn1(ev) {
+        //this->oDiv
+        console.log(1, this === oDiv);
+    }
+
+    function fn2(ev) {
+        console.log(2);
+    }
+
+    function fn3(ev) {
+        console.log(3);
+    }
+
+    //console.log(fn1.myBind(oDiv)===fn1.myBind(oDiv)); ->false:每一次执行myBind方法都会返回一个匿名函数,两个匿名函数是不相等的
+
+    bind(oDiv, "click", fn1);
+    bind(oDiv, "click", fn2);
+    unbind(oDiv, "click", fn1);
+
+    //    bind(oDiv, "click", fn2);
+    //    bind(oDiv, "click", fn3);
+    //    bind(oDiv, "click", fn3);
+    //    bind(oDiv, "click", fn3);
+    //    unbind(oDiv, "click", fn1);
+
+    //->DOM2事件绑定的兼容问题总结
+    //"THIS问题"：方法执行的时候,标准浏览器下,方法中的THIS是当前元素;IE6~8下方法中的THIS是window;
+    //"重复问题"：标准浏览器下，往内置的事件池中增加方法，浏览器会自己进行重复处理，如果之前增加过，就不在重新的绑定增加了；IE6~8下浏览器不会自己去管是否重复，只要你绑定我就增加进去；
+    //"顺序问题"：标准浏览器下方法执行的顺序是严格按照绑定的先后顺序执行的，IE6~8下执行的顺序和绑定的顺序无关；
+
+
+    //1、标准浏览器
+    //    oDiv.addEventListener("click", fn1, false);
+    //    oDiv.addEventListener("click", fn2, false);
+    //    oDiv.addEventListener("click", fn3, false);
+    //    oDiv.addEventListener("click", fn3, false);
+
+    //->移除的时候传递进来的三个参数的值和添加的时候三个参数值需要完全统一才可以移除掉
+    //    oDiv.removeEventListener("click", fn1, false);
+    //    oDiv.removeEventListener("click", fn2, true);//->这样是无法移除开始绑定的fn2的
+
+    //->采用DOM2事件绑定,我们一般都不会给其绑定匿名函数了,因为移除的时候不知道移除谁
+    //    oDiv.addEventListener("click", function () {
+    //        console.log("ok");
+    //    }, false);
+    //    oDiv.removeEventListener("click", function () {
+    //        console.log("ok");
+    //    }, false);
+    //    oDiv.onclick = function () {
+    //        console.log("ok");
+    //    };
+    //    oDiv.onclick = null;
+
+    //2、IE6~8
+    //->在这个浏览器中如果想往内置的事件池中增加或者移除方法,就不能使用addEventListener/removeEventListener了,需要使用attachEvent/detachEvent实现
+    //->标准浏览器下传递三个参数值：事件类型、绑定的方法、绑定的阶段
+    //->IE6~8下传递两个参数值：事件类型(需要在前面加on)、绑定的方法、不需要传递绑定的阶段,浏览器默认只能绑定在冒泡阶段上
+    //    oDiv.attachEvent("onclick", fn1);
+    //    oDiv.attachEvent("onclick", fn2);
+    //    oDiv.attachEvent("onclick", fn3);
+    //    oDiv.detachEvent("onclick", fn1);
+</script>
+</body>
+</html>

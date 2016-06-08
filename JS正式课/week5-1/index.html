@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训轮播图</title>
+    <link type="text/css" rel="stylesheet" href="css/banner.css"/>
+</head>
+<body>
+<div class="banner" id="banner1">
+    <div class="inner">
+
+    </div>
+    <ul class="tip">
+
+    </ul>
+    <a href="javascript:;" class="btnLeft"></a>
+    <a href="javascript:;" class="btnRight"></a>
+</div>
+
+<div class="banner" id="banner2">
+    <div class="inner">
+
+    </div>
+    <ul class="tip">
+
+    </ul>
+    <a href="javascript:;" class="btnLeft"></a>
+    <a href="javascript:;" class="btnRight"></a>
+</div>
+
+<script charset="utf-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script charset="utf-8" type="text/javascript" src="js/banner.js"></script>
+<script type="text/javascript">
+    $("#banner1").zhufengBanner();
+
+    $("#banner2").zhufengBanner({
+        url: "json/data2.txt",
+        autoInterval: 1000
+    });
+</script>
+</body>
+</html>

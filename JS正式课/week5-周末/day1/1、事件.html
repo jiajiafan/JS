@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训-事件</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #eee;
+        }
+
+        #box {
+            margin: 1000px auto;
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript">
+    //1、事件:一件事情或者一个行为,不管是否给其绑定方法,只要当前行为触发,那么事件就会被触发
+    //->oBox.onclick
+    //->click、dblclick、mouseover、mouseout、mouseenter、mouseleave、mousemove、mousedown、mouseup、mousewheel、scroll、load、resize、keydown、keyup、keypress、blur、focus...
+
+    //2、事件绑定:给元素的某一个事件绑定一个方法,当事件触发的时候会把绑定的方法执行
+    //->oBox.onclick=function(){}  “DOM0级事件绑定”
+    //原理:给当前元素对象的某一个事件属性(私有的属性),赋一个值(值是一个函数),当相关事件触发的时候,会把对应的属性值找到并且执行
+    //->DOM0事件绑定只能给当前元素的某一个事件行为绑定一次方法,绑定多次,后面绑定的会把前面绑定的方法给覆盖掉
+
+    //->oBox.addEventListener("click",function(){},false); “DOM2级事件绑定”
+    //原理:默认的会给当前元素的某一个事件创建一个“内置的事件池”,我们通过DOM2给元素的某一个事件绑定的所有方法都会依次的存储到这个容器中,当事件触发的时候,会把容器中存储的所有方法依次的执行
+    //->DOM2事件绑定可以给当前元素的某一个事件行为绑定多个不同的方法
+
+    //    var oBox = document.getElementById("box");
+    //    //->DOM0
+    //    oBox.onclick = function A() {
+    //        console.log(this);//->this是oBox
+    //    };
+    //    oBox.onclick = function B() {
+    //        console.log("ok");
+    //    };
+    //    //->DOM2
+    //    oBox.addEventListener("click", function () {
+    //        console.log(1);
+    //    }, false);
+    //    oBox.addEventListener("click", function () {
+    //        console.log(2);
+    //    }, false);
+
+
+    //3、事件对象
+    //->事件触发的时候,相关绑定的方法都会被依次执行,不仅仅执行,浏览器还会默认给每一个方法都传递一个参数值--“事件对象” (但是在IE6~8浏览器中并没有给方法传递事件对象,在IE6~8下想要获取的话,只能通过window.event来获取)
+    //->鼠标事件对象(MouseEvent)
+    //鼠标事件对象是:用来存储当前鼠标本次操作相关信息的一个对象(它是MouseEvent这个类的一个实例)
+
+    //->键盘事件对象(KeyboardEvent)
+    var oBox = document.getElementById("box");
+    //->DOM0
+    //    oBox.onclick = function () {
+    //        console.log(0, arguments[0]);
+    //        console.dir(window.event);
+    //    };
+
+    oBox.onclick = function (ev) {
+        //ev = ev || window.event;//->处理事件对象的兼容性:标准和IE6~8用的事件对象不是同一个,所以还会存在更多的兼容性问题
+
+        //->关于事件对象在标准浏览器和IE6~8下的常用兼容问题总结
+        //1)clientX/clientY:当前鼠标操作这一点距离"当前屏幕窗口左上角(可视区域的左上角)"的X/Y轴坐标
+        //2)type:存储的是当前操做的事件类型 ->"click"
+
+        //->以下在IE6~8下都会存在兼容问题
+        //3)pageX/pageY:当前鼠标操作这一点距离"BODY左上角(第一屏幕的左上角)"的X/Y轴坐标
+        //4)target:事件源,当前鼠标是在谁身上操纵的,那么事件源就是谁,在IE6~8下我们不支持target,需要使用srcElement来代替
+        //5)preventDefault:阻止默认行为 ->returnValue=false;
+        //6)stopPropagation:阻止冒泡传播 ->cancelBubble=true;
+
+        if (!ev) {//->说明没有传递ev的值,当前的浏览器是IE6~8,我们把一些不兼容的属性都按照标准的浏览器实现一遍
+            ev = window.event;
+            ev.target = ev.srcElement;
+            ev.pageX = ev.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+            ev.pageY = ev.clientY + (document.documentElement.scrollTop || document.body.scrollTop);
+            ev.preventDefault = function () {
+                ev.returnValue = false;
+            };
+            ev.stopPropagation = function () {
+                ev.cancelBubble = true;
+            };
+        }
+
+        //->上述处理兼容的方式是把所有不兼容的都按照标准的进行重写,以后不管什么浏览器只需要按照标准的来操作即可
+        ev.preventDefault();
+        console.dir(ev);
+    };
+
+    //->DOM2
+    //    oBox.addEventListener("click", function (ev) {
+    //        console.log(2, ev);
+    //    }, false);
+
+</script>
+</body>
+</html>

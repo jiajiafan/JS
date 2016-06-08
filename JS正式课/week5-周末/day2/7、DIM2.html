@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM2-珠峰培训</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+
+<script type="text/javascript" src="js/event.js"></script>
+<script type="text/javascript">
+    var oDiv = document.getElementById("div1");
+
+    function fn1(ev) {
+        console.log(1);
+    }
+
+    function fn2(ev) {
+        console.log(2);
+    }
+
+    function fn3(ev) {
+        console.log(3);
+    }
+
+    var n = 0;
+    function fn4(ev) {
+        console.log(4);
+        n++;
+        if (n === 3) {
+            off(oDiv, "click", fn1);
+            off(oDiv, "click", fn2);
+            off(oDiv, "click", fn3);
+        }
+    }
+
+    function fn5(ev) {
+        console.log(5);
+    }
+
+    function fn6(ev) {
+        console.log(6);
+    }
+
+    function fn7(ev) {
+        console.log(7);
+    }
+
+    function fn8(ev) {
+        console.log(8);
+    }
+
+    on(oDiv, "click", fn1);
+    on(oDiv, "click", fn2);
+    on(oDiv, "click", fn3);
+    on(oDiv, "click", fn4);
+    on(oDiv, "click", fn5);
+    on(oDiv, "click", fn6);
+    on(oDiv, "click", fn7);
+    on(oDiv, "click", fn8);
+</script>
+</body>
+</html>

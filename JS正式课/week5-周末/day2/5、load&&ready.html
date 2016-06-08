@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    //->window.onload=function... && $(document).ready(function...)
+
+    //-->window.onload:当前页面的HTML结构、图片、文字等所有资源都加载完成，才会触发这个事件；在同一个页面中只能使用一次；
+    //?:因为它采用的是DOM0事件绑定,只有绑定一次,后面绑定的方法会把前面的覆盖掉;load事件本身就是资源都加载完成才会触发;
+
+    //-->$(document).ready(function...)  简写  $(function...)：当前页面的HTML结构加载完成就触发;可以在一个页面中使用多次;
+    //?:jQuery中的这个方法采用的是DOM2事件绑定,所以可以使用多次;并且它采用的是DOM2中独有的事件进行绑定的:DOMContentLoaded->这个事件的意思就是HTML结构加载完成
+    //$(document).ready(function () {});
+    //    $(function () {
+    //        console.log("ok");//->2
+    //    });
+    //    console.log("no");//->1 ->所有的事件绑定都是异步编程的
+
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("ok");
+    }, false);
+
+    //->此事件是DOM2独有的,DOM0无法使用
+    document.onDOMContentLoaded = function () {
+        console.log("ok");
+    };
+</script>
+</body>
+</html>

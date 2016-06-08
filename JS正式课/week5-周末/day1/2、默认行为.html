@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训-事件</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #eee;
+        }
+
+        #box {
+            margin: 1000px auto;
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--
+  A的默认行为:
+  ->URL页面的跳转  <a href="http://www.zhufengpeixun.cn/" target="_blank">珠峰培训</a> 在新的窗口打开跳转的页面
+  ->锚点定位:点击的时候跳转到当前页面指定ID的位置 <a href="#box">珠峰培训</a>
+
+  我们平时用A标签处理事情不一定非要跳转或者定位,有很多时候仅仅是想把它当做一个普通的按钮,利用其:hover这个伪类是兼容所有浏览器的原理实现一些样式的操作(轮播图左右切换按钮)
+  ->我们需要把A的默认行为阻止掉
+  <a href="javascript:;">珠峰培训</a> / <a href="javascript:void 0;">珠峰培训</a>
+-->
+<a href="http://www.zhufengpeixun.cn/#course-filter" target="_blank">珠峰培训-提供精彩的JS视频教程</a>
+<!--
+  锚点定位的原理:其实就是在URL地址的末尾增加一个#ID,这样加载页面的时候就会定位到指定的ID地方
+-->
+<a href="http://www.jd.com/" id="link">珠峰培训2</a>
+
+<div id="box"></div>
+<script type="text/javascript">
+    //->在JS中阻止A标签的默认行为
+    var oLink = document.getElementById("link");
+    //    oLink.onclick = function () {//->当点击的时候是先把click事件触发,然后才会执行自己的默认跳转操作
+    //        return false;
+    //    };
+
+    //    oLink.onclick = function (ev) {
+    //        ev = ev || window.event;
+    //        ev.preventDefault ? ev.preventDefault() : ev.returnValue = false;
+    //    };
+
+    oLink.onclick = function (ev) {
+        if (!ev) {
+            ev = window.event;
+            ev.preventDefault = function () {
+                ev.returnValue = false;
+            }
+        }
+        ev.preventDefault();
+    };
+
+
+    //    var a = void 0; //var a = undefined;  var a;
+    //    console.log(a);
+</script>
+</body>
+</html>
