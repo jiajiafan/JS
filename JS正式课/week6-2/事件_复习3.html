@@ -1,16 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+#div1{  height:200px; background:red;}
+</style>
+</head>
+
+<body>
+<div id="div1">div1</div>
+</body>
+</html>
+<script>
+//
 function on(ele,type,fn){
-	//加一段代码，使on方法可以处理自定义事件
-	if(/^self/.test(type)){
-		if(!ele["aSelf"+type]){
-			ele["aSelf"+type]=[];
-		}
-		var a=ele["aSelf"+type];
-		for(var i=0;i<a.length;i++){
-			if(a[i]==fn)return;	
-		}
-		a.push(fn);
-		//return;
-	}else if(ele.addEventListener){
+	if(ele.addEventListener){
 		ele.addEventListener(type,fn,false);
 	}else{
 		if(!ele["aEvent"+type]){
@@ -30,7 +35,6 @@ function on(ele,type,fn){
 
 
 function run(){
-	
 	var e=window.event;
 	var type=e.type;
 	if(!e.target){//如果事件对象上不支持类型似于target的这些属性，我们想个办法，让假装支持
@@ -54,35 +58,16 @@ function run(){
 		}
 	}
 }
-function selfRun(selfType,e){//专门用来处理自定义事件的通知方法。两个参数分别是：selfType自已发布的事件（自定义事件），e是指在执行selfRun的时候，把系统的事件对象也传进去，方便绑定在自定义事件上的方法可以使用系统事件
-		//此方法的本质就是对selfType对应的那个数组里，遍历执行里面保存的方法
-	var a=this["aSelf"+selfType];
-	if(a){
-		for(var i=0;i<a.length;i++){
-			if(typeof a[i]=="function"){
-				a[i].call(this,e);	
-			}else{
-				a.splice(i,1);
-				i--;	
-			}
-		}
-	}
-	
+on(ele,"click",fn);
+function fn(e){
+	//e=e||window.event;//我们的原则是：如果这个方法需要事件对象，但我们要让IE能够像fireFox一样，事件对象不用window.event,而是直接使用系统传给它的第一个参数作为事件对象。也就是说，以后再处理事件的兼容性，不写e=e||window.event;
+	//就是说在ie中，也使用参数e。那么这个e从那儿来呢？fn方法是由run方法来调用的，run方法中会有一个全局的window.event，只要在run方法里，把window.event传给fn，则fn的形参e就是事件对象window.event;
 	
 }
+
 function off(ele,type,fn){
-	if(/^self/.test(type)){
-		var a=ele["aSelf"+type];
-		if(a){
-			for(var i=0;i<a.length;i++){
-				if(a[i]==fn){
-					a[i]=null;
-					return;	
-				}
-			}
-		}
-		return;
-	}
+	//从数组里把指定的方法移除
+	
 	if(ele.removeEventListener){//标准浏览器就使用以下的方法
 		ele.removeEventListener(type,fn,false);
 	}else{
@@ -98,7 +83,7 @@ function off(ele,type,fn){
 		}
 	}
 }
-
-function processThis(fn,obj){
-				return function(e){fn.call(obj,e)}
-			}
+ele.onclick=fn;
+ele.onclick=fn(e);
+ele.addEventListener("click",fn,false);
+</script>

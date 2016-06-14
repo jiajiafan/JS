@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<title>无标题文档</title>
+<style type="text/css">
+#outer{ width:75%; height:200px; margin:0 auto; ; font-size:98px; text-align:center; line-height:200px;}
+#inner{ width:500%; height:200px;  }
+/*  inner是五个outer宽，inner里要放五个图片（五个div）  */
+#inner div{ width:20%; height:200px; float:left; background:black; color:white; transition-duration:1s}
+
+
+</style>
+</head>
+
+<body>
+	<div id="outer">
+    	<div id="inner">
+        	<div>1</div>
+            <div style="background:red;">2</div>
+            <div style="background:deepSkyBlue;">3</div>
+            <div style="background:yellow;">4</div>
+            <div style="background:green;">5</div>
+        </div>
+    
+    </div>
+</body>
+</html>
+<script>
+//移动端的效果多数使用CSS3属性完成，最常用的几个CSS3属性
+//transform:变形
+//transform:translate(Xpx,Ypx);指当前元素向左平移x像素，向上（重直方向）移动Y像素
+//transition-duration:0.5s;变形变换所需的周期0.5秒
+outer.onclick=function(){
+	inner.firstElementChild.style.transform="translate(-200px,0)";	
+	//rotate(360deg)
+	//inner.firstElementChild.style.opacity=0;
+}
+</script>

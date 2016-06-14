@@ -1,7 +1,7 @@
 body,div,ul,li,ol,a,img,input,i,em,b,strong,span,p,h1,h2,h3,h4,h5,h6{
     margin: 0;
     padding: 0;
-    font-family: Arial,Verdana,"\5b8b\4f53";
+    font-family: Arial,Verdana,"\5b8b\4f53","microsoft yahei";
     color:#666;
 }
 ul,li{
@@ -9,13 +9,22 @@ ul,li{
 }
 img,input{
     outline:none;
+    border:none;
 }
 a{
     text-decoration: none;
+    font-size:12px;
 }
 .w1210{
     margin:0 auto;
     width:1210px;
+}
+.clear{
+    clear: both;
+    content: '';
+    height:0;
+    line-height:0;
+    font-size:0;
 }
 /*以上是全局默认样式的清除*/
 .shortcut{
@@ -53,17 +62,18 @@ a{
 }
 .shortcut .arrows i{
     position: absolute;
-    width:8px;
+    width:12px;
     height:8px;
     top:5px;
     background-color:#f1f1f1;
     z-index:1;
 }
-.shortcut .mask{
+.mask{
     position:absolute;
-    z-index:1;
+    z-index:2;
     width:100%;
-    height:1px;
+    height:2px;
+    background-color:#fff;
     border-bottom:1px solid #fff;
     top:29px;
     display: none;
@@ -73,7 +83,7 @@ a{
     border-left:1px solid #ddd;
     border-right:1px solid #ddd;
 }
-.shortcut .psCity:hover .mask,.shortcut .two:hover .mask,.shortcut .three:hover .mask,.shortcut .four:hover .mask,.shortcut .five:hover .mask,.shortcut .six:hover .mask,.shortcut .seven:hover mask{
+.shortcut .psCity:hover .mask,.shortcut .two:hover .mask,.shortcut .three:hover .mask,.shortcut .four:hover .mask,.shortcut .five:hover .mask,.shortcut .six:hover .mask,.shortcut .seven:hover .mask{
     display: block;
     left:0;
 }
@@ -95,8 +105,9 @@ a{
     overflow: hidden;
     display: none;
 }
-.shortcut .psCity:hover ul,.shortcut .four:hover .fourH,.shortcut .five:hover .fiveH,.shortcut .six:hover .sixH{
+.shortcut .psCity:hover ul,.shortcut .two:hover .twoH,.shortcut .four:hover .fourH,.shortcut .five:hover .fiveH,.shortcut .six:hover .sixH,.shortcut .seven:hover .sevenH,.store:hover .storeH{
     display: block;
+    z-index: 1;
 }
 .shortcut .psCity ul li{
     float:left;
@@ -137,6 +148,50 @@ a{
 .shortcut .shortcutR a:hover,.shortcut .shortcutR .one .zc{
     color:#c81623;
 }
+.shortcut .two .twoH,.shortcut .four .fourH,.shortcut .five .fiveH,.shortcut .six .sixH{
+    position:absolute;
+    border:1px solid #ddd;
+    left:-1px;
+    top:30px;
+    background-color:#fff;
+    display: none;
+}
+.shortcut .two .twoH{
+    width:263px;
+    overflow: hidden;
+}
+.shortcut .two .twoH .favicon{
+    float:left;
+    margin-left:15px;
+    margin-top:10px;
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    background:url(img/touxiang.jpg) center center no-repeat;
+}
+.shortcut .twoH .faviconR{
+    padding-top:12px;
+}
+.shortcut .twoH .faviconR p{
+    padding-left:90px;
+    height:30px;
+}
+.shortcut .twoH .faviconR .hello{
+    font-weight:700;
+}
+.shortcut .twoH .faviconR span{
+    float:left;
+    margin:0 8px;
+}
+.shortcut .twoH ul{
+    padding-top:15px;
+    width:100%;
+    overflow: hidden;
+}
+.shortcut .twoH ul li{
+    width:110px;
+   line-height:24px;
+}
 .shortcut .shortcutR .four p{
     display: inline-block;
     float:left;
@@ -147,18 +202,22 @@ a{
 .shortcut .four:hover p{
     background-position: 0 -20px;
 }
-.shortcut .four .fourH,.shortcut .five .fiveH,.shortcut .six .sixH{
-    position:absolute;
-    border:1px solid #ddd;
-    left:-1px;
-    top:30px;
-    background-color:#fff;
-    display: none;
-}
 .shortcut .four .fourH{
     width:250px;
     height:194px;
     background: url(img/ewm.png) center center no-repeat;
+}
+.shortcut .four .fourH a{
+   display: block;
+    position: absolute;
+    color:#c81623;
+    left:98px;
+}
+.shortcut .four .fourH .yh{
+    top:20px;
+}
+.shortcut .four .fourH .qb{
+    top:118px;
 }
 .shortcut .five .fiveH,.shortcut .five .fiveH img{
     width:82px;
@@ -182,14 +241,289 @@ a{
     border-top:1px dashed #ddd;
     padding:5px 0;
 }
+.shortcut .seven .sevenH{
+    position:absolute;
+    border:1px solid #ddd;
+    right:-1px;
+    top:30px;
+    background-color:#fff;
+    display: none;
+}
+.shortcut .seven .sevenH div{
+   display: inline-block;
+    margin:15px 0 15px 10px;
+    border-right:1px solid #ddd;
+    width:289px;
+}
+.shortcut .seven .sevenH div ul li{
+    width:86px;
+    padding-left:0;
+}
+.shortcut .seven .sevenH .more{
+    border:none;
+}
+/*以上是快捷键右侧*/
+.banner1{
+    width:100%;
+    height:120px;
+    background-color:#a42cff;
+}
+.banner1 a,.banner1 img{
+    display: block;
+    width:100%;
+    height:119px;
+}
+.banner1 span{
+    position: absolute;
+    top:5px;
+    right:5px;
+    width:19px;
+    height:19px;
+    background: url(img/XX.png) no-repeat 0 0;
+    cursor: pointer;
+}
+.banner1 span:hover{
+    background-position: 0 -19px;
+}
+/*以上是banner1部分*/
+.navTop{
+    /*overflow: hidden;*/
+}
+.logo-2016{
+    float:left;
+    width:362px;
+    height:60px;
+    padding:20px 0;
+}
+.logo-2016 a{
+    display: block;
+    width:270px;
+    height:60px;
+    background: url(img/logo.png) no-repeat;
+}
+.search-2016{
+    float:left;
+    width:538px;
+    height:40px;
+    padding-top:25px;
+}
+.search-2016 form input[type=text]{
+   float:left;
+    width:444px;
+    height:24px;
+    padding:4px;
+    font-size:14px;
+    border:2px solid #c81623;
+}
+.search-2016 form input[type=button]{
+    float: left;
+    width:82px;
+    height:36px;
+    background: #c81623;
+    font-size:16px;
+    color:#fff;
+    cursor:pointer;
+}
+.store{
+    position: relative;
+    float:right;
+    border:1px solid #ddd;
+    margin:25px 65px 0 0;
+    font-size:12px;
+    width:142px;
+    height:34px;
+    background-color:#f9f9f9;
+}
+.store a{
+    display: inline-block;
+    padding:0 28px 0 36px;
+    width:78px;
+    line-height:34px;
+    text-align: center;
+}
+.store .storeL{
+    position: absolute;
+    left:18px;
+    top:9px;
+    width:18px;
+    height:16px;
+    background:url(img/short.png) 0 -58px no-repeat;
+}
+.store .storeR{
+    position: absolute;
+    width:7px;
+    top:9px;
+    right:10px;
+}
+.store .storeT{
+    position: absolute;
+    border-radius: 7px 7px 7px 0;
+    background: #c81623;
+    top:-4px;
+    right:23px;
+    width:14px;
+    line-height:14px;
+    text-align: center;
+    font-style: normal;
+    color:#fff;
+}
+.store .storeH{
+    position: absolute;
+    right:-1px;
+    top:35px;
+    border:1px solid #ddd;
+    box-shadow:0 0 1px 1px #f1f1f1;
+    padding-left:30px;
+    width:278px;
+    height:70px;
+    background-color: #fff;
+    display: none;
+}
+.store .storeH span{
+    float:left;
+    width:56px;
+    height:49px;
+    margin-top:10px;
+    background: url(img/storeH.png);
+}
+.store .storeH i{
+    font-style:normal;
+    line-height:70px;
+    color:#999;
+}
+.store:hover{
+    box-shadow:0 0 1px 1px #f1f1f1;
+    background-color:#fff;
+    border-bottom: none;
+}
+.store:hover .mask{
+    top:33px;
+    display: block;
+}
+.navTop ul{
+    float:left;
+}
+.navTop li{
+    float:left;
+    margin-right:10px;
+    line-height:20px;
+}
+.navTop li a:hover,.navTop ul .frist{
+    color:#c81623;
+}
+/*以上是logo和搜索行*/
+.nav{
+    height:44px;
+    min-width:1210px;
+    border-bottom:2px solid #B1191A;
+}
+.nav h4{
+    float:left;
+    padding:0 10px;
+    width:190px;
+    height:44px;
+    color:#fff;
+    font:400 15px/44px "microsoft yahei";
+    background-color: #B1191A;
+}
+.nav ul{
+    float:left;
+    overflow: hidden;
+}
+.nav ul li{
+    float:left;
+}
+.nav ul li a{
+    display: block;
+    padding:0 20px;
+    height:44px;
+    line-height:44px;
+    font-size:16px;
+    text-align:center;
+}
+.nav ul li a:hover{
+    color:#c81623;
+}
+.nav ul .xin{
+    position: relative;
+}
+.nav ul .xin i{
+    position: absolute;
+    top:-1px;
+    right:-2px;
+    display: block;
+    width:22px;
+    height:20px;
+    background:url(img/xin.jpg) no-repeat 0 0;
+}
+.nav .promotion{
+    float:right;
+}
+.nav .promotion a{
+    display: block;
+    width:175px;
+    height:40px;
+    background: url(img/618.jpg) no-repeat 0 0;
+}
+/*以上是主导航栏*/
+.mainConT{
+    width:100%;
+    height:613px;
+    background: url(img/background.jpg) no-repeat center center;
+}
+.mainConT .menus{
+    float:left;
+    background-color: #c81623;
+    border-left:1px solid #b61d1d;
+    border-bottom: 1px solid #b61d1d;
+}
+.mainConT .menus li{
+    position: relative;
+    padding:0 10px;
+    width:189px;
+    height:31px;
+    overflow: visible;
+}
+.mainConT .menus li h3 a{
+    font:400 14px/31px "microsoft yahei";
+    color:#fff;
+}
+.mainConT .menus li h3 i{
+    position: absolute;
+    top:10px;
+    right:15px;
+    width: 4px;
+    height:14px;
+    font-size:12px;
+    color:#fff;
+}
+.mainConT .drop{
+    position: absolute;
+    left:209px;
+    top:-1px;
+    border:1px solid #b61d1d;
+    padding:20px;
+    width:957px;
+    background-color: #f7f7f7;
+    overflow: hidden;
+}
+.mainConT .drop ol{
+    float:left;
+}
+.mainConT .drop ol li{
+    display: inline-block;
+    width:auto;
+    height:auto;
+}
+.mainConT .drop ol a{
+    display: inline-block;
+    padding:5px 10px;
+    background-color:#7c7c7c;
+    color:#fff;
+}
+.mainConT .drop ol i{
 
-
-
-
-
-
-
-
+}
 
 
 

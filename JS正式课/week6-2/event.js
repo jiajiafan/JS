@@ -1,16 +1,5 @@
 function on(ele,type,fn){
-	//加一段代码，使on方法可以处理自定义事件
-	if(/^self/.test(type)){
-		if(!ele["aSelf"+type]){
-			ele["aSelf"+type]=[];
-		}
-		var a=ele["aSelf"+type];
-		for(var i=0;i<a.length;i++){
-			if(a[i]==fn)return;	
-		}
-		a.push(fn);
-		//return;
-	}else if(ele.addEventListener){
+	if(ele.addEventListener){
 		ele.addEventListener(type,fn,false);
 	}else{
 		if(!ele["aEvent"+type]){
@@ -30,7 +19,6 @@ function on(ele,type,fn){
 
 
 function run(){
-	
 	var e=window.event;
 	var type=e.type;
 	if(!e.target){//如果事件对象上不支持类型似于target的这些属性，我们想个办法，让假装支持
@@ -54,35 +42,8 @@ function run(){
 		}
 	}
 }
-function selfRun(selfType,e){//专门用来处理自定义事件的通知方法。两个参数分别是：selfType自已发布的事件（自定义事件），e是指在执行selfRun的时候，把系统的事件对象也传进去，方便绑定在自定义事件上的方法可以使用系统事件
-		//此方法的本质就是对selfType对应的那个数组里，遍历执行里面保存的方法
-	var a=this["aSelf"+selfType];
-	if(a){
-		for(var i=0;i<a.length;i++){
-			if(typeof a[i]=="function"){
-				a[i].call(this,e);	
-			}else{
-				a.splice(i,1);
-				i--;	
-			}
-		}
-	}
-	
-	
-}
+
 function off(ele,type,fn){
-	if(/^self/.test(type)){
-		var a=ele["aSelf"+type];
-		if(a){
-			for(var i=0;i<a.length;i++){
-				if(a[i]==fn){
-					a[i]=null;
-					return;	
-				}
-			}
-		}
-		return;
-	}
 	if(ele.removeEventListener){//标准浏览器就使用以下的方法
 		ele.removeEventListener(type,fn,false);
 	}else{

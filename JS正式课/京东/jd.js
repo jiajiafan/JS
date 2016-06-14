@@ -4,6 +4,8 @@
 window.onload=function(){
     var cityList=document.getElementById('cityList');
     var city=document.getElementById('city');
+    var oBanner=document.getElementById('banner1');
+    var oSpan=oBanner.getElementsByTagName('span')[0];
     function citySelect(ev){
         ev=ev||window.event;
         var tar=ev.target||ev.srcElement;
@@ -24,6 +26,11 @@ window.onload=function(){
     }
      select();
     cityList.addEventListener('click',citySelect);
-    // 以上是快捷行左侧
+    // 以上是快捷键左侧,城市的选择
+    oSpan.onclick=function(){
+        oBanner.style.display='none';
+    };
+  // 以上是banner1的点解隐藏  
+    
  };
 

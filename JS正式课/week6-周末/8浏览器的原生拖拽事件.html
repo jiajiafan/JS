@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0; -webkit-user-select:none;}
+div{ width:100px; height:100px; background:red; position:absolute; top:0; left:0; cursor:move;}
+</style>
+</head>
+
+<body>
+
+<div id="div1" draggable="true"></div>
+</body>
+</html>
+<script>
+var ele=document.getElementById("div1");
+ele.ondragstart;
+ele.ondrag
+ele.ondragend;
+//原生的浏览器拖拽事件，只完成了事件（只发布了事件），没有实现具体拖拽的代码
+/*ele.ondragstart=down
+ele.ondrag=move
+
+ele.ondragend=up*/
+function down(e){
+	this.x=this.offsetLeft;
+	this.y=this.offsetTop;
+	this.mx=e.pageX;
+	this.my=e.pageY;
+	//事件的事就不会再在这里具体实现了，浏览器的事件发布机制，已经就把事件组装好了
+	
+	
+}
+
+function move(e){
+	this.style.left=this.x+e.pageX-this.mx+"px";
+	this.style.top=this.y+e.pageY-this.my+"px";
+}
+
+function up(e){
+	this.style.left=this.x+e.pageX-this.mx+"px";
+	this.style.top=this.y+e.pageY-this.my+"px";
+}
+ele.addEventListener("dragstart",down,false);
+ele.addEventListener("drag",move,false);
+ele.addEventListener("dragend",up,false);
+</script>

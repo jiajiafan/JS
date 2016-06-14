@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+ul{ margin:100px auto; padding:5px; width:480px; height:640px; position:relative; background:#FF9; list-style:none; }
+li{ width:150px; height:150px; padding:0; margin:5px; float:left; background:#3CC; cursor:move; -webkit-user-select:none; overflow:hidden; }
+img{ width:150px; height:150px; }
+</style>
+</head>
+
+<body>
+<ul>
+	<li><img src="img/1.png"></li>
+    <li><img src="img/2.png"></li>
+    <li><img src="img/3.png"></li>
+    <li><img src="img/4.png"></li>
+    <li><img src="img/5.png"></li>
+    <li><img src="img/6.png"></li>
+    <li><img src="img/7.png"></li>
+    <li><img src="img/8.png"></li>
+    <li><img src="img/9.png"></li>
+    <li><img src="img/10.png"></li>
+    <li><img src="img/11.png"></li>
+    <li><img src="img/12.png"></li>
+	
+</ul>
+</body>
+</html>
+<script src="event1.js"></script>
+<script src="drag_oop.js"></script>
+<script>
+//第一步：把浮动布局改造成绝对定位布局，以便拖拽
+var oLis=document.getElementsByTagName("li");
+/*for(var i=0;i<oLis.length;i++){
+	var oLi=oLis.item(i);
+	//oLi.style.position="absolute";//做了绝对定位之后，盒子脱离了标准流，后边的元素就看不到它了，造成后边的元素浮动到了最前边来，然后它们的offsetLeft和offsetTop就会在新的位置上重新计算
+	oLi.style.left=oLi.offsetLeft+"px";
+	oLi.style.top=oLi.offsetTop+"px";	
+}
+
+
+for(var i=0;i<oLis.length;i++){
+	var oLi=oLis.item(i);
+	oLi.style.position="absolute";
+	//先把offsetLeft和offsetTop的值保存到left和top中，然后再做绝对定位，问题大体可以解决。但是，会有5px的偏差，这5px的偏差那儿来的呢？
+	//原来li设的margin的影响。为什么会有这个影响呢？
+	//offsetLeft包括不包括margin？包括。第一个li的offsetLeft是多少？5px
+	//第二个li是多少？offsetLeft是150+2*5+5px
+	//把以上的两个offsetLeft转成绝对定位的left会怎么样呢？
+	//第一个li，li.style.left="5px".定位是从margin里边开始的呢还是从margin的外边开始的呢？答案是距离margin的外边。
+	//所以要写这一行代码
+	oLi.style.margin=0;
+	
+}*/
+
+for(var i=oLis.length-1;i>=0;i--){
+	var oLi=oLis.item(i);
+	/*
+	oLi.style.left=oLi.offsetLeft+"px";
+	oLi.style.top=oLi.offsetTop+"px";
+	
+	oLi.style.position="absolute";
+	oLi.style.margin=0;	
+	*/
+	with(oLi.style){
+		left=oLi.offsetLeft+"px";
+		top=oLi.offsetTop+"px";	
+		position="absolute";
+		margin=0;
+	}
+}
+
+
+</script>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+div{ width:100px; height:100px; position:absolute; top:0; left:0; background:red; overflow:hidden; cursor:move; -webkit-user-select:none;}
+</style>
+</head>
+
+<body>
+<div id="div1">div,div,div</div>
+<div id="div2" style="left:200px; "><img src="img.jpg" width="100" height="100"></div>
+<div id="div3"  style="left:200px; top:100px; "><img src="img2.jpg" width="100" height="100"></div>
+<div id="div4"  style="left:300px; top:300px; "><img src="img3.jpg" width="100" height="100"></div>
+</body>
+</html>
+<script src="event1.js"></script>
+<script>
+/*
+	1.先要确定这个类的组成
+		构造函数   实现基本功能的方法
+	2.承载所有行为的主体--当前实例---在类的方法里就是this；类的方法里，this就是指当前类的实例
+	当前类的实例，它承载了所有和拖拽相关的属性和方法
+	this已经不再是被拖拽的元素了，
+	被拖拽的元素已经是拖拽这个主体上的一个属性了。
+	this是指这个Drag类的实例，不是其它的元素，这是个原则问题，如果在实现代码的时候和这个原则冲突，则以这个原则为准
+	3.构造函数的功能
+		初始化的功能，把实现拖拽这个功能的所有的准备工作做好
+		
+*/
+/*
+var obj={attr1:function(){alert(this)}};
+obj.attr1;
+var fn=obj.attr1;
+fn();
+obj2={};
+obj2.fn=obj.attr1;
+obj2.fn();
+
+
+吃饭  这个行为的描述-- 这会有执行这个行为的主体嘛？---被保存一个地址中了
+吃饭  这个行为执行--这会才有谁在执行这个吃饭行为的这个主体---就相当于三种人称中的“我”,就是this,context
+*/
+function Drag(ele){//ele是指定被拖拽的那个元素
+	this.ele=ele;//先把被拖拽的元素保存到当前实例一个属性上。
+	//this.attr=ele;
+	this.x=null;
+	this.y=null;
+	this.mx=null;
+	this.my=null;
+	
+	/*
+	on(this.ele,"mousedown",this.down);
+	//this是谁，和它的引用地址，和如何找到的这个引用地址，和它是如何定义的，都没有关系。this是谁，只由执行的时候有关系
+	//事件绑定的原则是：这个方法绑定给那个元素了，则当事件触发的时候，这个方法里的this就是那个元素。把this.down绑定给ele了，当mousedown触发的时候，down方法里的this就是this.ele
+	//这样，和面向对象中this的原则就冲突了，则必须将其纠正
+	//张三.二大爷.四舅.三姑.请客；
+	//
+	//当mousedown事件触发的时候，down方法里的this是谁呢？
+	*/
+	var that=this;
+	//on(this.ele,"mousedown",function(e){this.down.call(this,e)});这样写是错的
+	//on(this.ele,"mousedown",function(e){that.down.call(that,e)});
+	
+	//以下三种方式只写一种就可以
+	this.DOWN=function(e){that.down.call(that,e)};
+	this.DOWN=processThis(this.down,this);
+	this.DOWN=this.down.bind(this);//chrome里这个也可以
+	
+	on(this.ele,"mousedown",this.DOWN);
+	
+	//this的原则冲突的不但有this.down方法，还有this.move和this.up方法，则一起在这里都处理了
+	this.MOVE=processThis(this.move,this);
+	this.UP=processThis(this.up,this);
+	
+	 
+}
+Drag.prototype.down=function(e){
+	//就是要把被拖拽的元素事先保存下来
+	this.x=this.ele.offsetLeft;
+	this.y=this.ele.offsetTop;
+	this.mx=e.pageX;
+	this.my=e.pageY;
+	
+	if(this.ele.setCapture){
+		this.ele.setCapture();
+		on(this.ele,"mousemove",this.MOVE);
+		on(this.ele,"mouseup",this.UP);
+	}else{
+		on(document,"mousemove",this.MOVE);
+		on(document,"mouseup",this.UP);
+	}
+	e.preventDefault();
+}
+
+Drag.prototype.move=function(e){
+	this.ele.style.left=e.pageX-this.mx+this.x+"px";
+	this.ele.style.top=e.pageY-this.my+this.y+"px";
+	
+}
+
+Drag.prototype.up=function(e){
+	
+	if(this.ele.releaseCapture){
+		this.ele.releaseCapture();
+		off(this.ele,"mousemove",this.MOVE);
+		off(this.ele,"mouseup",this.UP);	
+	}else{
+		off(document,"mousemove",this.MOVE);
+		off(document,"mouseup",this.UP);
+	}
+	
+}
+
+/*var obj1=new Drag(div1);
+var obj2=new Drag(div2);
+var obj3=new Drag(div3);
+var obj4=new Drag(div4);*/
+
+new Drag(div1);
+new Drag(div2);
+new Drag(div3);
+new Drag(div4);
+
+</script>
