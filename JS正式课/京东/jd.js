@@ -30,7 +30,31 @@ window.onload=function(){
     oSpan.onclick=function(){
         oBanner.style.display='none';
     };
-  // 以上是banner1的点解隐藏  
+   // 以上是banner1的点击隐藏
+    var menus=document.getElementById("menus");
+    var aLi=utils.children(menus);
+    for(var i=0,ln=aLi.length;i<ln;i++){
+        var curLi=aLi[i];
+        aLi[i].index=i;
+        curLi.onmouseover=function(){
+            var h=utils.children(this)[0];
+            var div=utils.next(h);
+            utils.addClass(h,'list');
+            div.style.display='block';
+        };
+        curLi.onmouseout=function(){
+            var h=utils.children(this)[0];
+            var div=utils.next(h);
+            utils.removeClass(h,'list');
+            div.style.display='none';
+        }
+    }
+//    以上是banner图左侧部分
     
- };
+
+
+
+
+
+};
 

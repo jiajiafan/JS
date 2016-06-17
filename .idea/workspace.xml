@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14189045-065c-48ae-8daa-06057cf88532" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/JS正式课/week6-2/1.自由落体动画.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/JS正式课/京东/img/logo-201305.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/javascript201604" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS基础理论知识/JS免费课理论知识.docx" afterPath="$PROJECT_DIR$/JS基础理论知识/JS免费课理论知识.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS正式课/.idea/workspace.xml" afterPath="$PROJECT_DIR$/JS正式课/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS正式课/event.js" afterPath="$PROJECT_DIR$/JS正式课/event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS正式课/京东/jd.css" afterPath="$PROJECT_DIR$/JS正式课/京东/jd.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS正式课/京东/jd.js" afterPath="$PROJECT_DIR$/JS正式课/京东/jd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS正式课/京东/京东.html" afterPath="$PROJECT_DIR$/JS正式课/京东/京东.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html+css/.idea/workspace.xml" afterPath="$PROJECT_DIR$/html+css/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS正式课/week7-1/1.node.html" afterPath="$PROJECT_DIR$/JS正式课/week7-1/1.node.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS正式课/week7-1/笔记" afterPath="$PROJECT_DIR$/JS正式课/week7-1/笔记" />
     </list>
     <ignored path="JS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,7 +31,7 @@
       <file leaf-file-name="move.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JS正式课/练习/move.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="936">
+            <state relative-caret-position="0">
               <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
               <folding />
             </state>
@@ -49,8 +41,8 @@
       <file leaf-file-name="move.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JS正式课/week4-周末/day2/js/move.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="8" column="10" selection-start-line="0" selection-start-column="0" selection-end-line="238" selection-end-column="5" />
+            <state relative-caret-position="234">
+              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -146,7 +138,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1440" />
+    <option name="width" value="1416" />
     <option name="height" value="791" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -174,7 +166,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -184,8 +175,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -196,6 +198,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/JS正式课" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -296,17 +299,18 @@
       <updated>1463152884719</updated>
       <workItem from="1465524131358" duration="1000" />
       <workItem from="1465743535068" duration="23000" />
+      <workItem from="1465890614924" duration="144000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24000" />
+    <option name="totallyTimeSpent" value="168000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="791" extended-state="6" />
+    <frame x="0" y="23" width="1416" height="791" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14164905" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14121863" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.504142" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -369,20 +373,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/JS正式课/week4-2/6.最终版tween动画库.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS正式课/week4-2/10.自动轮播和点击切换.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="130" column="9" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JS正式课/week4-2/9.自动轮播-向右.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -706,7 +696,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JS正式课/练习/move.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
+        <state relative-caret-position="0">
           <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
           <folding />
         </state>
@@ -720,10 +710,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js前两周/day5/递归调用.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-728">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js前两周/周末班四天及补课课件/day3/6.任意个参数求和.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/JS正式课/week4-周末/day2/js/move.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="8" column="10" selection-start-line="0" selection-start-column="0" selection-end-line="238" selection-end-column="5" />
+        <state relative-caret-position="234">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
           <folding />
         </state>
       </provider>

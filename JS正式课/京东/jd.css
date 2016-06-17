@@ -15,6 +15,9 @@ a{
     text-decoration: none;
     font-size:12px;
 }
+a:hover{
+    color:#c81623;
+}
 .w1210{
     margin:0 auto;
     width:1210px;
@@ -78,12 +81,12 @@ a{
     top:29px;
     display: none;
 }
-.shortcut .psCity:hover,.shortcut .two:hover,.shortcut .three:hover,.shortcut .four:hover,.shortcut .five:hover,.shortcut .six:hover,.shortcut .seven:hover{
+.shortcut .psCity:hover,.shortcut .two:hover,.shortcut .four:hover,.shortcut .five:hover,.shortcut .six:hover,.shortcut .seven:hover{
     background-color: #fff;
     border-left:1px solid #ddd;
     border-right:1px solid #ddd;
 }
-.shortcut .psCity:hover .mask,.shortcut .two:hover .mask,.shortcut .three:hover .mask,.shortcut .four:hover .mask,.shortcut .five:hover .mask,.shortcut .six:hover .mask,.shortcut .seven:hover .mask{
+.shortcut .psCity:hover .mask,.shortcut .two:hover .mask,.shortcut .four:hover .mask,.shortcut .five:hover .mask,.shortcut .six:hover .mask,.shortcut .seven:hover .mask{
     display: block;
     left:0;
 }
@@ -119,7 +122,6 @@ a{
     padding:5px 8px;
 }
 .shortcut .psCity ul li a:hover{
-    color:#c81623;
     background-color: rgba(204,204,204,.3);
 }
 .shortcut .psCity ul li a.bg{
@@ -145,7 +147,7 @@ a{
 .shortcut .shortcutR a{
     float:left;
 }
-.shortcut .shortcutR a:hover,.shortcut .shortcutR .one .zc{
+.shortcut .shortcutR .one .zc{
     color:#c81623;
 }
 .shortcut .two .twoH,.shortcut .four .fourH,.shortcut .five .fiveH,.shortcut .six .sixH{
@@ -190,7 +192,7 @@ a{
 }
 .shortcut .twoH ul li{
     width:110px;
-   line-height:24px;
+    line-height:24px;
 }
 .shortcut .shortcutR .four p{
     display: inline-block;
@@ -208,7 +210,7 @@ a{
     background: url(img/ewm.png) center center no-repeat;
 }
 .shortcut .four .fourH a{
-   display: block;
+    display: block;
     position: absolute;
     color:#c81623;
     left:98px;
@@ -235,7 +237,7 @@ a{
     overflow:hidden;
 }
 .shortcut .sixH  ul li{
-   width:60px;
+    width:60px;
 }
 .shortcut .sixH .tenant{
     border-top:1px dashed #ddd;
@@ -250,7 +252,7 @@ a{
     display: none;
 }
 .shortcut .seven .sevenH div{
-   display: inline-block;
+    display: inline-block;
     margin:15px 0 15px 10px;
     border-right:1px solid #ddd;
     width:289px;
@@ -286,9 +288,6 @@ a{
     background-position: 0 -19px;
 }
 /*以上是banner1部分*/
-.navTop{
-    /*overflow: hidden;*/
-}
 .logo-2016{
     float:left;
     width:362px;
@@ -308,7 +307,7 @@ a{
     padding-top:25px;
 }
 .search-2016 form input[type=text]{
-   float:left;
+    float:left;
     width:444px;
     height:24px;
     padding:4px;
@@ -408,7 +407,7 @@ a{
     margin-right:10px;
     line-height:20px;
 }
-.navTop li a:hover,.navTop ul .frist{
+.navTop ul .frist{
     color:#c81623;
 }
 /*以上是logo和搜索行*/
@@ -441,9 +440,6 @@ a{
     font-size:16px;
     text-align:center;
 }
-.nav ul li a:hover{
-    color:#c81623;
-}
 .nav ul .xin{
     position: relative;
 }
@@ -472,58 +468,139 @@ a{
     background: url(img/background.jpg) no-repeat center center;
 }
 .mainConT .menus{
+    position: relative;
     float:left;
     background-color: #c81623;
     border-left:1px solid #b61d1d;
-    border-bottom: 1px solid #b61d1d;
+    border-bottom:1px solid #b61d1d;
 }
-.mainConT .menus li{
+.mainConT .menus i{
+    color:#fff;
+    font:400 9px/24px consolas;
+}
+.mainConT .menus h3{
     position: relative;
     padding:0 10px;
     width:189px;
-    height:31px;
-    overflow: visible;
 }
-.mainConT .menus li h3 a{
-    font:400 14px/31px "microsoft yahei";
+.mainConT .menus h3 a{
+    font:300 14px/31px "microsoft yahei";
+    float:left;
     color:#fff;
 }
-.mainConT .menus li h3 i{
-    position: absolute;
-    top:10px;
-    right:15px;
-    width: 4px;
-    height:14px;
-    font-size:12px;
-    color:#fff;
+.mainConT .menus h3 i{
+    float:right;
+    line-height:31px;
 }
-.mainConT .drop{
+.mainConT .menus .list b{
     position: absolute;
-    left:209px;
+    width:1px;
+    height:100%;
+    top:0;
+    right:0;
+    background:#f7f7f7;
+    z-index:1;
+}
+.mainConT .menusH{
+    position: absolute;
     top:-1px;
+    left:208px;
     border:1px solid #b61d1d;
     padding:20px;
-    width:957px;
+    width:958px;
     background-color: #f7f7f7;
-    overflow: hidden;
+    display: none;
+    min-height:425px;
 }
-.mainConT .drop ol{
+.mainConT .drop{
     float:left;
+    width:710px;
 }
 .mainConT .drop ol li{
-    display: inline-block;
-    width:auto;
-    height:auto;
+    float:left;
+    margin-right:10px;
 }
-.mainConT .drop ol a{
-    display: inline-block;
-    padding:5px 10px;
-    background-color:#7c7c7c;
+.mainConT .drop ol a,.drop ol i{
+    float:left;
+    line-height:24px;
     color:#fff;
 }
-.mainConT .drop ol i{
-
+.mainConT .drop ol a{
+    padding:0 10px;
+    background-color:#7c7c7c;
 }
-
-
-
+.drop ol i{
+    width:23px;
+    text-align: center;
+    background-color: #5c5251;
+}
+.mainConT .menus h3,.mainConT .drop ol,.drop .item ul{
+    overflow: hidden;
+}
+.drop .item h4{
+    float:left;
+    margin:8px 5px 0 0;
+    width:80px;
+}
+.drop .item h4 i{
+    float:right;
+    padding:0 6px;
+    color:#848484;
+}
+.drop .item h4 a{
+    float:right;
+    line-height:24px;
+    color:#7d7d7d;
+}
+.drop .item ul{
+    margin-top:8px;
+    border-top:1px solid #eee;
+}
+.drop .item .itemF{
+    border: none;
+}
+.drop .item li{
+    float:left;
+}
+.drop .item li a{
+    display: block;
+    margin-top:10px;
+    border-left:1px solid #e0e0e0;
+    padding:0 10px;
+    color:#666;
+}
+.drop .item a:hover{
+    color:#c81622;
+}
+.drop .item h4:hover i{
+  color:#c81622;
+}
+.menusH .brand{
+    float:right;
+    width:168px;
+}
+.menusH .brand a{
+    float:left;
+    width:83px;
+    height:35px;
+    margin:1px 0 0 1px;
+}
+.menusH .brand .brandB{
+    margin-top:10px;
+}
+.menusH .brand .brandB,.menusH .brand .brandB img{
+    width:168px;
+    height:130px;
+}
+.menus li .list{
+    background-color:#f7f7f7;
+}
+.mainConT .menus .list a{
+    color:#c81623;
+}
+.menusH .drop .dropF a{
+    background-color:#c81623;
+}
+.drop .dropF i{
+    background-color: #b1191a;
+}
