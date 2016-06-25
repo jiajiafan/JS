@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>兼容处理-珠峰培训</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+
+            width: 200px;
+            height: 200px;
+            border: 2px solid green;
+
+            /*--渐进增强--*/
+            background: pink;
+            background: -webkit-linear-gradient(top left, green, blue, pink, orange); /*谷歌下增加多背景渐变颜色*/
+            background: -moz-linear-gradient(top left, green, blue, pink, orange); /*火狐下增加多背景渐变颜色*/
+            background: -o-linear-gradient(top left, green, blue, pink, orange); /*欧朋下增加多背景渐变颜色*/
+            background: -ms-linear-gradient(top left, green, blue, pink, orange); /*IE下增加多背景渐变颜色:不兼容的显示的依然是纯颜色背景*/
+
+
+            /*--优雅降级--*/
+            border-radius: 50%;/*让盒子变为圆形,但是在IE6~8下是不兼容的,可是不影响页面的展示和功能的操作,所以IE6~8下放弃做成圆即可*/
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+</body>
+</html>

@@ -218,5 +218,5 @@
 
 
     }
-    window.zhufengAnimate=move;
+    window.animate=move;
 })();

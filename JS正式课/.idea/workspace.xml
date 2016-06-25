@@ -20,30 +20,22 @@
     <favorites_list name="JS正式课" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="4、导航.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week5-周末/day2/4、导航.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
-              <caret line="75" column="14" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file leaf-file-name="京东.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/京东/京东.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="1374" column="13" selection-start-line="1374" selection-start-column="13" selection-end-line="1374" selection-end-column="13" />
+            <state relative-caret-position="345">
+              <caret line="1502" column="21" selection-start-line="1502" selection-start-column="21" selection-end-line="1502" selection-end-column="21" />
               <folding>
+                <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#ul#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#ol#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -52,17 +44,21 @@
                 <element signature="n#div#3;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#4;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#ol#0;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#2;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#ol#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#3;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#li#3;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#ol#0;n#div#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -154,36 +150,68 @@
                 <element signature="n#div#2;n#div#0;n#div#0;n#li#14;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#div#0;n#div#0;n#li#14;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#li#14;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <marker date="1466180427000" expanded="false" signature="11406:18282" ph="..." />
-                <marker date="1466180427000" expanded="false" signature="18299:23479" ph="..." />
-                <marker date="1466180427000" expanded="false" signature="18468:23461" ph="..." />
-                <marker date="1466180427000" expanded="false" signature="23496:28630" ph="..." />
-                <marker date="1466180427000" expanded="false" signature="28647:35287" ph="..." />
+                <element signature="n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#4;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#5;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#6;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#7;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#8;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#9;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#10;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#11;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#2;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#2;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#ul#0;n#div#1;n#div#2;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#0;n#ul#0;n#div#1;n#div#2;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#0;n#ul#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#1;n#ul#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#2;n#ul#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#3;n#ul#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#5;n#ul#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#3;n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#li#1;n#ol#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#2;n#ol#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#3;n#ol#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#4;n#ol#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#li#4;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#2;n#li#4;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#3;n#li#4;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#4;n#li#4;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#5;n#li#4;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#i#0;n#li#0;n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#li#1;n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#li#2;n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#li#3;n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#4;n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#li#5;n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#ul#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#ul#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jd/js/my.js">
+      <file leaf-file-name="lianxi.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/练习/lianxi.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="208">
+              <caret line="7" column="198" selection-start-line="7" selection-start-column="198" selection-end-line="7" selection-end-column="198" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jd.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/京东/jd.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
-              <folding>
-                <element signature="e#298#432#0" expanded="false" />
-                <element signature="e#454#747#0" expanded="false" />
-                <element signature="e#864#909#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -193,49 +221,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="HTML File" />
         <option value="tsconfig.json" />
+        <option value="CSS File" />
+        <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/week5-周末/5.放大镜.html" />
-        <option value="$PROJECT_DIR$/week5-周末/day1/js鼠标跟随.html" />
-        <option value="$PROJECT_DIR$/week5-周末/day2/1.树形结构菜单.html" />
-        <option value="$PROJECT_DIR$/week5-周末/day2/2.键盘事件对象.html" />
-        <option value="$PROJECT_DIR$/week5-周末/day2/3.解决顺序问题.html" />
-        <option value="$PROJECT_DIR$/event.js" />
-        <option value="$PROJECT_DIR$/week5-周末/day2/1、树形结构菜单-JS.html" />
-        <option value="$PROJECT_DIR$/week6-1/1.复习.html" />
-        <option value="$PROJECT_DIR$/week5-周末/day2/js/event备份-顺序问题.js" />
-        <option value="$PROJECT_DIR$/练习/lianxi.js" />
-        <option value="$PROJECT_DIR$/week5-周末/day2/js/event备份-THIS.js" />
-        <option value="$PROJECT_DIR$/week6-1/1拖拽.html" />
-        <option value="$PROJECT_DIR$/week5-周末/day2/js/event.js" />
-        <option value="$PROJECT_DIR$/week6-2/1.自由落体动画.html" />
-        <option value="$PROJECT_DIR$/week6-1/补课.html" />
-        <option value="$PROJECT_DIR$/week6-2/2设计模块.html" />
-        <option value="$PROJECT_DIR$/week6-2/2.设计模式.html" />
-        <option value="$PROJECT_DIR$/week6-2/3.面向对象版拖拽.html" />
-        <option value="$PROJECT_DIR$/week6-周末/1.复习事件.html" />
-        <option value="$PROJECT_DIR$/week6-周末/2.事件.html" />
-        <option value="$PROJECT_DIR$/week6-周末/3.拖拽.html" />
-        <option value="$PROJECT_DIR$/week6-周末/2.on,off,run.js" />
-        <option value="$PROJECT_DIR$/week6-2/5拖拽加设计模式1.html" />
-        <option value="$PROJECT_DIR$/week6-周末/1.拖拽的设计模式.html" />
-        <option value="$PROJECT_DIR$/week6-周末/订阅发布模式的标准的实现.html" />
-        <option value="$PROJECT_DIR$/项目作业/css/style.css" />
-        <option value="$PROJECT_DIR$/week6-周末/4.浏览器的原生拖拽事件.html" />
-        <option value="$PROJECT_DIR$/week6-周末/5.移送设备浏览中的拖拽.html" />
-        <option value="$PROJECT_DIR$/week6-周末/6.照片墙.html" />
-        <option value="$PROJECT_DIR$/week7-1/笔记" />
-        <option value="$PROJECT_DIR$/week7-1/index.html" />
-        <option value="$PROJECT_DIR$/week7-1/1.node.html" />
-        <option value="$PROJECT_DIR$/week7-1/computed模块.js" />
         <option value="$PROJECT_DIR$/week7-1/sum.js" />
         <option value="$PROJECT_DIR$/week7-2/笔记" />
         <option value="$PROJECT_DIR$/week7-2/server.js" />
@@ -244,16 +240,49 @@
         <option value="$PROJECT_DIR$/week7-2/ajax笔记" />
         <option value="$PROJECT_DIR$/week7-2/NODE/js/Ajax.js" />
         <option value="$PROJECT_DIR$/week7-3/data/data" />
-        <option value="$PROJECT_DIR$/week7-2/笔记.txt" />
         <option value="$PROJECT_DIR$/week7-3/1.复习.js" />
         <option value="$PROJECT_DIR$/week7-3/API接口文档" />
         <option value="$PROJECT_DIR$/week7-3/nodeModule/tsconfig.json" />
         <option value="$PROJECT_DIR$/week7-3/nodeModule/custom.js" />
         <option value="$PROJECT_DIR$/week7-3/sever.js" />
         <option value="$PROJECT_DIR$/week7-3/nodeModule/suffixType.js" />
+        <option value="$PROJECT_DIR$/week7-2/笔记.txt" />
+        <option value="$PROJECT_DIR$/tween.js" />
+        <option value="$PROJECT_DIR$/week7-周末/index.js" />
+        <option value="$PROJECT_DIR$/week7-周末/笔记" />
+        <option value="$PROJECT_DIR$/week7-周末/tsconfig.json" />
+        <option value="$PROJECT_DIR$/week7-周末/index.html" />
+        <option value="$PROJECT_DIR$/week7-周末/day1/http" />
+        <option value="$PROJECT_DIR$/week7-周末/a.js" />
+        <option value="$PROJECT_DIR$/week7-周末/day1/libs/ajax.js" />
+        <option value="$PROJECT_DIR$/week7-周末/day1/http.txt" />
+        <option value="$PROJECT_DIR$/week7-周末/day2/index.html" />
+        <option value="$PROJECT_DIR$/week7-周末/day2/ajax.html" />
+        <option value="$PROJECT_DIR$/week7-周末/day2/sever/sever.js" />
+        <option value="$PROJECT_DIR$/week7-周末/day2/info" />
+        <option value="$PROJECT_DIR$/week7-周末/day2/jsonp/jsonp.js" />
+        <option value="$PROJECT_DIR$/week7-周末/day2/jsonp/test.html" />
+        <option value="$PROJECT_DIR$/week8-1/json/createData.js" />
+        <option value="$PROJECT_DIR$/week8-1/json/pageData.json" />
+        <option value="$PROJECT_DIR$/week8-1/笔记.html" />
+        <option value="$PROJECT_DIR$/week8-1/server.js" />
+        <option value="$PROJECT_DIR$/week8-1/css/index.css" />
+        <option value="$PROJECT_DIR$/week8-1/js/ajax.ts" />
+        <option value="$PROJECT_DIR$/week8-1/js/index.js" />
+        <option value="$PROJECT_DIR$/week8-1/index.html" />
+        <option value="$PROJECT_DIR$/week8-1/js/ajax.js" />
+        <option value="$PROJECT_DIR$/week8-1/笔记" />
+        <option value="$PROJECT_DIR$/week8-2/1.html" />
+        <option value="$PROJECT_DIR$/week8-2/笔记" />
+        <option value="$PROJECT_DIR$/京东/京东.html" />
+        <option value="$PROJECT_DIR$/week8-2/课堂笔记.txt" />
+        <option value="$PROJECT_DIR$/week8-周末/1.animation.html" />
         <option value="$PROJECT_DIR$/京东/jd.css" />
         <option value="$PROJECT_DIR$/京东/jd.js" />
-        <option value="$PROJECT_DIR$/京东/京东.html" />
+        <option value="$PROJECT_DIR$/week8-周末/2.demol1.html" />
+        <option value="$PROJECT_DIR$/week8-周末/3.demol2.html" />
+        <option value="$PROJECT_DIR$/week8-周末/css/reset.min.css" />
+        <option value="$PROJECT_DIR$/练习/lianxi.html" />
       </list>
     </option>
   </component>
@@ -268,8 +297,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="1" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
+    <option name="width" value="1439" />
     <option name="height" value="791" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -328,6 +358,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -346,14 +377,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JS正式课" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JS正式课" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="京东" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -362,38 +406,41 @@
     <property name="JavaScriptPreferStrict" value="true" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="SearchEverywhereHistoryKey" value=";&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="clwar&#9;null&#9;null&#10;;&#9;null&#9;null" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="javascript.nodejs.core.library.configured.version" value="4.4.5" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/京东/img" />
-      <recent name="$PROJECT_DIR$/week7-3" />
-      <recent name="$PROJECT_DIR$/week6-周末" />
-      <recent name="$PROJECT_DIR$/练习" />
-      <recent name="$PROJECT_DIR$/week5-周末" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/week8-周末/css" />
       <recent name="$PROJECT_DIR$/京东" />
       <recent name="$PROJECT_DIR$/京东/img" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/week5-周末" />
-      <recent name="$PROJECT_DIR$/week5-1/js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/week8-周末/img" />
+      <recent name="$PROJECT_DIR$/京东/img" />
+      <recent name="$PROJECT_DIR$/week7-3" />
+      <recent name="$PROJECT_DIR$/week6-周末" />
+      <recent name="$PROJECT_DIR$/练习" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.server.js">
-    <configuration default="false" name="move.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="move.js" working-dir="$PROJECT_DIR$/week4-周末/day2/js">
-      <method />
-    </configuration>
-    <configuration default="false" name="sum.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="sum.js" working-dir="$PROJECT_DIR$/week7-1">
-      <method />
-    </configuration>
-    <configuration default="false" name="computed模块.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="computed模块.js" working-dir="$PROJECT_DIR$/week7-1">
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Node.js.jd.js">
     <configuration default="false" name="server.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="server.js" working-dir="$PROJECT_DIR$/week7-2">
+      <method />
+    </configuration>
+    <configuration default="false" name="sever.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="sever.js" working-dir="$PROJECT_DIR$/week7-周末/day2/sever">
+      <method />
+    </configuration>
+    <configuration default="false" name="createData.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="createData.js" working-dir="$PROJECT_DIR$/week8-1/json">
+      <method />
+    </configuration>
+    <configuration default="false" name="server.js (1)" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="server.js" working-dir="$PROJECT_DIR$/week8-1">
+      <method />
+    </configuration>
+    <configuration default="false" name="jd.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="jd.js" working-dir="$PROJECT_DIR$/京东">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -449,18 +496,20 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Node.js.move.js" />
-      <item index="1" class="java.lang.String" itemvalue="Node.js.sum.js" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js.computed模块.js" />
-      <item index="3" class="java.lang.String" itemvalue="Node.js.server.js" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Node.js.server.js" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.sever.js" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.createData.js" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.server.js (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.jd.js" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.server.js" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.sum.js" />
-        <item index="2" class="java.lang.String" itemvalue="Node.js.computed模块.js" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.move.js" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.jd.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.server.js (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.createData.js" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.sever.js" />
+        <item index="4" class="java.lang.String" itemvalue="Node.js.server.js" />
       </list>
     </recent_temporary>
   </component>
@@ -505,12 +554,15 @@
       <workItem from="1465890760298" duration="15603000" />
       <workItem from="1465955494022" duration="31702000" />
       <workItem from="1466049330146" duration="23185000" />
-      <workItem from="1466152041709" duration="12351000" />
+      <workItem from="1466152041709" duration="14651000" />
+      <workItem from="1466208329999" duration="44545000" />
+      <workItem from="1466345546368" duration="38933000" />
+      <workItem from="1466506609549" duration="67868000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="347516000" />
+    <option name="totallyTimeSpent" value="501162000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -522,18 +574,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="791" extended-state="6" />
-    <editor active="false" />
+    <frame x="1" y="23" width="1439" height="791" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12544045" sideWeight="0.49499285" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11212976" sideWeight="0.49499285" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904148" sideWeight="0.49753347" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904148" sideWeight="0.5024665" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42060086" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15736766" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08174771" sideWeight="0.49029127" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.082047686" sideWeight="0.50970876" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39914164" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -559,7 +611,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="21" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -622,90 +674,237 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/week5-周末/day1/扩展1.jpg">
+    <entry file="file://$PROJECT_DIR$/week7-周末/day1/http.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7-2/NODE/server备份2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7-周末/day2/ready.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7-周末/day1/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7-周末/day2/ajax.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7-周末/day2/info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7-周末/day1/libs/ajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="162" column="10" selection-start-line="143" selection-start-column="7" selection-end-line="162" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7-周末/day2/jsonp/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="26" column="64" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7-周末/day2/jsonp/jsonp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7-周末/day2/sever/sever.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5-周末/day1/9、选项卡.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1924">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/京东/img/56f4e6b8N940f608c (1).png" />
+    <entry file="file://$PROJECT_DIR$/京东/img/lifeServ.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week5-周末/day1/3、事件传播.html">
+    <entry file="file://$PROJECT_DIR$/week4-周末/day1/10.完整版左右切换轮播图.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-2094">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week5-周末/day1/8、事件委托.html">
+    <entry file="file://$PROJECT_DIR$/week4-周末/day1/js/banner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="489">
+          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week5-1/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-        </state>
+    <entry file="file://$PROJECT_DIR$/京东/img/XX.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week5-2/1.事件的基本概念.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-898">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
+    <entry file="file://$PROJECT_DIR$/京东/img/xin.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week5-2/5.事件委托.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1248">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
+    <entry file="file://$PROJECT_DIR$/京东/img/public.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week5-3/DOM2-事件兼容处理.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
+    <entry file="file://$PROJECT_DIR$/京东/img/icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week5-3/DOM2-基础深入.html">
+    <entry file="file://$PROJECT_DIR$/京东/img/lb.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/京东/img/ewm.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week8-1/json/pageData.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="234">
+          <caret line="0" column="901" selection-start-line="0" selection-start-column="901" selection-end-line="0" selection-end-column="901" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week5-2/6.事件委托的应用.html">
+    <entry file="file://$PROJECT_DIR$/week8-1/笔记.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week8-1/js/ajax.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="29" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week8-1/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="21" column="125" selection-start-line="21" selection-start-column="125" selection-end-line="21" selection-end-column="125" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week8-1/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+            <element signature="e#1462#1989#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week8-1/json/createData.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!doc;n#getRandom#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week5-1/3、收缩导航.html">
+    <entry file="file://$PROJECT_DIR$/week8-1/js/ajax.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        <state relative-caret-position="99">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week5-3/专题-回调函数实战.html">
+    <entry file="file://$PROJECT_DIR$/week8-1/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1860">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-222">
+          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week5-3/专题-柯理化函数实战.html">
+    <entry file="file://$PROJECT_DIR$/week8-1/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-234">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="905">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding>
+            <marker date="1466605330000" expanded="false" signature="0:1" ph="/** Created by ajia on 16/6/22. ...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/京东/img/brandB.jpg">
+    <entry file="file://$PROJECT_DIR$/week8-1/笔记">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8647">
+          <caret line="5751" column="23" selection-start-line="5751" selection-start-column="23" selection-end-line="5751" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week8-2/笔记">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/京东/img/aa.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -715,200 +914,146 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week7-2/server.js" />
-    <entry file="file://$PROJECT_DIR$/week7-2/server1.js" />
-    <entry file="file://$PROJECT_DIR$/week7-2/index.html" />
-    <entry file="file://$PROJECT_DIR$/week7-2/笔记" />
-    <entry file="file://$PROJECT_DIR$/week7-2/ajax笔记" />
-    <entry file="file://$PROJECT_DIR$/week7-2/NODE/配图/1-端口号被占用.jpg">
+    <entry file="file://$PROJECT_DIR$/京东/img/converage.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week7-2/NODE/配图/2.jpg">
+    <entry file="file://$PROJECT_DIR$/week8-2/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week8-2/课堂笔记.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="66" column="12" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week8-2/5、CSS3过渡动画.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="57" column="38" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week8-周末/img/lick.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week7-2/HTTP1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week7-2/HTTP模型.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week7-2/NODE/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week7-2/NODE/B.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week7-2/NODE/A.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week7-2/NODE/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week7-2/笔记.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week7-2/NODE/笔记.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week7-2/NODE/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week7-2/NODE/server备份1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-260">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week5-周末/day1/9、选项卡.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week7-3/data/data" />
-    <entry file="file://$PROJECT_DIR$/week7-2/NODE/js/Ajax.js">
+    <entry file="file://$PROJECT_DIR$/week8-周末/1.animation.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week7-3/1.复习.js" />
-    <entry file="file://$PROJECT_DIR$/week7-3/nodeModule/customfig.json" />
-    <entry file="file://$PROJECT_DIR$/week7-3/API接口文档" />
-    <entry file="file://$PROJECT_DIR$/jd/js/head.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="18" column="49" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week7-3/nodeModule/suffixType.js" />
-    <entry file="file://$PROJECT_DIR$/week7-3/nodeModule/custom.js" />
-    <entry file="file://$PROJECT_DIR$/week7-3/sever.js" />
-    <entry file="file://$PROJECT_DIR$/week5-周末/day2/2、树形结构菜单-jQuery.html">
+    <entry file="file://$PROJECT_DIR$/week8-周末/3.demol2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-728">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jd/js/my.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="-390">
+          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.js">
+    <entry file="file://$PROJECT_DIR$/week8-周末/2.demol1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+        <state relative-caret-position="350">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week5-周末/day2/4、导航.html">
+    <entry file="file://$PROJECT_DIR$/week8-周末/css/reset.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="75" column="14" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/京东/jd.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="492" column="0" selection-start-line="492" selection-start-column="0" selection-end-line="493" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/京东/img/banner4.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/京东/jd1.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="16" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="607" selection-end-column="1" />
+        <state relative-caret-position="234">
+          <caret line="2" column="522" selection-start-line="2" selection-start-column="522" selection-end-line="2" selection-end-column="522" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/京东/jd.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+        <state relative-caret-position="125">
+          <caret line="129" column="12" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="12" />
           <folding>
-            <element signature="e#298#432#0" expanded="false" />
-            <element signature="e#454#747#0" expanded="false" />
-            <element signature="e#864#909#0" expanded="false" />
+            <element signature="e#79#811#0" expanded="false" />
+            <element signature="e#220#374#0" expanded="false" />
+            <element signature="e#400#732#0" expanded="false" />
+            <element signature="e#973#1018#0" expanded="false" />
+            <element signature="e#1057#1724#0" expanded="false" />
+            <element signature="e#1765#4168#0" expanded="false" />
+            <element signature="e#2314#2447#0" expanded="false" />
+            <element signature="e#2476#3110#0" expanded="false" />
+            <element signature="e#3139#3285#0" expanded="false" />
+            <element signature="e#3323#3452#0" expanded="false" />
+            <element signature="e#3491#3634#0" expanded="false" />
+            <element signature="e#3691#3969#0" expanded="false" />
+            <element signature="e#4032#4162#0" expanded="false" />
+            <element signature="e#4201#5284#0" expanded="false" />
+            <element signature="e#4594#4685#0" expanded="false" />
+            <element signature="e#4721#4810#0" expanded="false" />
+            <element signature="e#4843#5033#0" expanded="false" />
+            <element signature="e#5066#5277#0" expanded="false" />
+            <element signature="e#5091#5199#0" expanded="false" />
+            <element signature="e#5321#6739#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/京东/京东1.html">
+    <entry file="file://$PROJECT_DIR$/京东/jd.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="836" column="34" selection-start-line="836" selection-start-column="34" selection-end-line="836" selection-end-column="34" />
+        <state relative-caret-position="-144">
+          <caret line="838" column="23" selection-start-line="838" selection-start-column="23" selection-end-line="838" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/练习/img/pre.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/练习/img/banner4.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/练习/img/banner1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/练习/lianxi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="7" column="198" selection-start-line="7" selection-start-column="198" selection-end-line="7" selection-end-column="198" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/京东/京东.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="1374" column="13" selection-start-line="1374" selection-start-column="13" selection-end-line="1374" selection-end-column="13" />
+        <state relative-caret-position="345">
+          <caret line="1502" column="21" selection-start-line="1502" selection-start-column="21" selection-end-line="1502" selection-end-column="21" />
           <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#ul#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#ol#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -917,17 +1062,21 @@
             <element signature="n#div#3;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#4;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#ol#0;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#2;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#ol#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#3;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#li#3;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#ol#0;n#div#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -1019,11 +1168,57 @@
             <element signature="n#div#2;n#div#0;n#div#0;n#li#14;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#0;n#div#0;n#li#14;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#li#14;n#ul#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1466180427000" expanded="false" signature="11406:18282" ph="..." />
-            <marker date="1466180427000" expanded="false" signature="18299:23479" ph="..." />
-            <marker date="1466180427000" expanded="false" signature="18468:23461" ph="..." />
-            <marker date="1466180427000" expanded="false" signature="23496:28630" ph="..." />
-            <marker date="1466180427000" expanded="false" signature="28647:35287" ph="..." />
+            <element signature="n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#4;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#5;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#6;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#7;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#8;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#9;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#10;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#11;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#2;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#2;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#0;n#div#1;n#div#2;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#0;n#ul#0;n#div#1;n#div#2;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#0;n#ul#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#1;n#ul#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#2;n#ul#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#3;n#ul#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#5;n#ul#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#3;n#div#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#1;n#ol#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#2;n#ol#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#3;n#ol#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#4;n#ol#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#li#4;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#2;n#li#4;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#3;n#li#4;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#4;n#li#4;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#5;n#li#4;n#ul#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#li#0;n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#li#1;n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#li#2;n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#li#3;n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#4;n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#li#5;n#ol#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#ul#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#ul#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--<script type="text/javascript">
+    function haha(data){
+        console.log(data);
+    }
+</script>
+<script type="text/javascript" src="http://matchweb.sports.qq.com/kbs/calendar?callback=haha&columnId=100000"></script>-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    //    $.ajax({
+    //        url: "http://matchweb.sports.qq.com/kbs/calendar?columnId=100000",
+    //        type: "get",
+    //        dataType: "jsonp",
+    //        success: function (data) {
+    //            console.log(data);
+    //        }
+    //    });
+    //->http://matchweb.sports.qq.com/kbs/calendar?columnId=100000&callback=jQuery111307498384476606119_1466591165577&_=1466591165578
+
+    //    function fn(data) {
+    //        console.log(data);
+    //    }
+    //    $.ajax({
+    //        url: "http://matchweb.sports.qq.com/kbs/calendar?columnId=100000",
+    //        type: "get",
+    //        dataType: "jsonp",
+    //        jsonpCallback: "fn"
+    //    });
+    //->http://matchweb.sports.qq.com/kbs/calendar?columnId=100000&callback=fn&_=1466591300786
+
+    function fn(data) {
+        console.log(data);
+    }
+    $.ajax({
+        url: "http://192.168.0.7:1234/test",
+        type: "get",
+        dataType: "jsonp",
+        jsonpCallback: "fn",
+        jsonp: "a"
+    });
+    //->http://192.168.0.7:1234/test?a=fn&_=1466591442642
+</script>
+</body>
+</html>

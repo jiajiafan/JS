@@ -22,7 +22,8 @@ a:hover{
     margin:0 auto;
     width:1210px;
 }
-.clear{
+.clear:after{
+    display: block;
     clear: both;
     content: '';
     height:0;
@@ -32,6 +33,7 @@ a:hover{
 /*以上是全局默认样式的清除*/
 .shortcut{
     width:100%;
+    min-width: 1210px;
     height:30px;
     font-size: 12px;
     line-height:30px;
@@ -42,7 +44,7 @@ a:hover{
     float:left;
     border:1px solid transparent;
     border-top:none;
-    width:98px;
+    width:108px;
     height:29px;
 }
 .shortcut .psCity .ps{
@@ -407,14 +409,15 @@ a:hover{
     margin-right:10px;
     line-height:20px;
 }
-.navTop ul .frist{
+.frist{
     color:#c81623;
 }
 /*以上是logo和搜索行*/
 .nav{
+    border-bottom:2px solid #B1191A;
+    width:100%;
     height:44px;
     min-width:1210px;
-    border-bottom:2px solid #B1191A;
 }
 .nav h4{
     float:left;
@@ -464,8 +467,7 @@ a:hover{
 /*以上是主导航栏*/
 .mainConT{
     width:100%;
-    height:613px;
-    background: url(img/background.jpg) no-repeat center center;
+    background: url(img/background.jpg) no-repeat center 0;
 }
 .mainConT .menus{
     position: relative;
@@ -499,7 +501,7 @@ a:hover{
     top:0;
     right:0;
     background:#f7f7f7;
-    z-index:1;
+    z-index:3;
 }
 .mainConT .menusH{
     position: absolute;
@@ -511,6 +513,7 @@ a:hover{
     background-color: #f7f7f7;
     display: none;
     min-height:425px;
+    z-index:2;
 }
 .mainConT .drop{
     float:left;
@@ -604,3 +607,434 @@ a:hover{
 .drop .dropF i{
     background-color: #b1191a;
 }
+/*以上是banner左侧部分*/
+.banner{
+    float:left;
+    position:relative;
+    margin-top:12px;
+    margin-left:10px;
+    width:730px;
+    height:454px;
+}
+.banner .inner a{
+    position: absolute;
+    display: block;
+    left:0;
+    top:0;
+    opacity:0;
+}
+.banner img{
+    width:100%;
+    height:100%;
+}
+.banner ul{
+    position: absolute;
+    bottom:10px;
+    left:300px;
+    z-index:1;
+}
+.banner ul li{
+    float:left;
+    margin-left:8px;
+    border-radius:50%;
+    width:15px;
+    height:15px;
+    background-color:#3e3e3e;
+    cursor: pointer;
+}
+.banner ul .over{
+    background-color:#c81622;
+}
+.btnL,.btnR{
+    position: absolute;
+    top:35%;
+    width:25px;
+    height:60px;
+    font:300 20px/60px "microsoft yahei";
+    color:#fff;
+    text-align:center;
+    background-color: rgba(18,18,18,.4);
+    z-index:2;
+    display: none;
+    cursor: pointer;
+}
+.btnL{
+    left:0;
+}
+.btnR{
+    right:0;
+}
+.btnL:hover,.btnR:hover{
+    color:#fff;
+    background-color: rgba(18,18,18,.7);
+}
+/*以上是轮播图部分*/
+.bannerR{
+    float:left;
+    margin-top:12px;
+    margin-left:10px;
+    width:248px;
+}
+.bannerR .new{
+    border:1px solid #E8E8E7;
+}
+.bannerR .new h3{
+    border-bottom:1px dotted #E8E8E7;
+    padding:0 15px;
+    overflow: hidden ;
+}
+.new h3 b{
+    float:left;
+    font-weight:400;
+    line-height:32px;
+    font-size:16px;
+}
+.new h3 a{
+    float:right;
+    line-height:32px;
+    font-weight:400;
+}
+.new ul{
+    padding:5px 0 5px 15px;
+}
+.new ul li{
+    height:24px;
+    line-height:24px;
+}
+.new ul li:hover b{
+    color:#c81622;
+}
+.lifeServ{
+    margin-bottom:5px;
+    border-right:1px solid #E8E8E7;
+}
+.lifeServ ul{
+    height:209px;
+    width:249px;
+}
+.lifeServ ul li{
+    float:left;
+    border-left:1px solid #E8E8E7;
+    border-bottom:1px solid #E8E8E7;
+}
+.lifeServ ul li a{
+    display: block;
+    position: relative;
+    width:61px;
+    height:69px;
+}
+.lifeServ ul a i{
+    display: block;
+    position: absolute;
+    top:13px;
+    left:18px;
+    width:25px;
+    height:25px;
+}
+.lifeServ ul a b{
+    font-weight:300;
+    position: absolute;
+    top:45px;
+    left:19px;
+}
+.bannerR .img,.img img{
+   width:248px;
+    height:75px;
+}
+/*以上是轮播图右侧部分*/
+.bannerB{
+    width:100%;
+    height:164px;
+    padding:10px 0 20px;
+    overflow: hidden;
+}
+.bannerB .lb,.bannerB .lb img{
+    float:left;
+    width:210px;
+    height:151px;
+}
+.bannerB .minB{
+    float:left;
+    position: relative;
+    width:1000px;
+    height:164px;
+    overflow: hidden;
+}
+.minB ul{
+    position: absolute;
+    left:0;
+}
+.minB li{
+    float:left;
+    width:1000px;
+}
+.minB li a{
+    display: block;
+    float:left;
+    margin-right:1px;
+    width:249px;
+    height:164px;
+}
+.minB li a img{
+    width:249px;
+    height:164px;
+}
+/*以上是轮播图下边一栏*/
+.gessyou{
+    position: relative;
+}
+.gessyou .gess h3{
+    float:left;
+    width:300px;
+    font-size:20px;
+    font-weight: 400;
+    color:#333;
+    background: url(img/gessyou.png) no-repeat 85px -94px;
+}
+.gessyou .gess a{
+    float:right;
+    padding:3px 25px 0 0;
+    background:url(img/gessyou.png) no-repeat -310px -5px;
+}
+.gessyou .gess a:hover{
+    background-position:-310px -29px;
+}
+.gessyou ul{
+    margin:7px 0 20px 0;
+    border:1px solid #ededed;
+    border-top:1px solid #dedede;
+    padding:20px 0 15px 0;
+    height:197px;
+    overflow: hidden;
+}
+.gessyou ul li{
+    float:left;
+    width:201px;
+}
+.gessyou li .gessImg{
+    margin-bottom:10px;
+    height:130px;
+    text-align: center;
+}
+.gessyou li .gessP{
+    border-right:1px solid #ededed;
+    padding:0 36px;
+    width:131px;
+    height:61px;
+}
+.gessyou .gessP p{
+    margin-bottom: 6px;
+    height:36px;
+    overflow: hidden;
+}
+.gessyou .gessP span{
+    font-size:14px;
+}
+.gessyou .gessP b{
+    font-size:18px;
+    font-weight:300;
+}
+.gessyou .line{
+    display: block;
+    position: absolute;
+    top:33px;
+    left:845px;
+    width:365px;
+    height:5px;
+    background: url(img/gessyou.png) no-repeat 0 -124px;
+}
+@-webkit-keyframes myMove{
+    0%{
+        -webkit-transform:translateX(-1200px);
+        transform:translateX(-1200px);
+    }100%{
+             -webkit-transform:translateX(0);
+             transform:translateX(0);
+         }
+}
+.move{
+    -webkit-animation:myMove 1s linear 0s infinite both;
+    animation:myMove 1s linear 0s infinite both;
+}
+/*以上是猜你喜欢内容区*/
+.sevice .slogen{
+    padding:20px 0;
+    margin-bottom:14px;
+    width:100%;
+    min-width:1210px;
+    height:54px;
+    background-color: #F5F5F5;
+}
+.slogen span{
+    display: inline-block;
+    margin:0 59px 0 20px;
+    width:220px;
+    height:54px;
+}
+.sevice ol{
+    border-bottom:1px solid #E5E5E5;
+    padding-bottom:20px;
+    height:168px;
+}
+.sevice .sevice1,.sevice2,.sevice3,.sevice4{
+    float:left;
+    width:199px;
+}
+.sevice .sevice5{
+ float:left;
+    width:100px;
+}
+.sevice h4{
+    font:400 16px/36px "microsoft yahei"
+}
+.sevice ul li a{
+    line-height:20px;
+}
+.sevice .coverage{
+    float: right;
+    width:310px;
+    height:100%;
+    background: url(img/converage.png) no-repeat 60px -131px;
+}
+.sevice .coverage h4{
+    padding:0 40px 9px 80px;
+}
+.sevice .coverage p{
+    padding-left:80px;
+    width:190px;
+    font-size:12px;
+}
+.sevice .coverage a{
+    float:right;
+    margin-right:40px;
+}
+/*以上是服务指南区*/
+.footer{
+    padding:20px 0 30px;
+}
+.footer .links{
+    text-align: center;
+    padding-bottom:5px;
+}
+.footer a{
+    display: inline-block;
+    margin:0 10px;
+}
+.footer i{
+    font-size:12px;
+}
+.copyright li{
+    text-align: center;
+}
+.copyright b{
+    font-weight:300;
+font-size:12px;
+}
+.copyright .authentication{
+    padding-top:10px;
+}
+.copyright .authentication a{
+    margin:0 10px 0 0;
+    width:103px;
+    height:32px;
+}
+/*以上是footer部分*/
+.toolbar{
+    position: fixed;
+    top:0;
+    right:0;
+    border-left:6px solid #7a6e6e;
+    width:0;
+    height:100%;
+    z-index: 1;
+}
+.toolbar ol{
+    position: absolute;
+    top:40%;
+    right:0;
+}
+.toolbar ul{
+    position: absolute;
+    bottom:-1px;
+    right:0;
+}
+.toolbar a{
+display: block;}
+.toolbar i,.toolbar b{
+  background-image:url(img/toolbars.png);
+    background-color: #7a6e6e;
+}
+.toolbar li{
+    position: relative;
+    margin-bottom:1px;
+    width:35px;
+    height:35px;
+    cursor: pointer;
+}
+.toolbar ol span{
+    width:60px;
+    left:0;
+}
+.toolbar li i{
+    position:absolute;
+    display: block;
+    border-radius:3px;
+    width:35px;
+    height:35px;
+    z-index:2;
+}
+.toolbar span{
+    position: absolute;
+    left:0;
+    border-radius:3px;
+    width:50px;
+    height:35px;
+    line-height:35px;
+    font-size:12px;
+    text-align: center;
+    background-color:#7a6e6e;
+    color:#fff;
+}
+.toolbar .color{
+    background-color:#c81622;
+}
+.toolbar .d1 b{
+    position: absolute;
+    top:7px;
+    right:10px;
+    width:6px;
+    height:6px;
+    background-position:-150px -150px;
+    z-index:2;
+    display:block;
+}
+.toolbar .d2 b{
+    position: absolute;
+    right:2px;
+    top:-3px;
+    width:15px;
+    text-align: center;
+    border:1px solid #b61d1d;
+    font:11px/11px verdana;
+    color:#fff;
+    border-radius:10px;
+    background-color:#c81622;
+    z-index:3;
+}
+.toolbar .d1:hover b{
+    display: none;
+}
+.toolbar .d2:hover b{
+    background:#fff;
+    color:#c81622;
+}
+.toolbar div{
+    position: absolute;
+    top:0;
+    left:0;
+    width:270px;
+    height:100%;
+    background:#e6e6e6;
+    z-index:1;
+}
+/*以上右侧固定定位的盒子*/

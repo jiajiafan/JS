@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        // 获取跨域资源共享的对象
+        var getCORS = function () {
+            if (window.XDomainRequest) {
+                return new XDomainRequest();
+            }
+            if (window.XMLHttpRequest) {
+                var xhr = new XMLHttpRequest();
+                if (xhr.withCredentials !== void 0) {
+                    return xhr;
+                }
+                throw new Error('不支持cors');
+            }
+            throw new Error('不支持cors');
+        };
+
+        var cors = getCORS();
+
+        cors.open('post', 'http://localhost:12345/cors', true);
+
+        // onload执行的时机与xhr.readyState为4的时候相同
+        cors.onload = function () {
+            if (cors.status === 200) {
+                console.log(cors.responseText);
+            }
+        };
+
+        cors.send();
+
+
+    </script>
+</head>
+<body>
+
+</bod>
+</html>

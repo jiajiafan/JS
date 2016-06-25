@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+        // jquery执行ajax请求
+        $.ajax({
+            async: true,// 是否为异步请求 默认是true
+            beforeSend: function (xhr) {
+                console.log('beforeSend this:', this);
+                console.log('beforeSend:', xhr);
+                // 显示loading效果
+            },//在执行ajax对象的send方法之前执行此函数.
+            cache: true,//默认为true 是否缓存该请求;例外:当dataType为script或jsonp的时候 cache会自动设置为false
+            complete: function (xhr) {
+                // 隐藏loading效果
+                console.log('complete:', xhr);
+                console.log(this.name); // => text
+            },// ajax中的http事务完成之后执行此函数.不管success还是error都会执行此函数.
+            contentType: 'application/x-www-form-urlencoded',//设置请求的MIME Type,默认为表单提交
+            context: {name: 'text'},//success error complete beforeSend这三个函数中的上下文对象
+            data: {},//往服务器发送的参数 string object array
+            dataType: 'json',//按照指定格式格式化服务器返回的数据 text json script html xml jsonp
+            error: function (err) {
+                console.error(err);
+                console.log(this.name); // => text
+            },// ajax执行失败时执行此函数
+            headers: {},//自定义请求首部
+            method: 'get',//使用指定http方法请求server; jquery类库1.9.0之前使用type ; 1.9.0之后使用method
+            mimeType: 'text/javascript',//重写服务器响应首部中的content-type
+            password: '',//密码 open方法的第五个参数
+            username: '',// 用户名 open方法的第四个参数
+            processData: true,//当data为非字符串时,是否把data格式化为URIString;当data为FormData的时候,一定要把processData设置为false
+            success: function (data) {
+                console.log('success:', data);//响应主体
+                console.log(this.name); // => text
+            },// 成功时执行的函数
+            timeout: 0,//超时毫秒数;过了指定的超时毫秒数,http事务还未完成,执行error方法;默认为0,表示不执行超时逻辑
+            url: ''//ajax请求的地址
+        });
+
+        // 只用http get方法去请求
+        /**
+         * 第一个参数 请求的url
+         * 第二个参数 发送的参数
+         * 第三个参数 回调函数
+         * 第四个参数 dataType
+         */
+        $.get('url', 'data', function (data) {
+            console.log('成功时回调函数:', data)
+        }, 'json');
+
+
+        // 只用http post方法去请求
+        /**
+         * 第一个参数 请求的url
+         * 第二个参数 发送的参数
+         * 第三个参数 回调函数
+         * 第四个参数 dataType
+         */
+        $.post('url', 'data', function (data) {
+            console.log('成功时回调函数:', data)
+        }, 'json');
+
+        // 只用http get方法去请求并且把dataType设置为json
+        /**
+         * 第一个参数 请求的url
+         * 第二个参数 发送的参数
+         * 第三个参数 回调函数
+         */
+        $.getJSON('url', 'data', function (data) {
+
+        });
+
+        // 只用http get方法去请求并且把dataType设置为script
+        /**
+         * 第一个参数 请求的url
+         * 第二个参数 发送的参数
+         * 第三个参数 回调函数
+         */
+        $.getScript('url', 'data', function (data) {
+
+        });
+
+        //$.get $.post $.getJSON $.getScript这四个方法里头都是调用的$.ajax方法
+        // 当ajax请求的参数很多并且很复杂 推荐使用$.ajax
+        // 当发送比较简单的ajax请求时,推荐使用$.get $.post $.getJSON $.getScript
+    </script>
+</head>
+<body>
+
+</body>
+</html>

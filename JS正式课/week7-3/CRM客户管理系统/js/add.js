@@ -57,7 +57,7 @@ submit.onclick = function () {
             success: function (data) {
                 alert(data["message"]);
                 if (data["code"] == 0) {
-                    window.location.href = "index.html";
+                    window.location.href = "ready.html";
                 }
             }
         });
@@ -73,7 +73,7 @@ submit.onclick = function () {
         success: function (data) {
             alert(data["message"]);
             if (data["code"] == 0) {
-                window.location.href = "index.html";//->window.location.href:JS实现页面跳转的一种方式
+                window.location.href = "ready.html";//->window.location.href:JS实现页面跳转的一种方式
             }
         }
     });

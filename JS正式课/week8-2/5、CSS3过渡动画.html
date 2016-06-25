@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        body {
+            overflow: hidden;
+        }
+
+        #box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+
+            width: 170px;
+            height: 225px;
+            background: url("img/baby.jpg") no-repeat;
+            background-size: 100% 100%;
+
+            /*--设置过渡动画-webkit-transition--*/
+            -webkit-transition: all 1s linear 0s;
+            transition: all 1s linear 0s;
+        }
+
+        /*#box:hover {
+            /!*--设置目标值:鼠标划入盒子让元素的样式变为以下结果,当鼠标离开恢复到原来的样式(这是:HOVER的机制)--*!/
+            /!*width: 340px;
+            height: 450px;*!/
+            -webkit-transform: scale(2);
+            transform: scale(2);
+        }*/
+
+        /*--使用媒体查询触发:当前屏幕小于等于500px的时候从新设置元素的样式,这样的话就可以触发动画执行了--*/
+        /*@media all and (max-width: 500px) {
+            #box {
+                -webkit-transform: scale(2);
+                transform: scale(2);
+            }
+        }*/
+
+        .change {
+            -webkit-transform: scale(2);
+            transform: scale(2);
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript">
+    var oBox = document.getElementById("box");
+    /*--在JS中触发--*/
+    oBox.onclick = function () {
+//        if (this.className === "") {
+//            this.className = "change";
+//            return;
+//        }
+//        this.className = "";
+
+        /*--CSS中需要些两套:一套有前缀的一套没有的,但是在JS中只需要使用webkitTransform即可不需要写两套--*/
+        this.style.webkitTransform = "translate(-100px,-100px)";
+    };
+</script>
+</body>
+</html>
