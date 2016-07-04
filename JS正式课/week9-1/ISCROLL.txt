@@ -1,0 +1,37 @@
+iscroll.js是我们项目中实现某一个区域局部滚动的一个插件
+->API手册：http://www.mamicode.com/info-detail-331827.html
+
+->初始化IScroll插件,让其在某一个容器中实现局部滚动
+var myIscroll=new IScroll([容器],{
+    scrollbars: true,//->显示滚动条(默认是false不显示滚动条的)
+    mouseWheel: true,//->支持鼠标滚轮触发区域的滚动
+    bounce: false//->取消到达边界的缓冲效果
+});
+注意:首先容器需要有一个固定的高度,并且容器中的内容比容器高,我们才会实现局部滚动
+
+初始化后的效果:
+1)给当前容器下“第一个子元素”设置了滚动的效果(在ISCROLL5版本中给第一个元素增加了很多的CSS3的动画或者变形的样式) ->ISCROLL默认是按照CSS3的TRANSITION动画效果运动的
+
+  useTransition: false,
+  useTransform: false,
+  上述的两句话是不使用CSS3的动画效果而是采用传统的JS实现动画(requestAnimationFrame),但是需要注意的是JS实现的动画是控制TOP/LEFT值运动的,所以还需要让第一个子元素相对于父亲元素也是定位的才可以
+
+
+2)如果在配置文件中设置了scrollbars: true，就会给当前容器新增加了一个子元素用来存放我们的滚动条,我们需要让滚动条相对于当前容器定位,所以当前的容器需要设定position: relative;/position: absolute;
+  ->我们还可以在JS中通过获取到这个滚动条元素给其设定自定义的样式
+  $(".iScrollIndicator").css({
+      borderColor: "red",
+      background: "red",
+      borderRadius: "0"
+  });
+
+->当容器中的内容或者高度发生改变的话我们需要调取ISCROLL的方法实现刷新
+  myIscroll.refresh();
+
+
+
+
+
+实现CSS或者JS代码压缩的工具网站
+http://tool.css-js.com/
+->我们的JS压缩建议大家是用Uglify压缩

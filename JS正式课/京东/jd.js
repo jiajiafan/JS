@@ -39,14 +39,21 @@ window.onload=function(){
             var curLi=aLi[i];
             aLi[i].index=i;
             curLi.onmouseover=function(){
+                var _this=this;
                 var h=utils.children(this)[0];
                 var div=utils.next(h);
+                var docScrollT=document.documentElement.scrollTop||document.body.scrollTop;
+                var menusOffsetT=menus.offsetTop;
+                if(menusOffsetT<=docScrollT){
+                    div.style.top=(docScrollT-menusOffsetT-1)+"px";
+                }
                 utils.addClass(h,'list');
                 div.style.display='block';
             };
             curLi.onmouseout=function(){
                 var h=utils.children(this)[0];
                 var div=utils.next(h);
+                div.style.top="-1px";
                 utils.removeClass(h,'list');
                 div.style.display='none';
             }
@@ -205,11 +212,112 @@ window.onload=function(){
     // 以上是右侧固定定位的盒子;
     var gessC=document.getElementById('gessC');
     var line=document.getElementById('line');
-   gessC.onmouseover=function(){
-       line.style.left='-365px';
-       
+   gessC.onmouseenter=function(){
+       var _this=line;
+       utils.addClass(line,"move");
+       var timer=window.setTimeout(function(){
+           _this.style.webkitTranslateX="translateX(0)";
+           utils.removeClass(line,'move')
+       },800);
        };
-    // gessC.onmouseout=function(){
-    //     utils.removeClass(gessC,"change");
-    // }
+//        以上是猜你喜欢部分
+    (function(){
+        var fore2=document.getElementById('fore2');
+        var div=fore2.getElementsByTagName('div')[0];
+        var aL=div.getElementsByTagName("a");
+        var oUl=fore2.getElementsByTagName('ul')[0];
+        var aLi=oUl.getElementsByTagName('li');
+        var oBtnLeft=utils.children(fore2)[1];
+        var oBtnRight=utils.children(fore2)[2];
+        var autoTimer=null;
+        var interval=1000;
+        var step=0;
+        div.innerHTML+='<a href=""><img src="img/floor-1.jpg" alt=""></a>';
+        div.style.width=aL.length*aL[0].offsetWidth+'px';
+        clearInterval(autoTimer);
+        autoTimer=setInterval(autoMove,interval);
+        function autoMove(){
+            if(step>=aL.length-1){
+                step=0;
+                utils.css(div,'left',0)
+            }
+            step++;
+            animate(div,{'left':-step*439},500);
+            bannerTip();
+        }
+        function bannerTip(){
+            var tmpStep=step>=aL.length-1?0:step;
+            for(var i=0; i<aLi.length; i++){
+                var curLi=aLi[i];
+                i===tmpStep?curLi.className="over":curLi.className="";
+            }
+        }
+        fore2.onmouseover=function(){
+            clearInterval(autoTimer);
+            utils.css(oBtnLeft,'display','block');
+            utils.css(oBtnRight,'display','block');
+        };
+        fore2.onmouseout=function(){
+            autoTimer=setInterval(autoMove,interval);
+            utils.css(oBtnLeft,'display','none');
+            utils.css(oBtnRight,'display','none');
+        };
+        handleChange();
+        function handleChange(){
+            for(var i=0; i<aLi.length; i++){
+                var curLi=aLi[i];
+                curLi.index=i;
+                curLi.onmouseover=function(){
+                    step=this.index;
+                    animate(div,{'left':-step*439},500);
+                    bannerTip();
+                }
+            }
+        }
+        oBtnRight.onclick=autoMove;
+        oBtnLeft.onclick=function(){
+            if(step<=0){
+                step=aL.length-1;
+                div.style.left=-step*439+"px";
+            }
+            step--;
+            animate(div,{'left':-step*439},500);
+            bannerTip();
+        };
+    })();
+//    以上是楼层里的轮播图
+    (function(){
+        var selectM=document.getElementById("selectM"),
+            aLi=selectM.getElementsByTagName("li"),
+            side=document.getElementById("side"),
+            aDiv=utils.nextAll(side);
+        console.log(aDiv.length);
+        for(var i=0,ln=aLi.length;i<ln;i++){
+            var curLi=aLi[i];
+            curLi.index=i;
+            curLi.onmouseover=function(){
+                for(var j=0,ln=aDiv.length;j<ln;j++){
+                    aDiv[j].style.display="none";
+                    aLi[j].className="";
+                }
+                this.className="selectF";
+                aDiv[this.index].style.display="block";
+            }
+        }
+
+    })()
+//    以上是单楼层中的选项卡切换
+    var ul=document.getElementById('tt'),
+        aLi=ul.getElementsByTagName("li");
+    for(var i=0;i<aLi.length;i++){
+        var curLi=aLi[i];
+        curLi.onmouseover=function(){
+            var img=utils.firstChild(this);
+            utils.addClass(img,"sprot");
+        };
+        curLi.onmouseout=function(){
+            var img=utils.firstChild(this);
+            utils.removeClass(img,"sprot");
+        }
+    }
 };

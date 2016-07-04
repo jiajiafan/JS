@@ -1,0 +1,148 @@
+html, body {
+    width: 100%;
+    height:100%;
+    overflow-x: hidden;
+}
+.box{
+    position: relative;
+    height:100%;
+    left:0;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.con{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+}
+.rightMenu{
+    position: absolute;
+    top:0;
+    right:-50%;
+    width:50%;
+    height:100%;
+    background:#ededed;
+    line-height:36px;
+    box-shadow:-3px 0 5px 0 #ccc;
+
+}
+@media all and (max-width:770px){
+    .rightMenu{
+        right:-100%;
+        width:100%;
+    }
+
+}
+.nav {
+    height: 36px;
+    background: #5D5D58;
+}
+.nav ul {
+    margin: 0 4%;
+}
+
+.nav ul li {
+    float: left;
+}
+
+.nav ul li a {
+    display: block;
+    padding: 0 15px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+}
+.nav ul li a:hover {
+    background: #333;
+}
+
+.nav ul li.bg a {
+    color: #333;
+    background: #fff;
+}
+
+/*--header start--*/
+.header {
+    height: 80px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.header div {
+    margin: 0 4%;
+}
+
+.header .logo {
+    float: left;
+    margin-top: 20px;
+    width: 167px;
+    height: 40px;
+}
+
+.header .login {
+    float: right;
+    margin-top: 12px;
+    width: 342px;
+    height: 56px;
+}
+
+/*--headerSmall--*/
+.headerSmall {
+    display: none;
+    height: 60px;
+    border-bottom: 1px solid #ccc;
+}
+
+.headerSmall div {
+    margin: 0 15px;
+}
+
+.headerSmall .logo {
+    float: left;
+    margin-top: 10px;
+    width: 167px;
+    height: 40px;
+}
+
+.headerSmall .search, .headerSmall .menu {
+    float: right;
+    cursor: pointer;
+}
+
+.headerSmall .search {
+    margin-top: 19px;
+    width: 23px;
+    height: 22px;
+}
+
+.headerSmall .menu {
+    margin: 22.5px 0 0 30px;
+    width: 20px;
+    height: 15px;
+}
+
+/*--
+    使用媒体查询控制显示隐藏
+    ->媒体设备:@media screen所有屏幕设备(包含PC和手机) @media print(打印机设备) ... @media all所有设备
+
+    ->媒体特征:设置查询的条件
+
+    组合到一起叫做媒体查询 ‘and (xxx)’
+--*/
+@media screen and (max-width: 960px) {
+    /*--说明当前的屏幕小于等于960PX宽度--*/
+    .nav, .header {
+        display: none;
+    }
+
+    .headerSmall {
+        display: block;
+    }
+}
+

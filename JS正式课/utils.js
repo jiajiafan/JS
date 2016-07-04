@@ -39,7 +39,7 @@ var utils = (function () {
             par = par.offsetParent;
 
         }
-        return {left: l, top: t}
+        return {left: l,top: t}
     }
 
     //4.win:获取和设置浏览器盒子模型；

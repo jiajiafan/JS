@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>珠峰培训</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        html {
+            /*--在当前页面的根元素下设置一个基准值:1REM=100PX 以后页面中所有元素的样式属性值都告别PX,而是按照既定的比例换算成我们的REM--*/
+            font-size: 117.1875px;
+            /*font-size: 62.5%; /!*1REM=10PX 浏览器默认的字体大小是16PX,我想设置10PX,则可以设置为10/16也就是我们的62.5%；但是浏览器识别不了10PX的字体,这样我们按照10PX=1REM的比例算出来的REM值,在最后浏览器渲染完成的时候会与预先设想的值存在一些偏差*!/*/
+        }
+
+        .box {
+            position: relative;
+            margin: .1rem;
+            height: 1rem;
+            background: green;
+
+            /*--当前容器下的子集元素的1EM的值等价于14PX--*/
+            /*font-size: 15px;*/
+        }
+
+        .box .inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+
+            width: 50%;
+            height: .7rem;
+            /*height: 5em; /!*--这个EM值是相对于父级元素的fontSize值进行计算的,5EM=5*14PX--*!/*/
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="inner">
+
+    </div>
+</div>
+320  1rem=100px
+375  1rem=375/320*100PX
+
+真实项目中实现REM响应式布局:
+    ->REM不兼容IE6~8,所以我们使用这种布局思想只是单纯的进行移动端页面的响应式开发
+    ->首先拿到PSD的效果图(我们的设计图是750PX*1334PX),并且在页面的样式中设置根植(REM与PX的换算比例),为了方便后期的计算我们一般根植设置为100PX(设置给HTML的fontSize)
+    ->第二步:
+      开始搭建我们的HTML结构和编写CSS样式，但是在编写CSS样式的时候，不管是margin、padding、width(最外层盒子的宽度可以使用百分比适应即可)、height、fontSize...的值我们不要写具体的PX,而是按照设计稿中提供的像素值,和根植设置的1REM=100PX的比例,把所有的属性设置为nREM
+    ->写一段JS:获取当前屏幕的宽度winW,然后让winW/desW(设计稿的宽度)计算出屏幕和设计稿的宽度比,从而计算出当前屏幕尺寸下REM和PX之间换算的比例
+</body>
+</html>

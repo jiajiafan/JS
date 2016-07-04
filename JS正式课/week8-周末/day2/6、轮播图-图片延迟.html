@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>珠峰培训</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        html {
+            font-size: 100px;
+        }
+
+        .swiper-container {
+            height: 3.5rem;
+        }
+
+        .swiper-slide {
+            height: 100%;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="" data-src="img/banner/banner1.jpg" class="swiper-lazy"/>
+
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img src="" data-src="img/banner/banner2.jpg" class="swiper-lazy"/>
+
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img src="" data-src="img/banner/banner3.jpg" class="swiper-lazy"/>
+
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img src="" data-src="img/banner/banner4.jpg" class="swiper-lazy"/>
+
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img src="" data-src="img/banner/banner5.jpg" class="swiper-lazy"/>
+
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<script charset="utf-8" type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript">
+    //->动态计算REM的值
+    ~function () {
+        var winW = document.documentElement.clientWidth;
+        document.documentElement.style.fontSize = winW / 750 * 100 + "px";
+    }();
+
+    //->初始化Swiper
+    var s = new Swiper(".swiper-container", {
+        direction: "horizontal",//->horizontal水平 & vertical垂直
+        
+        loop: true,//->运动到最后一张可以实现无缝衔接
+        pagination: ".swiper-pagination",//->设置分页器
+        speed: 500,//->切换的速度,默认是300ms
+
+        autoplay: 3000,//->每隔3000ms自动轮播
+        autoplayDisableOnInteraction: false,//->手动切换完成后,继续自动轮播,默认是false,切换完成就停止自动了
+
+        lazyLoading: true,//->开启图片的延迟加载
+        lazyLoadingInPrevNext: true//->把当前这一张和它的前一张以及后一张首先进行延迟加载
+    });
+</script>
+</body>
+</html>

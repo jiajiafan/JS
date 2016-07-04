@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>珠峰培训</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<section class="music" id="music">
+    <!--
+        preload:auto(默认值) 加载页面的时候就开始下载整个音频文件了  metadata开始加载页面的时候只是把头部基本信息加载下来  none开始加载页面的时候什么都不下载,只有播放的时候才开始下载(平时应该都用none,这样打开页面速度不会变慢)
+        loop:播放完成后重复继续播放
+        autoplay:自动播放
+
+        音频文件支持三种格式:mp3、wav、ogg,但是每一种格式都有个别浏览器不支持,所以想让支持的完善,我们需要准备三种音频格式
+        移动端我们一般使用MP3的格式就可以了
+    -->
+    <audio id="musicAudio" preload="none" loop src="audioFile/beyond.mp3"/>
+    <!-- <audio id="musicAudio" preload="metadata" loop autoplay>
+         <source src="xxx.mp3" type="audio/mpeg"/>
+         <source src="xxx.wav" type="audio/wav"/>
+         <source src="xxx.ogg" type="audio/ogg"/>
+     </audio>-->
+</section>
+<section class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide page1">
+            <img src="img/page1-text4.png"/>
+            <img src="img/page1-text3.png"/>
+            <img src="img/page1-text2.png"/>
+            <img src="img/page1-text1.png"/>
+        </div>
+        <div class="swiper-slide page2">
+            <img src="img/page2-text1.png"/>
+            <img src="img/page2-text2.png"/>
+            <img src="img/page2-text3.png"/>
+            <img src="img/page2-text4.png"/>
+        </div>
+    </div>
+</section>
+
+<script charset="utf-8" type="text/javascript" src="js/swiper.min.js"></script>
+<script charset="utf-8" type="text/javascript" src="js/fastClick.js"></script>
+<script charset="utf-8" type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

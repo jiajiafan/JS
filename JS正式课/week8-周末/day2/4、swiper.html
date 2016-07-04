@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>珠峰培训</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        html {
+            font-size: 100px;
+        }
+
+        .swiper-container {
+            height: 3rem;
+        }
+
+        .swiper-slide {
+            height: 100%;
+            line-height: 3rem;
+            text-align: center;
+            font-size: .36rem;
+        }
+
+        .bg1 {
+            background: red;
+        }
+
+        .bg2 {
+            background: orange;
+        }
+
+        .bg3 {
+            background: green;
+        }
+    </style>
+    <script type="text/javascript">
+        ~function () {
+            var winW = document.documentElement.clientWidth;
+            document.documentElement.style.fontSize = winW / 750 * 100 + "px";
+        }();
+    </script>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide bg1">Slide 1</div>
+        <div class="swiper-slide bg2">Slide 2</div>
+        <div class="swiper-slide bg3">Slide 3</div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<script charset="utf-8" type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript">
+    //->初始化Swiper
+    var s = new Swiper(".swiper-container", {
+        loop: true,
+        autoplay: 3000,
+        pagination: ".swiper-pagination",
+        effect: "cube"
+    });
+</script>
+</body>
+</html>

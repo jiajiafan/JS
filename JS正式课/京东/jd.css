@@ -2,6 +2,7 @@ body,div,ul,li,ol,a,img,input,i,em,b,strong,span,p,h1,h2,h3,h4,h5,h6{
     margin: 0;
     padding: 0;
     font-family: Arial,Verdana,"\5b8b\4f53","microsoft yahei";
+    font-size:12px;
     color:#666;
 }
 ul,li{
@@ -627,13 +628,13 @@ a:hover{
     width:100%;
     height:100%;
 }
-.banner ul{
+.banner ul,.floor-select1 .fore2 ul{
     position: absolute;
     bottom:10px;
-    left:300px;
+    left:42%;
     z-index:1;
 }
-.banner ul li{
+.banner ul li,.floor-select1 .fore2 li{
     float:left;
     margin-left:8px;
     border-radius:50%;
@@ -642,7 +643,7 @@ a:hover{
     background-color:#3e3e3e;
     cursor: pointer;
 }
-.banner ul .over{
+.banner ul .over,.floor-select1 .fore2 .over{
     background-color:#c81622;
 }
 .btnL,.btnR{
@@ -737,6 +738,9 @@ a:hover{
     top:45px;
     left:19px;
 }
+.lifeServ ul b:hover{
+    color:#c81622;
+}
 .bannerR .img,.img img{
    width:248px;
     height:75px;
@@ -782,6 +786,7 @@ a:hover{
 /*以上是轮播图下边一栏*/
 .gessyou{
     position: relative;
+    overflow: hidden;
 }
 .gessyou .gess h3{
     float:left;
@@ -822,17 +827,19 @@ a:hover{
     width:131px;
     height:61px;
 }
-.gessyou .gessP p{
+.gessP p{
     margin-bottom: 6px;
     height:36px;
     overflow: hidden;
 }
-.gessyou .gessP span{
+.gessP span{
     font-size:14px;
+    float:left;
 }
-.gessyou .gessP b{
+.gessP b{
     font-size:18px;
     font-weight:300;
+    float:left;
 }
 .gessyou .line{
     display: block;
@@ -852,11 +859,305 @@ a:hover{
              transform:translateX(0);
          }
 }
+@keyframes myMove{
+    0%{
+        -webkit-transform:translateX(-1200px);
+        transform:translateX(-1200px);
+    }100%{
+         -webkit-transform:translateX(0);
+         transform:translateX(0);
+     }
+}
 .move{
-    -webkit-animation:myMove 1s linear 0s infinite both;
-    animation:myMove 1s linear 0s infinite both;
+    -webkit-animation:myMove 1s linear 0s 1 both;
+    animation:myMove 1s linear 0s 1 both;
 }
 /*以上是猜你喜欢内容区*/
+.content .spacerT{
+    margin-bottom:30px;
+    height:110px;
+    background-color: #d26c2d;
+    font-size:0;
+}
+.content .spacerT a{
+    display: inline-block;
+}
+/*以上是楼层上的隔离区*/
+.floor1{
+    height:737px;
+    margin-bottom:30px;
+}
+.floorT{
+    height:36px;
+    border-bottom:1px solid #c81623;
+}
+.floorT h2{
+    position: absolute;
+    padding-left:40px;
+    line-height:30px;
+    font-size:20px;
+    font-weight:400;
+    color:#333;
+}
+.floorT h2:before{
+    position: absolute;
+    left:0;
+    top:2px;
+    content:'';
+    width:31px;
+    height:25px;
+    background: url(img/floor.png) no-repeat 0 -35px;
+}
+.floorT .show:before{
+    background-position:0 0;
+}
+.floorT i{
+    position: absolute;
+    font-style:normal;
+    font-size:12px;
+    left:2px;
+    top:2px;
+    color:#fff;
+}
+.floorT ul{
+    float:right;
+    border:solid 1px #ededed;
+    height:34px;
+}
+.floorT li{
+    float:left;
+    position: relative;
+    border-left:1px solid #fff;
+    border-right:1px solid #fff;
+    padding:0 16px;
+    line-height:34px;
+    text-align: center;
+}
+.floorT .selectF{
+    border-left:1px solid #c81622;
+    border-right:1px solid #c81622;
+    border-top:3px solid #c81622;
+    border-bottom:2px solid #fff;
+    top:-3px;
+    left:-2px;
+}
+.floorT .selectF span{
+    height:0;
+}
+.floorT li span{
+   position: absolute;
+    top:9px;
+    right:0;
+    width:1px;
+    height:16px;
+    background-color:#ccc;
+}
+.floorB{
+    height:633px;
+    overflow: hidden;
+}
+.floorB .side{
+    float:left;
+}
+.floorB .sideT{
+    position: relative;
+    height:474px;
+    border-bottom:1px solid #f7f5ee;
+}
+.floorB .sideT img{
+    width:330px;
+    height:474px;
+}
+.floorB .sideT ul{
+    position: absolute;
+    bottom:127px;
+    left:0;
+    padding-left:21px;
+    height:92px;
+    background: rgba(255,255,255,.5);
+}
+.sideT ul li{
+    float:left;
+    padding:10px 0;
+    width:100px;
+    height:26px;
+}
+.sideT ul li i{
+    display:block;
+    float:left;
+    margin-right:5px;
+    width:26px;
+    height:26px;
+    background-image:url(img/sideimg.png);
+}
+.sideT ul li a{
+    line-height: 26px;
+    font-size:14px;
+}
+.sideT ol{
+   position: absolute;
+    bottom:0;
+    left:0;
+    height:127px;
+    background: rgba(255,255,255,.7);
+}
+.sideT ol li{
+    float:left;
+    padding:16px 0 0 25px;
+    width:140px;
+}
+.sideT ol li a{
+    float:left;
+    line-height:24px;
+    margin-right:10px;
+    color:#999;
+}
+.sideT ol li a.frist{
+    color:#c81622;
+}
+.side .sideB{
+    border:1px solid #f7f5ee;
+    border-top:none;
+    width:328px;
+    height:156px;
+}
+.side .sideB img{
+    width:328px;
+    height:156px;
+}
+.floor-select1,.floor-select2{
+    width:880px;
+    float:left;
+    overflow: hidden;
+}
+.floor-select1 ul{
+    float:left;
+    overflow: hidden;
+    width:439px;
+}
+.floor-select1 ol{
+    float:left;
+    overflow: hidden;
+    width:440px;
+}
+.floor-select1 ul li{
+    border-right:1px solid #f7f5ee;
+    border-bottom:1px solid #f7f5ee;
+}
+.floor-select1 .fore1,.floor-select1 .fore3{
+    height:157px;
+}
+.floor-select1 .fore2{
+    width:100%;
+    height:315px;
+    overflow: hidden;
+    position: relative;
+}
+.floor-select1 .fore2 div{
+    width:400%;
+    position:absolute;
+    left:0;
+}
+.floor-select1 .fore2 li{
+    border:none;
+    width: 10px;
+    height:10px;
+}
+.floor-select1 .fore2 a{
+    float:left;
+}
+.floor-select1 ol li{
+    float:left;
+    width:219px;
+    height:157px;
+    border-right:1px solid #f7f5ee;
+    border-bottom:1px solid #f7f5ee;
+}
+.floor-select1 .fore4,.floor-select1 .fore4 img{
+    width:219px;
+    float:right;
+    height:315px;
+}
+.floor-select2 li{
+    float:left;
+    border-right:1px solid #f7f5ee;
+    border-bottom:1px solid #f7f5ee;
+    padding:6px 17px 0;
+    width:185px;
+    height:230px;
+    text-align: center;
+}
+.floor-select2 .floor2-B{
+    padding:0;
+    width:219px;
+    height:157px;
+}
+.floor1 .brands{
+    margin-top:10px;
+    padding:13px 0;
+    height:40px;
+    background: #f7f7f7;
+}
+.floor1 .brands li{
+    float:left;
+    border-left:1px dotted #ccc;
+    width:120px;
+    text-align:center;
+}
+.floor1 .brands li.f{
+    border:none;
+}
+/*以上是楼层一区*/
+.day{
+    margin-bottom:20px;
+    height:319px;
+}
+.day .special{
+    float:left;
+    width:880px;
+}
+.day .share{
+    float:left;
+    width:318px;
+}
+.day h2{
+    padding-bottom:6px;
+    font-weight:300;
+    font-size:18px;
+}
+.day ul{
+    height:281px;
+    border:1px solid  #f7f5ee;
+}
+.spacerF{
+    float:left;
+    border-left:1px solid  #f7f5ee;
+    border-bottom:1px solid  #f7f5ee;
+    padding:18px 10px;
+    width:198px;
+    height:245px;
+    text-align: center;
+}
+.special .pp{
+    line-height:24px;
+}
+.special .frist{
+    font-size:16px;
+}
+.share ul{
+    margin-left:-1px;
+}
+.special .imgWrap{
+    position: relative;
+    left:0;
+    -webkit-transition:all .4s linear 0s;
+    transition:all .4s linear 0s;
+}
+.special .imgWrap.sprot{
+    -webkit-transform:translateX(-10px);
+    transform:translateX(-10px);
+}
+/*以上是天天特价区*/
 .sevice .slogen{
     padding:20px 0;
     margin-bottom:14px;

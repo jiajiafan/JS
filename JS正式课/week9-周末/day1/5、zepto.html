@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        html {
+            font-size: 100px;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+
+            width: 1rem;
+            height: 1rem;
+            background: lightblue;
+        }
+    </style>
+    <script type="text/javascript">
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 320 * 100 + "px";
+    </script>
+</head>
+<body>
+<div id="box"></div>
+<!--
+    ZEPTO的API：http://www.css88.com/doc/zeptojs/
+
+    ->ZEPTO的语法和实现原理与jQuery非常的相似,但是ZEPTO放弃了对于IE低版本浏览器的支持，没有处理兼容，单纯为移动端的开发而生
+
+    ->zepto中舍弃了很多jQuery中不经常使用的方法以及一些不经常使用的选择器，只是实现了最常用的方法和选择器(例如：jQ中支持的show、hide、fadeIn...等方法在zp中都不支持，只是先了animate这个常用的动画库)
+
+    ->zepto相对于jQ更适合移动端，因为它增加了jQ不支持的CSS3动画和移动端专用的事件库
+-->
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript">
+    //->支持CSS3动画
+    //    $("#box").animate({
+    //        rotate: "360deg"
+    //    }, 3000, function () {
+    //        $(this).css("background", "orange");
+    //    });
+
+    //->增加了移动端专有的事件:tap、singleTap and doubleTap、longTap、swipe、swipeLeft、swipeRight、swipeUp、swipeDown
+    //    $("#box").tap(function () {
+    //        $(this).animate({
+    //            rotate: "360deg"
+    //        }, 500, function () {
+    //            $(this).css("background", "orange");
+    //        });
+    //    });
+
+    $("#box").on("touchstart", function (ev) {
+        //console.log(ev);//->TouchEvent:单手指,手指操作事件对象 (包含的信息基本上和PC端的鼠标事件对象一样:stopPropagation、preventDefault、target...)
+        //->ev.touches
+        //{
+        //  0:touch  //->当前唯一的这个手指操作信息存储在这个值中  pageX/pageY/clientX/clientY
+        //  length:1
+        //}
+        var touchPoint = ev.touches[0];
+        var pageX = touchPoint.pageX;
+        var pageY = touchPoint.pageY;
+    });
+</script>
+</body>
+</html>
