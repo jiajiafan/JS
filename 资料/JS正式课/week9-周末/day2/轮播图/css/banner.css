@@ -1,0 +1,63 @@
+@charset "utf-8";
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+html {
+    font-size: 100px;
+}
+
+.banner {
+    position: relative;
+    overflow: hidden;
+    height: 3.5rem;
+    background: #eee;
+}
+
+.banner .wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+
+    /*--设置WRAP的过渡动画--*/
+    -webkit-transition: all .3s linear 0s;
+    transition: all .3s linear 0s;
+}
+
+.banner .wrap > div {
+    float: left;
+    height: 100%;
+    background: url("../img/default.gif") no-repeat center center;
+    background-size: 34px 34px; /*--原图也是34*34的大小,这样的话在苹果或者其他高清屏上我们的这个背景图会出现模糊(我们需要准备一张68*68的图片)--*/
+}
+
+.banner .wrap > div img {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.banner .tip {
+    position: absolute;
+    left: 0;
+    bottom: .25rem;
+    width: 100%;
+    height: .2rem;
+    line-height: .2rem;
+    text-align: center;
+}
+
+.banner .tip li {
+    display: inline-block;
+    margin: 0 .05rem;
+    width: .2rem;
+    height: .2rem;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.banner .tip li.bg {
+    background: darkcyan;
+}
