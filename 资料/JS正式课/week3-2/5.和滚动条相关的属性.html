@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+       #div1{
+           height: 300px;
+           width: 100px;
+           border:10px solid green;
+           overflow: auto;
+
+       }
+    </style>
+</head>
+<body style="height: 5000px">
+
+    <div id="div1">我们是先学习再考试,考试通过了才交学费;珠峰有完善的教学管理,考试和激励引导制度帮你不但学的会还要学的好!我们是先学习再考试,考试通过了才交学费;珠峰有完善的教学管理,考试和激励引导制度帮你不但学的会还要学的好!可申请一年或一年半期的助学贷款,毕业后开始逐月还款,每月大约还款一千左右,相对于程序员的工资来说没啥压力   </div>
+
+</body>
+</html>
+<script>
+   /* 盒子模型中,之前讲的11个属性全是可读,不能赋值
+    唯一的两个既可以读取也可以赋值的属性是:scrollTop和scrollLeft;
+    scrollTop  表示向上卷去的高度
+    scrollLeft 表示向左卷去的宽度
+    scrollTop和scrollLeft有最大值和最小值,最小值都是0
+    对于浏览器,scrollTop最大的值=文档的高度(真实的高度) 减去 一屏的高度
+    对于元素来说 scrollTop最大的值 = 真实的高度(scrollHeight) - 容器的高度(clientHeight)
+
+    scrollTop/scrollLeft赋值的时候,如果赋的值不在最大值和最小值的范围之内,则赋值失败
+    在js中当拖动滚动条的时候或者鼠标滚轮滚动的时候,或者js动态控制滚动条时,会触发onscroll事件
+
+    */
+
+    var oDiv = document.getElementById("div1");
+    var n = 0;
+    window.onscroll = function(){
+        n++;
+        console.log(n);
+    }
+
+
+
+</script>

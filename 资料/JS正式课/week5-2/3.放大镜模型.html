@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #box {
+            width: 300px;
+            height: 223px;
+            position: relative;
+            margin: 50px auto;
+        }
+
+        #mask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #000;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+
+        #show {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            left: 320px;
+            top: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<!--遮罩层/小图 = 显示区/大图
+遮罩层 = 小图/大图*显示区
+小图的大小 宽300 高223
+大图的大小 宽950 高706
+显示区宽高随便定 假设 宽300 高200
+宽缩放值(scaleX) = 小图宽/大图宽
+高缩放值(scaleY) = 小图高/大图高
+maskWidth = 300/950 *300
+maskHeight = 223/706 *200-->
+
+<!--遮罩层的左偏移/显示区卷去宽度 = 宽缩放值(scaleX)-->
+<!--显示区卷去的scrollLeft = 遮罩层的左偏移/宽缩放值(scaleX)-->
+
+<div id="box"><img src="img/smallPeony.jpg"></div>
+</body>
+</html>
+<script>
+    function mouseEvent(e) { //处理ie兼容性问题
+        e = e || window.event;
+        if (typeof  e.pageX == "undefined") {
+            e.pageX = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+            e.pageY = e.clientY + (document.documentElement.scrollTop || document.body.scrollTop);
+            e.target = e.srcElement;
+            e.stopPropagation = function () {
+                e.cancelBubble = true;
+            }
+            e.preventDefault = function () {
+                e.returnValue = false;
+            }
+        }
+        return e;
+    }
+    var scaleX = 300 / 950;
+    var scaleY = 223 / 706;
+    var sWidth = 300;
+    /*显示区域宽*/
+    var sHeight = 200;
+    /*显示区域高*/
+    var oBox = document.getElementById("box");
+    oBox.onmouseenter = function (e) {
+        e = mouseEvent(e);
+        var oMask = document.createElement("div");
+        oMask.id = "mask";
+        var w = scaleX * sWidth; /*遮罩层的宽*/
+        var h = scaleY * sHeight;/*遮罩层的高*/
+        oMask.style.width = w + "px";
+        oMask.style.height = h + "px";
+        this.appendChild(oMask);
+        var x = e.clientX - this.offsetLeft - oMask.offsetWidth / 2;
+        var y = e.clientY - this.offsetTop - oMask.offsetHeight / 2;
+        oMask.style.left = x + "px";
+        oMask.style.top =  y + "px";
+
+        //创建显示区域
+        var oShow = document.createElement("div");
+        oShow.id = "show";
+        var oImg = document.createElement("img");
+        oImg.src = "img/peony.jpg";
+        oShow.appendChild(oImg);
+        this.appendChild(oShow);
+
+    }
+    oBox.onmousemove = function (e) {
+        var oMask = document.getElementById("mask");
+        var oShow = document.getElementById("show");
+        if(oMask){
+            var sideRight = this.offsetWidth - oMask.offsetWidth;
+            var sideBottom = this.offsetHeight- oMask.offsetHeight;
+            var x = e.clientX - this.offsetLeft - oMask.offsetWidth/2;
+            var y = e.clientY - this.offsetTop -oMask.offsetHeight/2;
+            if(x<=0){
+                oMask.style.left = 0;
+            }else if(x>=sideRight){
+                oMask.style.left = sideRight +"px";
+                oShow.scrollLeft = sideRight/scaleX;
+            }else{/*在边界里面*/
+                oMask.style.left = x+"px";
+                oShow.scrollLeft =x/scaleX;
+            }
+            if(y<=0){
+                oMask.style.top = 0;
+            }else if(y>=sideBottom){
+                oMask.style.top = sideBottom +"px";
+                oShow.scrollTop = sideBottom/scaleY;
+            }else{
+                oMask.style.top = y+"px";
+                oShow.scrollTop  = y/scaleY;
+            }
+        }
+
+
+
+    }
+    oBox.onmouseleave = function (e) {
+        var oMask = document.getElementById("mask");
+        var oShow = document.getElementById("show");
+        if(oMask){
+            this.removeChild(oMask);
+        }
+        if(oShow){
+            this.removeChild(oShow);
+        }
+    }
+
+    /*
+    * 放大镜整体思路
+    * 1.划过小图时创建遮罩层
+    * 2.划过小图时创建显示区域
+    * 3.处理遮罩层和显示区的图片,等比例放大
+    *
+    * */
+
+</script>

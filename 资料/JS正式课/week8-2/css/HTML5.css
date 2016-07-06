@@ -1,0 +1,61 @@
+.article, .footer {
+    margin: 20px auto;
+    width: 800px;
+}
+
+.header {
+    padding: 10px;
+    border: 1px solid blue;
+    background: lightblue;
+}
+
+.header h1, .header h2 {
+    line-height: 50px;
+    text-align: center;
+}
+
+.section {
+    padding: 20px 50px 5px 50px;
+}
+
+.section p {
+    margin-bottom: 16px;
+    line-height: 25px;
+    font-size: 14px;
+}
+
+.section p .big {
+    font-weight: bold;
+}
+
+.section h3 {
+    color: #244;
+    line-height: 25px;
+}
+
+.figure {
+    float: left;
+    margin: 0 20px 0 0;
+    width: 300px;
+}
+
+.figure img {
+    width: 100%;
+}
+
+.figure .figcaption {
+    margin-top: 5px;
+    color: #666;
+    line-height: 20px;
+    font-style: italic;
+}
+
+.footer div {
+    text-align: center;
+    line-height: 25px;
+}
+
+.footer div a {
+    margin: 0 4px;
+    display: inline-block;
+}

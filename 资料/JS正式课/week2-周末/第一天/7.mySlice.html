@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.总结this：
+1）自执行函数 this-window
+2）元素上添加事件，当事件触发时执行一个函数，函数中的this指向当前这个元素；
+3）当函数执行的时候，看前面是否有"."，"."前面是谁，this就是谁；
+4）构造函数中的this指向当前实例；
+5）当遇到call,apply,bind时，以上4种都失效；每个方法中的第一个参数改变this指向；
+<script>
+    var ary=[1,2,3,4,5,5];
+    Array.prototype.mySlice=function(){
+        var ary1=[];
+        for(var i=0; i<this.length; i++){
+            ary1[ary1.length]=this[i];
+        }
+        /*
+        var ary=[];
+        for(var i=0; i<arguments.length; i++){
+            //ary.push(arguments[i]);
+            ary[ary.length]=arguments[i];
+        }
+        */
+        return ary1;
+    }
+    var ary2=ary.mySlice().pop();
+alert(ary2)
+</script>
+</body>
+</html>

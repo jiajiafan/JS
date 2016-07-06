@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //考察的是查找上级作用域只跟方法在哪里定义有关系,跟方法在哪里执行没有关系
+    function fn1() {
+        var num = 13;
+        function f() {
+            console.log(num);
+        }
+        return f;
+    }
+        var num = 12;
+        var aa = fn1();//把fn1()运行完之后的返回值赋值给变量aa
+        aa();
+        aa = null;
+
+
+
+    //课后自己思考画图
+    var num = 13;
+    function fn1() {
+        num = 15;
+        function f() {
+            console.log(num);
+        }
+        return f;
+    }
+    function fn2() {
+        var num = 14;
+        var bb = fn1();
+        bb();
+    }
+    fn2();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>珠峰培训</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <!--下面写法的机制:开始加载页面的时候就把CSS文件下载到客户端了,当客户端屏幕的尺寸小于等于960的时候用1.css中的样式进行渲染-->
+    <!--<link type="text/css" rel="stylesheet" href="css/1.css" media="all and (max-width:960px)"/>-->
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /*@media all and (max-width: 960px){/!*--width<=960--*!/
+
+        }*/
+
+        /*@media all and (min-width: 320px){/!*--width>=320--*!/
+
+        }*/
+
+        /*@media all and (min-width: 320px) and (max-width: 640px) {
+
+        }*/
+
+        /*--使用@media来检测横竖屏的切换:我们编写的HTML页面,不管是用CSS还是JS我们只能检测出横屏还是竖屏,但是不能禁止用户的横竖品切换--*/
+        @media all and (orientation: portrait) {
+            /*竖屏*/
+            body {
+                background: pink;
+            }
+        }
+
+        @media all and (orientation: landscape) {
+            /*横屏*/
+            body {
+                background: green;
+            }
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    var flag = "onorientationchange" in window,
+            event = flag ? "orientationchange" : "resize";
+    window.addEventListener(event, function () {
+        if (flag) {
+            if (Math.abs(window.orientation) === 90) {
+                //->横屏
+                alert("横");
+            } else {
+                //->竖屏
+                alert("竖");
+            }
+        }
+    }, false);
+</script>
+<!--
+ 更多的meta标签：
+ [UC 浏览器的部分私有Meta属性]
+   设置屏幕方向为横屏还是竖屏
+   <meta name="screen-orientation" content="portrait|landscape">
+
+   设置是否全屏，yes表示强制浏览器全屏
+   <meta name="full-screen" content="yes">
+
+   缩放不出滚动条
+   <meta name="viewport" content="uc-fitscreen=no|yes"/>
+   设置no后用户缩放与标准浏览器缩放一直，设置为yes后，用户缩放金放到图片和文字，不出现横向滚动条。
+
+   排版
+   <meta name="layoutmode" content="fitscreen|standard" />
+    fitscreen模式简化页面处理，适合页面阅读节省流量，standard模式和标准浏览器一致；一旦设置layoutmode meta后，用户使用浏览器提供的的排版模式选项将会无效。
+
+  夜间模式
+  <meta name="nightmode" content="enable|disable"/>
+
+  强制图片显示
+  <meta name="imagemode" content="force"/>
+  UC浏览器为了节省流量，为用户提供了无图模式，但是如果页面的图片是必不可少的，如验证码的，需要强制浏览器显示图片，可以设置imagemode， 不影响子页面。通过META设置图片加载方式会作用于整个页面，如果希望对单个图片进行设置，那么可以使用这个
+  <img src="..." show="force"/>
+
+  使用了application这种应用模式后，页面讲默认全屏，禁止长按菜单，禁止收拾，标准排版，以及强制图片显示。
+  <meta name="browsermode" content="application"/>
+
+  [QQ 浏览器x5内核定制标签说明]
+  设置屏幕方向
+  <meta name="x5-orientation" content="portrait|landscape"/>
+  设置全屏
+  <meta name="x5-fullscreen" content="true" />
+  设置屏幕模式
+  <meta name="x5-page-mode" content="app" />
+-->
+</body>
+</html>

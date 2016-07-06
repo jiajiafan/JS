@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .stage {
+            background: url(images/bg-grid.jpg) no-repeat;
+            width: 367px;
+            height: 297px;
+            position: relative;
+            perspective: 2000px;/*视距*/
+        }
+        .container{
+            position: absolute;
+            left: 50%;
+            top:50%;
+            margin:-100px 0 0 -100px;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;/*3d空间里展示*/
+        }
+        .slide{
+            position: absolute;
+            width: 196px;
+            height: 196px;
+            border:2px solid #8ec63f;
+            background: rgba(142,198,63,0.3);
+            line-height: 196px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+
+        }
+        .top{
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .bottom{
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        .left{
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .right{
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .front {
+            transform: translateZ(100px);
+        }
+        .back{
+            transform: translateZ(-100px);
+        }
+
+        @keyframes move {
+            0%{
+                transform:rotateY(45deg);
+            }
+            100%{
+                transform: rotateY(-360deg);
+            }
+        }
+        .container:hover{
+            animation:move 3s 1;
+        }
+/*E:target*/
+    </style>
+</head>
+<body>
+<div class="stage">
+    <div class="container">
+        <div class="slide front">1</div>
+        <div class="slide top">2</div>
+        <div class="slide left">3</div>
+        <div class="slide right">4</div>
+        <div class="slide bottom">5</div>
+        <div class="slide back">6</div>
+    </div>
+</div>
+</body>
+</html><!--
+transform:rotateX()
+transform:rotateY()
+transform :translateZ()
+-->

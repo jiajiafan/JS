@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托/事件代理-珠峰培训</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            font-size: 14px;
+            color: #424242;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        a, a:hover, a:active, a:target, a:visited {
+            text-decoration: none;
+            color: #424242;
+        }
+
+        a {
+            display: block;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #eee;
+            overflow: hidden;
+        }
+
+        .box {
+            margin: 20px auto;
+            width: 300px;
+        }
+
+        .box a {
+            padding: 0 10px;
+            height: 35px;
+            line-height: 35px;
+            background: lightblue;
+            font-size: 16px;
+            border: 1px solid red;
+        }
+
+        .box ul {
+            display: none;
+            padding: 10px 0;
+            border: 1px solid red;
+            border-top: none;
+            background: linen;
+        }
+
+        .box ul li {
+            padding-left: 20px;
+            height: 35px;
+            line-height: 35px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <a href="javascript:;">珠峰培训</a>
+    <ul id="boxList">
+        <li>珠峰培训课程1</li>
+        <li>珠峰培训课程2</li>
+        <li>珠峰培训课程3</li>
+        <li>珠峰培训课程4</li>
+        <li>珠峰培训课程5</li>
+    </ul>
+</div>
+
+
+<script type="text/javascript">
+    //1、事件委托：利用了事件的冒泡传播机制，当容器中某个子元素的相关行为触发，当前容器的相关行为也会被触发，如果给容器的这个事件绑定了方法，方法也会被执行，在执行的时候我们可以获取到事件源(存储的是当前操作的是哪个元素)，我们可以通过事件源是谁来做不同的操作...
+
+    var oBox = document.getElementById("box");
+    var boxList = document.getElementById("boxList");
+
+    document.body.onclick = function (ev) {
+        ev = ev || window.event;
+        var tar = ev.target || ev.srcElement;
+        var tarTag = tar.tagName.toUpperCase();
+
+        //->如果是BOX下的A
+        if (tarTag === "A" && has(tar, oBox)) {
+            var isBok = boxList.style.display;
+            if (isBok === "block") {
+                boxList.style.display = "none";
+            } else {
+                boxList.style.display = "block";
+            }
+            return;
+        }
+
+        //->如果是BOX下的UL/LI
+        if ((tarTag === "UL" || tarTag === "LI") && has(tar, oBox)) {
+            return;
+        }
+
+        boxList.style.display = "none";
+    };
+
+
+    //->判断当前的元素是否为某个容器中的子元素或者后代元素
+    function has(curEle, container) {
+        //->获取当前元素的所有父亲节点
+        var ary = [];
+        var p = curEle.parentNode;
+        while (p) {
+            ary.push(p);
+            p = p.parentNode;
+        }
+
+        //->在所有的父亲节点中判断是否包含container
+        var flag = false;
+        for (var i = 0; i < ary.length; i++) {
+            if (ary[i] === container) {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
+</script>
+</body>
+</html>

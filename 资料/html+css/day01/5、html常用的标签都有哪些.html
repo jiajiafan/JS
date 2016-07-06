@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>常用的html标签</title>
+</head>
+<body>
+    <div>div是一个无意义的标签 是用来进行结构的区分 相当于一个容器 来放置一些内容和结构</div>
+    <p>段落标签 用来区分段落的1</p>
+    <p>段落标签 用来区分段落的2</p>
+    行一 <br />--> 换行
+    行二
+    <h1></h1>-<h6></h6>
+    <!-- 标题 这个标签 默认加粗 从1-6 字体逐渐变小 -->
+    <h1>母象为保护小象和狮子搏斗而死，象群赶来后让人泪目</h1>
+    <h2>母象为保护小象和狮子搏斗而死，象群赶来后让人泪目</h2>
+    <h3>母象为保护小象和狮子搏斗而死，象群赶来后让人泪目</h3>
+    <h4>母象为保护小象和狮子搏斗而死，象群赶来后让人泪目</h4>
+    <h5>母象为保护小象和狮子搏斗而死，象群赶来后让人泪目</h5>
+    <h6>母象为保护小象和狮子搏斗而死，象群赶来后让人泪目</h6>
+
+<!--在编写样式的时候 从来不会使用ul和ol标签自带样式 所以在书写css样式的时候 会进行list-style的清除 清除列表样式-->
+    <ul>
+        <!-- 无序列表 -->
+        <li>第一项</li>
+        <!-- 列表项 -->
+        <li>第二项</li>
+        <li>第三项</li>
+    </ul>
+    <ol>
+        <!-- 有序列表 -->
+        <li>第一项</li>
+        <!-- 列表项 -->
+        <li>第二项</li>
+        <li>第三项</li>
+    </ol>
+    <dl>
+        <!-- 定义列表 -->
+        <dt>名词</dt>
+        <dd>解释</dd>
+    </dl>
+    <table>
+        <caption>表格的标题</caption>
+        <thead>
+        <!-- 表头-->
+            <tr>
+                <!-- 行 -->
+                <th>列（单元格）</th>
+                <th>列（单元格）</th>
+                <!-- 这部分的内容默认加粗 居中 -->
+            </tr>
+        </thead>
+        <tfoot>
+        <!-- 表尾部份 一般表尾部分会放置在thead后面 -->
+        </tfoot>
+        <!-- 表头 表尾 只有一个 表身可以有很多个-->
+        <tbody>
+        <!-- 表身 -->
+            <tr>
+                <!-- 行 -->
+                <td>列（单元格）</td>
+                <td>列（单元格）</td>
+            </tr>
+        </tbody>
+    </table>
+    <span>无意义的标签 小部分的模块划分 一般承载的内容是文字</span>
+    <a href="">超链接</a>
+    <img src="" alt=""/>
+    <!-- 图片 -->
+    <form>
+        <!-- 表单元素 -->
+        <label>放置这个表单的描述信息</label>
+        <label>名字：</label><input type="text"/>
+        <!-- 文本框 -->
+        <!-- type 标签属性 他可以规定这个标签的类型 -->
+        <label>自我介绍：</label>
+        <textarea></textarea>
+        <!-- 文本域  可以输入很多的文字 -->
+        <label>选择所在城市：</label>
+        <select>
+            <!-- 下拉菜单 -->
+            <option>北京</option>
+            <option>上海</option>
+            <option>天津</option>
+            <option>重庆</option>
+            <option>澳门</option>
+            <option>台湾</option>
+            <option>香港</option>
+            <!-- 下拉菜单的每一个选项-->
+        </select>
+    </form>
+    <em>文字</em>
+    <!-- 控制文字斜体 有强调语气的作用 -->
+    <i>斜体</i>
+    <b>加粗</b>
+    <strong>加粗</strong>
+    <!-- strong 是有强调语气作用的-->
+    <u>下划线</u>
+    <font color="red" size="20">文字</font>
+    上标<sup>上标</sup>
+    下标<sub>下标</sub>
+
+标签的分类（元素的分类）
+行内元素
+    在一行显示 宽度和高度是内容的宽度和高度
+    a span img i b em strong u sub sup font form label input
+块级元素（块状元素）
+    独占一行  在不设置宽度和高度的情况下 宽度是父级元素的宽度 高度是内容的高度
+    div h1-h6 ol ul li dl dt dd p table
+
+    br-- 行内
+
+
+</body>
+</html>

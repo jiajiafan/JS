@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+           /* transition-property: width;
+            transition-duration: 1s;
+            transition-timing-function: ease-in;
+            transition-delay: 0.5s;*/
+            /*transition:width 1s ease-in 0.5s,height 2s ease-out 0.5s*/
+            /* transition:all 1s ease-in ; 2次*/
+            /*
+            100 - 300  1s
+            300 - 100 1s
+
+            */
+        }
+        #div1:hover{
+            width: 300px;
+            height: 300px;
+            transition:all 1s ease-in; /*1次*/
+            -webkit-transition :all 1s ease-in; /*谷歌浏览*/
+            -moz-transition :all 1s ease-in;/*火狐浏览器*/
+            -ms-transition : all 1s ease-in;/*ie浏览器*/
+            -o-transiton : all 1s ease-in;/*欧朋浏览器*/
+        }
+    </style>
+</head>
+<body>
+<!--
+在PC端用自己封装的js动画
+在移动端,用浏览器支持的原生动画CSS3动画 :transition动画 和 animation动画
+css3变形属性 transform
+
+transition动画 允许css属性值在一定时间内实现平滑过渡的效果 (起始值->结束值之间平滑过渡的效果)
+css3属性值发生变化时,transition的动画会被触发
+
+transition-property:设置有动画效果的属性
+transition-duration : 运行的时间
+transition-timing-function : 动画类型
+transition-delay : 延迟的时间
+
+-->
+<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   // Math.abs();求绝对值?
+   // MAth.floor();向下取整
+    //Math.ceil();向上取整
+    //Math.round();四舍五入
+    //Math.random();0-1之间的随机数(包含0,不包含1)
+
+    //num.toFixed(2);提取小数后两位;但是是字符串
+    //取2-62之间的随机数 Math.random()*60+2;
+    //0-60之间的随机数 四舍五入可以取到60;
+    //3-67之间的随机数 Math.random()*64+3;
+    //n-m之间的随机数 Math.random()*(m-n)+n;
+//    //取2-62之间随机四个不重复的整数
+//   var ary=[];
+//   for(var i=0;i<4;i++){
+//
+//       var res=Math.round(Math.random()*60+2);
+//       //不重复:在存放在数组之前,确认下数组里是否有这一项,如果有这一项应该重复再取一次;
+//       //indexOf去检测一下,返回值是-1表示数组里没有这一项;
+//       if(ary.indexOf(res)==-1){
+//       ary[ary.length]=res;}else{
+//           i--;
+//       }
+//   }
+//   console.log(ary);
+    //循环次数不固定 while循环;
+//    while(条件判断){
+//        //条件判断成功则执行这边的语句;
+//    }
+   var ary=[];
+   while(ary.length<4){
+       var res=Math.round(Math.random()*60+2);
+       if(ary.indexOf(res)==-1){
+           ary.push(res);
+       }
+   }
+   console.log(ary);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

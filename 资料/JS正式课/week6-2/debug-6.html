@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            cursor: pointer;
+            /*-webkit-user-select: none;*/
+        }
+    </style>
+</head>
+<body>
+<div id="div1" style="background: blue; top: 0;">div1</div>
+<div id="div2" style="background: green; top: 0; left: 0">div2</div>
+<div id="div3">div3</div>
+<div id="div4" style="background: blue; top:200px; left: 200px;">div4</div>
+</body>
+<!--<script src="test.js"></script>-->
+<script src="event.js"></script>
+<script>
+
+
+
+
+
+    var down = function (e) {// 准备拖转
+        this.x = this.offsetLeft;
+        this.y = this.offsetTop;
+        this.mx = e.pageX;
+        this.my = e.pageY;
+    if(this.setCapture){ // 这是DOm元素处理鼠标焦点的专用方法, 专门处理mousemove事件的, 当mousemove事件发生的时候,使元素不会丢掉鼠标的焦点,IE专有的,fireFox学会了
+        this.setCapture();
+        on(this,"mousemove",move);
+        on(this,"mouseup",up);
+        return;
+    }else{
+        this.MOVE = move.bind(this);
+        this.UP = up.bind(this);
+        on(document,"mousemove",this.MOVE);
+        on(document,"mouseup",this.UP);
+    }
+         e.preventDefault(); //这句一定要加不然第四个DIV有bug(第四个div套了个img 标签/.
+    };
+    var move = function (e) { // 进行拖拽
+        this.style.left = this.x + e.pageX - this.mx + 'px';
+        this.style.top = this.y + e.pageY - this.my + 'px';
+    };
+    var up  = function (e) { // 结束拖哦拽
+        if(this.releaseCapture){
+            this.releaseCapture();
+            off(this,"mousemove",move);
+            off(this,"mouseup",up);
+            return;
+        } else {
+            this.MOVE = move.bind(this);
+            this.UP = up.bind(this);
+            off(document,"mousemove",this.MOVE);
+            off(document,"mouseup",this.UP);
+        }
+    };
+
+
+    var eles = document.getElementsByTagName('div');
+    for(var i = 0; i < eles.length; i++){
+        on(eles[i],"mousedown",down);
+    };
+</script>
+</html>

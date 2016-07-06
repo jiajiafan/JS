@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+     <!-- boolean类型的值:true和false
+          强制将其他数据类型转换成boolean类型 -> Boolean();
+          0,NaN,null,undefined,"" 转换成boolean类型时结果是false,其他的全部是true;
+        var a = "aaa";
+        !a !取反的意思
+        !!a
+        if(a){}
+
+     -->
+     <script>
+         var boo = Boolean(NaN);
+        // console.log(boo);//false
+         //console.log(Boolean(0));//false
+         var a = "aaa";
+         //console.log(Boolean(a));//true
+         //!有两层含义:1.首先将!右边的值转换成Boolean类型 2.将转换成Boolean类型的值取反
+        //console.log(!a)//false  1)Boolean(a)->true 2)true取反(!true) ->false
+         //!!a 两个!! 相当于只对自身做了boolean类型的转换
+         console.log(!!a);//Boolean(a)
+         console.log(Boolean(a));
+     </script>
+</body>
+</html>

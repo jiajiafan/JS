@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>
+<script>
+var a=[0,1,2,function(){alert(this)}];
+a[3]();
+
+var obj1={a:"a",b:"b",c:"c",d:function(){alert(this)}};
+obj1.d();
+obj1["d"]();
+
+var obj2={0:"a",1:"b",2:"c",3:function(){alert(this)}};
+obj2.3();
+obj2[3]();
+
+</script>

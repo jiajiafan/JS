@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选择器的练习</title>
+    <style type="text/css">
+        /*内嵌式引入css样式*/
+        /*第一步清除全局默认样式（默认样式的重置）*/
+        body,ul,li{
+            margin: 0;/*外边距*/padding: 0;/*内边距*/
+        }
+        ul{
+            list-style: none;
+            /*列表样式*/
+        }
+        /*以上是全局默认样式的清除*/
+       /* .list{
+            /!*10*!/
+            font-size: 40px;
+            color: gold;
+        }
+        .list3.list a{
+            /!*11*!/
+            /!*li.list a  12*!/
+            /!*ul .list a 12*!/
+            /!*.list3.list a  21*!/
+            color: gold;
+            background-color: #63a7ce;
+        }*/
+        .list3{/*类选择器*/
+            /*10*/
+            background-color: red;color: white;font-size: 16px;
+        }
+        .list3 a{
+            /*10 + 1 = 11 */
+            color: #ffffff;
+            text-decoration: none;
+            /*下划线的去除*/
+            /*text-decoration: underline;*/
+            /*下划线的添加*/
+        }
+    /*在选择器相同权重的情况下，谁在后面，谁就会覆盖掉前面的样式 （相同的css属性）*/
+        /*在选择器权重不同的情况下，谁的权重大 就听谁的 无论书写的位置谁前谁后 （相同的css属性）*/
+    </style>
+</head>
+<body>
+    <!--ul>li*5 + tab键-->
+    <ul>
+        <li><a href="">习近平做客捷克总统乡间官邸</a></li>
+        <li><a href="">六十万夺命 校园网贷面对旺盛需求何去何从</a></li>
+        <li class="list list3"><a href="">埃及客机劫机者出于个人目的劫机 前妻劝其投降</a></li>
+        <!-- class = ""  className的先后顺序不能影响css样式的显示-->
+        <li><a href="">珠海落马市委书记李嘉:村民拦道向其下跪被刑拘</a></li>
+        <li><a href="">马来西亚交通部长:南非发现另一块疑似MH370残骸</a></li>
+    </ul>
+<!--a元素的字体颜色 只能针对a这个标签进行控制-->
+</body>
+</html>

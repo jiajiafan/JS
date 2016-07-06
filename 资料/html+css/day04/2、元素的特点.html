@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+    </style>
+</head>
+<body>
+<!--块级元素的特点：
+独占一行
+在不设置宽高的情况下，宽度是父级内容的宽度(content)，高度内容的高度
+<div style="width: 400px;background-color: #006fbb;border: 1px solid #f87f1c;">
+    <div style="margin:20px;background-color: red;">360高度内容的高度</div>
+</div>
+整个盒子=content+padding+border
+
+border 这个属性为什么阻止了margin值传递的问题
+
+盒子与盒子之间，以border为分界线，在没有给这个盒子border属性的是，只给宽度高度，这个盒子在浏览器上是一个肉眼看不见的盒子，那border这个属性将盒子具象化，让他成为一个有血有肉的盒子，就可以承载东西-->
+
+<span style="width: 200px;height: 300px;background-color: #000;">
+    <span style="padding: 30px;background-color: red;">行内元素的宽度和高度是内容的宽度和高度，</span>
+</span>
+行内元素的宽度和高度是内容的宽度和高度，不能直接设置宽高
+行内元素是不可以设置padding和margin，左右的时候起作用，上下不起作用
+
+img,input可以直接设置宽度和高度 padding和margin都是四个方向都起作用
+img在首页编辑时，请规定好图片的width和height，以免图片过大，影响页面效果
+<style>
+    img,input{
+        width: 300px;height: 300px;
+        padding: 60px;
+        background-color: #ff0000;
+    }
+</style>
+<!--<img src="pic_1.jpg" alt=""/>-->
+<img src="表格.png" alt=""/>
+<input type="text"/>
+
+行内元素转化为块级元素 block
+
+反之 inline
+
+
+</body>
+</html>

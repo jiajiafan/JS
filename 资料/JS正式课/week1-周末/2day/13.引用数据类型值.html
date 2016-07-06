@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*var a=[1,2,3,4];
+    var b=[];
+    extend(b,a);
+    b.push(5);
+    alert(a);
+    alert(b);
+    function extend(b,a){
+        for(var i=0; i< a.length; i++){
+            b.push(a[i]);
+        }
+    }*/
+    //json~对象
+    var a={"a":1,"b":2,"c":3};
+    var b={};
+    function extend(b,a){
+        for(var key in a){
+            b[key]=a[key];
+        }
+    }
+    extend(b,a)
+    b["a"]=6;
+    console.log(a)
+    console.log(b)
+
+</script>
+</body>
+</html>

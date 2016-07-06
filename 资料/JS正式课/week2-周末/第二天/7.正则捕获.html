@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.replace:
+1)查找并替换；
+<script>
+    /*var re=/(\d+)zhufeng(\d+)/g;
+    var str='123zhufeng321zhufeng';*/
+    /*console.log(re.exec(str))
+    console.log(str.match(re))*/
+    /*var str='my name is {0},my age is {1} , i come form {2}';
+    var ary=['zhufeng','8','沧州'];*/
+    /*var str='zhufengzhufeng'
+    var re=/zhufeng/g;
+    //str=str.replace('zhufeng','zhufengpeixun');
+    str=str.replace(re,'zhufengpeixun');
+    console.log(str);*/
+    /*var re=/{(\d+)}/g;
+    str=str.replace(re,function(){
+        return ary[arguments[1]]
+    })
+    console.log(str);*/
+    /*var str='20160514';
+    var ary=['零','壹','贰','叁','肆','伍','陆','柒','捌','玖'];
+    var re=/(\d)/g;
+    str=str.replace(re,function(){
+        console.log(arguments)
+        return ary[arguments[0]]
+    })
+    console.log(str);*/
+    /*var str='全日制第七期学费:12';
+    var ary=['零','壹','贰','叁','肆','伍','陆','柒','捌','玖'];
+    var re=/(\d)/g;
+    str=str.replace(re,function(){
+        console.log(arguments)
+        return ary[arguments[0]];
+    });
+    console.log(str)*/
+    //统计出现次数最多的单词(可能是多个)，及出现多少次
+    var str='abcAAAABBBB';
+    var re=/[a-z]/gi;
+    var obj={};
+    str.replace(re,function(){
+        console.log(arguments);
+        var cur=arguments[0].toLowerCase();//拿到每个单词的小写；
+        if(obj[cur]){//给控对象赋值：把单词当作属性名，出现次数当作属性值；
+            obj[cur]++;
+        }else{
+            obj[cur]=1;
+        }
+    })
+    console.log(obj)
+    var max=0;
+    var ary=[];//Object {a: 5, b: 5, c: 1}
+    for(var k in obj){
+        if(obj[k]>max){
+            max=obj[k];
+        }
+    }
+    for(var k in obj){//对象中，谁的属性值等于以上我们求出的最大值；那么谁的属性名就是我们要找的；
+        if(obj[k]==max){
+            ary.push(k)
+        }
+    }
+    console.log(max)
+    console.log(ary)
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

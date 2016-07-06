@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.通过索引来查找对应的字符或者编码
+1）charAt(下标):通过下标找到对应的字符
+2）charCodeAt(下标):通过下标找到对应的ASCII值；
+2.通过字符串找到对应的下标
+3）indexOf('str'):通过字符串从前往后找到对应的下标
+4）lastIndexOf('str'):从后往前找，参数：字符串
+indexOf,lastIndexOf 如果找不到返回的都是-1;
+3.字符串截取
+5）str.substr(n,m) ->n:索引 m:个数
+6）str.substring(n,m) ->从第n个索引开始，截取到第m个；（包前不包后）
+7）str.slice(-4)->用法同substring相同，但是他可以取负值；
+4.字符串拆分-》字符串转数组
+8）str.split('切分符')
+5.字符串替换
+9）str.replace(被替换的，替换他的)
+6.大小写转换
+str.toUpperCase();-转成大写
+str.toLowerCase();-转成小写
+<script>
+    var str='五一劳动节快乐&&快乐';
+   // alert(str.charAt(1))
+   // alert(str.charCodeAt(1))
+    //alert(str.indexOf('快'))
+    //alert(str.lastIndexOf(str)!=-1)
+   // alert(str.substr(0,2));
+    //alert(str.substring(0,2));
+   // alert(str.slice(0));
+    //console.log(str.split('节'))
+    //alert(str.replace('五一劳动节','明天'))
+
+</script>
+</body>
+</html>

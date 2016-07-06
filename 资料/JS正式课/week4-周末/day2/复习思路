@@ -1,0 +1,55 @@
+1.渐隐渐现轮播图基础版思路
+    实现渐隐渐现轮播的思路：
+    1.首先建立一个共同能操作的索引step；他决定了哪张图片显示
+    2.要显示的元素，把他的层级提高为：1；同时，其他元素层级为：0；
+    3.层级为1的这个元素，我们让他透明度0-1，运动完成后，让他的其他兄弟元素透明度为0；
+
+   实现基础本需要完成的思路步骤：
+   1）自动播放的轮播图
+   2）焦点自动切换
+   3）鼠标移入停止，移出继续
+   4）点击焦点，手动切换
+   5）点击左右按钮实现图片左右切换
+2.jquery和原生JS可以共存，不能混淆
+
+jquery转原生JS： 1）get() 2)[]
+原生JS转jquery： $(原生获取的元素)
+3.detach 和 remove 的区别：
+相同点：他们都能删除元素
+不同点：remove删除元素后再添加返回值，之前元素上的操作就没了；但是detach返回值再添加到页面上时，之前的操作仍然被保留；
+
+4.事件：
+on 绑定事件
+off 解除绑定
+one 执行一次绑定
+5.attr属性
+$('div').attr('index') 属性获取
+6.参数序列化
+console.log($('form').serializeArray())
+console.log($('form').serialize())
+7.插件封装
+$().XX(); //兼容jquery元素
+$.XX();//既可以兼容jquery元素，也可以原生JS
+        $('li').each(function(index,item){//item-是原生的元素
+            console.log($(item).html())
+        }) ---兼容jquery元素
+        以下两个可以兼容原生
+        $.each(['aa','bb','cc'],function(index,item){
+            console.log(item)
+        })
+        $.each({name:'珠峰',age:8},function(index,item){
+            console.log(index+','+item)
+        })
+8.
+alert($('li').html())--》一组元素，获取是只能获取第一个元素
+$('li').html('珠峰培训')--》一组元素，设置时，可以设置一组；
+9.JS中有DOM映射；但是jQuery中不存在DOM映射；
+10.
+
+
+
+
+
+
+
+

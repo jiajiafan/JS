@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">div1111 </div>
+<script>
+    //this指当前行为执行的主体,谁在执行这个方法
+    //只有函数运行的时候,才能知道this是谁
+    //this是谁函数在哪里定义或者函数在哪里执行没有关系
+    //this这边的规则:
+    //->1.自执行函数里的this永远是window
+//    var content = "我是window这的内容";
+//    var obj  = {
+//        content:"我是obj这的内容",
+//        num : (function(){ //自执行函数的返回值作为num的属性值
+//           console.log(this.content);//window
+//        })()
+//    };
+
+//    ~function(){//定义+执行一起做了
+//       console.log(this);
+//    }()
+
+    //2.事件驱动函数运行,函数里的this指的是当前元素
+        var innerHTML = "window下的内容"
+        var oDiv = document.getElementById("div1");
+        console.dir(oDiv);
+        oDiv.onclick = function(){
+            console.log(this);//this指当前点击的元素
+            console.log(this.innerHTML);
+        }
+
+    //3. fn前面.前面的主体是谁,this就是谁,如果fn前面没有.则this表示是window
+    var content = "window内容";
+    function fn(){
+        console.log(this.content);
+    }
+    var obj1 = {
+        content: "obj内容",
+        fn : function(){
+            console.log(this.content);//obj1.content
+        }
+    };
+    fn();//this->window   window.content->"window内容"
+    obj1.fn();//this ->obj1
+
+
+
+</script>
+
+</body>
+</html>

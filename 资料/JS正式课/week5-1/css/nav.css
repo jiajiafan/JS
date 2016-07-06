@@ -1,0 +1,45 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+    font-size: 14px;
+    color: #424242;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.nav {
+    margin: 20px auto;
+    width: 150px;
+    border: 1px solid green;
+    border-top: none;
+}
+
+.navFir {
+
+}
+
+.navFir h2 {
+    height: 35px;
+    line-height: 35px;
+    background: #E0F2BE;
+    cursor: pointer;
+    border-top: 1px solid green;
+    text-indent: 10px;
+}
+
+.navTwo {
+    display: none;
+    margin-left: 20px;
+}
+
+.navTwo li {
+    height: 35px;
+    line-height: 35px;
+}
+
+
+

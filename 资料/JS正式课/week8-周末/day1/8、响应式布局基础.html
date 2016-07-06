@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <!--禁止浏览器自己把页面中的数字识别为电话号码-->
+    <meta name="format-detection" content="telephone=no"/>
+    <!--把苹果手机浏览器中的菜单栏和工具栏隐藏-->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!--控制状态栏显示样式-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!--设置苹果手机到头后在下来出现的那个黑色背景框中的标题的-->
+    <meta name="apple-mobile-web-app-title" content="zhufeng"/>
+
+    <title>珠峰培训</title>
+    <script type="text/javascript">
+        //->"PC和移动端是不同的两套项目":检测当前的浏览器是PC端的还是移动端的,在获取当前加载的HTML页面地址;如果当前的浏览器是移动端的,但是我们请求的页面地址是PC端的地址,需要跳转到移动端页面才可以,反之如果当前的浏览器是PC端的,但是我们访问的页面是移动端的页面地址,需要跳转到PC端才可以...
+        //->例如：www.qq.com是PC端地址 xw.qq.com是移动端地址
+        var curURL = window.location.href;
+        if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+            //手机端浏览器
+            if (curURL.indexOf("www.qq.com") > -1) {
+                //window.location.href = "http://xw.qq.com/";
+            }
+        } else {
+            //pc端浏览器
+            if (curURL.indexOf("xw.qq.com") > -1) {
+                //window.location.href = "http://www.qq.com/";
+            }
+        }
+    </script>
+</head>
+<body>
+<a href="tel:13041086186">立即打电话</a>
+<a href="sms:13041086186">立即发短信</a>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="list">
+    <li>张浩</li>
+    <li>陈旭</li>
+    <li>李鹏飞</li>
+    <li>曹晓阳</li>
+</ul>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    //实现简单列表排序的准备工作
+    //1.获得所有的li标签
+    var oUl = document.getElementById("list")
+    var oLis = oUl.getElementsByTagName("li");
+    //2.将类数组转换成数组
+    var ary = utils.listToArray(oLis);
+
+    //3.排序 -->根据每个列表里的内容进行排序
+    ary.sort(function(a,b){
+        //a/b都表示li标签
+       //console.dir(a);
+        var preHtml = a.innerHTML;
+        var nextHtml = b.innerHTML;
+        return preHtml.localeCompare(nextHtml);
+    })
+    console.log(ary);
+
+    //4.把排序好的li添加到页面上去
+    for(var i = 0;i<ary.length;i++){
+        oUl.appendChild(ary[i]);//因为已经存在,则不会添加,而是发生位置的移动
+    }
+
+
+
+
+
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function fn1(v){
+       alert(v()) ;
+    }
+    /*fn1(function(){
+        return 1;
+    })*/
+    fn1(aaa())
+    function aaa(){
+        return function(){
+            alert(2322);
+        };
+    }
+</script>
+</body>
+</html>

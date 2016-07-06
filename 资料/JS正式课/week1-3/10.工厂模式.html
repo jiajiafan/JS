@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var cloth1 ={
+        size:"xxL",
+        material : "棉",
+        color :"red"
+    };
+
+    var cloth2 = {
+        size :"xxL",
+        material :"棉",
+        color :"blue"
+    };
+    //单例模式:相当于手工作业模式,页面上会有大量的冗余代码,需要一个一个的新建对象,大大降低了我们页面开发的效率 -->工厂模式
+    //工厂模式->函数的封装(将页面上实现相同功能的js代码封装在一个函数里,在函数里每次会新建对象,并且把对象返回)
+    function shirtFactory(material,color){
+        var obj = {};
+        obj.size = "xxL";
+        obj.material = material||"棉";
+        obj.color =color||"红色";
+        return obj;
+    }
+    var cloth1 = shirtFactory("虎皮");
+    var cloth2 = shirtFactory("涤纶","黑色");
+
+    console.log(cloth1 == cloth2);
+    //工厂模式就解决批量生产的问题
+    document.createElement("div");
+    document.querySelector(".aa");
+    for(var i= 0;i<100;i++){
+        var oDiv = document.createElement("div");
+    }
+
+    //工厂模式没法解决产品差异化,没法解决实例识别的问题.工厂模式返回的都是一个对象类型的
+    //构造模式->解决实例识别的问题 -->通过创建自定义类,创建类的实例
+    //->只要知道这个对象是属于哪个类的,也就是解决实例识别的问题
+    var ary = [1,2,34];//ary是数组类(Array)的实例
+    var reg =/\d+/;//reg 是RegExp类实例
+
+</script>
+</body>
+</html>

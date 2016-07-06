@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            text-decoration: none;
+        }
+        body,html{
+            width: 100%;
+            height:500%;
+            background:green;
+            background: -webkit-linear-gradient(top,green,lightpink,lightblue,lightgoldenrodyellow,lightsalmon);
+            background: -moz-linear-gradient(top,green,lightpink,lightblue,lightgoldenrodyellow,lightsalmon);
+            background: -ms-linear-gradient(top,green,lightpink,lightblue,lightgoldenrodyellow,lightsalmon);
+            background: linear-gradient(top,green,lightpink,lightblue,lightgoldenrodyellow,lightsalmon);
+        }
+        a{
+            position: fixed;
+            bottom:50px;
+            right:50px;
+            width: 60px;
+            height:60px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            box-shadow: 4px 4px 10px #000;
+            background: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            display: none;
+        }
+        #div{
+            width: 100%;
+            height:400px;
+            background: red;
+            margin-top:2000px;
+        }
+    </style>
+</head>
+<body>
+<a href="javascript:;" id="btn">toTop</a>
+<script src="../../练习/utils.js"></script>
+<script>
+    var oBtn=document.getElementById('btn');
+    window.onscroll=computedDisplay;
+    function computedDisplay(){
+        if(utils.win('scrollTop')>=utils.win('clientHeight')){
+            oBtn.style.display='block';
+        }else{
+            oBtn.style.display='none';
+        }
+    }
+    oBtn.onclick=function(){
+        this.style.display='none';
+        window.onscroll=null;
+        var duration=500;
+        var interval=10;
+        var target=utils.win('scrollTop');
+        var step=(target/duration)*interval;
+        var timer=setInterval(function(){
+            var curT=utils.win('scrollTop');
+            if(curT<=0){
+                clearInterval(timer);
+                window.onscroll=computedDisplay;
+                return;
+            }
+            curT-=step;
+            utils.win('scrollTop',curT);
+        },interval)
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

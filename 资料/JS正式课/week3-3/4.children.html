@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="list">
+    <p>000</p>
+    <li class=" aa bb cc dd ">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>
+<script>
+    /**
+     * 当前元素ele下的所有的子元素或者获得是指定标记名的子元素
+     * @param ele
+     * @param tagName
+     */
+    function getChildren(ele,tagName){
+        var children = ele.childNodes;//元素集合 所有的子节点
+        var ary = [];
+        if(typeof tagName == "undefined"){//从子节点中筛选出子元素节点
+            for(var i = 0;i<children.length;i++){
+                var curChild = children[i];
+                if(curChild.nodeType == 1){
+                    ary.push(curChild);
+                }
+            }
+        }else if(typeof tagName == "string"){
+            //1.从子节点中筛选出子元素节点
+            //2.从子元素节点中筛选出指定标记名的
+            for(var i = 0;i<children.length;i++){
+                var curChild = children[i];
+                if(curChild.nodeType == 1&&curChild.nodeName.toLowerCase()== tagName.toLowerCase()){
+                    ary.push(curChild);
+                }
+            }
+        }else{
+            throw new Error("第二个参数类型错误");
+        }
+        return ary;
+    }
+
+    var oUl = document.getElementById("list");
+    var res = getChildren(oUl,"li");
+    console.log(res);
+
+
+
+</script>

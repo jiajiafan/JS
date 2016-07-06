@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<script>
+    //思想：1.点击div改变自己的背景色; 2.用boolean来实现
+
+    var oDiv=document.getElementById('div1');
+    var bOk=true;
+    oDiv.onclick=function(){
+        /*if(bOk){
+            oDiv.style.backgroundColor='black';
+        }else{
+            oDiv.style.backgroundColor='red';
+        }*/
+       bOk?oDiv.style.backgroundColor='black':oDiv.style.backgroundColor='red';
+       bOk=!bOk;//boolean数据转换!的运用
+    };
+
+</script>
+</body>
+</html>

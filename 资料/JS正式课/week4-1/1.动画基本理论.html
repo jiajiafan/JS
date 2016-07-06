@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>按一定时间比例的动画-匀速运动</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 100px;
+            /*transition:all 1s;*/
+        }
+       /* #div1:hover{
+            width: 300px;
+            height: 500px;
+            opacity: 0.2;
+            background: green;
+        }*/
+    </style>
+</head>
+<body>
+    <!--
+    将动画理论模型转变成js编程代码
+    消耗的时间/总的时间 = 走的路程(当前的位置-起始位置)/总的路程
+    单步走的时间(interval):15ms;
+    消耗的时间(times) : interval的累加
+    总的时间duration : 600ms
+    总的路程 : 终点位置(800) - 起始位置
+    当前位置 = 消耗的时间/总的时间*总的路程 + 起始位置;
+    -->
+    <div id="div1"></div>
+    <script>
+        var interval = 13;//单步走的时间
+        var times = 0;//消耗的时间= 单步走的时间的累加
+        var duration = 600;//总的时间
+        var begin = div1.offsetLeft;//起始位置
+        var target = 800;//终点位置
+        var change =target - begin ;//总的路程
+        function step(){
+            times+=interval;
+            if(times<duration){//消耗的时间小于总的时间,才运动
+                div1.style.left = times/duration*change + begin +"px";
+            }else{//超过规定的时间,不管有没有停在目标位置,都强制停留在目标位置
+                div1.style.left = target+"px";
+                window.clearInterval(timer);
+            }
+        }
+        //var timer = window.setInterval(step,interval);
+        //处理边界
+        //动画到达目的地,要清除定时器
+    </script>
+
+</body>
+</html>
+
+
+

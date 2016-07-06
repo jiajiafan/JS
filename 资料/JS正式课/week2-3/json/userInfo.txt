@@ -1,0 +1,26 @@
+[
+    {
+    "name":"lily",
+    "age":18,
+    "sex":1,
+    "height":180
+    },
+    {
+    "name":"lucy",
+    "age":15,
+    "sex":0,
+    "height":150
+    },
+    {
+    "name":"rose",
+    "age":22,
+    "sex":1,
+    "height":165
+    },
+    {
+    "name":"jack",
+    "age":33,
+    "sex":0,
+    "height":195
+    }
+]

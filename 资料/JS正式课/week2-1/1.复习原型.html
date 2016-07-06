@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*var name ="珠峰";
+    var age = 8;
+    name = (function (name, age) {
+        //console.log(arguments);  //arguments[0]就代表了第一个形参name ,arguments[0]和name的是映射关系
+        arguments[0] = "培训";//name = "培训"
+        age = this.age && age;  //8&&undefined
+        console.log(name, age);//培训 undefined
+    })(name);//name的值->"珠峰"作为实参传给形参name
+    console.log(name, age);//undefined 8
+
+
+    var ary = [100, 200];
+    ~function (ary) {
+        //ary ->xxff00
+        ary.length--;
+        ary = [];
+        ary[ary.length] = 300;
+        alert(ary);
+    }(ary);//xxff00
+    alert(ary);//[100]
+
+
+    function fn(i) {
+        return function (n) {
+            console.log(n * (++i));
+        }
+    }
+    var f = fn(2);
+    f(3);
+    f(4);
+    fn(5)(6);
+    fn(7)(8);//8*8 = 64
+*/
+
+//    var num = 1;
+//    var obj = {num: 2};
+//    obj.fn =(function (num) {
+//        this.num = num * 2;
+//        num++;
+//        return function (n) {
+//            this.num += n;
+//            num++;
+//            console.log(num);
+//        }
+//    })(obj.num) ;
+//    var fn = obj.fn;
+//    fn(10);//4
+//    obj.fn(20);//5 是把返回值再执行一遍,不是把自执行函数再执行一遍
+//    console.log(num, obj.num);//14 22
+
+        function Fn(num) {
+            this.x = num;
+            this.y =  num;
+        }
+//        Fn.prototype.x = 20;
+//        Fn.prototype.sum = function(){
+//            console.log(this.x + this.y);
+//        }
+//        //批量设置公有属性
+
+        Fn.prototype = {
+            //constructor:Fn, 为了让新的原型对象和构造函数之间重新建立联系
+            x: 20,
+            sum: function () {
+                console.log(this.x + this.y);
+            }
+        };
+        var f = new Fn(10);
+        console.log(f.sum === Fn.prototype.sum);//true;
+        f.sum();//20
+        Fn.prototype.sum();//20+undefined->NaN
+        console.log(f.constructor);//Object
+    //批量设置公有的属性,prototype不再指向浏览器默认开辟的堆内存,prototype则指向重新开辟的堆内存,
+    //浏览器在空闲的时候,会把默认开辟的堆内存释放掉
+    //查找属性时:首先查找私有属性,如果没有,则查找原型对象上的公有属性,如果没有,则通过__proto__继续往所属类的原型上查找......一直查找Object类的原型..... -->这样的查找过程就是基于原型链的查找
+    //原型链是实现继承的关键,是js中独有的一种机制
+    //所有的函数都有prototype属性,只有在构造函数上才有意义
+    //所有的对象(实例,原型对象)上都有__proto__这个属性,指向所属类的原型
+    //constructor可以用来检测数据类型
+    /*
+    * var ary =[1,2,3];
+    * ary.constructor == Array ->true
+    * 相当于 ary instanceOf Array  ->true
+    *
+    * */
+
+</script>
+
+</body>
+</html>

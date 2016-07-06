@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css选择器</title>
+</head>
+<body>
+css选择器 -- > 选择要操作的元素 来给这个元素添加相应的样式
+
+元素存在的时候，才能将赋予这个元素的css样式显示出来
+
+语法：（选择器的组成）
+
+选择器的名称{css样式的添加}
+
+选择器{}
+选择器用在内嵌式和外联式
+好处：可以批量选择要操作的元素，既方便样式的添加，又方便样式的修改
+<ul>
+    <li style="background-color: #004d00;">列表项一</li>
+    <li>列表项二</li>
+    <li>列表项三</li>
+    <li>列表项四</li>
+</ul>
+<ol>
+    <li>列表项一</li>
+</ol>
+<style type="text/css">
+    /*span{
+
+    }*/
+    /*li{
+        background-color: red;
+        /!*背景颜色*!/
+        color: white;
+        /!*字体的颜色*!/
+    }*/
+</style>
+选择器分为几类？
+li{} --- 标签选择器 标签名{}
+.className{} --- 类选择器  .className{} 在英文状态下
+<div class="parent">
+    <p>我是第一个p标签</p>
+    <p class="art2">我是第二个p标签</p>
+    <p>我是第三个p标签</p>
+</div>
+<style type="text/css">
+    .art2{
+        width: 400px;
+        height: 200px;
+        font-size: 30px;
+        border: 3px solid red;
+        /* width  style  color*/
+        line-height: 200px;
+        /*行高 让文字在某个高度重垂直居中*/
+        text-align: center;
+        /*水平方向的居中*/
+    }
+</style>
+
+id选择器
+#idName{} id是唯一的
+<div class="parent">
+    <p>我是第一个p标签</p>
+    <p id="art1">我是第二个p标签</p>
+    <p>我是第三个p标签</p>
+</div>
+
+以上选择器是单一的 他们是基本选择器
+
+<div class="parent">
+    <p>我是第一个p标签</p>
+    <p class="art2">我是第二个p标签</p>
+    <p>我是第三个p标签</p>
+</div>
+<ul>
+    <li>第一个li</li>
+    <li class="art2 art3">第二个li</li>
+    <li>第三个li</li>
+</ul>
+
+<style type="text/css">
+    .art3.art2{
+        width: 400px;
+        height: 400px;
+        display: inline-block;
+        border: 3px dashed blue;
+    }
+</style>
+标签名.className{} --- 交集选择器
+.className.className{} --- 交集选择器
+同时满足两个需求 并且同时控制相同元素 --- 交集选择器
+class="name1 name2 name3"-- 一个标签可以起很多className
+<style type="text/css">
+    div .art2{
+        width: 400px;
+        height: 400px;
+        display: inline-block;
+        border: 3px dashed blue;
+    }
+</style>
+后代选择器  中间用空格隔开 父级 子级{} 最后挨着{}是要操作的元素
+
+陈恒  父级+子级{陈恒}
+吴恒
+
+任何标签都有自带的样式 ， 例如margin（外边距） 每一个浏览器对这些自带的样式 解析都不相同，
+所以需要人为的进行样式的重置
+
+h1{margin:0;}
+p{margin:0;}
+并集选择器 --- 让不同的元素具有相同的css属性
+h1,p{margin:0;}
+
+通配符选择器 --- 全部选择（标签和超文本）
+*{}
+<style type="text/css">*{display: none;}*{display: block;font-size: 20px;color: #00c0a5;}</style>
+
+子代选择器  只能选择第一代 不推荐使用
+dl>dt{} 谁挨着{}就控制谁
+<dl>
+    <dt>
+        <p></p>
+    </dt>
+    <dd>dd</dd>
+</dl>
+伪类选择器  伪类在html结构中是不存在的 伪类是在css中添加的
+hover：鼠标经过或者是鼠标放置   伪类选择器用冒号连接都是控制同一元素
+<a href="" title="" class="" id="">我是一个超链接</a>
+<style type="text/css">
+    a{
+        font-size: 30px;
+        color: #63a7ce;
+    }
+    a:hover{
+        font-size: 50px;
+        color: red;
+    }
+</style>
+
+类型选择器
+type 是类型
+input[type=password]{}
+<form action="">
+    <input type="text"/>
+    <input type="button"/>
+    <!-- 按钮 -->
+    <input type="password"/>
+    <!-- 密码框 -->
+</form>
+<style type="text/css">
+    input[type=password]{
+        width: 200px;
+        height: 400px;
+    }
+</style>
+css样式中全部都是英文输入法
+
+</body>
+</html>

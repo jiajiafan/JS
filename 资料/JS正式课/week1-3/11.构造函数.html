@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //工厂模式没法解决识别的问题
+    function shirtFactory(material,color){
+        var obj = {};
+        obj.size = "xxL";
+        obj.material = material||"棉";
+        obj.color =color||"红色";
+        return obj;
+    }
+
+    //构造函数模式
+    function Shirt(material){//构造函数名首字母一定要大写,为了和普通函数区别开头
+        var num = 10;//定义了一个私有变量num
+        this.size = "XXL";
+        this.material = material;
+        this.holdwarm = function(){console.log("保暖")};
+    }
+    //执行 :
+        //new+函数名->通过new关键词执行函数Shirt,那这个函数Shirt就是一个构造函数(类)
+    //运行机制 :
+        //1.隐身的创建一个对象,运行完之后把这个对象返回
+        //2.以实例为执行主体运行这个函数 -->构造函数里的this指的是实例
+        //3.不用手动的去写return,会把对象自动的返回,返回的对象就是类的一个实例
+    //new Shirt("棉")-->匿名的实例
+
+       // console.log(typeof Shirt);//"function"
+        console.log(typeof new Shirt("棉") );//"object"
+        var cloth1 = new Shirt("棉");
+        cloth1.holdwarm();
+        console.log(cloth1 instanceof Shirt);//true
+        console.log(cloth1 instanceof Function);//false
+        console.log(cloth1 instanceof Object)//true
+
+
+    //构造函数的细节知识点(构造函数的机制)
+        //1.函数体里的this.xxx = xx,表示给实例添加了属性xxx
+        //2.构造函数里定义的私有变量和实例没有关系,方法运行完之后,私有变量就销毁
+        //3.通过instanceOf来检测下返回这个实例是否属于Shirt类的
+        //4.构造函数里的this指的是实例
+        //5.如果手动写返回值,则有可能会对实例造成影响
+            //如果返回的基本数据类型的值,则对实例没有影响
+            //如果返回的是引用数据类型的值,则对实例有影响,会把默认返回的对象覆盖
+        //6.通过this.xxx设置的属性都是实例的私有属性(hasOwnProperty可以来检测属性是否是私有的)
+        //7.in只能判断这个属性是否是这个对象,没法判断这个属性是否是私有的
+
+    //思考:封装一个方法,hasPubProperty(obj,attr) 用来判断attr是否是obj公有的属性,如果是的话返回true,如果不是话返回的是false
+</script>
+
+</body>
+</html>

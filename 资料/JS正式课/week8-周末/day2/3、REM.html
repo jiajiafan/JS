@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>珠峰培训</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        html {
+            font-size: 100px;
+        }
+
+        .box {
+            position: relative;
+            margin: 0 .2rem;
+            height: 2.68rem;
+            line-height: 2.68rem;
+            text-align: center;
+            background: green;
+            font-size: .36rem;
+        }
+
+        .box .inner {
+            position: absolute;
+            right: 0;
+            top: 0.99rem;
+            width: 1rem;
+            height: .7rem;
+            background: red;
+        }
+    </style>
+    <script type="text/javascript">
+        ~function () {
+            var desW = 750,
+                    winW = document.documentElement.clientWidth;
+            document.documentElement.style.fontSize = winW / desW * 100 + "px";
+        }();
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="inner"></div>
+</div>
+1、设计稿是750px*1334px
+2、在当前的设计稿中,存在这样的两个盒子
+->大盒子距离屏幕左右两边各20px,上下无间距,背景颜色绿色
+->大盒子的高度是268px
+->大盒子中的文字是36px,在整个大盒子居中的位置
+
+->小盒子相对于大盒子定位,大小 100px*70px,背景红色
+->并且在大盒子最右侧垂直居中的位置
+</body>
+</html>

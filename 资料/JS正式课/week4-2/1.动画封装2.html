@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top:0;
+            right:0;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    //单步走的时间 interval  15ms
+    //消耗时间 times +=interval
+    //总时间 duration 600ms
+    //起始位置  begin
+    //终点位置 target
+    //总路程 change  = target - begin
+    //当前的位置 = 消耗的时间/总时间*总距离+起始位置
+    /**
+     *
+     * @param ele 当前的元素
+     * @param attr 运动的方向 可以多维度的运动
+     * @param target 目标位置
+     * @param duration 总的时间
+     */
+    function move(ele,attr,target,duration){
+        var interval = 15;
+        var times = 0;
+        var begin = utils.getCss(ele,attr);//起始值
+        var change = target - begin;
+        function step(){
+            times +=interval;//消耗的时间
+            if(times<duration){
+                ele.style[attr] =  times/duration*change +begin +"px";
+            }else{//超过或者等于总时间时,停留在目标位置
+                ele.style[attr] = target+"px";
+                window.clearInterval(timer);
+            }
+        }
+        var timer = window.setInterval(step,interval);
+    }
+    move(div1,"right",300,600)
+
+</script>

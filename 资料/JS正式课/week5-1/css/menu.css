@@ -1,0 +1,87 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+    font-size: 14px;
+    color: #424242;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a, a:hover, a:active, a:visited, a:target {
+    text-decoration: none;
+    color: #424242;
+}
+
+.box {
+    margin: 20px auto;
+    padding: 20px;
+    width: 600px;
+    border: 1px dashed green;
+}
+
+.boxList {
+    overflow: hidden;
+}
+
+.boxList li {
+    float: left;
+    width: 200px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.boxList li a {
+    display: block;
+    height: 100%;
+    text-align: center;
+}
+
+.boxList li a span {
+    display: inline-block;
+}
+
+.boxList li a span.last {
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+}
+
+.boxList li a:hover span {
+    color: blue;
+}
+
+.boxList li a span.bg {
+    color: red;
+}
+
+.boxBtn {
+    margin: 20px auto 0 auto;
+    width: 300px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border: 1px solid green;
+    cursor: pointer;
+}
+
+.boxBtn em, .boxBtn span {
+    display: inline-block;
+}
+
+.boxBtn span {
+    vertical-align: top;
+}
+
+.boxBtn em {
+    width: 11px;
+    height: 35px;
+    background: url("../img/down.gif") no-repeat center center;
+}
+
+.boxBtn em.up{
+    background: url("../img/up.gif") no-repeat center center;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //以下两个例子是为了证明查找上级作用域和方法在哪里执行没有关系,和方法在哪里定义有问题
+    function fn1() {
+        var num = 13;
+        function f() {
+            console.log(num);
+        }
+        return f;
+    }
+//    var num = 12;
+//    var aa = fn1();  //var aa = function f(){console.log(num)};
+//    aa();//num的值->是否是私有的->不是->往上级查找(这个方法是在哪定义的)
+
+
+
+    function fn2() {
+        var num = 14;
+        var bb = fn1();//var bb = function f(){console.log(num)}
+        bb();
+    }
+    fn2();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            width:200px;
+            height:200px;
+            background: red;
+        }
+    </style>
+    <!--从外面引入JS（外链）如果放在head里，需要加window.onload,如果放在页面底部，就不用加window.onload-->
+    <script src="3.js"></script>
+</head>
+<body>
+<div id="div1" onclick="alert('行内JS')"></div>
+
+<!--<script>
+    var oDiv=document.getElementById('div1');
+    oDiv.onclick=function(){
+        console.log(confirm('你能坚持到最后吗？'));
+    }
+</script>-->
+</body>
+</html>

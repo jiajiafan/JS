@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var a=[1,2,3,4];
+    function fn(a){//形参a=地址；arguments[0]=地址
+        console.log(arguments)
+        console.log(arguments[0])
+        arguments[0]=2; //形参a=2; arguments[0]=2；
+        alert(a);//2 2
+        a=4;//形参a=4;
+    }
+    fn(a);//传 地址 [1,2,3,4]
+    alert(a);// [1,2,3,4]
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+        // 什么情况下值的类型会是number类型? 整数(正整数,负整数,0),小数,NaN(not a number 不讲理的数)
+        //什么情况下得出的结果会是NaN
+        /*
+        * 1.做数学运算(+,-,*,/,%)失败的时候
+        * 2.强制将其他数据类型转换成number类型失败的时候 (Number(),parseInt(),parseFloat())
+        * */
+        //Number()
+       /*
+       * boolean类型的值(true/false) Number(true) ->1  Number(false) ->0
+       * number类型的值是简单的传入和传出
+       * null --Number(null)->0
+       * undefined -- Number(undefined)-->NaN
+       * ""  -- Number("") --> 0
+       * 其他的字符串,只有有一个字符不是数字(除.以外),结果就是NaN
+       * */
+        //parseInt 和parseFloat 将字符串类型转换成数类型
+        //parseInt() 是将字符串的整数部分提取出来
+        //parseFloat()是除了能将字符串的整数部分提取出来,还能将小数部分提取出来
+//        parseInt("aa111");
+//        NaN
+//        parseInt("11aaa")
+//        11
+//        parseInt("11.22aa");
+//        11
+//        parseInt(".5");
+//        NaN
+//        parseInt("0.5");
+//        parseFloat("aa111")
+//        NaN
+//        parseFloat("111aa")
+//        111
+//        parseFloat("111.11aa")
+//        111.11
+//        parseFloat(".5");
+//        0.5
+
+    //怎么判断这个值是否是有效数字? isNaN() 如果是有效数字返回的是false,不是有效数字返回的就是true;
+    //isNaN()检测分为两大步:1.Number()强制转换成数类型的2.isNaN()去检测
+    //isNaN(NaN) true
+    //isNaN("aaa111")  1)Number("aaa111")->NaN 2)isNaN(NaN)->true
+    //isNaN("111");   1)Number("111")->111 2)isNaN(111)->false
+
+     // = 赋值  == 比较 (==左右的值相比较)
+
+
+    //BAT面试题
+    var num = parseFloat("aaxx111"); //NaN
+    if(num == "aaxx111"){//NaN == "aaxx111"
+        console.log("这是一个字符串");
+    }else if(num == NaN){ //NaN == NaN
+        console.log("不是一个有效数")
+    }else {
+        console.log("什么都不是");
+    }
+    //NaN == NaN -->false  NaN是一个笼统的概念,并不是表示具体的一个值,和任何值比较的时候都不相等(包括它自己);
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

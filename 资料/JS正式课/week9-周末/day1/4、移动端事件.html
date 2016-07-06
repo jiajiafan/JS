@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        html {
+            font-size: 100px;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+
+            width: 1rem;
+            height: 1rem;
+            background: lightblue;
+
+            -webkit-transition: all 1s;
+            transition: all 1s;
+        }
+    </style>
+    <script type="text/javascript">
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 320 * 100 + "px";
+    </script>
+</head>
+<body>
+<div id="box"></div>
+<!--
+    移动端的事件模型只有两个：
+        ->touch:单手指的操作都是由touch事件模型控制的(点击(tap)、单击(singleTap)、双击(doubleTap)、长按(longTap)、滑动(swipe)、左滑(swipeLeft)、上滑(swipeUp)、下划(swipeDown)、右滑(swipeRight)...)
+        ->gesture:多手指的操作都是由gesture事件模型控制的(缩放(pinchIn或者pinchOut)、旋转(rotate)...)
+
+    重力感应应用的是手机的感应器来处理的,这部分需要由手机上的APP(比如我们的浏览器就是一个APP)来实现的，H5需要实现对应需求调取的都是APP实现好的方法
+-->
+
+<!--
+    touch:
+        ->touchstart:手指按下
+        ->touchmove:手指移动
+        ->touchend:手指离开
+        ->touchcancle:在操作过程中出现意外导致程序突然退出，在touchcancle事件中可以记录一些事情(一般不用)
+
+    点击和滑动的区别:手指的移动是否发生了30PX的偏移，偏移超过30PX算作滑动否则算点击
+    单击和双击的区别：300MS内是否触发了第二次touchstart
+    点击和长按的区别：750MS内是否触发了touchend
+    滑动的四个方向：touchstart的时候记录手指的起始位置，在touchmove的时候随时记录最新的位置，并且算出X和Y轴的偏移值，如果X轴偏移的值大于Y轴就是左右化，相反就是上下滑
+    假设是左右滑，我们还需要判断是偏移的值是不是大于零，大于零就是右滑，反之就是左滑
+
+    移动端经常使用的事件库：
+        ->fastClick
+        ->hammer.js(国际上流行的一个专门处理移动端的事件库)
+        ->touch.js(百度云touch手势事件库)  http://touch.code.baidu.com/
+        ->zepto.js(移动端的小型jQuery库：jQ是做PC开发用的,而ZP是专门为移动端开发而生的)
+-->
+<script type="text/javascript" src="http://touch.code.baidu.com/touch-0.2.14.min.js"></script>
+<script type="text/javascript">
+    touch.on("#box", "swipeleft", function (ev) {
+        this.style.webkitTransitionDuration = "1s";
+        this.style.webkitTransform = "rotate(360deg)";
+
+        window.setTimeout(function () {
+            this.style.webkitTransitionDuration = "0s";
+            this.style.webkitTransform = "rotate(0deg)";
+        }.bind(this), 1000);
+    });
+
+    touch.on("#box", "swipedown", function (ev) {
+        this.style.webkitTransitionDuration = "1s";
+        this.style.webkitTransform = "rotate(-360deg)";
+
+        window.setTimeout(function () {
+            this.style.webkitTransitionDuration = "0s";
+            this.style.webkitTransform = "rotate(0deg)";
+        }.bind(this), 1000);
+    });
+
+    touch.on("#box", "touchstart", function () {
+
+    });
+</script>
+</body>
+</html>

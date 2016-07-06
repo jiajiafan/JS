@@ -1,0 +1,40 @@
+THIS��˭�ͺ�������ִ�е��Լ����Ķ���Ķ�û���κεĹ�ϵ (����Ϊ ����Ϊ�� ��������Ϊ��)
+
+��JS�ķ��ϸ�ģʽ��
+1����ִ�к����е�THIS��Զ��window
+  ->��ִ�к���:�������һ������������ִ����
+    (function(){})();
+    +function(){}();
+    !function(){}();
+    ~function(){}();
+
+2����Ԫ�ص�ĳһ����Ϊ��һ������,����Ϊ������ʱ��,ִ�ж�Ӧ�ķ���,��ʱ�����е�THIS�ǡ���ǰԪ�ر���
+  ->curEle.onclick=function(){this->curEle};
+
+3��������ִ�е�ʱ��,�����е�THIS��˭,�Ϳ�������ǰ���Ƿ���".",�еĻ�,"."ǰ����˭THIS����˭,û�еĻ�THIS����window
+
+4���ڹ��캯��ģʽ��,�������е�this.xx=xx�е�this�ǵ�ǰ���һ��ʵ��
+
+5��ʹ��call/apply/bind��ǿ�Ƹı�һ�������е�THISָ��
+   fn.call(); //this->window
+   fn.call(null); //this->window
+   fn.call(undefined); //this->window
+
+
+��JS�ϸ�ģʽ�� "use strict"
+->��ִ�к����е�THIS��undefined
+->ʹ��call����apply�ı�THIS�ͷ��ϸ�ģʽ��һЩ����
+  fn.call(); //this->undefined
+  fn.call(null); //this->null
+  fn.call(undefined); //this->undefined
+
+  "use strict";
+  function fn() {
+      console.log(this);
+  }
+  fn();//this->undefined
+  window.fn();//this->window
+
+->����ģʽ�µ�����:���ϸ�ģʽ������û�о���д��ִ�������,��Ĭ��THIS��window,�����ϸ�ģʽ��,û��д�Ļ�,this����undefined
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //js的数据类型主要分为两大类:基本数据类型和引用数据类型
+    //基本数据类型 : number,string,boolean,null,undefined
+    //引用数据类型 : 对象类型和特殊类型
+        //对象类型(object,array,math,date,regExp...)
+        //特殊类型(function)
+    //js是弱类型的语言,声明的变量在赋值之前,并不知道它是什么数据类型的,只有赋值之后才能知道是什么数据类型
+    var sum;  //undefined 没有赋值的变量返回的就是undefined
+    var n = 112; //number
+    var str = "aa";//string
+    var boo = true;//boolean
+    var nu = null; //object
+    var o = {}; //object
+    var ary = [];//array
+    var reg = /^[+-]?\d+(\.\d+)?$/;//regExp
+    var fn = function(){}; //function
+    //一个变量的值不能是undefined ,undefined表示空的意思,不能让一个空等于另一个空,这是不符合常理的
+
+    //typeof 检测变量是什么数据类型的? 返回的结果-->把数据类型拿双引号包起来
+    //console.log(typeof n);//"number"
+//    typeof n
+//    "number"
+//    typeof str
+//    "string
+//    typeof boo
+//    "boolean"
+//    typeof nu
+//    "object"
+//    typeof o
+//    "object"
+//    typeof ary
+//    "object"
+//    typeof reg
+//    "object"
+//    typeof fn
+//    "function"
+
+    //instanceof  检测一个对象属于哪个类的实例(可以检测出对象的细分类型) 如果是的话返回true,不是的话返回false
+        //console.log(ary instanceof Array);//true
+        //console.log(ary instanceof  RegExp) ;//false;
+    console.log(reg instanceof  RegExp) ;//true;扩展部分
+    console.log(Object.prototype.toString.call(ary));  //"[object Array]" (扩展部分,在正式课第一周面向对象详细讲解)
+
+    console.log(typeof  typeof  typeof ary);//"string"
+    //typeof ary   "object"
+    //typeof "object"   "string"
+    //typeof "string"   "string"
+</script>
+</body>
+</html>

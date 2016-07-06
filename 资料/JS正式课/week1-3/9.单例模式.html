@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var name = "晓东";
+    var age = 18;
+    var name = "王延召";
+    var age = 20;
+
+    //单例模式:把描述同一事物的属性和方法存在相同命名空间里进行分组,以防止因为某个事物的属性相同产生的冲突问题
+    //->其实就是一个对象
+    //->对象类型的数据,浏览器会为其开辟一个堆内存,然后将属性和值存储在这个空间里,给这个空间起个名字(person1)->命名空间
+    var person1 = {
+        name : "晓东",
+        age:18
+    };
+
+    var person2 = {
+        name :"王延召",
+        age :20
+    }
+    console.log(person1.name);
+    console.log(person2.name)
+
+    //单例模式可以实现模块化开发
+    function checkName(){
+    }
+    function checkEmail(){
+    }
+    function checkPassword(){
+    }
+    //面向过程的开发
+    //面向对象的开发
+    //单例模式->返回的是一个对象(单个的实例),好处:1.可以实现分组 2.防止冲突 3.各个模块之间可以互相调用
+    //在工作中协同开发就非常方便,还常常通过类库实现模块化开发(require.js/sea.js);
+    var checkLogin = {
+        checkName :function(){
+            this.checkPassword();//调用本模块里的其他方法
+        },
+        checkEmail : function(){
+
+        },
+        checkPassword :function(){
+
+        }
+    }
+    checkLogin.checkName();
+    var checkRegister = {
+        checkPhone : function(){
+            checkLogin.checkEmail();//不同模块之间可以这样调用
+        },
+        checkAddress : function(){
+
+        },
+        checkPassword : function(){
+
+        }
+    };
+
+    //闭包可以实现模块化开发,但是没法实现各个模块之间的互相调用
+    ;(function(){
+        function fn(){
+            sel();//这样是不可以的
+        }
+        function fn1(){
+
+        }
+    })();
+
+    ;(function(){
+        function sel(){
+
+        }
+        function set(){
+        }
+    })();
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        th{width:200px;}
+        table{background:#004b8b}
+        th,td{height:40px;background:#fff;}
+    </style>
+    <!--caption会自动在table中进行居中-->
+    <!--th的内容 会自动居中 并加粗-->
+    <!--td的宽度会根据th来进行调整 也就是th多宽td就多宽-->
+
+    1.border:0
+    2.cellspacing:1
+    3.tabel的背景颜色bgcolor 错误 应该在css中进行设置
+    4.单元格的背景颜色
+    以上四步解决border不是0的问题
+</head>
+<body>
+    <table border="0" cellpadding="0" cellspacing="1" bgcolor="aqua">
+        <!--单元格内容和单元格边框之间的距离 一般我们设置成0-->
+        <!--cellpadding是四个方向都设置成同一个值 我么在进行单元格内容和border之间距离控制的时候 选择使用css属性中的padding 而不用cellpadding-->
+        <!--这样既可以设置四个方向不同的值 也可以减少HTML的代码量-->
+        <!--cellspacing 单元格和单元格之间的距离-->
+        <caption>
+            表格标题
+        </caption>
+        <thead>
+            <!--/表头-->
+            <tr>
+                <!--行-->
+                <th>
+                    表头的单元格
+                </th>
+                <th>
+                    表头的单元格
+                </th>
+                <th>
+                    表头的单元格
+                </th>
+                <th>
+                    表头的单元格
+                </th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>表尾单元格</th>
+                <th>表尾单元格</th>
+                <th>表尾单元格</th>
+                <th>表尾单元格</th>
+            </tr>
+        </tfoot>
+        <!--维护方便 直接可以看到尾部信息-->
+        <!--提前加载 防止tbody过多 导致底部信息加载缓慢-->
+        <!--thead和tfoot在一个table中只能有一个-->
+        <!--tbody是可以有多个的-->
+        <tbody>
+            <!--表身-->
+            <tr>
+                <td>普通单元格</td>
+                <td>普通单元格</td>
+                <td>普通单元格</td>
+                <td>普通单元格</td>
+            </tr>
+            <tr>
+                <td>普通单元格</td>
+                <td>普通单元格</td>
+                <td>普通单元格</td>
+                <td>普通单元格</td>
+            </tr>
+            <tr>
+                <td>普通单元格</td>
+                <td>普通单元格</td>
+                <td>普通单元格</td>
+                <td>普通单元格</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #div{
+            width:600px;
+            margin:30px auto;
+        }
+        #div input{
+            width: 150px;
+            height:40px;
+            line-height: 40px;
+            display: block;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<!--
+自定义属性：在元素标签上自己定义一个属性名和属性值；
+问题：浏览器在加载页面的时候，会自动过滤掉他不认识的属性和属性值；
+解决办法：浏览器加载完成后，我们通过JS来动态加载属性和属性值；
+需求1：页面上有四个按钮，每个按钮点击的时候都弹出他对应的索引值；
+    实现此需求两种方式：1.自定义属性  2.自执行函数（闭包）
+-->
+<div id="div">
+    <input type="button" value="按钮1"/>
+    <input type="button" value="按钮2"/>
+    <input type="button" value="按钮3"/>
+    <input type="button" value="按钮4"/>
+</div>
+<script>
+    /*var oBtn=document.getElementById('btn1');
+    //console.dir(oBtn)
+   // alert(oBtn.type)
+    alert(oBtn.abc)*/
+    var oDiv=document.getElementById('div');
+    var aBtn=oDiv.getElementsByTagName('input');
+    
+    /*for(var i=0; i<aBtn.length; i++){
+        aBtn[i].index=i;
+        aBtn[i].onclick=function(){
+            alert(this.index);
+        }
+    }*/
+    /*(function(index){
+
+    })(i);*/
+    /*for(var i=0; i<aBtn.length; i++){
+        (function(index){
+            aBtn[i].onclick=function(){
+                alert(index);
+            }
+        })(i);
+    }*/
+    var ary=['a','b','c','d'];
+    for(var i=0; i<aBtn.length; i++){
+        aBtn[i].index=0;
+        aBtn[i].onclick=function(){
+            alert(ary[this.index%4]);
+            //this.index==ary.length-1?this.index=0:this.index++;
+            this.index++;
+           // this.index=this.index+1;
+        }
+    }
+
+
+</script>
+</body>
+</html>

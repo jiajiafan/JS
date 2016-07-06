@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        html *{
+            padding: 20px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="outer" style="background: red">outer-div
+    <ul id="inner" style="background: green">inner-ul
+        <li id="middle" style="background: pink">middle-li<br>
+            <a href="http://www.zhufengpeixun.cn" id="center" style="background: orange;display: block">a<br>
+                <br>
+                <br>
+                <span id="span1" style="background: deepskyblue">span</span>
+            </a>
+        </li>
+    </ul>
+
+</div>
+<!--利用事件传播的机制,把需要绑定的事件委托在上级元素或者根元素-->
+
+
+<div id="tab">
+    <ul><li>111</li><li>111</li></ul>
+</div>
+
+<div id="animate">
+    <p></p>
+</div>
+</body>
+</html>
+<script>
+//    var eles = document.getElementsByTagName("*");
+//    for(var i = 0;i<eles.length;i++){
+//        eles[i].onclick = function(){ /*DOM0级事件绑定*/
+//            alert(this.tagName);
+//        }
+//    }
+
+
+
+
+    /*document.documentElement.onclick = function(e){
+        //事件源 - >你操作的是哪个目标元素
+        //通过判断事件源(当前操作的那个目标元素)
+         var target = e.target || e.srcElement;
+         alert(target.tagName);
+    }
+        var op = document.createElement("p");
+        op.innerHTML ="我是动态创建的P标签";
+        op.style.marginTop = "300px";
+        document.body.appendChild(op);*/
+
+
+    document.documentElement.onclick = function(e){
+        e = e||window.event;
+        var target = e.target|| e.srcElement;
+        if(target.id =="tab"&&target.firstElementChild.tagName.toLowerCase() =="ul"){
+           //处理选项卡的程序
+        }else if(target.id =="animate"&&target.firstElementChild.tagName.toLowerCase() =="p"){
+            //处理动画的逻辑
+        }
+    }
+
+</script>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .stage{
+            width: 367px;
+            height: 297px;
+            background: url(images/bg-grid.jpg) no-repeat;
+            position:relative;
+            perspective: 800px;/*视距,隔着多远看物体*/
+            transform-style: preserve-3d;/*在3D空间里展示*/
+        }
+        /*下面的这个是将图片居中,两张图片堆叠在一起,一张设置成透明的好对比*/
+        .stage img{
+            width: 142px;
+            height: 200px;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin: -100px 0 0 -71px;
+        }
+        /*这张图片是用来对比的*/
+        .stage img:nth-child(1){
+            opacity: 0;
+
+        }
+        .stage img:nth-child(2){
+            /*transform: skew(15deg,15deg);*/
+            /*transform :translate(-100px,-100px)*/
+            /*transform: scale(0.5);*/
+            /*transform-origin: 10px 20px;*/
+            /*transform:rotate(45deg)  translate(100px)*/
+            transform: rotateY(-45deg);
+        }
+/*
+css3变形属性transform
+ 2D方法 :
+  transform :rotate(45deg) 旋转  正:顺时针  负:逆时针
+  transform :skew(15deg,15deg) 倾斜   正:x轴->往左 y轴->往下   负:x轴->往右  y轴->往上
+  transform :scale(0.5) 默认值是1 ,小于1表示缩小 大于1表示放大
+  transform :translate(x,y) 平移
+
+  变形基准点 : transform-origin:center //默认  top,left,center,right  10px 20px
+  translate的基准点不能改变只能是中心点,rotate,scale,skew都是可以改变的
+
+3D方法 :
+transform :rotateX(45deg) 正值:往前倾  负值:往后仰
+transform :rotateY(45deg) 正值:手的右边翻 负值:手的左边翻
+transform :translateZ(100px)  z轴默认坐标是0 如果是正的值,往前移动,看到的效果变大,如果是负的值,往后移动,看到的效果变小
+transform :translate3d(x,y,z);
+
+transform-style:preserve-3d 元素在3d空间里展示
+perspective :800px  视距 隔着多远去看这个
+
+
+
+
+
+*/
+
+
+    </style>
+</head>
+<body>
+<div class="stage">
+    <img src="images/pic.jpg">
+    <img src="images/pic.jpg">
+</div>
+</body>
+</html>

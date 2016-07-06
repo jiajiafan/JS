@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    var ary= [12,3,4,5];
+//    ary.sort(function(a,b){
+//
+//        return (a-b)*-1*-1;
+//        //return b-a;
+//    });
+//    (a-b)*-1 = -a+b = b-a;
+
+    var ary = ["f","c","d","a","e"];
+    ary.sort(function(a,b){
+        return a.localeCompare(b)*-1*-1;
+    })
+    console.log(ary);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<style type="text/css">
+div{ width:100px; height:100px; position:absolute; top:0; left:0; background:red; overflow:hidden; cursor:move; -webkit-user-select:none;}
+</style>
+</head>
+
+<body>
+<div id="div1">div,div,div</div>
+<div id="div2" style="left:200px; "><img src="img.jpg" width="100" height="100"></div>
+<div id="div3"  style="left:200px; top:100px; "><img src="img2.jpg" width="100" height="100"></div>
+<div id="div4"  style="left:300px; top:300px; "><img src="img3.jpg" width="100" height="100"></div>
+</body>
+</html>
+<script src="event2.js"></script>
+<script src="drag.js"></script>
+<script>
+
+var eles=document.getElementsByTagName("div");
+for(var i=0;i<eles.length;i++){
+	on(eles[i],"mousedown",down);
+	on(eles[i],"selfdragstart",clearEffect);
+	on(eles[i],"selfdragging",getSpeed);
+	on(eles[i],"selfdragend",fly);
+	on(eles[i],"selfdragend",drop);
+}
+
+
+//-------------以上是拖拽模块
+			//需要给这两个模式安一个接口，这个接口可以实现让拖拽模块自由方便的，很任性扩展其它的功能
+//-------------以下是动画模块
+
+/*
+	现在需要把以上的需求更具体化一点
+	1、当拖拽开始的时候--->把原有的动画清掉
+		当down执行的时候---->清除fly和drop动画
+	2、当拖拽进行的时候---->把fly的速度计算出来
+		当move执行的时候--->执行getSpeed
+		
+	3、当拖拽结束的时候---->执行动画
+		当up执行的时候---->执行fly和drop
+
+	这就是事件的模式
+	当某件事发生的时候，另外一件事也发生
+	ele.addEventListener("click",fn,false);表示当以"click"这个字符串为标识的行为发生的时候，fn也会执行。addEventListener是连接fn和"click"代表的那个行为的接口。
+	凡所有相，皆是虚妄；见诸相非相，即见如来；
+	如来无法可说，
+	言语道断，心行处灭。语言文字，言和语
+	
+	ele.addEventListener
+	ele.removeEventListener
+		还有一个看不到的方法，比如说叫run
+		
+设计模式--订阅发布模式（观察者模式）---管理行为（行为就是function，这种设计模式叫行为型的设计模式），协调两个行为的，比如把这个两个function 一个看作A，一个看作B，让A工作的时候，让B可以协调A工作（只要执行了，则B执行，B绑定了A行为）
+
+实现此设计模式的6个方面：
+1、主行为：让那个行为可以绑定事件
+2、要有一个字符串（或者叫标识符）来描述这个行为，它也是其它行为约定主行为的约定符
+	比如"click"就是描述鼠标点下去这个行为了标识符，这个叫事件类型。
+	所谓的事件类型，是在给主行为设计接口这前，就已经规定好的（就是说这个标识符是个事先规划）
+	这个标识符叫“事件类型”
+	2.1如果想为拖拽的这几个阶段规定事件类型，则在具体的实施代码之前，就要规定好，比如：
+		拖拽开始的阶段定义为"selfdragstart"标识符---->down
+		拖拽进行的阶段定义为"selfdragging"标识符----->move
+		拖拽结束的阶段定义为"selfdragend"标识符------>up
+3、约定的方法（实现绑定的方法）
+	所谓的约定，就是提前把随着A（主）执行的那个B（辅行为）行为保存下来
+	function on(ele,type,fn){
+		if(!ele["event"+type]){
+			ele["event"+type]=[];	
+		}
+		ele["event"+type].push(fn);
+	}
+	
+4、通知的方法（也叫发布）
+	function run(type){//按分类来通知。
+		var a=this["event"+type];//找到这个type分类目录
+		for(var i=0;i<a.length;i++){
+			a[i]();	
+		}
+		
+	}
+	
+5、什么时候通知？在那儿通知？
+	就是说什么时候执行run方法，在什么位置执行run方法
+	主行为发生，即A方法执行的时候，run随之执行，一般情况下，run的执行嵌套在A方法代码的最后一行（也就是说run的执行是A方法最后一行代码）
+	
+6、解除约定的方法：off，就是从对应的数组里移除对应的方法
+	
+	
+*/
+function clearEffect(){
+		clearTimeout(this.flyTimer);
+		clearTimeout(this.dropTimer);	
+}
+
+function getSpeed(e){
+	//首先要在mousemove的时候计算出两次mousemove事件之间的鼠标的位移，把这个位移当前速度
+	
+	if(this.prevPosition){
+		this.flySpeed=e.pageX-this.prevPosition;
+		this.prevPosition=e.pageX;
+		
+	}else{
+		//如果没有“上一次的位置”this.prvePostion这个属性，则把本次的位置赋给它，到了下一次，则这个它就成了上一次的位置了。
+		this.prevPosition=e.pageX;	
+	}
+}
+
+function fly(){
+	//首先要在mousemove的时候计算出两次mousemove事件之间的鼠标的位移，把这个位移当前速度
+	this.flySpeed*=.98;
+	
+	var maxRight=(document.documentElement.clientWidth||document.body.clientWidth)-this.offsetWidth;
+	
+	var current=this.offsetLeft+this.flySpeed;
+	if(current>=maxRight){
+		this.style.left=maxRight+"px";
+		this.flySpeed*=-1;
+	}else if(current<=0){
+		this.style.left=0;
+		this.flySpeed*=-1;
+	}else{
+		this.style.left=current+"px";
+	}
+	
+	if(Math.abs(this.flySpeed)>=0.5){
+		this.flyTimer=window.setTimeout(processThis(fly,this),20);
+	}else{
+		this.flySpeed=null;
+		this.prevPosition=null;	
+	}
+	/*
+	fly.bind;
+	Function.prototype.bind;//H5中实现
+	
+	window.setTimeout(fly,20);
+	var that=this;
+	window.setTimeout(function(){fly.call(that)},20);
+	*/
+}
+
+function drop(){
+	if(this.dropSpeed){
+		this.dropSpeed+=9;
+	}else{
+		this.dropSpeed=9;
+	}
+	this.dropSpeed*=.98;
+	
+	var bottom=(document.documentElement.clientHeight||document.body.clientHeight)-this.offsetHeight;
+	if(this.offsetTop+this.dropSpeed>=bottom){
+		this.style.top=bottom+"px";
+		this.dropSpeed*=-1;	
+		this.flag++;
+	}else{
+		this.style.top=this.offsetTop+this.dropSpeed+"px";
+		this.flag=0;
+	}
+	if(this.flag<2){
+		this.dropTimer=window.setTimeout(processThis(drop,this),20);
+	}
+	
+}
+</script>

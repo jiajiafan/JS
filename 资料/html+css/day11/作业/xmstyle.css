@@ -1,0 +1,72 @@
+body,div,ul,ol,li,h1,h2,h3,h4,h5,h6,a,span,p,table,thead,tbody,tfoot,th,tr,td,dl,dt,dd,form,label,img,input,b,i,em,strong,span,option,textarea,sup,sub,u,s{margin:0;padding:0;font-family:"微软雅黑","Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;font-size:12px;}
+img,input{border:none;vertical-align:middle;outline:none;}
+a{text-decoration:none;}
+ol,ul{list-style:none;}
+.clear{clear:both;width:0;height:0;line-height:0;font-size:0;}
+.w1104{width:1104px;margin:0 auto;}
+/*以上是全局默认样式的重置*/
+.header{width:100%;height:60px;margin:0 auto;background:#fa8723;background:linear-gradient(to bottom, #fa8723 0, #f57614 100%)}
+.header .logo{float:left;padding-right:7px;}
+.header .logo a{display:block;width:200px;height:60px;background:url(default.png) no-repeat;}
+.header .logo a:hover{background-position:0 -60px;}
+.header .nav{padding-right:20px;float:left;}
+.header .nav a{display:block;float:left;width:90px;height:60px;line-height:60px;font-size:16px;color:#fff;text-align:center;text-shadow:0 1px 1px rgba(0,0,0,.5)}
+.header .nav .on{background:#ab6600;background:linear-gradient(to bottom,#ab6600 0,#f57614 100%)}
+.header .navList{float:left;width:243px;margin:15px 0 15px;border:1px solid #db6b16;border-radius:3px;background:#fa8619;background:linear-gradient(to bottom,#fa8c1e 0,#fa8014 100%);}
+.header .navList li{float:left;border-left:1px solid #db6b16;}
+.header .navList li a{display:block;width:60px;height:28px;line-height:28px;text-align:center;color:#fff;font-size:14px;text-shadow:0 1px 1px rgba(0,0,0,.5);}
+.header .navList .noBor{border-left:none;}
+.header .navList li a:hover{background:#d65c15;background:linear-gradient(to bottom,#d65c15 0,#e06716 100%);}
+.header .ser{float:left;margin:15px 0 15px 20px;position:relative;}
+.header .ser input[type=text]{border:1px solid #db6b16;width:198px;height:28px;line-height:28px;border-radius:3px;padding-left:30px;}
+/*line-height保证低版本浏览器在表单框中垂直居中显示*/
+.header .ser input[type=button]{position:absolute;margin:3px;width:24px;height:24px;background:url(header_icon.png) no-repeat;background-position:0 -48px;}
+.header .login{float:left;padding-top:15px;padding-left:15px;}
+.header .login .btn_zc{display:inline-block;float:left;border:1px solid #b25415;border-radius:3px;width:56px;height:28px;line-height:28px;color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.5);text-align:center;background:linear-gradient(to bottom,#ab6600 0,#f57614 100%);}
+.header .login .btn_list{float:right;margin-left:7px;border:1px solid #b25415;border-radius:3px;height:28px;}
+.login .btn_list .btn_dl{display:inline-block;float:left;width:56px;height:28px;line-height:28px;color:#fff;text-align:center;background:linear-gradient(to bottom,#ab6600 0,#f57614 100%)}
+.login .btn_list .wb,.login .btn_list .qq{display:block;float:left;padding-top:2px;border-left:1px solid #b25415;width:26px;height:26px;background:linear-gradient(to bottom,#ab6600 0,#f57614 100%)}
+.login .btn_list .wb i,.login .btn_list .qq i{display:block;width:26px;height:26px;background:url(xbt.png) no-repeat;}
+.login .btn_list .wb i{background-position:-24px 0;}
+.login .btn_list .qq i{background-position:0 0;}
+.header .login a:hover{background:linear-gradient(to bottom, #c25f13 0, #b85509 100%)}
+/*以上是头部*/
+.subNav{border-bottom:1px solid #ccc;width:100%;height:30px;background:#f0f0f0;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;}
+.subNav .subNavL{float:left;padding-left:100px;}
+.subNav .subNavL li{float:left;padding-right:42px;line-height:30px;vertical-align:middle;}
+.subNav .subNavL .on{color:#f60;}
+.subNav li a{font-size:14px;color:#333;}
+.subNav .subNavL a:hover{color:#f60;}
+.subNav .subNavR{float:right;}
+.subNav .subNavR li{float:left;padding-left:12px;line-height:30px;veritcall-align:top;font-weight:900;}
+.subNav .subNavR i{display:inline-block;float:left;padding-top:10px;width:20px;height:14px;background:url(header_icon.png) no-repeat;}
+.subNav .subNavR .ico_1{background-position:-75px -45px;}
+.subNav .subNavR .ico_2{background-position:-27px -45px;}
+.subNav .subNavR .ico_3{background-position:-49px -45px;}
+.subNavR li:hover a{color:#f60;}
+.subNavR li:hover .ico_1{background-position:-75px -69px;}
+.subNavR li:hover .ico_2{background-position:-27px -69px;}
+.subNavR li:hover .ico_3{background-position:-49px -69px;}
+/*以上是导航栏*/
+.conLeft{float:left;margin-top:20px;padding:15px;border:1px solid #ebebeb;border-radius:3px;background:#fff;width:740px;}
+.conLeft .banner{position:relative;}
+.conLeft .banner{width:740px;height:170px;}
+.conLeft .banner img{width:740px;height:170px;display:none;}
+.conLeft .banner .img{display:block;}
+.conLeft .dot{position:absolute;right:10px;bottom:10px;padding:5px;width:60px;height:8px;line-height:8px;border-radius:50px;background:rgba(133,108,104,.2);}
+.conLeft .dot a{display:inline-block;width:8px;height:8px;margin-left:5px;border-radius:50px;background:#fff;}
+.conLeft .dot:hover{background:rgba(133,108,104,.5);}
+.conLeft .dot a:hover{background:#f60;}
+.conLeft .dot .dotFirst{margin-left:0;background:#f60;}
+/*以上是banner部分*/
+.conLeft h3{height:55px;line-height:55px;font-size:18px;color:#333;}
+.conLeft h3 span,.conLeft h3 a{vertical-align:top;color:#f60;}
+.conLeft h3 span,.conLeft h3 a{vertical-align:top;}
+.conLeft h3 a{vertical-align:bottom;}
+
+
+
+
+
+
+

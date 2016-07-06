@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1 {
+            height: 300px;
+            width: 100px;
+            border: 10px solid green;
+            overflow: auto;
+
+        }
+    </style>
+</head>
+<body>
+<div id="div1"><span style="color: red">我们是先学习再考试,考试通过了才交学费;</span>珠峰有完善的教学管理,考试和激励引导制度帮你不但学的会还要学的好!我们是先学习再考试,考试通过了才交学费;珠峰有完善的教学管理,考试和激励引导制度帮你不但学的会还要学的好!可申请一年或一年半期的助学贷款,毕业后开始逐月还款,每月大约还款一千左右,相对于程序员的工资来说没啥压力
+</div>
+<script>
+
+    var oDiv = document.getElementById("div1");
+    var timer = null;
+    //1.滚动到最大值时不再滚动
+    //    ~(function (){
+    //        var val = oDiv.scrollTop;
+    //        oDiv.scrollTop++;
+    //        if(val == oDiv.scrollTop){
+    //            window.clearTimeout(timer);
+    //            return;
+    //        }
+    //      timer =  window.setTimeout(arguments.callee,15)
+    //    })()
+
+    //2.滚动到最大值时到开始的位置
+    //    var boxH = oDiv.scrollHeight-oDiv.clientHeight;
+    //    ~(function (){
+    //        oDiv.scrollTop++;
+    //        if(oDiv.scrollTop == boxH){
+    //            oDiv.scrollTop = 0;
+    //        }
+    //        timer =  window.setTimeout(arguments.callee,15)
+    //    })()
+
+    //3.到最大值时倒着走
+//    var flag = 1;
+//    ~(function () {
+//        var val = oDiv.scrollTop;
+//        oDiv.scrollTop = oDiv.scrollTop + flag;
+//        if (oDiv.scrollTop == val) {
+//            flag *= -1;
+//        }
+//        timer = window.setTimeout(arguments.callee, 10)
+//    })();
+
+    //4.一直往下走
+    var innerHTML = oDiv.innerHTML;
+    ~(function () {
+        var val = oDiv.scrollTop;
+        oDiv.scrollTop++;
+        if (val == oDiv.scrollTop) {
+            oDiv.innerHTML += innerHTML;
+        }
+        window.setTimeout(arguments.callee, 10)
+    })();
+
+
+</script>
+
+</body>
+</html>

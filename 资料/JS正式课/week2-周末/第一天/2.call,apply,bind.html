@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.call,apply,bind区别
+1）call和apply基本一样，传参方面：
+    call（this指向，参数1，参数2..）-参数一个个传
+    apply(this指向，[参数1，参数2...]) -参数放在一个数组里，但相对形参来说，也是一个个传
+2）bind：
+预处理机制：提前把this指向改了，参数也传好了；bind会返回一个函数；啥时候需要啥时候调用即可；
+<script>
+    var obj={'name':'zhufeng'}
+    function fn1(n1,n2){
+        alert(this+':'+(n1+n2));
+    }
+   // fn1.call(obj,1,2)
+   // fn1.apply(obj,[1,2])
+    var tmpFn=fn1.bind(obj,1,2);
+    tmpFn();
+</script>
+</body>
+</html>

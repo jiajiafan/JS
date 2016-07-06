@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="list">
+    <!--这边是注释-->
+    <li>1111</li>
+    <li id="li2">2222</li>
+    <li>3333</li>
+    文本的内容
+</ul>
+    //DOM能够将html/xml标签渲染成层次结构的节点,每个节点都有自己的属性和方法
+//整个页面只要一个文档节点,也就是根节点(document),文档节点只有一个元素节点(html元素)
+    //文档节点:nodeType 9;nodeName "#document";nodeValue null;
+    //注释节点:nodeType 8;nodeName "#comment";nodeValue 注释的内容;
+    //文本节点 nodeType 3;nodeName "#text";nodeValue 文本的内容(包括回车和空格);
+    //元素节点 nodeType 1;nodeName 大写的标记名;nodeValue null;
+<script>
+    //firstChild   第一个子节点
+    //firstElementChild  第一个子元素节点 带有element的IE6-8不兼容
+    //lastChild 最后一个子节点
+    //last ElementChild 最后一个子元素节点 带有element的IE6-8不兼容
+    //previousSibling 最近的哥哥节点(包括文本节点,注释节点,元素节点)
+    //previousElementSibling 最近的哥哥元素节点
+    //nextSibling 最近的弟弟节点
+    //nextElementSibling 最近的弟弟元素节点
+    //以上所有节点如果找不到的话就返回null
+    //childNodes 所有的子节点
+    //children 所有的子元素节点 IE6-8不兼容,他会把本文节点(不包括文本节点)也当成元素及节点
+    //parentNode 父节点(唯一的)
+//    var oLi2=document.getElementById("li2");
+//    oLi2
+    var oLis=document.getElementById("li2");
+    console.log(oLis.parentNode);
+</script>
+</body>
+</html>

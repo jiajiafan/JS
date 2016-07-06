@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态操作页面元素</title>
+    <style type="text/css">
+        #div1{
+            width:100px;height:100px;background-color:red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <p>1111</p>
+</div>
+<script>
+    //createElement   创建元素节点  主体只能是document
+    //createTextNode 创建文本节点   主体只能是document
+    //appendChild  把文本节点添加到页面上,添加到末尾的位置(主体是操作元素的父级元素)
+    //insertBefore   把文本节点添加到页面上,添加到开始的位置(主体是操作元素的父级元素)
+    //replaceChild(newEle,oddEle)用newEle去替换oddEle 操作元素是父标签
+    //removeChild 删除某个节点
+    //cloneNode(true)深度克隆某个节点,参数为false或者空为浅克隆;
+    //getAttribute 和下边一个需要一一对应
+    //setAttribute(属性名,值)设置属性(自定义属性/固有属性)
+    只能通过getAttribute来获取
+    //自定义属性
+    var div2=document.createElement("div1");
+    div2.id="div2";
+    //div2.innerHTML="我是添加的div2";
+    //上一行还可以通过创建文本节点
+    var oText=document.createTextNode("我是第二个div2");
+    div2.appendChild(oText);
+
+    //appendChild()把节点添加到页面上,主体是操作元素的父标签
+    //document.body body元素
+    document.body.appendChild(div2);
+   // document.body.replaceChild(div2,div1);
+    //div1.parentNode.replaceChild(div2,div1);也可以这样获取div1的父元素
+   // document.body.removeChild(div1);
+   var oDiv3=div1.cloneNode(true);//仅仅是克隆节点,并没有把页面上显示出来,克隆之后还要添加到页面上去
+   document.body.appendChild(oDiv3);
+    div1.zhufeng="peixun";
+    div1["zhufeng"]="peixun";
+    console.log("zhufeng");
+    //div1.setAttribute("class","aa");//IE6-8不兼容,可以设置成功,但是样式不起作用
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

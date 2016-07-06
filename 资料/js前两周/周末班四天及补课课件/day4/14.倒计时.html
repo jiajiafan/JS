@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        p{
+            font-size: 50px;
+            text-align: center;
+        }
+        span{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p>距离下课还有:<span id="span"></span></p>
+</div>
+<script>
+    var oSpan=document.getElementById('span');
+    function toDou(n){
+        return n<10?'0'+n:''+n;
+    }
+    function romainTime(){
+        var oDate=new Date();
+        var nowTime=oDate.getTime();
+        var tarTime=new Date('2016/5/1 17:00:00');
+        var s=Math.floor((tarTime.getTime()-nowTime)/1000);
+        var h=Math.floor(s/3600);
+        s%=3600;
+        var m=Math.floor(s/60);
+        s%=60;
+        var str=toDou(h)+'小时'+toDou(m)+'分'+toDou(s)+'秒';
+        oSpan.innerHTML=str;
+
+    }
+    romainTime();
+    setInterval(romainTime,1000);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>变形</title>
+    <!--reset.min.css:参考normalize.css和reset.css-->
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        /*--接下来编写的CSS样式只要求在移动端兼容即可--*/
+        #box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+
+            width: 340px;
+            height: 450px;
+            background: url("img/baby.jpg") no-repeat;
+
+            /*--设置背景图片的尺寸:这里的意思是当前盒子有多大背景图片就多大--*/
+            background-size: 100% 100%;
+        }
+
+        /*--变形--*/
+        .change {
+            -webkit-transform: skew(45deg, 30deg);
+            transform: skew(45deg, 30deg);
+        }
+    </style>
+</head>
+<body>
+<!--
+  CSS3的变形采用-webkit-transform/-moz-transform/-ms-transform/-o-transform/transform
+  ->如果在PC端使用这个属性,我们需要把常用浏览器的前缀都增加上(也就是写五套),这样才可以兼容更多的浏览器
+  ->如果在移动端用这个属性,我们只需要写两套,而且必须写两套,否则很多的安卓机器都不兼容,并且顺序不能调换(必须先写加前缀的在写不加前缀的)
+    -webkit-transform:;
+    transform:;
+
+  CSS3中支持的变形效果:
+    translate(X/Y/Z)位移
+      -webkit-transform: translateX(100px) translateY(100px);
+         ->translate(100px,200px)
+      transform: translate(100px, 200px);
+
+    rotate(X/Y/Z)旋转
+       -webkit-transform: rotate(45deg); 顺时针旋转45度,不加方向默认就是Z轴旋转,也就是这样写和rotateZ(45deg)一样,而rotateX或者rotateY是用来实现3D动画的
+       transform: rotate(45deg);
+
+    scale缩放
+       -webkit-transform: rotate(45deg) scale(1.5); ->放大1.5倍,多个变形效果之间用空格分开即可
+       transform: rotate(45deg) scale(1.5);
+
+    我们使用scale实现放大或者缩小,也可以直接通过宽高来改变大小,但是建议大家使用transform中的scale来实现,因为transform开启了硬件加速,实现的变形效果要比传统的DOM改变性能好而且流畅
+
+    skew倾斜
+      -webkit-transform: skew(45deg, 30deg); ->沿着X轴倾斜45deg,沿着Y轴倾斜30deg
+      transform: skew(45deg, 30deg);
+
+    matrix自定义变形规则(矩阵)
+-->
+<div id="box" class="change"></div>
+</body>
+</html>

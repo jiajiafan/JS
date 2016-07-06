@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>使用HTML5标签</title>
+    <!--reset.min.css:用来清除标签的默认样式,达到浏览器的统一-->
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/HTML5.css"/>
+    <!--
+       HTML5中新增加的构建页面语义化结构的标签在IE6~8下是不兼容的,想要处理兼容的话,我们需要把所有的新标签都用传统的标签进行替换,但是手动替换太消耗时间,我们需要引入html5.min.js文件实现标签的替换
+       ->首先会把HTML页面中的新标签进行替换
+       ->其次会把CSS样式文件中用标签选择器来设置样式的部分也进行替换(为了节省性能,所以我们以后使用新标签布局写样式的时候尽量使用样式类名设置样式,而少用标签选择器设置样式)
+    -->
+    <!--
+    这样引入依然不好,因为只有低于IE9浏览器才不支持HTML5新增加的标签,其它的浏览器都是支持的,这样的话我们只需要在IE6~8中引入这段JS即可
+    <script charset="utf-8" type="text/javascript" src="js/html5.min.js"></script>
+    -->
+
+    <!--下面是通过条件注释引入HTML5.min.js的-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<article class="article">
+    <header class="header">
+        <h1>How the World Could End</h1>
+
+        <h2>Scenarios that spell the end of life as we know</h2>
+    </header>
+
+    <section class="section">
+        <p>
+            <span class="big">Right now,</span>
+            <span>you're probably feeling pretty good. After all, life inthe developed world is comfortable —probably more comfortable than it's been for the average human being throughout all of recorded history.</span>
+        </p>
+
+        <figure class="figure">
+            <img src="img/human_skull.jpg"/>
+            <figcaption class="figcaption">Will you be the last person standing if one of these apocalyptic scenarios
+                plays
+                out?
+            </figcaption>
+        </figure>
+
+        <p><span>But don't get too smug. There's still plenty of horrific ways it could all fall apart. In this article, you'll learn about a few of our favorites.</span>
+        </p>
+
+        <h3>Mayan Doomsday</h3>
+
+        <p>
+            <span>Skeptics suggest that the Mayan calendar simply rolls to a new 5,126-year era after 2012, and doesn't actually predict a life-ending apocalypse. But given that the long-dead Mayans were wrong about virtually everything else, why should we trust them on this?</span>
+        </p>
+
+        <h3>Mayan Doomsday</h3>
+
+        <p>
+            <span>Skeptics suggest that the Mayan calendar simply rolls to a new 5,126-year era after 2012, and doesn't actually predict a life-ending apocalypse. But given that the long-dead Mayans were wrong about virtually everything else, why should we trust them on this?</span>
+        </p>
+
+        <h3>Mayan Doomsday</h3>
+
+        <p>
+            <span>Skeptics suggest that the Mayan calendar simply rolls to a new 5,126-year era after 2012, and doesn't actually predict a life-ending apocalypse. But given that the long-dead Mayans were wrong about virtually everything else, why should we trust them on this?</span>
+        </p>
+
+        <h3>Mayan Doomsday</h3>
+
+        <p>
+            <span>Skeptics suggest that the Mayan calendar simply rolls to a new 5,126-year era after 2012, and doesn't actually predict a life-ending apocalypse. But given that the long-dead Mayans were wrong about virtually everything else, why should we trust them on this?</span>
+        </p>
+    </section>
+</article>
+
+<footer class="footer">
+    <div>These apocalyptic predictions do not reflect the views of the author.</div>
+    <div>
+        <a href="">About Us</a>
+        <a href="">Disclaimer</a>
+        <a href="">Contact Us</a>
+    </div>
+    <div>Copyright © 2014</div>
+</footer>
+</body>
+</html>

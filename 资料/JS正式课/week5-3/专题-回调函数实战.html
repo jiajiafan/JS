@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>回调函数-珠峰培训</title>
+</head>
+<body>
+<script type="text/javascript">
+    //    Array.prototype.myForEach = function myForEach() {
+    //        //->获取传递进来的第一个参数值(理论上应该是回调函数),如果这个参数值不是一个一个函数,也就没有必要在继续向下执行了
+    //        var callback = arguments[0];
+    //        if (typeof callback !== "function") {
+    //            return;
+    //        }
+    //
+    //        //->获取第二个参数值(理论上是修改回调函数中的THIS),不传递值的话,默认是window
+    //        var context = arguments[1] || window;
+    //
+    //        //->当前操作的这个数组中有几项我们就把回调函数callback执行几次 ->myForEach中的this就是当前要操作的数组
+    //        for (var i = 0, len = this.length; i < len; i++) {
+    //            //不仅仅执行,还要给当前回调函数中传递三个参数值,分别对应:item、index、input;仅仅这样依然不够,还需要把回掉函数中的this进行修改;
+    //            callback.call(context, this[i], i, this);
+    //        }
+    //    };
+
+    Array.prototype.myForEach = function myForEach() {
+        var callback = arguments[0], context = arguments[1] || window;
+        if (typeof callback !== "function") {
+            return;
+        }
+
+        if ("forEach" in Array.prototype) {
+            this.forEach(callback, context);
+            return;
+        }
+
+        //->IE6~8
+        for (var i = 0, len = this.length; i < len; i++) {
+            callback.call(context, this[i], i, this);
+        }
+    };
+
+    Array.prototype.myMap = function myForEach() {
+        var callback = arguments[0], context = arguments[1] || window;
+        if (typeof callback !== "function") {
+            return;
+        }
+
+        if ("map" in Array.prototype) {
+            return this.map(callback, context);
+        }
+
+        //->IE6~8
+        //->需要原来的数组保持不变,所以需要把原来的数据克隆一份一模一样的
+        var _this = this.slice(0);
+        for (var i = 0, len = _this.length; i < len; i++) {
+            //->接收回调函数每一次执行的返回结果,用返回的结果把数组中的当前项进行替换(原来数组不能改变)
+            _this[i] = callback.call(context, _this[i], i, _this);
+        }
+        return _this;
+    };
+
+
+    var obj = {name: "珠峰"};
+    var ary = [12, 34, 24, 25, 35, 17];
+    var newAry = ary.myMap(function (item, index) {
+        console.log(item, index, this);
+        return item * 10;
+    }, obj);
+    console.log(newAry, ary);
+
+
+    //->replace ->myReplace
+    var str = "珠峰培训2016扬帆起航2017";//->"珠峰培训[2016]扬帆起航[2017]"
+    var reg = /\d+/g;
+    str = str.replace(reg, function () {
+        return "[" + arguments[0] + "]";
+    });
+    console.log(str);
+</script>
+</body>
+</html>

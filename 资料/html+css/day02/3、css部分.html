@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css部分</title>
+</head>
+<body>
+css 是层叠样式表
+
+html 一层一层的 css就一层一层的将html结构美化起来
+html结构从外到里写 css就从外到里控制
+
+type="text/css"
+类型="文档/css"
+
+css也不是一个编程语言
+
+1、美化页面
+2、替代一部分标签属性
+<!--<img src="blue.jpg" alt="" width="100" height="200"/>-->
+<!--标签属性 在写宽度和高度的时候 属性值不需要单位-->
+<img src="blue.jpg" alt="描述语言" />
+<style type="text/css">
+    /*img{
+        width: 300px;
+        height: 500px;
+    }*/
+</style>
+3、通过css属性改变元素的基本特点（自带属性）
+<h1 style="font-size: 48px;margin: 0;">我是h1大标题</h1>
+4、通过css属性控制页面布局
+<div style="width: 200px;height: 300px;background-color: red;/*float: left;*/display: inline-block;">我是第一个div</div>
+<div style="width: 400px;height: 300px;background-color: black;/*float: left;*/display: inline-block;">我是第二个div</div>
+<!--
+display: inline-block;  行内块级元素 他可以让元素在一行显示 ，并且可以设置宽度和高度
+-->
+<span style="width: 200px;height: 300px;background-color: pink;display:inline-block;">我是一个span标签<img src="blue.jpg" /> </span>
+<!--display: block; 将行内元素设置为块级元素-->
+
+<div style="width: 200px;height: 200px;border-style: solid;border-color: gold;border-width: 10px;display: inline;">我是第三个div</div>
+
+行内元素的属性是display:inline
+块级元素的属性是display:block
+display:none;隐藏 （display:block;进行再显示）
+</body>
+</html>

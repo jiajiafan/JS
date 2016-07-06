@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选择器的权重</title>
+</head>
+<body>
+基本选择器的权重
+id > class > 标签
+100    10     1
+
+div .span p i{}后代选择器
+div i{}后代选择器
+<style type="text/css">
+    div .span p i{color: red;font-size: 30px;}
+    /* div = 1 + .span = 10 + p = 1 + i =1 = 13 */
+    div i{color: orange;font-size: 50px;}
+    /* div = 1 + i = 1 = 2 */
+    /* 2  < 13*/
+</style>
+<div>
+    <div class="span">
+        <p>
+            <i>我是i元素</i>
+        </p>
+    </div>
+    <i>我是外面的i元素</i>
+</div>
+
+
+
+</body>
+</html>

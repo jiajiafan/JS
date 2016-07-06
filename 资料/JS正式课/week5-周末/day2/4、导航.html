@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            font-size: 14px;
+            color: #424242;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            border: none;
+        }
+
+        .menu {
+            position: relative;
+            width: 300px;
+            background: lightskyblue;
+        }
+
+        .menu li {
+            padding-left: 10px;
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .menu li.bg {
+            background: red;
+        }
+
+        .menuDec {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 300px;
+            width: 735px;
+            height: 420px;
+            overflow: hidden;
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+<ul class="menu">
+    <li>
+        <span>家用电器</span>
+
+        <div class="menuDec">
+            <img src="img/jd/1.jpg"/>
+            <img src="img/jd/2.jpg"/>
+        </div>
+    </li>
+    <li>
+        <span>家用电器</span>
+
+        <div class="menuDec">
+            <img src="img/jd/1.jpg"/>
+            <img src="img/jd/2.jpg"/>
+        </div>
+    </li>
+    <li>
+        <span>家用电器</span>
+
+        <div class="menuDec">
+            <img src="img/jd/1.jpg"/>
+            <img src="img/jd/2.jpg"/>
+        </div>
+    </li>
+</ul>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    $(".menu>li").on("mouseover", function () {
+        $(this).addClass("bg").children(".menuDec").css("display", "block");
+    }).on("mouseout", function () {
+        $(this).removeClass("bg").children(".menuDec").css("display", "none");
+    });
+</script>
+</body>
+</html>

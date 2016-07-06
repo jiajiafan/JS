@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+this的三种用法:
+1.自执行函数里的this，永远都是window；
+2.如果一个元素通过一个行为来触发一个方法，方法中的this就是当前这个元素；
+3.函数调用的时候，看前面是否有'.'，有'.'的话，'.'前面是谁，this就是谁；
+4.构造函数中,this指向的是实例
+5.通过apply和call可以改变this关键字,优先级最高,遇到apply和call,以上四条规则都不成立
+<script>
+   /* (function(){
+        alert(this);
+    })();*/
+    /*document.documentElement.onclick=function(){
+        alert(this)
+    }*/
+    /*function aa(){
+        alert(this);
+    }
+    document.documentElement.aa();*/
+    var obj={
+        name:'zhufeng',
+        age:'7',
+        fn:(function(){
+            alert(this)
+            return function(){
+                alert(this);
+            }
+        })(),
+    }
+    //var f1=obj.fn;
+    //f1();
+   obj.fn();
+</script>
+</body>
+</html>
+
+
+
+

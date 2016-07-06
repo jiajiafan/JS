@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //去掉一个最高分,去掉一个最低分,求出平均数
+    function fn() {
+        //排序 去掉一个最高分,去掉一个最低分,然后相加,求出平均数
+        //arguments所有的实参
+        console.log(arguments);//类数组
+        console.log(typeof  arguments);//object 对象
+        //  arguments.sort(function(a,b){
+        //    return a-b;
+        //  }) sort是数组的方法,不是数组的话不可以直接调用
+
+        //1.把类数组转化成数组
+        var ary = [];
+        for (var i = 0; i < arguments.length; i++) {
+            ary[ary.length] = arguments[i];
+        }
+        //2.排序把最大值和最小值去掉
+        ary.sort(function (a, b) {
+            return a - b;
+        })
+        ary.shift();
+        ary.pop();
+
+        //3.把数组的每一项相加
+        // var total = null;
+        // for(var i = 0;i<ary.length;i++){
+        //   total+=ary[i];
+        // }
+        // console.log(total)
+
+        //join()//把数组里的每一项按照指定的字符拼接成一个字符串
+        var total = eval(ary.join("+"));
+
+        //4.求平均数
+        return (total / ary.length).toFixed(1);
+
+    }
+    fn(12, 83, 84, 65, 53, 36);
+
+    //类数组和数组基本是一样的,那类数组可以不可以间接的去调用数组的方法
+    //类数组通过索引获取数组的每一项,类数组也有length属性
+    //->了解数组的方法具体是怎么实现的,实现原理是什么样子的?
+    //pop() //删除数组的最后,并且返回最后一项
+    Array.prototype.pop = function () {
+        var last = this[this.length - 1];
+        this.length--;
+        return last;
+
+        //把this改成arguments
+        var last = arguments[arguments.length - 1];
+        arguments.length--;
+        return last;
+    }
+    var ary = [12, 4, 5, 6];
+    ary.slice(0);//相当于把原有数组克隆了一遍
+    console.log(ary.pop());
+    ary.sort(function (a, b) {
+        return a - b;
+    })
+    function fn11() {
+        // arguments如果想调用数组的方法,只需要把数组方法里的this改成arguments
+        //怎么样把数组方法里的this改成arguments? ->call/apply
+        var res = Array.prototype.slice.call(arguments, 0);
+        console.log(res instanceof  Array);//true
+        // Array.prototype.sort.call(arguments,function(a,b){return a-b;});
+        // console.log(arguments);
+        // var last = Array.prototype.pop.call(arguments) ;
+        // var first = Array.prototype.shift.call(arguments);
+        // console.log(arguments[0]);
+
+    }
+    fn11(12, 3, 4);
+
+    //模拟slice方法克隆数组的功能
+    Array.prototype.slice = function () {
+        var ary1 = [];
+        for (var i = 0; i < this.length; i++) {
+            ary1[ary1.length] = this[i];
+        }
+        return ary1;
+
+        //this->arguments;
+        var ary1 = [];
+        for (var i = 0; i < arguments.length; i++) {
+            ary1[ary1.length] = arguments[i];
+        }
+        return ary1;
+    }
+
+
+</script>
+
+</body>
+</html>

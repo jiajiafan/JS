@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        // 在标准浏览器中使用ajax
+        /**
+         * ie7+ chrome firefox opear safari
+         * @type {XMLHttpRequest}
+         */
+        /*var xhr = new XMLHttpRequest();*/
+
+        /**
+         * 低版本ie
+         */
+        /* var xhr2 = new ActiveXObject('Microsoft.XMLHTTP');
+
+         var xhr3 = new ActiveXObject('Msxml2.XMLHTTP');
+
+         var xhr4 = new ActiveXObject('Msxml3.XMLHTTP');*/
+
+
+        /**
+         * 通过判断浏览器,获取当前浏览器最合适的那个ajax对象
+         */
+        var getXHR = function () {
+//            if('ActiveXObject' in window){
+            if (window.ActiveXObject) {
+                return new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            if (window.XMLHttpRequest) {
+                return new XMLHttpRequest();
+            }
+            throw new Error('当前浏览器不支持ajax功能');
+        };
+
+        //        console.log(getXHR());
+
+        /**
+         * 惰性函数
+         * @returns {*}
+         */
+        var getXHR2 = function () {
+            if (window.ActiveXObject) {
+                getXHR2 = function () {
+                    return new ActiveXObject('Microsoft.XMLHTTP');
+                };
+                return new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            if (window.XMLHttpRequest) {
+                getXHR2 = function () {
+                    return new XMLHttpRequest();
+                };
+                return new XMLHttpRequest();
+            }
+            throw new Error('当前浏览器不支持ajax功能');
+        };
+
+        /**
+         * 利用惰性函数实现另外一种getXHR方法
+         */
+        var getXHR3 = (function () {
+            if (window.ActiveXObject) {
+                return function () {
+                    return new ActiveXObject('Microsoft.XMLHTTP');
+                }
+            }
+            return function () {
+                return new XMLHttpRequest();
+            }
+        })();
+
+        var each = (function () {
+            if ([].forEach) {
+                return function (list, callback) {
+                    [].forEach.call(list, callback);
+                };
+            }
+            return function (list, callback) {
+                for (var i = 0, len = list.length; i < len; i++) {
+                    callback(list[i], i, list)
+
+                }
+            }
+        })();
+
+
+        // step 1 获取ajax对象
+        var xhr = getXHR3();
+
+        // step 2 打开http请求
+        /**
+         * 第一个参数: http 方法 [get post head delete put options] 不区分大小写
+         * 第二个参数 请求的server路径 放入请求起始行的第二部分
+         * 第三个参数 是否为异步请求 默认为true
+         * 第四个参数 账户名 放入url的username中
+         * 第五个参数 摩玛 翻入url的password中
+         */
+        xhr.open('http method', 'reqeust url', true, 'username', 'password');
+
+
+        // step 3 发送http请求
+        /**
+         * send方法会把参数放入请求主体中.
+         * 当请求的http方法为get系方法时 不需要填写参数.
+         * get系方法参数拼接到url中 而post系方法放到send()的参数中
+         * 参数类型: string FromData arrayBuffer Blob null undefined
+         */
+        xhr.send('param');
+
+        // step 4 接收响应
+        /**
+         * 开发者只需注册该函数,由浏览器内部调用
+         * 调用该方法的时机:
+         * 当ajax对象的readyState属性每改变一次就会执行一次该方法
+         */
+        xhr.onreadystatechange = function () {
+            // 判断http事务是否完成
+            if (xhr.readyState === 4) {
+                // 判断响应的状态码是否为200
+                if (xhr.status === 200) {
+                    // 获取响应主体
+                    console.log(xhr.responseText);
+                }
+                // 如果状态码为4xx或者5xx 则该请求失败
+                if (/^(4|5)\d{2}$/.test(xhr.status)) {
+                    console.log('请求失败')
+                }
+            }
+        };
+
+        // xhr.readyState属性
+        // 表示当前ajax对象的状态,一共有5个状态
+        /**
+         * 0 UNSENT ajax对象刚刚实例化完成 默认值.
+         * 1 OPENED 执行完ajax的open方法,自动变为1
+         * 2 HEADERS_RECEIVED 开始接受响应首部
+         * 3 LOADING 开始接收响应主体
+         * 4 DONE ajax操作的http事务完成
+         */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

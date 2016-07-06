@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css样式的引入方式</title>
+</head>
+<body>
+1、行内式 将style写在标签内 style成为一个标签属性 = 后面的内容 就是css属性
+语法：<div style="width: auto;height: auto;"></div>
+强烈不建议使用
+<ul>
+    <li style="background-color: #00c0a5;">我是列表项</li>
+    <li style="background-color: #00c0a5;">我是列表项</li>
+    <li>我是列表项</li>
+    <li>我是列表项</li>
+</ul>
+<link rel="stylesheet" href="css样式表.css" type="text/css"/>
+2、内嵌式 一般放置在head标签中（放在body中一样也可以起作用 但是不建议这样做）
+语法：
+<style type="text/css">
+    /*
+        在style标签内书写css属性
+    */
+    li{
+        background-color: #004d00;
+    }
+</style>
+3、外联式（外链式）放置在head标签中
+语法：
+<!--<link rel="stylesheet" href="文件路径" type="text/css"/>-->
+<link rel="stylesheet" href="css样式表.css" type="text/css"/>
+
+
+css引入方式的权重问题？
+行内 > 内嵌式 > 外链式
+
+特殊点 就近原则 控制这个元素最近的css属性生效 （最后读取的css属性生效）
+
+
+
+</body>
+</html>

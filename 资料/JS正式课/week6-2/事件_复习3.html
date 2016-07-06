@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+#div1{  height:200px; background:red;}
+</style>
+</head>
+
+<body>
+<div id="div1">div1</div>
+</body>
+</html>
+<script>
+//
+function on(ele,type,fn){
+	if(ele.addEventListener){
+		ele.addEventListener(type,fn,false);
+	}else{
+		if(!ele["aEvent"+type]){
+			ele["aEvent"+type]=[];
+			ele.attachEvent("on"+type,function(){run.call(ele)});	
+		}
+		
+		var a=ele["aEvent"+type];
+		for(var i=0;i<a.length;i++){
+			if(a[i]==fn)return;	
+		}
+		a.push(fn);
+		
+	}
+	
+}
+
+
+function run(){
+	var e=window.event;
+	var type=e.type;
+	if(!e.target){//如果事件对象上不支持类型似于target的这些属性，我们想个办法，让假装支持
+		e.target=e.srcElement;
+		e.pageX=(document.documentElement.scrollLeft||document.body.scrollLeft)+e.clientX;
+		e.pageY=(document.documentElement.scrollTop||document.body.scrollTop)+e.clientY;
+		e.stopPropagation=function (){e.cancelBubble=true;}
+		e.preventDefault=function(){e.returnValue=false;}
+		
+	}
+	var a=this["aEvent"+type];
+	if(a){
+		for(var i=0;i<a.length;i++){
+			var fn=a[i];
+			if(typeof fn=="function"){
+					fn.call(this,e);//让IE保持像chrome一样，事件对象是以参数的方式传进来的
+			}else{
+				a.splice(i,1);
+				i--;
+			}
+		}
+	}
+}
+on(ele,"click",fn);
+function fn(e){
+	//e=e||window.event;//我们的原则是：如果这个方法需要事件对象，但我们要让IE能够像fireFox一样，事件对象不用window.event,而是直接使用系统传给它的第一个参数作为事件对象。也就是说，以后再处理事件的兼容性，不写e=e||window.event;
+	//就是说在ie中，也使用参数e。那么这个e从那儿来呢？fn方法是由run方法来调用的，run方法中会有一个全局的window.event，只要在run方法里，把window.event传给fn，则fn的形参e就是事件对象window.event;
+	
+}
+
+function off(ele,type,fn){
+	//从数组里把指定的方法移除
+	
+	if(ele.removeEventListener){//标准浏览器就使用以下的方法
+		ele.removeEventListener(type,fn,false);
+	}else{
+		var a=ele["aEvent"+type];
+		if(a){
+			for(var i=0;i<a.length;i++){
+				if(a[i]==fn){
+					//a.splice(i,1);
+					a[i]=null;
+					return;	
+				}
+			}
+		}
+	}
+}
+ele.onclick=fn;
+ele.onclick=fn(e);
+ele.addEventListener("click",fn,false);
+</script>

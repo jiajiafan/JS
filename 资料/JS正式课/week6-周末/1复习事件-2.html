@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>复习事件</title>
+<style type="text/css">
+#div1{ height:200px; background:red;}
+</style>
+</head>
+
+<body>
+<div id="div1">逗你玩</div>
+</body>
+</html>
+<script>
+function on(ele,type,fn){
+	
+	if(ele.addEventListener){
+		ele.addEventListener(type,fn,false);
+		return;	
+	}
+	
+	if(!ele["aEvent"+type]){
+		ele["aEvent"+type]=[];
+		ele.attachEvent("on"+type,function(){run.call(ele)});	
+	}
+	var a=ele["aEvent"+type];
+	for(var i=0;i<a.length;i++){
+		if(a[i]==fn)return;	
+	}
+	a.push(fn);
+}
+
+function run(){
+	var e=window.event;
+	var type=e.type;
+	if(!e.target){
+		e.target=e.srcElement;
+		e.stopPropagation=function(){e.cancelBubble=true;}	
+		e.preventDefault=function(){e.returnValue=false;}
+		e.pageX=(document.documentElement.scrollLeft||document.body.scrollLeft)+e.clientX;
+		e.pageY=(document.documentElement.scrollTop||document.body.scrollTop)+e.clientY;
+		
+	}
+	
+	if(a)//此处花括号可以省略
+		for(var i=0;i<a.length;i++)//此处花括号可以省略
+			if(typeof a[i]=="function"){
+				a[i].call(this,e);
+			}else{
+				a.splice(i,1);
+				i--;
+			}
+	}
+
+function off(ele,type,fn){
+	if(ele.removeEventListener){
+		ele.removeEventListener(type,fn,false);
+		return;	
+	}
+	var a=ele["aEvent"+type];
+	if(a){
+		for(var i=0;i<a.length;i++){
+			if(a[i]==fn){
+				a[i]=null;
+				//i--;
+				return;
+			}
+		}
+	}
+}
+
+function fn1(){alert(this.innerHTML+":1")}
+function fn2(){alert(this.innerHTML+":2")}
+
+var flag=1;
+function fn3(){
+	flag++;
+	if(flag==3){
+		off(this,"click",fn1);
+		off(this,"click",fn2);
+		/*
+		run在执行的时候，off也来执行了，结果off把这个数组可能给破坏了
+		off里的操作和run里的操作不协同造成的塌陷,情况描述如下：
+		off和run里在操作同一个数组
+		run里是这样执行的
+		第一次执行的时候，off没有操作这个数组[fn1,fn2,fn3,fn4];正常执行
+		
+		[fn1,fn2,fn3,fn4]
+		当第二次执行，执行到fn3的时候,i==2,把fn1,fn2删除了
+		[fn3,fn4];数组成了这样，但i接下来已经是3了
+		接下来i再累加，i==3,则现在length是2,循环结束了，则fn4没有执行的机会
+		*/
+	}
+	alert(this.innerHTML+":3")}
+function fn4(e){
+	
+	alert(e.pageX);
+	}
+var ele=document.getElementById("div1");
+on(ele,"click",fn1);
+on(ele,"click",fn2);
+on(ele,"click",fn3);
+on(ele,"click",fn4);
+
+
+</script>

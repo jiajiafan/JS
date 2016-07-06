@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="list">
+    <p>000</p>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>
+<script>
+  //ie6-8 children不兼容,其他的都兼容
+    function getChildren(ele,tagName){
+        //1.获取子元素节点
+        var reg = /MSIE [6-8]\.0/i;
+        var ary = [];
+       if(reg.test(navigator.userAgent)){//是ie6-ie8
+           var childs = ele.childNodes;
+           for(var i = 0;i<childs.length;i++){
+               var curChild = childs[i];
+               if(curChild.nodeType == 1){
+                   ary[ary.length]= curChild;
+               }
+           }
+       }else{
+          ary =  Array.prototype.slice.call(ele.children);
+       }
+        //ary里保存是ele下所有的子元素节点
+        //筛选出和传进来的tagName相同的子元素节点
+        //如果传了第二个参数,则应该把ary里标记名不是第二个参数的那些元素删除
+        if(typeof tagName == "string"){
+            for(var i = 0;i<ary.length;i++){
+                var cur = ary[i];
+                if(cur.nodeName.toLowerCase()!=tagName.toLowerCase()){
+                    ary.splice(i,1);
+                    i--;
+                }
+            }
+        }
+        return ary;
+
+    }
+    var oUl = document.getElementById("list");
+    var res = getChildren(oUl,"li");
+    console.log(res);
+
+
+
+
+
+</script>

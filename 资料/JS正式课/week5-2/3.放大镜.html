@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0;padding:0}
+        #box{position:relative;width:300px;height:223px;margin-left:50px}
+        #mask{position: absolute;width:95px;height:63px;background: rgba(19,19,19,0.5)}
+        #show{position:absolute;width:300px;height:200px;overflow: hidden;}
+    </style>
+</head>
+<body>
+遮罩图/小图=显示区/大图
+小图 300*223
+大图 950*706
+显示区 300*200
+mask= 95*63
+宽的缩放值(scaleX)
+高的塑缩放值(scaleY)
+遮罩层的左偏移/大图左边卷曲的宽=宽的缩放值
+
+<div id="box"><img src="" alt=""></div>
+<script>
+    function mouseEvent(e){
+        e=e||window.event;
+        if(typeof pageX=="undefined"){
+            e.pageX=e.clientX+(document.documentElement.scrollWidth||document.boy.scrollLeft);
+            e.pageY=e.clientY+(document.documentElement.scrollheigth||document.boy.scrollTop);
+            e.target=e.srcElement;
+            e.stopPropagation=function(){
+                e.cancelBubble=true;
+            };
+            e.preventDefault=fucntion(){
+                e.returnValue=false;
+            }
+        }
+        return e;
+    }
+    var oBox=document.getElementById("box")
+    oBox.onmouseenter=function(e){
+        e=mouseEvent;
+        var oMask=document.createElement('div')
+        oMask.id=mask;
+        //创建显示区
+        var oShow=document.createElement('div');
+        var oImg=document.createElement('img');
+        oImg.src='img/';
+        oShow.appendChild(oImg);
+
+    }
+    oBox.onmousemove=function(e){
+
+    }
+    oBox.onmouseleave=function(e){
+
+    }
+</script>
+</body>
+</html>

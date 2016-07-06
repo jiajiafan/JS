@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 300px;
+            height: 200px;
+            margin:50px auto;
+            border:10px solid lightpink;
+        }
+        #box:before{
+            display: block;
+            width: 100%;
+            height:40px;
+            text-align: center;
+            content: '珠峰培训';
+            background: lightgreen;
+        }
+        #box:after{
+            display: block;
+            width: 100%;
+            height:35px;
+            line-height: 35px;
+            text-align: center;
+            content: '珠峰培训222222';
+            background: lightgreen;
+        }
+        ul:after{
+            display: block;
+            height: 0;
+            clear: both;
+            content: '';
+            /*visibility: hidden;*/
+        }
+        ul li{
+            width: 100px;
+            height: 30px;
+            border-bottom: 1px solid green;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="box">今天天气真好，我在珠峰培训陪代码玩耍今天天气真好，我在珠峰培训陪代码玩耍今天天气真好，我在珠峰培训陪代码玩耍今天天气真好，我在珠峰培训陪代码玩耍今天天气真好，我在珠峰培训陪代码玩耍</div>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    var oBox=document.getElementById('box');
+   // alert(getComputedStyle(oBox,'after').height)
+</script>
+</body>
+</html>

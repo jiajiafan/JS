@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.工厂模式的思想：
+1）引进原材料 var obj={} var obj=new Object();
+2)产品加工 - JS中给对象添加属性和方法
+3）输出产品 - JS中输出对象；
+2.工厂模式：就相同的代码或者功能进行封装，以后再用，不用重写，直接调用即可；
+-本质：函数封装 （低耦合，高内聚，避免大量冗余代码）
+<script>
+    function person(name,age){
+        var obj={};//1.创建一个控对象
+        //2.给对象添加属性和方法
+        obj.name=name;
+        obj.age=age;
+        obj.showName=function(){
+            alert('我的名字是'+this.name)
+        }
+        //3.输出对象
+        return obj;
+    }
+    var p1=person('杜宏俊',28);
+    var p2=person('zhufeng',7);
+    var ary=new Array();
+    var oDate=new Date();
+    var str=new String();
+    /*p1.showName();
+    p2.showName();*/
+</script>
+</body>
+</html>

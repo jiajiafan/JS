@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        ul li{
+            width: 100px;
+            height: 100px;
+            margin: 50px 0;
+        }
+        ul li:nth-child(even){/*偶数行*/
+            background: orange;
+        }
+        ul li:nth-child(odd){/*奇数行*/
+            background: palegreen;
+        }
+        ul li:nth-child(1){
+            /*
+            默认的外阴影 加inset表示内阴影 ,偏移方向和外阴影偏移方向相反
+            x轴偏移 正:右 负:左
+            y轴偏移 正:下 负:上
+            模糊半径
+            扩展半径  正的值是往外扩展,负的值是往内收缩
+            颜色
+            */
+            /*box-shadow:inset -5px -10px 10px 5px #a1a8ee;*/
+            box-shadow:1px 2px 10px 5px red,5px 7px 10px 8px green,7px 8px 10px 10px blue;
+        }
+
+        ul li:nth-child(2){
+            box-shadow: 8px 0px 10px -5px plum;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

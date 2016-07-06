@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+call/apply方法运行的时候,他们的作用:
+    1.让"."前面的方法的this关键字变成第一个实参
+    2.让"."前面的方法运行
+call和apply的区别:传参的方式不一样 call是散列式的传参方式 apply打包式的传参方式
+<script>
+    //console.dir(Function.prototype)
+    //call...apply....bind...toString()....
+    //    var age = 19;
+    //    var obj = {age :18};
+    //    function fn(){
+    //        console.log(this.age);
+    //    }
+    //    fn.call(obj);//让call方法运行,call方法里的this关键字是fn
+    //    fn.apply(obj);//让apply方法运行,apply方法里的this关键字是fn
+
+    function sum(num1,num2){
+        //"use strict"; //严格模式
+        console.log(this);
+        console.log(num1+num2);
+    }
+    //    sum.call(null);
+    //    sum.call(undefined);
+    //    sum.call();
+    //在非严格模式:call/apply传的一个参数是null/undefined或者没有参数,方法里的this表示的是window ,其他情况.你传的是什么this指的就是什么
+    //在严格模式("use strict"),如果第一个参数是null则this就null,如果是undefined或者没写参数则this是undefined,其他情况.你传的是什么this指的就是什么
+    //sum.call(null,10,20);//->num1=10,num2 =20
+    //sum.call(10,10,20);
+    sum.apply(null,[10,20]);
+    //sum.apply(10,20);Uncaught TypeError: Function.prototype.apply: Arguments list has wrong type
+
+    //call方法传参,从第二个参数开始,所有的参数相当于"."前面方法的实参,把一个参数的值赋给第一个形参,第二个参数的值赋给第二个形参....  num1 = 10,num2 = 20;
+    //apply方法,是把所有的要传的实参都放在一个数组里给"."前面的方法,但是实际上也是一个一个的传给方法的形参 ,把数组的第一项赋给第一个形参,第二项赋给第二个形参....
+
+</script>
+</body>
+</html>

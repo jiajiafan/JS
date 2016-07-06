@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .test {
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="w1" style="width:200px"></div>
+<div class="w1 w2" style="width:300px"></div>
+<div class="w2 w3" style="width:400px"></div>
+<div class="w1 w3" style="width:500px"></div>
+<div class="w4" id="div5" style="width:600px"></div>
+
+<script charset="utf-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    //console.dir($(".w4"));//->获取到的是一个jQuery对象
+
+    //1、想获取这个jQuery类数组集合中的某一项元素?
+    //    console.log($(".w4")[0]);
+    //    console.log($(".w4").get(0));//->获取到的结果是原生的DOM对象
+    //    console.log($(".w4").eq(0));//->获取到的结果依然是jQuery这个类的一个实例
+
+    //2、把原生的DOM对象转换为jQuery的一个实例？
+    //    var oDiv5 = document.getElementById("div5");
+    //    //oDiv5.addClass("w3");//->Uncaught TypeError: oDiv5.addClass is not a function ->原生的DOM对象不能直接的使用jQuery.prototype上提供的那些方法
+    //    $(oDiv5).addClass("w3");
+
+    //3、在jQuery中动态的创建一个div,给其设置一些操作的效果,并且添加到body的末尾位置
+    //    $("<div>", {
+    //        class: "test",
+    //        text: "Click me!",
+    //        click: function () {
+    //            alert("我是动态创建的div");
+    //        }
+    //    }).appendTo("body");
+
+    //    var $newDiv = $("<div>");
+    //    $newDiv.addClass("test");
+    //    $newDiv.html("click me");
+    //    $newDiv.on("click",function(){
+    //        alert("我是动态创建的div");
+    //    });
+    //    $("body").append($newDiv);
+
+    //    console.log($); //->jQuery
+    //    var j = jQuery.noConflict();
+    //    console.log($); //->undefined
+    //    jQuery("div");
+    //    j("div");//->j是我新命名的一个属性名,代替之前的$
+
+    //    var $div5=$("#div5");
+    //    var $pList = $div5.parents();
+    //    console.log($pList);
+    //    $pList=$pList.add($div5);
+    //    console.log($pList);
+
+    //    var $div = $(".w1");
+    //    $div = $div.add($(".w4"));
+    //    console.log($div);
+</script>
+</body>
+</html>

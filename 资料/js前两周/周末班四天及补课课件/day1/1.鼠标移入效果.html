@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #title{
+            width:100px;
+            height:40px;
+            background: lightblue;
+            text-align: center;
+            line-height:40px;
+        }
+        #list{
+            width:100px;
+            height:200px;
+            background: #ccc;
+            display: none;
+        }
+    </style>
+    <!--<script>
+        window.onload=function(){//把地下HTML页面都加载完成，再执行JS
+                document.getElementById('title').onmouseover=function(){
+                    document.getElementById('list').style.display='block';
+                }
+            document.getElementById('title').onmouseout=function(){
+                document.getElementById('list').style.display='none';
+            }
+        }
+        //思想：鼠标移入一个元素，让另一个元素显示，否则反之；
+    </script>-->
+</head>
+<body>
+<div id="title">卖家中心</div>
+<div id="list"></div>
+<script>
+    //(var)定义一个变量 (=)赋值 文档 （.）的 获取元素通过ID (id名)；
+    var oTitle=document.getElementById('title');
+    var oList=document.getElementById('list');
+    //给oTitle这个元素上加一个鼠标的移入事件
+    oTitle.onmouseover=function(){
+        showHide('block','yellow')//执行函数，参数都是以逗号隔开；
+    };
+    //给oTitle这个元素上加一个鼠标的移出事件
+    oTitle.onmouseout=function(){
+        showHide('none','red')
+    };
+    //函数及传参；
+    function showHide(arg,color){
+        oList.style.display=arg;
+        oList.style.backgroundColor=color;
+    }
+</script>
+</body>
+</html>

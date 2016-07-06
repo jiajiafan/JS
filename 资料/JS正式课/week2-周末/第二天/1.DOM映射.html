@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<!--
+DOM映射：HTML页面中的所有标签和我们获取的元素对象（集合）紧紧联系在一起，当页面中的HTML结构发生变化，我们获取的集合也会发生变化；同理，当我们操作元素对象时，HTML标签也会发生变化；
+（一句话：页面标签和元素对象互相影响）；
+-->
+<div id="ul1">
+    <li>3</li>
+    <li>2</li>
+    <li>6</li>
+    <li>4</li>
+    <li>5</li>
+    <li>1</li>
+</div>
+<script src="js/utils.js"></script>
+<script>
+    var oUl=document.getElementById('ul1');
+    var aLi=oUl.getElementsByTagName('li');
+    function sort(){
+       var _this=this;
+        _this.bOk*=-1;
+        //1.把类数组转数组
+        var ary=utils.listToArray(aLi);
+        //2.排序
+        ary.sort(function(a,b){
+            //this-window
+            a=Number(a.innerHTML);
+            b=Number(b.innerHTML);
+            return (a-b)*_this.bOk;
+        })
+        //3.把排序好的插入页面
+        var frg=document.createDocumentFragment();
+        for(var i=0; i<ary.length; i++){
+            frg.appendChild(ary[i])
+        }
+        oUl.appendChild(frg);
+    }
+    var oD=document.documentElement;
+    oD.bOk=-1;// -1*-1=1;1*-1=-1;-1*-1=1;....
+    oD.onclick=function(){
+        //alert(this)
+        //sort(this);//传参思想
+        sort.call(this)//call改变this指向思想；
+    }
+</script>
+</body>
+</html>
+
+
+
+

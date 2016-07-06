@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        /*--background-attachment:设置背景图像是否固定或者随着页面的其余部分滚动,默认值是scroll意思是随着滚动,写fixed是固定--*/
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        /*body {
+            height: 1000%;
+            background: url("img/bg.jpg") no-repeat;
+            background-attachment: fixed;
+        }*/
+
+        .box {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            height: 200px;
+            border: 10px solid rgba(0, 0, 0, 0.2);
+            background: url("img/baby.jpg") no-repeat;
+            overflow: hidden;
+        }
+
+        /*--背景图片的起始位置是从盒子内边框开始算起的,但是我们可以使用 background-origin:指定绘制背景图片的起点--*/
+        .box:nth-child(1) {
+            background-origin: padding-box; /*--默认值就是padding-box:从填充区域就开始设置背景图片了--*/
+        }
+
+        .box:nth-child(2) {
+            background-origin: border-box; /*--从边框开始设置背景图片--*/
+        }
+
+        .box:nth-child(3) {
+            background-origin: content-box; /*--从内容开始设置背景图片了--*/
+        }
+
+        /*--
+        想要在盒子中把全部的背景图全部展示出来:background-size设置背景图片的大小
+        --*/
+        .box:nth-child(4) {
+            background-size: 100% 100%; /*--当前的盒子有多宽多高我们的背景图片就有多宽多高--*/
+        }
+
+        .box:nth-child(5) {
+            background-origin: border-box;
+            background-size: 100%; /*--背景图片的宽度和盒子保持一致,让高度自己适应,这样的话可以防止图片挤压变形--*/
+        }
+
+        .box:nth-child(6) {
+            background-size: cover;
+        }
+
+        .box:last-child {
+            display: none;
+            width: 1000px;
+            height: 1000px;
+            background-size: cover;
+            /*--background-size: cover;把背景图片放大或者缩小让其铺满整个容器,在放大缩小过程中是按照宽高比缩放的,所以图片一般不会被挤压或者拉伸变形--*/
+        }
+
+        .box:nth-child(7) {
+            background-size: contain;
+            /*--background-size: contain;把当前的背景图片完全的看到,也是按照宽高比例进行缩放的--*/
+        }
+
+        /*--background-clip:背景图片裁切--*/
+        .box:nth-child(8) {
+            background-clip: border-box; /*默认值*/
+        }
+
+        .box:nth-child(9) {
+            background-clip: padding-box; /*默认值*/
+        }
+
+        .box:nth-child(10) {
+            background-clip: content-box; /*默认值*/
+        }
+
+        /*--综上完成一个完整的全屏背景--*/
+        .box:nth-child(11) {
+            background: url("img/baby.jpg") no-repeat;
+            background-origin: padding-box;
+            background-clip: padding-box;
+            background-size: cover;
+            border: 10px solid #71c171;
+
+            /*--使用滤镜来设置模糊度--*/
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+        }
+
+        /*body{
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+        }*/
+
+        /*css3中的filter除了blur以外还添加了其他的属性*/
+        /*
+            -webkit-filter: normal; 正常
+            -webkit-filter: grayscale(1); 灰度，取值范围0-1
+            -webkit-filter: brightness(0.5); 亮度，取值范围0-1
+            -webkit-filter: invert(1); 反色，取值范围0-1, 0为原图，1为彻底反色之后
+            -webkit-filter: sepia(0.5); 叠加褐色，取值范围0-1
+            -webkit-filter: hue-rotate(30deg); 色相（按照色相环进行旋转，顺时针方向，红-橙-黄-黄绿-绿-蓝绿-蓝-蓝紫-紫-紫红-红）此处为叠加黄色滤镜
+            -webkit-filter: saturate(4); 饱和度，取值范围0 ~ *, 0为无饱和度，1为原图，值越高饱和度越大
+            -webkit-filter: contrast(2); 对比度，取值范围0 ~ *, 0为无对比度（灰色），1为原图，值越高对比度越大
+            -webkit-filter: opacity(0.8); 透明度，取值范围0 ~ 1, 0为全透明，1为原图
+            -webkit-filter: drop-shadow(0 0 20px red); 阴影
+        */
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/animate.css"/>
+    <style type="text/css">
+        body {
+            overflow: hidden;
+        }
+
+        .box {
+            margin: 50px auto;
+            width: 400px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: lightblue;
+            font-size: 24px;
+            letter-spacing: 10px;
+
+            /*--3D旋转之设置旋转的基准点--*/
+            -webkit-transform-origin: top center;
+            transform-origin: top center;
+
+            -webkit-animation: swing 1s both;
+            animation: swing 1s both;
+        }
+
+        @-webkit-keyframes swing {
+            20% {
+                -webkit-transform: rotate3d(0, 0, 1, 15deg);
+                transform: rotate3d(0, 0, 1, 15deg);
+            }
+
+            40% {
+                -webkit-transform: rotate3d(0, 0, 1, -10deg);
+                transform: rotate3d(0, 0, 1, -10deg);
+            }
+
+            60% {
+                -webkit-transform: rotate3d(0, 0, 1, 5deg);
+                transform: rotate3d(0, 0, 1, 5deg);
+            }
+
+            80% {
+                -webkit-transform: rotate3d(0, 0, 1, -5deg);
+                transform: rotate3d(0, 0, 1, -5deg);
+            }
+
+            to {
+                -webkit-transform: rotate3d(0, 0, 1, 0deg);
+                transform: rotate3d(0, 0, 1, 0deg);
+            }
+        }
+
+        @keyframes swing {
+            20% {
+                -webkit-transform: rotate3d(0, 0, 1, 15deg);
+                transform: rotate3d(0, 0, 1, 15deg);
+            }
+
+            40% {
+                -webkit-transform: rotate3d(0, 0, 1, -10deg);
+                transform: rotate3d(0, 0, 1, -10deg);
+            }
+
+            60% {
+                -webkit-transform: rotate3d(0, 0, 1, 5deg);
+                transform: rotate3d(0, 0, 1, 5deg);
+            }
+
+            80% {
+                -webkit-transform: rotate3d(0, 0, 1, -5deg);
+                transform: rotate3d(0, 0, 1, -5deg);
+            }
+
+            to {
+                -webkit-transform: rotate3d(0, 0, 1, 0deg);
+                transform: rotate3d(0, 0, 1, 0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box">珠峰培训欢迎您~</div>
+
+<!--
+   animate.css:它是目前国际上通用的CSS3帧动画库,里面提供了项目中最经常使用的动画,不管是bootstrap、swiper...等常用的框架都在使用animate.css
+-->
+</body>
+</html>

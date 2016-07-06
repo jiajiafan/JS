@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #div{
+            width:200px;
+            height: 200px;
+            position: absolute;
+            left:0;
+            top:0;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script src="js/utils.js"></script>
+<script>
+    var oDiv=document.getElementById('div');
+    var target=utils.win('clientWidth')-oDiv.offsetWidth;
+    var step=10;
+    var timer=setInterval(move,10);
+    function move(){
+        var curL=utils.css(oDiv,'left');
+        if(curL+step>=target){
+            utils.css(oDiv,'left',target);
+            clearInterval(timer);
+            return;
+        }
+        curL+=step;
+        utils.css(oDiv,'left',curL);
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

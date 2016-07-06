@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+div{ width:100px; height:100px; background:red; position:absolute; top:0; left:0; cursor:move;}
+
+</style>
+</head>
+
+<body>
+<div id="div1" ><img src="QQ截图20160112104818.png" width="100" height="100"></div>
+<div id="div2" style="top:100px; left:0; background:blue;"></div>
+<div id="div3" style="top:100px; left:100px; background:yellow;"></div>
+<div id="div4"  style="top:200px; left:220px; background:purple;"></div>
+</body>
+</html>
+<script src="event1.js"></script>
+<script>
+var eles=document.getElementsByTagName("div");
+//用面向对象的方式方法来完成代码，主要是为了更好的管理和扩展功能功能
+//首先要确定设计原则：
+	//1、this的指向。则是类的方法，this都要指向这个类当前的实例
+	//2、一个类就是一个具体完整功能的模块，这个模块（类）上定义了此功用所需要所有的属性和方法。
+	//3、我们在定义这个类的时候，最其码要实现它的最基本的功能。还要留好扩展的余地，以便升级
+	
+function EventEmitter(){};
+EventEmitter.prototype.on=function(type,fn){
+	if(!this["aEmitter"+type]){
+		this["aEmitter"+type]=[];	
+	}
+	var a=this["aEmitter"+type];
+	for(var i=0;i<a.length;i++){
+		if(a[i]==fn)return this;	
+	}
+	a.push(fn);
+	return this;
+}
+EventEmitter.prototype.run=function(e,systemEvent){//第一个参数e是指自定义事件的对象，它最少包括一个e.type属性，是否需要更多属性，自行扩展既可。第二个参数systemEvent是浏览器的事件对象（指系统事件对象）
+	var a=this["aEmitter"+e.type];
+	if(a){
+		for(var i=0;i<a.length;i++){
+			if(typeof a[i]=="function"){
+				a[i].call(this,systemEvent,e);	
+			}else{
+				a.splice(i,1);	
+				i--;
+			}
+		}
+	}
+	
+}
+EventEmitter.prototype.off=function(type,fn){
+	var a=this["aEmitter"+type];
+	if(a){
+		for(var i=0;i<a.length;i++){
+			if(a[i]==fn){
+				a[i]=null;
+				return this;	
+			}
+		}
+			
+	}
+	return this;
+}
+	//现在Drag可以实现自定义事件了，但是Drag还是需要系统的事件，则需要在EventEmitter类中，可以给系统事件留一个接口：让run方法的参数也可以传递系统的事件对象
+	function Drag(ele){//类名、构造函数
+	//构造函数是初始化的作用
+		this.x=null;
+		this.y=null;
+		this.mx=null;
+		this.my=null;
+		
+		this.ele=ele;
+		this.DOWN=processThis(this.down,this);
+		
+		on(ele,"mousedown",this.DOWN);//这样处理，当事件触发的时候，执行的是this.DOWN,this.DOWN里的this是谁？this.down里的this为什么
+		this.MOVE=processThis(this.move,this);
+		this.UP=processThis(this.up,this);
+	}
+	Drag.prototype=new EventEmitter;//
+	//down规定的事件标识符是：“dragstart”
+	//move规定的事件标识符是："dragging"
+	//up规定的事件标识符是："dragend"
+	
+	Drag.prototype.down=function(e){
+		this.x=this.ele.offsetLeft;
+		this.y=this.ele.offsetTop;
+		this.mx=e.pageX;
+		this.my=e.pageY;
+		if(this.ele.setCapture){
+			this.ele.setCapture();
+			on(this.ele,"mousemove",this.MOVE);
+			on(this.ele,"mouseup",this.UP);
+		}else{
+			on(document,"mousemove",this.MOVE);
+			on(document,"mouseup",this.UP);
+		}
+		e.preventDefault();
+		this.run({type:"dragstart"},e);
+	};
+	Drag.prototype.move=function(e){
+		this.ele.style.left=this.x+e.pageX-this.mx+"px";
+		this.ele.style.top=this.y+e.pageY-this.my+"px";
+		this.run({type:"dragging"},e);
+	};
+	Drag.prototype.up=function(e){
+		if(this.ele.releaseCapture){
+			this.ele.releaseCapture();
+			off(this.ele,"mousemove",this.MOVE);
+			off(this.ele,"mouseup",this.UP);	
+		}else{
+			off(document,"mousemove",this.MOVE);
+			off(document,"mouseup",this.UP);
+		}
+		this.run({type:"dragend"},e);
+	};
+	
+	//产品的问题：如果把Drag当成一个产品给别人使用，那首先要有一个帮助手册（API）
+	/*
+	
+				拖拽产品1.0使用手册
+		1、类名叫Drag,实现拖拽的代码是var obj=new Drag(ele);ele是被拖拽的元素
+		2、Drag类的主要方法有
+			Drag.prototype.down;
+			Drag.prototype.move
+			Drag.prototype.up;
+			
+			this.ele
+			obj.ele这个属性是保存在实例上的被拖拽的元素，当前实例的ele属性可以得到被拖拽的元素
+		3、此产品还留有足够的扩展接口，分别是三个事件
+			如果在拖拽开始的阶段扩展功能，则：
+				obj.on("dragstart",fn);
+			在拖拽时行的阶段扩展功能，则
+				obj.on("dragging",fn);
+			在拖拽结束的阶段扩展功能，则
+				obj.on("dragend",fn);
+		
+		升级到1.1
+			
+			
+		
+	*/
+	new Drag(div1);
+	new Drag(div2);
+	new Drag(div3).on("dragstart",clearEffect).on("dragging",getSpeed).on("dragend",fly).on("dragend",drop);;
+	var obj=new Drag(div4);
+	obj.on("dragstart",clearEffect);
+	obj.on("dragging",getSpeed);
+	obj.on("dragend",fly);
+	obj.on("dragend",drop);
+	
+	
+	//div--HTMLDivElement--HTMLElement--Element--Node---EventTarget-->Object
+	//EventEmitter在nodeJS是公开、开放一个类，你可以给自己定义的类实现发布事件（自己定义的类继承一下EventEmitter就可以）
+	
+	
+	
+	function clearEffect(){
+		clearTimeout(this.flyTimer);
+		clearTimeout(this.dropTimer);	
+}
+
+function getSpeed(e){
+	//首先要在mousemove的时候计算出两次mousemove事件之间的鼠标的位移，把这个位移当前速度
+	
+	if(this.prevPosition){
+		this.flySpeed=e.pageX-this.prevPosition;
+		this.prevPosition=e.pageX;
+		
+	}else{
+		//如果没有“上一次的位置”this.prvePostion这个属性，则把本次的位置赋给它，到了下一次，则这个它就成了上一次的位置了。
+		this.prevPosition=e.pageX;	
+	}
+}
+
+function fly(){
+	//首先要在mousemove的时候计算出两次mousemove事件之间的鼠标的位移，把这个位移当前速度
+	this.flySpeed*=.98;
+	
+	var maxRight=(document.documentElement.clientWidth||document.body.clientWidth)-this.ele.offsetWidth;
+	
+	var current=this.ele.offsetLeft+this.flySpeed;
+	if(current>=maxRight){
+		this.ele.style.left=maxRight+"px";
+		this.flySpeed*=-1;
+	}else if(current<=0){
+		this.ele.style.left=0;
+		this.flySpeed*=-1;
+	}else{
+		this.ele.style.left=current+"px";
+	}
+	
+	if(Math.abs(this.flySpeed)>=0.5){
+		this.flyTimer=window.setTimeout(processThis(fly,this),20);
+	}else{
+		this.flySpeed=null;
+		this.prevPosition=null;	
+	}
+	
+}
+
+function drop(){
+	if(this.dropSpeed){
+		this.dropSpeed+=9;
+	}else{
+		this.dropSpeed=9;
+	}
+	this.dropSpeed*=.98;
+	
+	var bottom=(document.documentElement.clientHeight||document.body.clientHeight)-this.ele.offsetHeight;
+	if(this.ele.offsetTop+this.dropSpeed>=bottom){
+		this.ele.style.top=bottom+"px";
+		this.dropSpeed*=-1;	
+		this.flag++;
+	}else{
+		this.ele.style.top=this.ele.offsetTop+this.dropSpeed+"px";
+		this.flag=0;
+	}
+	if(this.flag<2){
+		this.dropTimer=window.setTimeout(processThis(drop,this),20);
+	}
+	
+}
+</script>

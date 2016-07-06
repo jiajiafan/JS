@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*var str='function(){alert（a）}';
+    str=str.replace('this','context');
+    alert(str);*/
+   // function Function(){};
+   /* Function.prototype.myCall=function(context){
+        //this(f1,f2,f3)中的'this'关键字改成了context；（如果this所指的这个函数中没有this关键字，那context就什么也不会改变）
+        //this()相当于f1()or f2() or f3();
+    }*/
+    var f1=new Function();
+    var f2=function f2(){
+        alert(this)
+    }
+    f1.myCall();
+    f2.myCall();
+    f3.myCall();
+   // f1.myCall()//this-.前面是谁，this就是谁-f1
+    f2();
+</script>
+</body>
+</html>

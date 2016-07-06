@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    //->括号表达式:
+    //一个小括号中有多项,中间用逗号隔开,我们最后获取的只是最后一项
+    //(fn1, fn2)(); ->只把fn2执行了
+
+    //    var obj = {name: "obj", fn: fn1};
+    //    function fn1() {
+    //        console.log(this);
+    //    }
+    //    function fn2() {
+    //        console.log(2);
+    //    }
+    //    obj.fn();//this->obj
+    //    (obj.fn)();//this->obj
+    //    (fn2,obj.fn)();//this->window
+
+    //eval("12,23,34,45,56");//->(12,23,34,45,56) ->56 首先转换成JS表达式,但是表达式本身又是一个括号表达式,所以最后获取的总是最后一项
+
+    //var ary = [1, 2, 4, 3, 5, 2, 6];
+    //"Math.max("+ary.toString()+")"; ->只是在做字符串拼接,把我们需要最后执行的代码用字符串拼接出来 ->"Math.max(1,2,4,3,5,2,6)"
+    //eval("Math.max(" + ary.toString() + ")");
+    //console.log(eval("Math.max(" + ary.toString() + "),fn2"));
+</script>
+
+
+</body>
+</html>

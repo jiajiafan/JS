@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <link type="text/css" rel="stylesheet" href="css/nav.css"/>
+</head>
+<body>
+<ul class="nav">
+    <li class="navFir">
+        <h2>衬衫</h2>
+        <ul class="navTwo" style="display: block;">
+            <li>短袖衬衫</li>
+            <li>长袖衬衫</li>
+            <li>男款衬衫</li>
+            <li>女款衬衫</li>
+        </ul>
+    </li>
+    <li class="navFir">
+        <h2>衬衫</h2>
+        <ul class="navTwo">
+            <li>短袖衬衫</li>
+            <li>长袖衬衫</li>
+            <li>男款衬衫</li>
+            <li>女款衬衫</li>
+        </ul>
+    </li>
+    <li class="navFir">
+        <h2>衬衫</h2>
+        <ul class="navTwo">
+            <li>短袖衬衫</li>
+            <li>长袖衬衫</li>
+            <li>男款衬衫</li>
+            <li>女款衬衫</li>
+        </ul>
+    </li>
+</ul>
+<script charset="utf-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".navFir>h2").on("click", function () {
+            $(this).next()
+                    .stop().slideToggle(300)
+                    .parent().siblings().children(".navTwo")
+                    .stop().slideUp(300);
+        });
+    });
+</script>
+</body>
+</html>

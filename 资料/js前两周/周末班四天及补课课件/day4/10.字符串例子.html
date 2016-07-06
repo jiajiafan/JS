@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var str='2016/5/1 14:9:1';
+    var ary=str.split(' ');
+    var aryL=ary[0].split('/');
+    var aryR=ary[1].split(':');
+    /*console.log(ary)
+    console.log(aryL);
+    console.log(aryR);*/
+    document.body.innerHTML=aryL[0]+'年'+toDou(aryL[1])+'月'+toDou(aryL[2])+'日 '+toDou(aryR[0])+'时'+toDou(aryR[1])+'分'+toDou(aryR[2])+'秒';
+    function toDou(n){
+        return n>=0&&n<10?'0'+n:''+n;
+    }
+
+</script>
+</body>
+</html>

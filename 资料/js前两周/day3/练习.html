@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ary=[99,88,77,66,55,44,33,22,11];
+for(j=0;j<ary.length-1;j++) {
+    for (i = 0; i < ary.length - 1; i++) {
+        var temp = null;
+        if (ary[i] > ary[i + 1]) {
+            temp = ary[i];
+            ary[i] = ary[i + 1];
+            ary[i + 1] = temp;
+        }
+
+    }
+}
+    console.log(ary);
+</script>
+
+</body>
+</html>

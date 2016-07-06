@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<ul>
+    <li>12223</li>
+    <li>3333</li>
+    <li>4455</li>
+    <li>66676</li>
+</ul>
+<script>
+    //$('li').css('background','red')
+    /*alert($('li').html())
+    $('li').html('珠峰培训')*/
+    $('li').each(function(index,item){//item-是原生的元素
+        console.log($(item).html())
+    })
+    $.each(['aa','bb','cc'],function(index,item){
+        console.log(item)
+    })
+    $.each({name:'珠峰',age:8},function(index,item){
+        console.log(index+','+item)
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

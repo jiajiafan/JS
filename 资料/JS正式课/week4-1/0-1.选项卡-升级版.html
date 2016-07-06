@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .tab{
+            width: 500px;
+            margin: 100px auto;
+        }
+         .tab ul{
+             width: 100%;
+             text-align: center;
+         }
+         .tab ul li.tabLi{
+             width: 80px;
+             display: inline-block;
+             height: 40px;
+             line-height: 40px;
+         }
+        .tab ul li.curTabLi{
+            background: palegreen;
+        }
+        .tabContent{
+            display: none;
+            background: palegreen;
+            height: 200px;
+        }
+        .curTabContent{
+            display: block;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="tab">
+        <ul>
+            <li class="tabLi curTabLi">选项卡一</li>
+            <li class="tabLi  ">选项卡二</li>
+            <li class="tabLi">
+             <!--<ul style="position: absolute;left:0;"><li>111</li></ul>-->
+                选项卡三</li>
+            <li class="tabLi">选项卡四</li>
+        </ul>
+        <div>
+            <div class="tabContent curTabContent">内容一</div>
+            <div class="tabContent ">
+                <div>111</div><div>222</div>内容二</div>
+
+            <div class="tabContent">内容三</div>
+            <div class="tabContent">内容四</div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    var oTab= utils.getElesByClass("tab")[0];
+    var oUl = utils.getChildren(oTab,"ul")[0];
+    var oLis = utils.getChildren(oUl,"li");
+    console.log(oLis);
+    for(var i = 0;i<oLis.length;i++){
+        oLis[i].onclick = changeTab;
+    }
+
+    function changeTab(){
+        var index =utils.getIndex(this);//点击元素的索引
+        utils.addClass(this,"curTabLi");
+        var siblings = utils.siblings(this);
+        for(var i = 0;i<siblings.length;i++){
+            utils.removeClass(siblings[i],"curTabLi");
+        }
+        var oDiv = utils.next(this.parentNode);
+        var tabContents = utils.getChildren(oDiv,"div");
+        for(var i = 0;i<tabContents.length;i++){
+            utils.removeClass(tabContents[i],"curTabContent");
+        }
+        //点击元素相对的那个的div增加类名,也就是说得知道点击元素的索引
+        utils.addClass(tabContents[index],"curTabContent");
+    }
+
+</script>

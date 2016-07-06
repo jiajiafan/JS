@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #box {
+            width: 500px;
+            border: 1px solid palegreen;
+            border-collapse: collapse;
+            /*border-radius: 10px;圆角*/
+            box-shadow: 0 0 10px 2px rgba(173, 255, 198, 0.5); /*第一个 x轴的偏移量,第二个 y轴的偏移量 第三个 阴影的模糊度  第四个值 阴影的深度 第五个值 阴影的颜色*/
+            margin: 50px auto;
+        }
+
+        #box th {
+            background: palegreen;
+            color: #000;
+
+        }
+
+        #box th, #box td {
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid palegreen;
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+<table id="box" width="100%">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>武力</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--<tr>
+        <td>111</td>
+        <td>222</td>
+        <td>333</td>
+        <td>4444</td>
+    </tr>-->
+    </tbody>
+
+</table>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    //1.获取元素
+    var oTable = document.getElementById("box");
+    var oThead = oTable.tHead;//<tHead>标签
+    var tRow = oThead.rows[0];//rows是行的集合,获得<tHead>下的第一行就得rows[0];
+    var tCells = tRow.cells;//cells是列的集合,获得Thead下的tr里的所有列(th)的集合
+    var oTbody = oTable.tBodies[0];//获得第一个tbody标签
+    var oRows = oTbody.rows;//<tbody>标签下所有的行(行的集合);
+
+    //2.获得数据
+    var data = null;
+    var xhr = new XMLHttpRequest();
+    xhr.open("get", "json/json.json", false);//false同步
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && (/^2\d{2}$/.test(xhr.status))) {
+            data = xhr.responseText;
+            data = utils.toJSON(data);//JSON字符串->JSON对象
+        }
+    };
+    xhr.send(null);//向服务器发送数据
+    console.log(data);
+    //3.绑定数据
+    var frg = document.createDocumentFragment();//文档碎片
+    for (var i = 0; i < data.length; i++) {
+        var obj = data[i];
+        //创建tr标签
+        var tr = document.createElement("tr");
+        //循环遍历数组的每个JSON对象
+        for (var key in obj) {
+            //1.用来创建tr里的td标签
+            var td = document.createElement("td");
+            //2.把每个属性值作为td的内容
+            if (key == "sex") {
+               td.innerHTML = obj[key] == 0 ? "男" : (obj[key] == 1 ? "女" : "未知");
+               /* if(obj[key]==0){
+                    td.innerHTML = "男";
+                }else if(obj[key]==1){
+                    td.innerHTML = "女";
+                }else{
+                    td.innerHTML = "未知";
+                }*/
+            } else {
+                td.innerHTML = obj[key];
+            }
+
+            //3.创建完一个td标签之后就添加到tr标签里,防止后面的td标签把前面的td标签覆盖了
+            tr.appendChild(td);
+        }
+        //每创建一个tr标签就先放入到文档碎片里,等所有的tr标签都添加到了文档碎片里,再添加到页面上去
+        frg.appendChild(tr);
+    }
+    //循环结束的时候,也就所有的tr标签都创建完了,这时就可以添加到页面上去了
+    oTbody.appendChild(frg);
+
+    //4.表格排序 -->tbody下每行里的每列的内容进行排序
+        function tableSort(n){
+            var that = this;
+            //n是表示每列的索引
+            //1.把行的元素集合(类数组)转化成数组
+            var  ary = utils.listToArray(oRows);
+            //[tr, tr, tr, tr, tr, tr]
+           //2.对年龄进行排序 获取到每行里第二列里的内容进行排序
+
+            ary.sort(function(a,b){
+                //a前一个tr元素 b后一个tr元素
+                //a.cells 获得是tr元素里td的集合
+                var pre =  a.cells[n].innerHTML;
+                var next = b.cells[n].innerHTML;
+
+                if(isNaN(pre)||isNaN(next)){//不是有效数,也就是说td里的内容是中文字符串
+                   return  pre.localeCompare(next)*that.flag;
+                }
+                return (parseFloat(pre)-parseFloat(next))*that.flag;
+            })
+
+            //3.把ary里排序完的tr元素添加到页面上去
+            for(var i = 0;i<ary.length;i++){
+                oTbody.appendChild(ary[i]);//页面上已经有tr标签了,所以这时是移动位置,不是添加
+            }
+        }
+
+
+    //5.实现升降序排列
+    for(var i = 0;i<tCells.length;i++){
+        tCells[i].zhufeng = i;
+        tCells[i].flag = -1;
+        tCells[i].onclick = function(){
+            this.flag*=-1;//this.flag = -1*-1 =1;
+            //tableSort(this.zhufeng); //点击是那一列,就把这一列的索引作为参数传进去
+            //改变tableSort方法里的this关键字
+            tableSort.call(this,this.zhufeng);
+        }
+    }
+
+    //第一次this.flag = 1
+    //第二次点击时 this.flag = -1;
+    //第三次点击时 this.flag = 1;
+    //第四次点击时 this.flag = -1;
+
+
+
+</script>

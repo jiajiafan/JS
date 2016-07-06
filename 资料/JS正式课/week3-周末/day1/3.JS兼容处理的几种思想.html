@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            width: 300px;
+            height:300px;
+            border: 10px solid #333;
+            background: lightgreen;
+            float: left;
+            opacity: 0.1;
+            filter:alpha(opacity=10);
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script src="../../练习/utils.js"></script>
+<script>
+    var oBox=document.getElementById('box');
+    //alert(getComputedStyle(oBox,null).width);//高级浏览器
+    //alert(oBox.currentStyle.width)//主要用来兼容IE6-8
+    //alert(window.navigator.userAgent)
+    //思想一：try...catch... 建议：他比较耗性能，不建议使用；
+    /*function getCss(curEle,attr){
+        try{//高级浏览器
+            return getComputedStyle(curEle,null)[attr];
+        }catch(e){//低级浏览器
+            return curEle.currentStyle[attr];
+        }
+    }*/
+    //思想二：通过属性判断的思想  建议：特别建议使用；
+    /*function getCss(curEle,attr){
+        if('getComputedStyle' in window){//高级浏览器
+            return getComputedStyle(curEle,null)[attr];
+        }else{//低级浏览器
+            return curEle.currentStyle[attr];
+        }
+    }*/
+    /*function getCss(curEle,attr){
+        if(window.getComputedStyle){//高级浏览器
+            return getComputedStyle(curEle,null)[attr];
+        }else{//低级浏览器
+            return curEle.currentStyle[attr];
+        }
+    }*/
+    //alert(/MSIE (6|7|8)/.test(navigator.userAgent))
+    //alert(navigator.userAgent.search(/MSIE (6|7|8)/i)===-1)
+    /*function getCss(curEle,attr){
+        if(!/MSIE (6|7|8)/.test(navigator.userAgent)){//高级浏览器
+            return getComputedStyle(curEle,null)[attr];
+        }else{//低级浏览器
+            return curEle.currentStyle[attr];
+        }
+    }*/
+    /*reg=/^alpha\(opacity[=:](\d+)(?:\.\d+)?\)$/i;
+    console.log(reg.exec('alpha(opacity=10.333)')[1])*/
+    //alert(getCss(oBox,'width'))
+    //alert(getCss(oBox,'float'))
+    alert(utils.getCss(oBox,'opacity'))
+    //1.第一次升级，去掉单位；
+    //2.第二次升级，解决透明度
+    /*function getCss(curEle,attr){
+        var val=null;
+        var reg=null;
+        if('getComputedStyle' in window){//高级浏览器
+            val=getComputedStyle(curEle,null)[attr];
+        }else{//低级浏览器
+            if(attr=='opacity'){// alpha(opacity=10)
+                val=curEle.currentStyle['filter'];
+                reg=/^alpha\(opacity[=:](\d+(?:\.\d+))?\)$/i;
+                return reg.test(val)?reg.exec(val)[1]/100:1;
+            }else{
+                val=curEle.currentStyle[attr];
+            }
+
+        }
+        reg=/^([+-]?\d+(\.\d+)?)(px|pt|em|rem)?$/i ;//-200px +200px 22.33px px pt em rem
+       // reg=/^((\+|-)?\d+(\.\d+)?)(px|pt|em|rem)?$/i;
+        return reg.test(val)?parseFloat(val):val;
+    }*/
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

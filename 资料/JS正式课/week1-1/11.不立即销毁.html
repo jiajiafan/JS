@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var a=function(){
+        return function(){
+            alert(1111)
+        }
+    };
+    a()();
+    a=null;
+</script>
+</body>
+</html>

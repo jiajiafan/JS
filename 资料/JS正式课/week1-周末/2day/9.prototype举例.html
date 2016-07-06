@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=new Array(1,2,3);
+    ary.name='zhufeng';
+    //showName是ary这个实例上私有的方法；
+    Array.prototype.showName=function(){
+        alert('我在珠峰')
+    }
+    /*alert(ary.name);
+    ary.showName();*/
+    var ary1=new Array(1,2,3);
+    ary1.showName();
+    var ary2=new Array(1,2,3);
+    ary1.showName();
+</script>
+</body>
+</html>

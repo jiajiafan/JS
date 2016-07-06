@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height:200px;
+            border: 1px solid black;
+            margin:10px;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div></div>
+<div></div>
+<div></div>
+<script>
+//    var oDiv=document.getElementById('div1');
+//    var aDiv=document.getElementsByTagName('div');
+//    //通过length属性知道Div的个数；
+//    //流程控制语句：判断，循环
+//    //for 循环:1.定义一个变量 2.条件判断 3.执行语句
+//    for(var i=0; i<aDiv.length; i++){
+//        //aDiv[0];aDiv[1];
+//        var cur=aDiv[i];
+//        cur.style.background='red';
+//    }
+//    /*oDiv.style.background='red';*/
+//    for in 循环,用来循环对象中的属性名和属性值;对象中有多少个键值对就循环多少次
+
+    var obj={姓名:"李松平",age:18,height:"170",1:10086};
+    for(var key in obj){//key 每一次循环获取的属性名
+       // console.log(key);
+       console.log(obj[key]);//获取属性值,在for in中,只能通过对象名[key],不能用obj.key
+    }
+</script>
+</body>
+</html>
+
+
+
+

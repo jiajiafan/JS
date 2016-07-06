@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        #ul1{
+            width: 500px;
+            border: 5px solid green;
+            margin:30px auto;
+            padding:10px;
+            box-shadow: 4px 4px 10px darkgreen;
+        }
+        #ul1 li{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            height:30px;
+            line-height: 30px;
+        }
+        #ul1 li.bg{
+            background: lightgoldenrodyellow;
+        }
+        #ul1 li span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            background: red;
+            color: #fff;
+            margin-right: 5px;
+        }
+    </style>
+    <script src="json/json-bind.js"></script>
+</head>
+<body>
+<!--
+1.DOM回流：当页面中的HTML发生变化，浏览器会重新加载页面，并对所有标签进行重新渲染；非常耗性能；
+2.DOM重绘：当页面中的HTML局部内容发生变化，只重新渲染发生变化的局部内容；
+-->
+<ul id="ul1">
+    <li><span>1</span>习近平总书记１２日上午在十八届中央纪委六次全会上发表重要讲话１２日上午在十八届中央纪委六次全会上发表重要讲话１２日上午在十八届中央纪委六次全会上发表重要讲话１２日上午在十八届中央纪委六次全会上发表重要讲话１２日上午在十八届中央纪委六次全会上发表重要讲话，深刻分析反腐败斗争依然严峻复杂的形势，提出当前和今后一个时期的目标任务。</li>
+    <li><span>2</span>习近平总书记１２日上午在十八届中央纪委六次全会上发表重要讲话，深刻分析反腐败斗争依然严峻复杂的形势，提出当前和今后一个时期的目标任务。</li>
+</ul>
+<script>
+    var oUl=document.getElementById('ul1');
+    var aLi=oUl.getElementsByTagName('li');
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].onmouseover=function(){
+            this.className='bg';
+        }
+        aLi[i].onmouseout=function(){
+            this.className='';
+        }
+    }
+    //1.动态创建
+    /*for(var i=0; i<ary.length; i++){
+        var oLi=document.createElement('li');
+        oLi.innerHTML='<span>'+(i+3)+'</span>'+ary[i].title;
+        oUl.appendChild(oLi);
+    }*/
+    //2.字符串拼接
+    /*var str='';
+    for(var i=0; i<ary.length; i++) {
+        str+='<li><span>'+(i+3)+'</span>'+ary[i].title+'</li>';
+    }
+    //oUl.innerHTML+=str;
+    oUl.innerHTML=oUl.innerHTML+str;*/
+    //3.文档碎片
+    var frg=document.createDocumentFragment();
+    for(var i=0; i<ary.length; i++){
+        var oLi=document.createElement('li');
+        oLi.innerHTML='<span>'+(i+3)+'</span>'+ary[i].title;
+        frg.appendChild(oLi);
+    }
+    oUl.appendChild(frg);
+    frg=null;
+</script>
+</body>
+</html>

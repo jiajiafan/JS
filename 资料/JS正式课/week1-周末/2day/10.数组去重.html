@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary1=[1,2,3,4,5,56,3,3,3,3,3,2,2,2,2,1,1,1,1];
+    Array.prototype.myUnique=function myUnique(){
+        var obj={};//利用object 不同的特性，对数组进行去重；
+        for(var i=0; i<this.length; i++){
+            var cur=this[i];
+            if(obj[cur]==cur){
+                this.splice(i,1);
+                i--;
+            }
+            obj[cur]=cur;
+        }
+        return this;
+    }
+    ary1.myUnique().reverse().push(8);
+    alert(ary1)
+</script>
+</body>
+</html>

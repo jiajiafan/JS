@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul{
+            background-color: #63a7ce;
+        }
+        li{
+            border: 3px solid #000;
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+        .clearFloat:after{
+            clear: both;
+            content: "";
+            display: block;
+            /*是比较推荐的,不兼容ie 6 7 8 */
+            zoom:1;
+            /*兼容ie的css属性*/
+
+        }
+        .clearFloat1{
+            clear: both;
+            height: 0;
+            font-size: 0;
+            line-height: 0;
+            /*在ie6中 浏览器会默认div有一像素高度*/
+        }
+    </style>
+</head>
+<body>
+<ul class="className1 clearFloat">
+    <li>1</li><li>2</li><li>3</li><li>4</li>
+    <!--after-->
+    <div class="clearFloat1">1是在页面上看不到的</div>
+    <!-- 请用第一个位置 他既可以保证第一个浮动元素的父级盒子正常显示，又可以保证浮动盒子之外的元素正常显示-->
+</ul>
+<!--<div style="clear: both;">2</div>-->
+<div style="width: 1000px;height: 400px;background-color: #ff0000;/*clear: both;3*/"></div>
+<!--2和3 只能保证 浮动盒子后面的盒子正常显示 不能影响浮动的盒子-->
+
+清除浮动 一定要放在浮动元素的后面
+ 伪类在html中是不存在的 所以 一定在使用这类伪类的时候，给这个伪类一个空内容，display:block;
+</body>
+</html>

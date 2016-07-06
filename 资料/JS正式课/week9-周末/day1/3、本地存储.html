@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>本地存储</title>
+</head>
+<body>
+<script type="text/javascript" src="js/cookie.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+<script type="text/javascript">
+    //->cookie存储到客户端本地的(session存储到服务器上) 兼容所有浏览器的
+    //->HTML5中新增加的API(webStorage):(在IE6~8下不兼容)
+    // localStorage ->持久计划存储到本地(项目中最常用的)
+    // sessionStorage ->会话存储(当前页面关闭,存储的sessionStorage的值就清除了)
+
+    //1、cookie
+    //->cookie存储是有大小的限制的,一般情况下,浏览器规定每一个源下的cookie最高只能存储4kb内容，存储的内容量非常小，我们只能存储一些基本的数据值
+    //->cookie有过期时间的,我们设置一个cookie的时候可以指定过期的时间(但是有些时候我们设置的时间没啥用：我们用安全卫士清理电脑垃圾或者清除浏览器记录的时候，大部分情况下都会把存储的cookie信息删除掉)
+    //->用户可能会出于安全的角度禁用cookie(无痕浏览、隐身模式...)
+
+    //    cookie.set("pin", "哈哈哈");
+    //    cookie.get("pin");
+    //    cookie.remove("pin");
+
+    //2、localStorage
+    //->localStorage也同样有大小的限制,一般情况下一个源下允许最多存储5MB内容
+    //->localStorage没有过期时间,除非人为删除(JS删除\在控制台删除)才会移除掉
+
+    //    localStorage.setItem("pin", escape("呵呵呵"));
+    //    unescape(localStorage.getItem("pin"));
+    //    localStorage.removeItem("pin");
+    //    localStorage.clear() ->移除当前源下所有存储的的信息
+
+    //3、不管是cookie还是localStorage都是明文存储(在控制台我们都可以查看到存储的信息),所以对于重要的数据尽量不要存储到本地,如果非要存储请进行加密...
+    //->对于密码我们一般都采用MD5不可逆转的加密
+    //console.log(hex_md5("zhufengpeixun2016"));
+</script>
+</body>
+</html>

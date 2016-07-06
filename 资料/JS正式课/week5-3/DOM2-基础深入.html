@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM事件绑定</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: lightblue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    function fn1() {
+        console.log(1);
+    }
+    function fn2() {
+        console.log(2);
+    }
+    function fn3() {
+        console.log(3);
+    }
+    function fn4() {
+        console.log(4);
+    }
+    function fn5() {
+        console.log(5);
+    }
+    function fn6() {
+        console.log(6);
+    }
+    function fn7() {
+        console.log(7);
+    }
+    function fn8() {
+        console.log(8);
+    }
+    function fn9() {
+        console.log(9);
+    }
+    function fn10() {
+        console.log(10);
+    }
+    function fn11() {
+        console.log(11);
+    }
+    function fn12() {
+        console.log(12);
+    }
+
+    //    document.body.addEventListener("click", fn1, false);
+    //    //    document.body.removeEventListener("click",fn1,false); 移除的时候需要保证三个参数值和绑定的时候一模一样
+    //    document.body.addEventListener("click", fn2, false);
+    //    document.body.addEventListener("click", fn3, false);
+    //    document.body.addEventListener("click", fn7, false);
+    //    document.body.addEventListener("click", fn8, false);
+    //    document.body.addEventListener("click", fn9, false);
+    //    document.body.addEventListener("click", fn4, false);
+    //    document.body.addEventListener("click", fn5, false);
+    //    document.body.addEventListener("click", fn6, false);
+    //    document.body.addEventListener("click", fn12, false);
+    //    document.body.addEventListener("click", fn11, false);
+    //    document.body.addEventListener("click", fn10, false);
+    //    document.body.addEventListener("click", fn10, false);
+    //    document.body.addEventListener("click", fn10, false);
+
+    //->在IE6~8中不支持addEventListener,应该用attachEvent/detachEvent来实现DOM2的绑定和移除;并且在IE6~8中绑定的方法只能在冒泡阶段发生,不能控制在捕获阶段发生;
+    //    document.body.attachEvent("onclick", fn1);
+    //    document.body.detachEvent("onclick", fn1);
+
+    document.body.attachEvent("onclick", fn1);
+    document.body.attachEvent("onclick", fn2);
+    document.body.attachEvent("onclick", fn3);
+    document.body.attachEvent("onclick", fn4);
+    document.body.attachEvent("onclick", fn5);
+    document.body.attachEvent("onclick", fn6);
+    document.body.attachEvent("onclick", fn7);
+    document.body.attachEvent("onclick", fn8);
+    document.body.attachEvent("onclick", fn9);
+    document.body.attachEvent("onclick", fn10);
+    document.body.attachEvent("onclick", fn11);
+    document.body.attachEvent("onclick", fn12);
+    //    document.body.attachEvent("onclick", fn12);
+    //    document.body.attachEvent("onclick", fn12);
+
+    //->DOM2事件绑定在标准浏览器和IE6~8的兼容问题总结:
+    //1)绑定所用的方法及语法是不一样的
+    //2)"this问题":事件触发,执行对应的每一个方法的时候,标准浏览器下方法中的this是当前的元素,IE6~8下方法中的this是window
+    //3)"重复问题":标准浏览器下,当前元素某一个事件绑定的所有方法不能重复,如果绑定过就不在重复的绑定了,所以最后执行的时候,只执行一次;但是IE6~8没有实现去重,哪怕方法重复了,也都会给当前元素绑定上,执行的时候绑定几次就重复执行几次;
+    //4)"顺序问题":标准浏览器下方法执行的顺序是按照绑定的顺序依次执行的,但是IE6~8下执行的顺序和绑定的顺序没啥关系,是混乱的;
+
+    //1、DOM2可以给元素的某一个事件行为绑定多个方法
+    //->事件触发的时候执行对应的方法们,此时不管哪个方法中的THIS都是当前的元素
+    //->我们按照绑定的先后顺序,分别把绑定的方法增加到内置的事件池中(后面绑定的在事件池最后面),当事件触发的时候,首先到指定的事件池中,按照从上到下的顺序分别依次的执行事件池存储的方法
+    //->如果当前的这个方法已经给元素的这个行为绑定过一次了,在绑定也不会在往事件池中重复增加了,所以导致了,只能个元素的某个行为绑定多个“不重复的方法”
+
+    //2、DOM2事件绑定中,我们一般绑定的都是实名函数,只有这样以后移除的时候才知道具体要移除谁,绑定匿名函数后期是无法移除的
+    //    document.body.addEventListener("click", function () {
+    //        console.log("ok");
+    //    }, false);
+    //    document.body.removeEventListener("click", function () {
+    //        console.log("ok");
+    //    }, false);//->本次并没有把第一次绑定的移除掉,因为两个匿名函数并不是同一个函数
+</script>
+</body>
+</html>

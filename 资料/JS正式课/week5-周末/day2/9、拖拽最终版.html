@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训-拖拽(解决鼠标焦点丢失的问题)</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+            height: 100px;
+            background: red;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+
+<script type="text/javascript" src="js/event.js"></script>
+<script type="text/javascript">
+    var oDiv = document.getElementById("div1");
+    on(oDiv, "mousedown", down);
+    function down(ev) {
+        this["strX"] = ev.clientX;
+        this["strY"] = ev.clientY;
+        this["strL"] = this.offsetLeft;
+        this["strT"] = this.offsetTop;
+
+        //->我们使用JS的一个方法,把鼠标和当前的盒子拴在一起,不管鼠标有多快始终在一起(谷歌浏览器不支持)
+        if (this.setCapture) {
+            this.setCapture();
+            on(this, "mousemove", move);
+            on(this, "mouseup", up);
+            return;
+        }
+
+        //->谷歌的处理方案:我们把move和up绑定给document的相关事件
+        //-->但是move/up中的THIS都指向document，我们应该让其指向oDiv
+        this["MOVE"] = move.myBind(this);
+        this["UP"] = up.myBind(this);
+        on(document, "mousemove", this["MOVE"]);
+        on(document, "mouseup", this["UP"]);
+    }
+    function move(ev) {
+        var curL = ev.clientX - this["strX"] + parseFloat(this["strL"]);
+        var curT = ev.clientY - this["strY"] + parseFloat(this["strT"]);
+        var minL = 0,
+                maxL = (document.documentElement.clientWidth || document.body.clientWidth) - this.offsetWidth,
+                minT = 0,
+                maxT = (document.documentElement.clientHeight || document.body.clientHeight) - this.offsetHeight;
+        curL = curL < minL ? minL : (curL > maxL ? maxL : curL);
+        curT = curT < minT ? minT : (curT > maxT ? maxT : curT);
+        this.style.left = curL + "px";
+        this.style.top = curT + "px";
+    }
+    function up(ev) {
+        if (this.releaseCapture) {
+            this.releaseCapture();
+            off(this, "mousemove", move);
+            off(this, "mouseup", up);
+            return;
+        }
+        off(document, "mousemove", this["MOVE"]);
+        off(document, "mouseup", this["UP"]);
+    }
+</script>
+</body>
+</html>

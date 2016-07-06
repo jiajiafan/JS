@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>相对定位</title>
+    <style type="text/css">
+        .box1{
+            position: relative;
+            /*top: 90px;*/
+            /*left: 60px;*/
+            /*bottom: 30px;*/
+            /*right: 100px;*/
+            /*这四个值可以设置负值*/
+            width: 400px;height: 300px;
+            background-color: rgb(25,100,90);
+        }
+        .box2{
+            width: 300px;height: 300px;background-color: rgb(60,255,92);
+            margin-top: -20px;
+            /*margin 可以设置负值*/
+            /*padding 不可以设置负值*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+
+    </div>
+    <div class="box2">
+
+    </div>
+    <span style="position: relative;width: 200px;height: 200px;background-color: #2fbc71;">
+        相对定位
+    </span>
+<!--
+相对定位的参照物是自己本身
+相对定位的元素不会影响其他元素的位置
+在文档流内，无定位的盒子，会被相对定位的盒子覆盖掉（无定位的盒子 位置发生了一些改变），也就是层级变大了一些
+相对定位没有脱离文档流
+行内元素相对定位后，可以发生位置的改变，但是改变不了，本身自带的inline的属性
+-->
+</body>
+</html>

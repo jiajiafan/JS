@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body style="height:5000px;">
+<p style="height: 2000px"></p>
+<img width="200" height="200" src="img/default.gif" realImg="img/1.jpg">
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    var oImg = document.getElementsByTagName("img")[0];
+    var imgBottom = oImg.offsetHeight + utils.offset(oImg).t;
+    var clientH = utils.getWin("clientHeight");
+    window.onscroll = function () {
+        if(oImg.loaded){
+            return ;
+        }
+        var scrollT = utils.getWin("scrollTop");
+        var realImg = oImg.getAttribute("realImg");
+        if (imgBottom <= (clientH + scrollT)) {
+            var tempImg = new Image;
+            tempImg.src = realImg;
+            tempImg.onload = function(){
+                oImg.src = realImg;
+                oImg.loaded = true;
+            }
+            tempImg.onerror = function(){
+
+            }
+        }
+    }
+</script>

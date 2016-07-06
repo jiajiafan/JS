@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>绝对定位</title>
+    <style type="text/css">
+        .box1,.box2{
+            width: 200px;
+            height: 300px;
+            background-color: #006fbb;
+            color: #FFFFFF;
+            font-size: 30px;
+            line-height: 300px;
+            position: absolute;
+
+        }
+        .box2{
+            background-color: #ff0000;
+            right: 60px;
+        }
+        .box1{
+            position: absolute;
+            bottom: 20px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 1000px;height: 200px;background-color: #6d9222;position: relative;z-index: 9;">
+    <div class="box1">
+        我是盒子一
+    </div>
+    <div class="box2">
+        我是盒子二
+    </div>
+    <span style="width: 200px;height: 200px;background-color: red;position: absolute;">span</span>
+    <span style="width: 200px;height: 200px;background-color: red;position: absolute;">span2</span>
+</div>
+
+<!--
+绝对定位的元素脱离了文档流，没有定位的元素会主动占据定位元素的位置
+绝对定位的元素都会去找同一个起点，根据html结构的书写顺序，决定谁在上谁在下
+在不给参照物的情况下，参照物是可视窗口（body）
+如果需要固定参照物，将position: relative;加到参照物的样式中，就可以让这个元素变成绝对定位元素的参照物（参照物一般是父级元素）
+绝对定位的行内元素，可以设置宽度高度，padding margin
+（在不设置四个方向的时候 所有的元素默认左上角）
+-->
+z-index 改变定位元素层级关系
+但对父子元素不起作用
+对兄弟元素之间起作用
+z-index的值越大 层级越高 支持负值 默认是0
+在使用的时候请注意，不要一开始就将数值设置的很大
+z-index的数值的大小和盒子数量无关
+
+
+能用padding的时候 就不用margin
+z-index的值 能用1 就不用2
+
+</body>
+</html>

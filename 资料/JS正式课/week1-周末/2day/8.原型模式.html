@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+1.构造函数 类 实例
+2.原型模式 实例 类 原型
+3.原型链基础知识：
+1）每一个函数(普通函数，类)都天生自带一个prototype的属性，这个prototype是个对象
+2）这个属性天生自带constructor属性，属性值是当前这个类；
+3）每个对象(普通对象，prototype，实例)都天生自带一个__proto__的属性，属性值：当前这个实例所属类的原型；
+4.原型解决的问题：原型prototype上存储的都是公有的属性和方法；
+5.原型链是通过__proto__来实现的；
+原型链查找机制：
+1）.对象.属性 现在自己的私有空间里找，如果找到，就用这个私有属性；
+2）.找不到，通过__proto__继续往该实例所属类的原型上找；如果找到，它是一个公有的属性；
+3）.找不到，继续通过__proto__往上级对象上找，一直找到Object.prototype。。，如果还没有找到-undefined；
+6.所有的类都是函数
+7.Object是个基类：
+1）f1 instanceof Object=>true; 他可以通过__proto__一直找到Object这个类；
+2）Object.prototype上没有__proto__;
+-->
+<script>
+    //原型模式：类，实例，原型prototype
+    function Fn(){
+        this.x=100;
+        this.y=200;
+    }
+    Fn.prototype.getX=function(){
+        alert(this.x)
+    }
+    Fn.prototype.name='zhufeng';
+    var f1=new Fn();
+    var f2=new Fn();
+    f2.getX();
+   /* var ary=new Array();
+    var oDate=new Date();*/
+    /*alert(f1.name)
+    alert(f2.name)*/
+//alert(f1.__proto__.getX==Fn.prototype.getX)
+//alert(f1.getX==Fn.prototype.getX)
+    //alert(f1.toString)
+    //alert(Object instanceof Function)
+   // alert(f1 instanceof Object)
+    alert(Object instanceof  Function)
+</script>
+</body>
+</html>
+
+
+
+
+

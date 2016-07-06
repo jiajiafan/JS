@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+#div1{  height:200px; background:red;}
+</style>
+</head>
+
+<body>
+<div id="div1">div1</div>
+</body>
+</html>
+<script>
+/*
+	on方法解决的是绑定在事件上的方法的执行顺序问题
+	把IE的事件体系抛弃掉，自已重新写了一个模式：自已定义一个程序池，把需要绑定的方法按顺序保存在这个程序池里（on方法的作用）；on方法其实是个假绑定
+	当事件触发的时候，执行run方法，由run方法去遍历程序池，按保存的顺序执行程序池的方法。
+	要注意的是：真正绑定在系统事件上的方法是run
+	
+
+*/
+function on(ele,type,fn){
+	//先看IE的原则 
+	if(!ele["aEvent"+type]){//只有这个判断，在相同元素的相同事件类型上，成立一次
+		ele["aEvent"+type]=[];//创建程序池（只能创建一次）
+		ele.attachEvent("on"+type,function(){run.call(ele)});//为了避免让run方法重复绑定，写在这里最合适（只能绑定一次）
+	}
+	var a=ele["aEvent"+type];
+	
+	//避免程序池里出现相同的方法
+	for(var i=0;i<a.length;i++){
+		if(a[i]==fn)return;	
+	}
+	a.push(fn);//把fn保存到程序池
+	
+	//bind(ele,type,run);//暂时用bind来绑定一下run方法，一会儿再把bind抛弃掉
+	/*
+	ele.attachEvent("on"+type,function(){run.call(ele)});//如果只解决绑定时的this指向问题，也不必考虑在type事件上移除run方法，则这样写就是够了。
+	//但这样出现了一个方法，就是on方法执行一次，变形的run方法就会被绑定一次，则出现的run方法被重复绑定的问题。
+	//现在需要解决的是（需要达到的目标）：无论on方法执行多少次（在相同元素的相同事件类型上），run方法（的变形），只能被绑定一次。
+	//也就是说，ele.attachEvent("on"+type,function(){run.call(ele)});这句代句，在相同元素的相同事件类型上，只能有一次执行的机会
+	*/
+}
+function fn1(){alert("fn1"+this.innerHTML)}
+function fn2(){alert("fn2"+this.innerHTML)}
+function fn3(){alert("fn3"+this.innerHTML)}
+var ele=document.getElementById("div1");
+on(ele,"click",fn1);
+on(ele,"click",fn2);
+on(ele,"click",fn3);
+function run(){
+	
+	var a=this["aEvent"+window.event.type];
+	if(a){
+		//核心代码就是遍历执行程序池中的方法
+		for(var i=0;i<a.length;i++){
+			a[i].call(this);//为什么要用call来改变事件池里方法的this指向呢？因为根据事件的原则，由事件驱动的方法，里的this都要指向事件所属的元素
+			//a[i]();	
+		}
+	}
+}
+
+
+function off(ele,type,fn){
+	
+}
+
+
+</script>

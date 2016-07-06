@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>快速排序</title>
+</head>
+<body>
+
+</body>
+<script>
+    var ary=[1,2,33,345,345,3,5,234,2342,34,4];
+    function quickSort(ary){
+        if(ary.length<=1){
+            return ary;
+        }
+        var pointIndex=Math.floor(ary.length/2);
+        var pointValue=ary.splice(pointIndex,1);
+        var centerValue=pointValue[0];
+        var left=[];
+        var right=[];
+        for(var i=0;i<ary.length;i++){
+            var cur=ary[i];
+            cur<centerValue?left.push(cur):right.push(cur);
+        }
+        return quickSort(left).concat(pointValue,quickSort(right));
+
+    }
+    console.log(quickSort(ary));
+</script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+1.正则：规则；
+2.正则的作用：匹配和捕获 他就是用来操作字符串；
+匹配：判断是否符合我们制定好的规则 符合-》true 不符合-》false；
+捕获：把符合我们规则的东西拿出来；
+    reg.exec -数组 大正则中的小正则 （）分组
+    match - 数组 只能返回大正则；
+    replace -arguments - 返回什么看我们心情
+3.正则由两部分构成：元字符和修饰符
+4.元字符：放在//中间有意义的字符，包括有特殊意义的元字符和代表次数的量词元字符
+    1)特殊意义的元字符:
+    \ 转义
+    | 或
+    （）分组
+    . 代表除了\n以外的其他元字符
+    \n 控制台换行
+    \b 单词边界 'w1      w2 w3' 开头结尾和空格
+    ^ 开头
+    $ 结尾
+    \d 0-9数字     \D  跟\d正好相反
+    \w 字母数字下划线 \W 、、
+    \s 空格（tab制表符 空格键 换页符） \S  、、、
+    [abc]   a or b or c 三个中的任意一个；
+    [a-z]  a-z中的任意一个；
+    [^abc] 除了a or b or c 三个中的任意一个；
+    [^a-z]  除了a-z中的任意一个；
+    2)代表次数的量词元字符
+    * 0到多次
+    + 1到多次
+    ？ 0 or 1次：当？放在普通元字符或者非量词元字符后面时，代表0 或 1；（可有可无的意思）
+    {n} n 次
+    {n,} 至少n次
+    {n,m} n 到 m 次；
+5.修饰符
+    g:global
+    i:ignoreCase
+    m:multiline
+6.创建一个正则：
+1)实例创建 var re=new RegExp('\\d');
+2）字面量创建 var re=/\d/;
+3）区别：
+    1.在实例创建的正则中，特殊意义的元字符需要转义，但字面量方式创建不需要；
+    2.在实例创建中，可以进行变量拼接，但是字面量方式不可以；
+
+-->
+<script>
+    //var re=new RegExp('\\d');
+    //var re=/\d/;
+    //alert(re.test('zhufeng233peixun'))
+    //alert(re.exec('zhufeng233peixun'))
+    var str='zhufeng';
+    //var re=/^\d+"+str+"\d+$/;
+    //alert(re.test('2016""""strrrr"2017'))
+    var re=new RegExp("^\\d+"+str+"\\d+$");
+    alert(re.test('2018zhufeng99999'))
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

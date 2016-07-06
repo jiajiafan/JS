@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        input{
+            width: 300px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+表单是供用户输入信息，和服务方有一个交互的行为，让服务方获取用户的一些信息
+例如 登录 注册 搜索
+<form action="" method="">
+    <!--<form action="xxx.jsp" method="get">-->
+    <!-- action="xxx.jsp"  action 中 放置的是后台给前端的一个文件 获取信息或者是传递信息的某些规则 在这个文件中-->
+    <!-- method="get" 获取信息的方式   get 比较简单 安全系数低   post 比较复杂 安全系数高-->
+    <label for="text1">邮箱地址</label>
+    <input type="text" value="" placeholder="填写您常用的邮箱地址作为登录账号" name="" id="text1" class=""/>
+    <!-- type = "text" 是文本框  value 代表的是值  placeholder 是提示信息-->
+    <!-- 当id的值 和 for中的值是一致的时候 点击label中的文字 直接跳转到该表单元素中-->
+    <label for="passW">密码</label>
+    <input type="password" value="" id="passW" class="" name="" placeholder="请输入密码"/>
+    <!-- type="password" 密码框-->
+    <label for="but">注册</label>
+    <input type="button" value="注册" name="" id="but" class="but"/>
+    <!-- type="button" 普通按钮 -->
+    <style>
+        input[type=button]{font-size: 20px;color: #005ea7;}
+        input{font-family: "Microsoft Yahei", simSun;}
+        #but{}
+        .but{}
+    </style>
+
+
+
+
+
+</form>
+
+
+
+
+
+
+
+
+</body>
+</html>

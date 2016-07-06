@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+浏览器异常捕获
+1.报错了解：
+1）ReferenceError: num is not defined  引用错误
+2）Uncaught TypeError: aLi.push is not a function 类型错误
+</body>
+<script>
+    //var num=1;
+    /*try{
+        alert(num)
+    }catch(e){
+        console.log(e);
+    }finally{
+        alert(222222)
+    }*/
+    /*try{
+        alert(num)
+    }catch(e){
+        console.log(e);
+        throw new Error(e)
+        alert('你都报错了，还让我执行，真是的')
+    }*/
+
+    function listToArray(arg){
+        try{
+            return Array.prototype.slice.call(arg);
+        }catch(e){
+            var ary1=[];
+            for(var i=0; i<arg.length; i++){
+                ary1[ary1.length]=arg[i];
+            }
+            return ary1;
+        }
+    }
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+

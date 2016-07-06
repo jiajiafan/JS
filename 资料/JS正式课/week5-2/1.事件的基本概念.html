@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            width:200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+   <!-- 1.什么是事件? 一件事/一个行为
+       js中事件类型/事件属性/操作行为:click,mouseover,mousemove,mouseout,load,unload,DOMContentedLoaded,keydown,keyup,keypress,mousewheel....
+    2.事件绑定/事件监听
+        当一个行为被另一个行为监听时,就称之为事件绑定,
+        当一件事件做完时,去做另外一件事
+        当....时.去做一件事...
+    3.事件对象  浏览器通过事件对象把感知到一些信息反馈给我们,比如鼠标划过某个元素时,浏览器就会自动的返回一个鼠标事件对象->存着当前鼠标操作的相关信息
+   标准浏览器里 -> 事件对象是作为形参自动传给事件驱动的函数的
+   ie浏览器里 ->事件对象保存在window.event-->
+
+<div id="div1"></div>
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById("div1");
+    oDiv.onmousemove = function(e){ //把一个方法赋值给一个事件属性,这就称之为事件绑定  DOM0事件绑定
+        e = e || window.event;
+        console.log(e);
+        //e.clientX 鼠标到窗口左端的距离
+        //e.clientY 鼠标到窗口顶端的距离
+        //e.pageX  鼠标到文档左端的距离 == e.clientX+scrollLeft
+        //e.pageY  鼠标到文档顶端的距离 == e.clientY+scrollTop
+        //e.target 事件源(当前操作的元素) ie->e.srcElement
+        //e.type 事件类型
+        //e.preventDefault() 阻止默认行为 ie->e.returnValue = false
+        //e.stopPropagation() 阻止事件冒泡 ie-> e.cancelBubble = true
+        this.innerHTML = "x轴坐标:"+ e.clientX + "y轴坐标"+ e.clientY;
+    }
+    //这个方法是由事件来驱动运行的
+
+
+
+
+</script>
