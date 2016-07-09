@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<div ng-init="product=[{name:'苹果',price:400},{name:'苹果',price:400}]"></div>
+<div ng-repeat="p in product">
+    {{p.name}} {{p.price | currency:'$'}}
+</div>
+
+{{'abcdefg' | uppercase}} <br>
+{{'ABCDE' | lowercase}}<br>
+{{'abc3553223432' | limitTo:3}} <br>
+{{123123.2664 | number:2}} <br>
+{{1467793645230 | date:'yyyy年MM月 hh小时mm分ss秒'}}
+<pre>
+  {{product | json}}
+</pre>
+<script src="angular.js"></script>
+<script>
+    //我们不要修改原有的数据 数据和视图是绑定到一起的数据变了以后显示的东西都变了，不要改变原有数据，如果想改变用过滤器
+    //1.货币过滤器 （在要过滤的数据后面加|）
+    //currency:'￡' 后面的参数表示钱的种类
+    //2.大小写过滤器
+    //| uppercase | lowercase
+    //3.limitTo时间戳 (由13位组成)通常是一个字符序列，唯一地标识某一刻的时间。
+    //截取多少位
+    //4.number 转换成数字表示
+    //参数是保留几位小数并且四舍五入
+    //5.json
+    //pre是将原本的内容不进行修改打印到页面上
+    //6.日期过滤器
+    //后面是格式 data:'yyyy-MM-dd hh:mm:ss'
+
+</script>
+</body>
+</html>

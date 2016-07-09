@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body ng-init="course=[{name:'珠峰1',chinese:70,math:20},{name:'珠峰2',chinese:30,math:10},{name:'珠峰3',chinese:90,math:80}]">
+<div ng-init="flag=true;active='chinese'">
+    <table class="table table-bordered">
+        <tr>
+            <td>名字</td>
+            <td ng-click="flag=!flag;active='chinese'">国语分</td>
+            <td ng-click="flag=!flag;active='math'">数学分</td>
+        </tr>
+        <tr ng-repeat="c in course | orderBy:active:flag">
+            <td>{{c.name}}</td>
+            <td>{{c.chinese}}</td>
+            <td>{{c.math}}</td>
+        </tr>
+    </table>
+</div>
+<script src="angular.js"></script>
+<script>
+    //参数1.根据具体的字段排序，字符串类型
+    //参数2.true为倒序 false为升序
+</script>
+</body>
+</html>

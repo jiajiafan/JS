@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="div1">123</div>
+<script src="angular.js"></script>
+<script>
+    //在我们引入angular后，angular会自动的给我们植入一个angular对象
+    angular.element(document.querySelector('.div1')).css('fontSize',40+'px');
+    //angular.element将原生内容变成jq对象,必须指定单位
+
+    //angular.uppercase&&angular.lowercase
+    console.log(angular.uppercase('abcd'));
+    console.log(angular.lowercase('ABCD'));
+    //长的一样就相等
+    console.log(angular.equals({},{}));
+    console.log(angular.equals(0,-0));
+
+    //extend继承方法
+    var obj = {name:1};
+    var obj2 = {age:2};
+    var obj3 = {};
+    angular.extend(obj3,obj,obj2);
+    obj.name = 100;
+//    console.log(obj3);
+
+    //angular.fromJson&&angular.toJson
+    //JSON.parse        JSON.stringify
+    var obj = '{"aa":123,"bb":456}';
+    var a =angular.fromJson(obj);
+    console.log(a);
+    var parent = {aa:1,bb:2};
+    var newA = angular.toJson(parent);
+    console.log(newA);
+
+    //angular.copy 纯拷贝
+    var newParent = {name:1};
+    var newObj  = {age:1}
+    angular.copy(newParent,newObj);
+    console.log(newObj);
+
+    //angular.forEach
+    var arr = [1,2,3];
+    var result = [2,3];
+    angular.forEach(arr,function(item){
+        this.push(item);
+    },result); //第三个参数是当前this指向
+    console.log(result); //[2,3,1,2,3];
+
+
+    //bind 函数柯里化
+    var obj = {name:1};
+    function fn(){
+        console.log(this.name);
+    }
+    var newFn = angular.bind(obj,fn);
+    newFn();
+</script>
+</body>
+</html>

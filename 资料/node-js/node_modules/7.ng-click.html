@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .block{display: block;}
+        .none{display: none;}
+    </style>
+</head>
+<body ng-init="value=true">
+<button ng-click="value=!value">{{value?'隐藏':'显示'}}</button>
+<!--<div class="{{value?'block':'none'}}">content</div>-->
+<div ng-if="value">content</div>
+<script src="angular.js"></script>
+<script>
+    //实现显示和隐藏切换换效果
+    //刚才使用block和none样式 .hide() .show()可以实现
+    //ng-show /ng-hide 只是简单的操作css样式
+    //ng-if 如果条件不成立删除元素，并且内部指令不执行
+
+    //第一次能确定下来的不频繁切换的用ng-if,频繁切换样式不是很消耗性能，但是东西已经定下来了，初始的时候消耗较大
+</script>
+</body>
+</html>

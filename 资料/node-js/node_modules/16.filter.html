@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body ng-init="course=[{name:'珠峰1',chinese:70,math:20},{name:'珠峰2',chinese:30,math:10},{name:'珠峰3',chinese:90,math:80}]">
+<input type="text" ng-model="query" ng-model-options="{debounce:2000}">
+<div ng-init="flag=true;active='chinese'">
+    <table class="table table-bordered">
+        <tr>
+            <td>名字</td>
+            <td ng-click="flag=!flag;active='chinese'">国语分</td>
+            <td ng-click="flag=!flag;active='math'">数学分</td>
+        </tr>
+        <tr ng-repeat="c in course | orderBy:active:flag | filter:{chinese:query}">
+            <td>{{c.name}}</td>
+            <td>{{c.chinese}}</td>
+            <td>{{c.math}}</td>
+        </tr>
+    </table>
+</div>
+<script src="angular.js"></script>
+<script>
+    //filter用法
+    //filter:query 我们要查询的值 ，是在所有数据中查询
+    //指定字段查询 filter:{'要搜索的字段':查询的值}
+    //input上面的
+    //ng-model-options:{updateOn:'blur'}
+    //ng-model-options:{debounce:2000}
+    //延迟进行改变模型的值
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-init="fruit=['苹果']">
+<div ng-if="fruit.length">
+    <div ng-repeat="f in fruit">
+        {{f}}
+    </div>
+</div>
+<!--当前第一层ng-if不成立，内部指令不执行-->
+<!--频繁切换ng-show/ng-hide-->
+<script src="angular.js"></script>
+</body>
+</html>

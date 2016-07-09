@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    ul li {list-style: none;display: inline-block;width:100px;height: 30px;line-height: 30px;outline: 1px solid yellow;text-align: center}
+    .active{background: yellowgreen;color: red;}
+</style>
+<body>
+<ul class="nav nav-tabs" ng-init="name='active1'">
+    <li ng-click="name='active'" ng-class="{'active':name==='active'}">
+        aa
+    </li>
+    <li ng-click="name='active1'" ng-class="{'active':name==='active1'}">
+        bb
+    </li>
+    <li ng-click="name='active2'" ng-class="{'active':name==='active2'}">
+        cc
+    </li>
+</ul>
+
+<script src="angular.js"></script>
+<script>
+    //默认的是home 点击哪个 对应的li上就有active样式
+</script>
+</body>
+</html>

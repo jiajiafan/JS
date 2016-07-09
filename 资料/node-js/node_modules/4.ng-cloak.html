@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    [ng-cloak]{
+        display: none;
+    }
+</style>
+<input type="text" ng-model="name">
+<input type="text" ng-model="age">
+<div ng-cloak>
+    {{name}}
+    <div>
+        {{age}}
+    </div>
+</div>
+<script src="angular.js"></script>
+<script>
+    //增加ng-cloak 防止闪烁
+    //原理先让元素display：none 数据获取后display：block
+    //增加样式防止闪烁
+</script>
+</body>
+</html>

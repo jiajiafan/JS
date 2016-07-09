@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .back{
+            background: red;
+        }
+        .yellow{
+            color: yellow;
+        }
+    </style>
+</head>
+<body ng-init="name=true;age=7;style='back'">
+<div class="{{name}}">hello zfpx</div>
+<div ng-class="{true:'back',false:'back1'}[name]">hello 7</div>
+<div ng-class="{'back':name,'back1':name}">hello2</div>
+<div ng-class="style">hello zfpx222</div>
+<div class="yellow" ng-class="style">hello zfpx222</div>
+<script src="angular.js"></script>
+<script>
+    //ng-init可以用;隔开设置多个初始值
+    //ng-class
+    //1.ng-class="{true:'back',false:'back1'}[name]"
+    //当name的值为true获取的是back样式，为false时获取的back1样式
+    //2.ng-class
+
+    //class和ngclass可以共存
+
+
+
+
+
+
+    //原生js支持的写法
+   /* var name = true;
+    var arr = {true:'back',false:'back1'}[name];
+    console.log(arr);*/
+
+
+
+</script>
+</body>
+</html>

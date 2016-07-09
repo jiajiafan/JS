@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--指定当前控制器的作用范围-->
+<div ng-controller="firstCtrl">{{name}}</div>
+<div ng-controller="secondCtrl">{{name}}</div>
+<div></div>
+<script src="angular.js"></script>
+<script>
+    //一切从模块开始 ng-app后面跟的是模块的名字
+    //建立一个模块
+    //param1:模块的名字
+    //param2:模块的依赖 默认为空数组,返回当前的模块
+    var app = angular.module("appModule",[]);
+    //通过我们的模块去创建控制器
+    //param1:控制器的名字，第二个参数函数
+    //控制数据用的
+    //如何绑定数据  当你买了一个控制器 就会送你一个$scope
+    app.controller('firstCtrl', function ($scope) {
+        $scope.name = 1;
+    });
+    app.controller('secondCtrl', function ($scope) {
+        $scope.name = 2;
+    });
+</script>
+
+
+
+</body>
+</html>
