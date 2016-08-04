@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+     <img ng-src="{{src}}" alt="">
+    <!--<a ng-href="{{src}}">goBd</a>-->
+</div>
+<script src="angular.js"></script>
+<script>
+    //当{{src}}替换掉以后就是空 href ="";
+    //ng-href 就是防止点击为空
+    var app = angular.module('appModule',[]);
+    app.controller('ctrl', function  ($scope,$timeout) {
+        /*$timeout(function () {
+            $scope.src = 'http://www.baidu.com';
+        },2000);*/
+        //要等待数据过来后再渲染图片 防止404
+        $scope.src = 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png';
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <input type="text" ng-model="name">
+</div>
+
+<script src="angular.js"></script>
+<script>
+   /* <input type="text" id="input1">
+    input1.oninput= function () {
+        console.log(this.value);
+    }*/
+    var app = angular.module('appModule',[]);
+    app.controller('ctrl', function ($scope) {
+        //每当input方式变化时，我们要监听他的新值和旧值
+        //$watch 监听的是模型上的方法。模型的名字
+        //写法1：
+        /*$scope.$watch("name", function (newVal,oldVal) {
+            console.log(newVal,oldVal);
+        });*/
+        //写法2： 返回作用域的改变的值
+        $scope.$watch(function () {
+            return $scope.name;
+        }, function (newVal,oldVal) {
+            console.log(newVal,oldVal);
+        });
+    });
+</script>
+</body>
+</html>

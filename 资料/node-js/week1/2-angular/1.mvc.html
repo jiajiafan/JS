@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <!--{{name}}{{sum()}}-->
+    <div ng-click="sum()">Hello</div>
+</div>
+<script src="angular.js"></script>
+<script>
+    //app为当前模块
+    var app = angular.module('appModule',[]);
+    //$scope对象是angular帮我们注入的名字不能更改
+    app.controller('ctrl', function ($scope) {
+        $scope.name = 'zfpx';
+        //可以在作用域上声明方法
+        $scope.sum = function () {
+            return 100;
+        }
+    });
+</script>
+</body>
+</html>
+<!--<div onclick="aa()">123</div>-->
+<!--<script>-->
+<!--function aa(){-->
+<!--alert('aa')-->
+<!--}-->
+<!--</script>-->

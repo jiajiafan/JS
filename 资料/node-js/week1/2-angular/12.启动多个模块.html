@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    <div ng-controller="ctrl">
+        {{name}}
+    </div>
+</div>
+<div id="div2">
+    <div ng-controller="ctrl">
+        {{name}}
+    </div>
+</div>
+<script src="angular.js"></script>
+<script>
+    //我们要启动多个模块，不用写ng-app
+    //让div1和div2分别绑定两个模块
+    var app1 = angular.module('a1',[]);
+    var app2 = angular.module('a2',[]);
+    app1.controller('ctrl', function ($scope) {
+        $scope.name = 100;
+    });
+    app2.controller('ctrl', function ($scope) {
+        $scope.name = 200;
+    });
+    //通过bootstrap方法启动两个模块,第二个参数是启动的模块名字并且是数组的形式
+    angular.bootstrap(div1,['a1']);
+    angular.bootstrap(div2,['a2']);
+</script>
+</body>
+</html>

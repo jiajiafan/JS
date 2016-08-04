@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="a1">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    <div ng-controller="ctrl">
+        {{name}}
+    </div>
+</div>
+<div id="div2">
+    <div ng-controller="ctrl2">
+        {{name}}
+    </div>
+</div>
+<script src="angular.js"></script>
+<script>
+    var app1 = angular.module('a1',[]);
+    app1.controller('ctrl', function ($scope) {
+        $scope.name = 100;
+    });
+    var app2 = angular.module('a2',[]);
+    app2.controller('ctrl2', function ($scope) {
+        $scope.name = 200;
+    });
+    //使用多个模块采用依赖模块
+
+
+</script>
+</body>
+</html>

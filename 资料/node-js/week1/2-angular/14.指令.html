@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<hello></hello>
+<div hello></div>
+<div class="hello"></div>
+<!-- directive:hello -->
+<script src="angular.js"></script>
+<script>
+    //指令可以装饰我们的页面也可以创造标签
+    //ng开头的指令是angular自带的指令，我们写指令的时候，不要用ng开头
+    //一切从模块开始
+    var app = angular.module('appModule',[]);
+    //我们的指令是`不依赖`于`控制器`的
+    //通过模块声明指令
+    //param1：指令的名字
+    //param2: 是函数
+    app.directive('hello', function () {
+        //默认返回一个对象
+        return {
+            //限制指令使用范围
+            restrict:'EACM',
+            //只保留模板内容原有的指令被替换掉
+            replace:true,
+            //模板,将hello标签里的内容变为<div>Hello</div>
+            template:'<div>angular baby,React MM</div>',
+        }
+    });
+    //指令的应用范围
+    //1.html标签 element <hello></hello>
+    //2.元素属性 attribute <div hello></div>
+    //3.class用在样式上 <div class="hello"></div>
+    //4.注释comment  <!-- directive:hello --> 前后要有空格
+    //ECMA
+    //默认为EA,class样式默认不会替换，注释内容被插入后仍然看不到
+    //一般我们的指令只写在EA上（element，attribute）
+</script>
+</body>
+</html>

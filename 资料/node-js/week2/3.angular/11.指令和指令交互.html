@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<girl lovemoney lovecry></girl>
+<script src="angular.js"></script>
+<script>
+    //指令的分类，1.装饰型指令 2.组件式指令
+    var app = angular.module('appModule',[]);
+    app.directive('girl', function () {
+        return {
+            restrict:'E',
+            template:'<div ng-click="show()">Angular MM</div>',
+            //共享方法  当前指令的控制器
+            controller: function ($scope) {
+                //用来存放特征的
+                $scope.arr = []; //在当前作用域下声明一个数组
+                this.add = function (props) {
+                    $scope.arr.push(props);
+                }
+            },
+            link: function (scope,element,attrs) {
+                //在点击调用show方法后弹出scope.arr
+                scope.show = function () {
+                    alert(scope.arr)
+                }
+            }
+        }
+    });
+    app.directive('lovecry', function () {
+        return {
+            restrict:'A',
+            require:'^girl',
+            link: function (scope,element,attrs,girlCtrl) {
+                girlCtrl.add('lovecry')
+            }
+        }
+    })
+
+
+
+    app.directive('lovemoney', function () {
+        //当前的lovemoney指令是依赖于girl的
+        return {
+            restrict:'A',
+            //因为当前的lovemoney和lovecry就在当前的指令上
+            require:'^girl',
+          /*  require:'girl',//直接写girl表示在当前指令下查找（平级）
+            require:'^girl'//直接写girl表示在当前指令下查找（平级+上一级）
+            require:'?^girl',//找不到的话不报错
+            require:'?girl',//找不到的话不报错*/
+            //当我们依赖了girl指令就会默认把girl的控制的实例注入进来
+            link: function (scope,ememnts,attsr,girlCtrl) {
+                //girlCtrl是girl的controller的实例，在girl控制器上定义的this上的方法或者属性，都可以通过girlCtrl调用到
+                girlCtrl.add('lovemoney');
+            }
+
+        }
+    })
+
+</script>
+</body>
+</html>

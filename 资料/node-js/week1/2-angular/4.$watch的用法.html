@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    商品的名字：{{product.name}} <br>
+    商品的价格：{{product.price}} <br>
+    商品的数量：<input type="text" ng-model="product.count"><br>
+    商品的邮费：{{product.ems}} <br>
+    商品的总额：{{total() + product.ems}}
+</div>
+<script src="angular.js"></script>
+<script>
+    //满百包邮
+    var app = angular.module('appModule',[]);
+    app.controller('ctrl', function ($scope) {
+        $scope.product = {
+            name:'飞机',count:1,price:20,ems:10
+        }
+        $scope.total = function () {
+            return $scope.product.count*$scope.product.price;
+        };
+        //会让$scope.total执行 执行后的结果变化传递给newVal
+        $scope.$watch($scope.total, function (newVal) {
+            $scope.product.ems = newVal>=100?0:10;
+        })
+</script>
+</body>
+</html>

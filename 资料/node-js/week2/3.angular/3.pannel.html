@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<my-directive title="这是第一个标题">
+    这是第一个模板里面的内容
+</my-directive>
+<my-directive title="这是第二个标题">
+    这是第二个模板里面的内容
+</my-directive>
+<my-directive title="这是第三个标题">
+    这是第三个模板里面的内容
+</my-directive>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.directive('myDirective', function () {
+        return {
+            restrict:'E',
+            //指定模板路径
+            templateUrl:'tmpl.html',
+            replace:false, //如果把原有的指令替换掉 根节点必须只有一个
+            //将指令的内部的代码保留下来，放到指定ng-transclude的标签内
+            transclude:true,
+            scope:{}, //可以指定scope:{}
+            link: function (scope,element,attrs) {
+                scope.title = attrs["title"];//如果直接在作用域声明title那最后就保留最后，所以我们要给每一个指令，设置独立作用域
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

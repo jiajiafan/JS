@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .title{
+            width: 200px;
+            height: 30px;
+            line-height:30px;
+            background: -webkit-linear-gradient(pink,yellow);
+            outline: 1px salmon solid;
+        }
+        .content{
+            width: 200px;
+            height:200px;
+            background: yellow;
+            box-shadow: inset 1px 1px 1px #ccc,1px 1px 1px #ccc;
+            -webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 50%,rgba(255,255,255,.3));
+        }
+    </style>
+</head>
+<body>
+<group>
+<open title="这是第一个内容">这是开关里的内容</open>
+<open title="这是第二个内容">这是开关里的内容</open>
+<open title="这是第三个内容">这是开关里的内容</open>
+</group>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.directive('group', function () {
+        return {
+            restrict:'E',
+            //方法的复用
+            controller: function ($scope) {
+                //所有的open都归于group管理，我们只需让当前的切换，其他的全部隐藏掉
+                //实现的方法是让其他的关闭
+                var arr = []; //包含着所有open的作用域
+                this.add = function (a) {
+                    arr.push(a);//是将所有的
+                    console.log(arr);
+                }
+                //让不等于其他元素都隐藏掉,这是用来让哪个显示
+                this.show = function (cur) {
+                    //cur是当前点击的作用域，要让其他的作用域上的flag为false
+                    arr.forEach(function (item) {
+                        if(item!=cur)
+                            item.flag = false;
+                    })
+                }
+            }
+        }
+    });
+    app.directive('open', function () {
+        return {
+            //需要依赖于当前的group
+            require:'^group',
+            restrict:'E',
+            templateUrl:'open.html',
+            transclude:true,
+            scope:{
+                title:'@'
+            },
+            link: function (scope,element,attrs,groupCtrl) {
+                scope.flag = false;
+                scope.show = function () {
+                    scope.flag = !scope.flag;
+                    groupCtrl.show(scope);//点击的时候传递当前作用域
+                };
+                //只要上面有open指令就会执行add方法
+                console.log(scope);
+                groupCtrl.add(scope);//将自己的作用域传递给group
+            }
+        }
+    });
+</script>
+</body>
+</html>

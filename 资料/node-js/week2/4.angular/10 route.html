@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="#/home">主页</a>
+<a href="#/user">用户列表</a>
+<div ng-view></div>
+<script src="angular.js"></script>
+<script src="angular-route.js"></script>
+<script>
+    var app=angular.module("appModule",["ngRoute"]);
+    app.controller("ctrl",function($scope){
+        $scope.title="hello";
+    })
+    app.config(function($routeProvider){
+        $routeProvider.when('./home',{
+            templataUrl:'tmpl/home.html',
+            controller:'ctrl'
+        }).when('./user',{
+            template:"<div>user</div>"
+        }).otherwise('/home');
+    })
+
+</script>
+</body>
+</html>

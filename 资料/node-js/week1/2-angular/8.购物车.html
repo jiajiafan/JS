@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<script src="angular.js"></script>
+<table class="table-responsive table" ng-controller="carCtrl">
+    <tr>
+        <td>全选 <input type="checkbox" ng-model="checks" ng-click="checkAll()"></td>
+        <td>商品</td>
+        <td>单价</td>
+        <td>数量</td>
+        <td>小计</td>
+        <td>操作</td>
+    </tr>
+    <tr ng-repeat="book in books">
+        <td><input type="checkbox" ng-model="book.selected" ng-click="select()"></td>
+        <td>{{book.name}}</td>
+        <td>{{book.price}}</td>
+        <td><button ng-click="book.count=book.count-1" ng-disabled="book.count==1">-</button>
+            <input type="text" ng-model="book.count" ng-readonly="true">
+            <!--让当前的输入框是仅读状态用户不能修改只可以看-->
+            <button ng-click="book.count=book.count+1">+</button>
+        </td>
+        <td>{{book.price*book.count}}</td>
+        <td><button class="btn btn-danger" ng-disabled="!book.selected" ng-click="remove(book)">删除</button></td>
+    </tr>
+    <tr>
+        <td colspan="6">
+            总价格{{total()}} <button class="btn btn-primary" ng-click="removeSelect()">删除选中商品</button>
+        </td>
+    </tr>
+</table>
+<script>
+    //禁用事件 ng-disable 如果值为true表示当前不可用
+    var app = angular.module('appModule',[]);
+    app.controller('carCtrl', function ($scope) {
+        $scope.books = [
+            {name:'AngularJS',price:40,count:1,selected:false},
+            {name:'NodeJS',price:80,count:1,selected:false},
+            {name:'ReactJS',price:20,count:1,selected:false},
+            {name:'VUE',price:60,count:1,selected:false},
+            {name:'java',price:100,count:1,selected:false},
+            {name:'php',price:200,count:1,selected:false}
+        ];
+        $scope.checkAll = function () {
+            //当前的全选状态
+            var cur = $scope.checks;
+            angular.forEach($scope.books, function (item) {
+                item.selected = cur;
+            });
+        }
+        $scope.select = function () {
+            var flag = true;
+            angular.forEach($scope.books, function (item) {
+                if(!item.selected)flag=false;
+            });
+            //有一个没有被选中 那全选状态必然为false 否则依然为true
+            $scope.checks = flag;
+        };
+        $scope.remove = function (book) {
+            //filter 数组里的方法过滤
+            //将不满足条件的过滤掉 满足的组成一个新的数组
+            $scope.books = $scope.books.filter(function (item) {
+                //将不删除的返回
+                return item!=book;
+            })
+        };
+        $scope.total = function () {
+            var sum = 0;
+            angular.forEach($scope.books, function (item) {
+                //如果被选中我们进行累加
+                if(item.selected){
+                    sum+=item.price*item.count;
+                }
+            });
+            return sum;
+        }
+        $scope.removeSelect = function(){
+            angular.forEach($scope.books,function(book){
+                //如果当前书被选中
+                if(book.selected)
+                {
+                    //调用删除每一本书
+                    $scope.remove(book);
+                }
+            });
+        }
+    });
+    //购物车
+</script>
+</body>
+</html>

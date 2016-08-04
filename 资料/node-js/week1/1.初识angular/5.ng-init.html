@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body data-ng-init="name=[{name:'zfpx'}]">
+<input type="text" data-ng-model="name[0].name">
+<script src="angular.js"></script>
+<script>
+    //ng-init在当前作用域下初始化数据
+    //以后初始化数据都在controller里声明
+    //它不仅可以放置基本数据类型还可以放置对象数组
+</script>
+</body>
+</html>

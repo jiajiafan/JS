@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    {{name}}
+</div>
+<script src="angular.js"></script>
+<script>
+    //第一个模块 你写了一个  以你写的为根目录启动项目
+    //让appModule去依赖appModule1
+    //先依赖 之后appModule模块加载的时候把appModule1的模块的同名控制器覆盖掉了
+    //先加载依赖模块，先查找依赖的模块，先加载依赖，在执行自己模块
+    var app1 = angular.module('appModule1',[]);
+    app1.controller('ctrl1', function ($scope) {
+        $scope.name = 200;
+    });
+    var app = angular.module('appModule',['appModule1']);
+    app.controller('ctrl', function ($scope) {
+        $scope.name = 100;
+    });
+    //第二个模块，你的同伴写了一个
+
+    //一个页面只有ng-app
+</script>
+</body>
+</html>

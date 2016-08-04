@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body ng-controller="ctrl">
+<my-directive title="{{title}}"></my-directive>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.controller('ctrl',function ($scope) {
+        $scope.title = '模板中的标题';
+    })
+    app.directive('myDirective', function () {
+        return {
+            restrict:'E',
+            templateUrl:'tmpl.html',
+            replace:false,
+            transclude:true,
+            scope:{
+                title:'@'
+            },
+        }
+    })
+    //1.先将控制器上的属性进行传递
+    //  1. 先将title值进行取出 {{title}} 取出来的值  title = "scope上的值"
+    //2.在指令中引用scope上的值，
+    //  1. 先声明一个title属性，用@符号去引用当前指令上的属性
+</script>
+</body>
+</html>

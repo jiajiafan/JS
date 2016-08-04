@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="parent">
+    父控制器：总价格 <input type="text" ng-model="total">
+    <div ng-controller="child">
+    子控制器：商品的名字： {{product.name}} <br>
+        商品的价格: {{product.price}} <br>
+        商品的数量:<input type="text" ng-model="product.count" ng-change="computed()">
+    </div>
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.controller('parent', function ($scope) {
+        $scope.total = 20;
+        //绑定事件 监听事件的名字
+        $scope.$on('all', function (event,data) {
+            //data代表儿子传递过来的总价格
+            $scope.total = data
+        });
+        //监听模型的名字
+        $scope.$watch('total', function (newVal,oldVal) {
+            //向下发布告诉子控制器
+            $scope.$broadcast('money',newVal);
+        });
+    });
+    app.controller('child', function ($scope) {
+        $scope.product = {
+            name:'飞机',
+            price:20,
+            count:1
+        }
+        $scope.computed = function () {
+            var total = $scope.product.price* $scope.product.count;
+            console.log(total);
+            //通知给父亲 发射事件 $emit;
+            //事情的名字 事情的内容
+            //告诉当前的事件是计算all  all的值是total
+            $scope.$emit('all',total);
+        };
+        $scope.$on('money', function (event,data) {
+            $scope.product.count = data/$scope.product.price;
+        });
+        //控制器和控制器间交互是通过事件进行，而不是共享控制器
+    });
+    //平级关系:我们有$rootScope,最大作用域 先向上发射，在向下广播
+    //子父级
+</script>
+</body>
+</html>

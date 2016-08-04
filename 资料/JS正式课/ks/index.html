@@ -2,137 +2,52 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>title</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
+    <title></title>
+    <style type="text/css">
+        body,div,a,h2,p{
+            margin:0;padding:0;font-family: "宋体", "微软雅黑", Arail, Tabhoma;font-size:12px;color:#333;-webkit-user-select:none;
         }
-
-        body {
-            font-size: 14px;
-            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+        a{text-decoration:none}
+        .menu{margin:10px auto;width:500px;}
+        .menu a{display:block;height:36px;line-height:36px;padding:0 10px;background: #888;background: -webkit-linear-gradient(top,#ddd,#888);
+        -moz-linear-gradient(top,#ddd,#888);
+        -o-linear-gradient(top,#ddd,#888);
+        -ms-linear-gradient(top,#ddd,#888);}
+        .menu a:hover,.menu a:active{
+            color: #f0f0f0;
+            background: #0fb200;
+            background: -webkit-linear-gradient(top,#0fb200,#11c900);-o-linear-gradient(top,#0fb200,#11c300);-moz-linear-gradient(top,#0fb200,#11c300);-ms-linear-gradient(top,#0fb200,#11c300);
         }
-
-        ul, li {
-            list-style: none;
-        }
-
-        input {
-            outline: none;
-        }
-        .box {
-            margin: 20px auto;
-            padding: 20px;
-            width: 800px;
-            border: 1px solid green;
-            border-radius: 10px;
-            box-shadow: 3px 3px 10px 0 #999;
-            overflow: hidden;
-        }
-
-        .boxHead {
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            font-size: 18px;
-            background: lightblue;
-        }
-
-        .boxHead span {
-            float: left;
-            width: 200px;
-        }
-
-        .boxList {
-            height: 350px;
-        }
-
-        .boxList li {
-            height: 35px;
-            line-height: 35px;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .boxList li:nth-child(even) {
-            background: #ddd;
-        }
-
-        .boxList li:hover {
-            background: #F6D66E;
-        }
-
-        .boxList li span {
-            float: left;
-            width: 200px;
-        }
-
-        .boxBtn {
-            float: right;
-            margin-top: 10px;
-            height: 22px;
-            font-size: 12px;
-        }
-
-        .boxBtn span, .boxBtn input, .boxBtn ul {
-            float: left;
-            cursor: pointer;
-        }
-
-        .boxBtn ul li {
-            float: left;
-        }
-
-        .boxBtn span, .boxBtn li {
-            margin-left: 5px;
-            width: 45px;
-            height: 20px;
-            line-height: 20px;
-            text-align: center;
-            border: 1px solid lightskyblue;
-            -webkit-user-select: none;
-        }
-
-        .boxBtn li {
-            width: 20px;
-        }
-
-        .boxBtn li.bg {
-            background: orange;
-        }
-
-        .boxBtn input {
-            margin-left: 5px;
-            width: 45px;
-            height: 20px;
-            text-align: center;
-            border: 1px solid lightskyblue;
-        }
+        .menu h2{position:relative}
+        .menu a:before{position:absolute;content:'';right:10px;top:16px;border:5px solid #fff;border-color:#fff transparent transparent;}
+        .menu :target a:before{border-color:transparent transparent transparent #fff;}
+        .menu p{padding:5px 10px;line-height:25px;overflow: hidden;height:0;transition:height .5s linear 0s;-webkit-transition:height .5s linear 0s;-o-transition:height .5s linear 0s;-moz-transition:height .5s linear 0s;}
+        .menu :target p{height:75px;}
     </style>
 </head>
 <body>
-<div class="box">
-    <h2 class="boxHead">
-        <span>学号</span>
-        <span>姓名</span>
-        <span>性别</span>
-        <span>分数</span>
-    </h2>
-    <ul class="boxList" id="boxList">
+<div class="menu">
+    <div id="company">
+        <h2><a href="#company">公司简介</a></h2>
+        <p>
+            北京珠峰世纪技术培训有限公司(简称珠峰培训)，成立于2009年，本着"一心一意为学生服务"的办学理念，为社会培养大批的前端技术精英，每年有超过30%以上的学员进入了BAT等一线互联网公司，学员的平均就业薪资在12~14k，创造了培训行业的就业传奇!</p>
+    </div>
 
-    </ul>
-    <div class="boxBtn" id="boxBtn">
-        <span>FIRST</span>
-        <span>PREV</span>
-        <ul id="pageList">
-        </ul>
-        <span>NEXT</span>
-        <span>LAST</span>
-        <input type="text" id="search" value="1"/>
+    <div id="job">
+        <h2><a href="#job">就业信息</a></h2>
+
+        <p>
+            北京珠峰世纪技术培训有限公司(简称珠峰培训)，成立于2009年，本着"一心一意为学生服务"的办学理念，为社会培养大批的前端技术精英，每年有超过30%以上的学员进入了BAT等一线互联网公司，学员的平均就业薪资在12~14k，创造了培训行业的就业传奇!
+        </p>
+    </div>
+
+    <div id="teacher">
+        <h2><a href="#teacher">师资力量</a></h2>
+
+        <p>
+            北京珠峰世纪技术培训有限公司(简称珠峰培训)，成立于2009年，本着"一心一意为学生服务"的办学理念，为社会培养大批的前端技术精英，每年有超过30%以上的学员进入了BAT等一线互联网公司，学员的平均就业薪资在12~14k，创造了培训行业的就业传奇!</p>
     </div>
 </div>
-<script charset="utf-8" type="text/javascript" src="js/ajax.js"></script>
-<script charset="utf-8" type="text/javascript" src="js/index.js"></script>
+
 </body>
 </html>

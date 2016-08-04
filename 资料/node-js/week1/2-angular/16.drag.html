@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        div+div{
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+<div mydrag></div>
+<div mydrag></div>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.directive('mydrag', function () {
+        return {
+            restrict:'A',
+            link: function (scope,element,attrs) {
+                //element就是我们要拖拽的对象
+                //拖拽由mousedown mouseup  mousemove
+    element.on('mousedown', function (e) {
+        //在这里求出的是鼠标距离盒子的距离
+        //因为原有angular库中没有offset方法，所以把他包装正规的jquery就可以调用jq的方法了
+        var disx = e.pageX - this.offsetLeft;
+        var disy = e.pageY - $(this).offset().top;
+        //先包装为jq对象
+        $(document).on('mousemove', function (e) {
+            //求出当前盒子距离浏览器的偏移量
+            var L = e.pageX - disx;
+            var T = e.pageY - disy;
+            $(element).css({'top':T,'left':L});
+        });
+        $(document).on('mouseup', function () {
+                //在我们从文档抬起后，我们要移出mousemove和mouseup
+            $(document).off();
+        });
+        //阻止默认事件
+        e.preventDefault();
+    });
+            }
+        }
+    });
+    //问题1：
+    //多个单词用-连接
+    //问题2：
+    //angular.element 内置方法 相当于$
+    //问题3：
+    //如果使用this也必须包装一下
+</script>
+<script>
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-controller="ctrl">
+<!--
+在哪里遍历遍历出来的东西,d in data
+d.value as一个作为value值
+d.name for为了用户可见的值
+-->
+<select ng-model="select" ng-options="d.value as d.name for d in data">
+</select>
+<div ng-controller="ctrl"></div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    //data.value相当于option中的value
+    //data.name相当于option中间的内容e
+    app.controller('ctrl', function ($scope) {
+        $scope.data = [
+            {name:'你好',value:'你好'},
+            {name:'我好',value:'我好'},
+            {name:'大家好',value:'大家好'}
+        ]
+        //根据select的value值默认被选中
+        $scope.select = 3;
+    });
+</script>
+<select id="select" >
+    <option value="1">你好</option>
+    <option value="2" >我好</option>
+    <option value="3" >大家好</option>
+</select>
+<script>
+    //原声的可以用onchange事件监听选择事件
+    select.onchange = function () {
+        alert(this.value)
+    }
+</script>
+</body>
+</html>

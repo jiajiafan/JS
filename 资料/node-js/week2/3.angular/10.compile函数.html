@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<my time="5"></my>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.directive('my', function () {
+        return {
+            //compile用来编译模板的，在link函数之前执行，返回link函数
+            template:'<div>Hello zfpx</div>',
+            compile: function (elements,attrs) {//参数可变
+                //elements代表当前指令元素
+                //attrs Attribute
+                //获取编译次数
+                var times = attrs['time'];
+                //操作指令模板,先获取默认的模板<div>Hello zfpx</div>
+                var tmpl = elements.children();
+                //根据次数生成要追加的模板
+                //因为以前已经有一个模板了，只需要追加time-1个
+                for(var i =0; i<times-1;i++){
+                    //append具有移动性，所以我们要克隆出来
+                    elements.append(tmpl.clone());
+                }
+                return function () {
+                    console.log('link');
+                }
+            },
+            //当我们写了compile函数后 link函数，就不用自己在写link函数
+            link: function () {
+                console.log('link');
+            }
+
+        }
+    })
+
+</script>
+</body>
+</html>

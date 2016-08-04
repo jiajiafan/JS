@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    {{age}}
+</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.controller('ctrl', function ($scope,$interval,$timeout) {
+        $scope.age = 1;
+        //你虽然改变了$scope.age但是页面是不会刷新的
+        $timeout(function () {
+            $scope.age++;
+        },1000);
+       /* var timer = $interval(function () {
+            $scope.age++;
+            if($scope.age == 5){
+                //取消定时器
+                $interval.cancel(timer);
+            }
+            //已经可以通知了就不要在通知了
+            //$scope.$apply();
+        },1000);*/
+
+
+        setInterval(function () {
+            //每次更改后都要通知angular去刷新
+            //$scope.$apply();
+            $scope.$apply(function () {
+                $scope.age++;
+            });
+        },1000);
+    });
+</script>
+</body>
+</html>

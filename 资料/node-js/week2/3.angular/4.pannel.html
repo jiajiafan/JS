@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body ng-controller="ctrl">
+<!--{{title}}取出来的值就是 模板中的标题-->
+<my-directive title="{{title}}"></my-directive>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.controller('ctrl',function ($scope) {
+        $scope.content = '模板中的内容';
+        $scope.title = '模板中的标题';
+    })
+    app.directive('myDirective', function () {
+        return {
+            restrict:'E',
+            templateUrl:'tmpl.html',
+            replace:false,
+            transclude:true,
+            scope:{
+                //@引用的是字符串
+                title:'@'//相当于在当前指令下声明一个title属性,去引用当前指令上的属性,当引用的名字，和声明的名字可以省略引用的名字
+            },//scope:{}当我们设置了独立作用域，那么就不能找上级作用域上定义的属性
+        }
+    })
+
+</script>
+</body>
+</html>

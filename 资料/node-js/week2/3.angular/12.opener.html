@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .title{
+            width: 200px;
+            height: 30px;
+            line-height:30px;
+            background: -webkit-linear-gradient(pink,yellow);
+            outline: 1px salmon solid;
+        }
+        .content{
+            width: 200px;
+            height:200px;
+            background: yellow;
+            box-shadow: inset 1px 1px 1px #ccc,1px 1px 1px #ccc;
+            -webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 50%,rgba(255,255,255,.3));
+        }
+    </style>
+</head>
+<body>
+<group>
+<open title="这是第一个内容">这是开关里的内容</open>
+<open title="这是第二个内容">这是开关里的内容</open>
+</group>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.directive('open', function () {
+        return {
+            //限定类型
+            restrict:'E',
+            //引用html模板
+            templateUrl:'open.html',
+            transclude:true,
+            //创建独立作用域引用open上的属性
+            scope:{
+                title:'@'
+            },
+            link: function (scope,element,attrs) {
+                //默认让opener显示
+                scope.flag = true;
+                //点击title执行的方法
+                scope.show = function () {
+                    scope.flag = !scope.flag;
+                }
+                //当前打开的时候只能有一个显示
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

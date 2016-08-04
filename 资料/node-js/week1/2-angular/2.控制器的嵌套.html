@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="ctrl1">
+    {{name}}
+    <div ng-controller="ctrl2">{{name}}</div>
+</div>
+{{name}}
+{{age}}
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    //当angular启动的时候就执行此方法
+    app.run(['$rootScope',function ($rootScope) {
+        $rootScope.name = 10;
+    }]);
+    app.controller('ctrl1', function ($scope) {
+    });
+    //app.controller("ctrl2",function(a){a.name=200});
+    //数组的写法
+    app.controller("ctrl2",["$scope","$rootScope",function(a,b){a.name=2;b.age=20000;}]);
+
+    //如果控制器嵌套 会有继承关系
+</script>
+</body>
+</html>
