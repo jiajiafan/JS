@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+          margin:0;
+          padding:0;
+        }
+        #tab{
+            width:600px;
+            height:400px;
+            margin:30px auto;
+        }
+        #tab1{
+            width:800px;
+            height:400px;
+            margin:30px auto;
+        }
+        #tab input,#tab1 input{
+            display: block;
+            width:200px;
+            height:40px;
+            line-height:40px;
+            float: left;
+        }
+        #tab .on,#tab1 .on{
+            background: red;
+        }
+        #tab div,#tab1 div{
+            width:100%;
+            height:100%;
+            background: darkgreen;
+            text-align: center;
+            font-size: 30px;
+            color: #fff;
+            display: none;
+        }
+        #tab div.show,#tab1 div.show{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="tab">
+    <input type="button" value="按钮1" class="on"/>
+    <input type="button" value="按钮2"/>
+    <input type="button" value="按钮3"/>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+</div>
+<div id="tab1">
+    <input type="button" value="按钮1" class="on"/>
+    <input type="button" value="按钮2"/>
+    <input type="button" value="按钮3"/>
+    <input type="button" value="按钮4"/>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+    <div>内容4</div>
+</div>
+<script>
+    //思路：点击一个按钮的时候，让所有的按钮都没变化，所有的DIV隐藏，
+    // 让当前的按钮变亮，同时，让当前索引对应的div显示；
+    //1.获取元素
+    tab('tab');
+    tab('tab1');
+    function tab(id){
+        var oTab=document.getElementById(id);
+        //获取oTab元素下所有的标签
+        var aInput=oTab.getElementsByTagName('input');
+        var aDiv=oTab.getElementsByTagName('div');
+        for(var i=0; i<aInput.length; i++){
+            aInput[i].index=i;
+            aInput[i].onclick=function(){
+                //alert(this.index)
+                for(var j=0;j<aInput.length; j++){
+                    aInput[j].className='';
+                    aDiv[j].className='';
+                }
+                this.className='on';
+                aDiv[this.index].className='show';
+            }
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

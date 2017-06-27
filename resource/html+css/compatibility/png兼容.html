@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--[if IE 6]>
+    <!--如果是ie6 就使用以下文件-->
+    <script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script type="text/javascript" src="js/ie6Fixpng.js"></script>
+    <![endif]-->
+
+
+    <!--[if IE 7]>
+    <![endif]-->
+</head>
+<body>
+CSS hack
+
+360兼容模式 是ie内核 一般出bug的是ie7
+<style>
+    body{
+        width: 200px;
+        /*width 201px*/
+        _width:199px;
+        /*在兼容属性的后面写*/
+        -width:199px;
+        min-width: 1000px;
+        /*ie6中是没有min  max*/
+        _width:1000px;
+    }
+</style>
+表单
+<form action="">
+    <!--form 就是进行文件调取和方法选择 尽量不要给form css样式-->
+    input 直接用定位
+
+    input在移动端尽量不要放在最下方 尽量放在最上方
+</form>
+
+</body>
+</html>

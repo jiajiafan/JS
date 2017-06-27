@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        #outer {
+            width: 300px;
+            height: 300px;
+            padding: 30px;
+            margin: 30px;
+            border: 30px solid red;
+            position: relative;
+        }
+
+        #inner {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            margin: 20px;
+            border: 20px solid orange;
+            position: relative;
+
+        }
+
+        #center {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            margin: 40px;
+            border: 10px solid palegreen;
+
+        }
+
+    </style>
+</head>
+<body>
+<!-- 1.什么是偏移量?
+ 2.哪些因素会影响偏移量
+ 3.偏移的参照物是什么?
+ 与偏移量相关的有三个属性 :offsetParent offsetLeft offsetTop
+ offsetParent 父级参照物 ->默认情况下,父级参照物是body
+ offsetLeft :左偏移量
+ offsetTop :上偏移量
+ 注:offsetParent与parentNode没有一点关系
+ 如果改变父级参照物?
+ 只要父级元素设置成position:absolute/relative/fixed ,则这个元素就是其后代元素的offsetParent
+ offsetLeft/offsetTop是相对于参照物的偏移量
+ 偏移量 : 当前元素的(外边框)到参照物(内边框)的距离
+ //有哪些因素会影响偏移量?
+ float margin position
+ -->
+
+
+<div id="outer">
+    <div id="inner">
+        <div id="center"></div>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    var outer = document.getElementById("outer");
+    var inner = document.getElementById("inner");
+    var center = document.getElementById("center");
+    //    console.log(outer.offsetParent);//body
+    //    console.log(inner.offsetParent);//body
+    //    console.log(center.offsetParent);//body
+    //    console.log(document.body.offsetParent);//null
+    //console.log(inner.offsetLeft);//inner外边框->outer的内边框
+    console.log(center.offsetLeft);//inner外边框->outer的内边框
+
+    //196
+    var res = center.offsetLeft + center.offsetParent.clientLeft + center.offsetParent.offsetLeft + center.offsetParent.offsetParent.clientLeft + center.offsetParent.offsetParent.offsetLeft;
+    console.log(res);
+
+    //ie8浏览器 offsetLeft是把边框算在里面
+    var res = center.offsetLeft + center.offsetParent.offsetLeft + center.offsetParent.offsetParent.offsetLeft;
+    console.log(res);
+
+    //每次都是去找参照物是否还存在
+    /**
+     *
+     * @param ele 当前的元素
+     */
+//    function offset(ele){
+//        var l = ele.offsetLeft;
+//        var t = ele.offsetTop;
+//        var p = ele.offsetParent;
+//        while(p){
+//           if(window.navigator.userAgent.indexOf("MSIE 8.0")==-1){
+//               //不是ie8,则加上边框
+//               l+= p.clientLeft;
+//               t+= p.clientTop;
+//           }
+//               l+= p.offsetLeft;
+//               t+= p.offsetTop;
+//               p = p.offsetParent;
+//        }
+//        return {l:l,t:t};
+//    }
+
+    function offset(ele) {
+        var l = ele.offsetLeft;
+        var t = ele.offsetTop;
+        var p = ele.offsetParent;
+        while (true) {
+            //1.p等于null 2.p等于document.body
+            if(!p||p == document.body)  break;
+            if (window.navigator.userAgent.indexOf("MSIE 8.0") == -1) {
+                l += p.clientLeft;
+                t += p.clientTop
+            }
+            l += p.offsetLeft;
+            t += p.offsetTop;
+            p = p.offsetParent;
+
+        }
+        return {l:l,t:t};
+
+    }
+
+    console.dir(offset(center));
+
+</script>

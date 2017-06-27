@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.关于括号的用法总结：
+1）提高优先级 re=/^(18|19)$/;
+2）分组的功能
+3）(?:) 只匹配，捕获
+2.中括号的用法总结：
+1)中括号中出现字符没有特殊含义；
+2)中括号中不支持两位数；
+3.正则在捕获时两大特性：
+1）懒惰 解决措施：全局修饰符g
+原因：改变了reg.lastIndex的查找位置：
+reg.lastIndex：如果不添加全局g，lastIndex永远从0开始查找；
+添加全局g以后，lastIndex从你获取到匹配值的下一位的索引开始查找；
+2）贪婪 ---量词+？
+4.关于exec --正则捕获
+1）返回值是个数组
+2）每次只能返回一个值
+3）封装：while+reg.lastIndex+正则中一定要加全局g;
+4) 如果最终找不到值，返回值为null;
+5.match和exec的区别：
+match:
+1）match只能捕获到大正则；如果需要对大正则进行细分，match无法拿到大正则中的小分组；
+6.?总结：
+1）？ 0 or 1次：当？放在普通元字符或者非量词元字符后面时，代表0 或 1；（可有可无的意思）
+2）？如果放在量词后面，是用来解决正则贪婪性
+3）（？：）只匹配不捕获
+<script>
+    //var re=/^(18|19)$/;
+    /*
+    * 1.以1开头or以9结尾
+    * 2.1819
+    * 3.18 or 19
+    * */
+    //手机号
+    //var re=/^1\d{10}$/
+    //有效数字 +23 -23 0-9 09 34 34.32424
+    //var re=/^([+-])?(\d|[1-9]\d+)(\.\d+)?$/;
+    //var re=/^(\+|-)?(\d|[1-9]\d+)(\.\d+)?$/;
+    //18-65 (18 19)(20 59)(60-65)
+    //var re=/^[18-65]$/; //1 8-9 5
+    //var re=/^(1[8-9])|([2-5]\d)|(6[0-5])$/;
+    //邮箱
+    /*
+    * sfdkj123.32-_42@skdlfjslkdfjla.com
+    * sfdkj123.32-_42@qq.cn.com
+    * 数字字母下划线.-  @ 数字字母 .com .com
+    * */
+   //var re=/^([\w.-]+)@([0-9a-zA-Z]+)(\.[a-zA-Z]{2,4}){1,2}$/;
+    //var re=/^[\u4e00-\u9fa5]{2,4}$/;
+    var re=/\d+/g;
+    var str='zhufeng20187alkdsf 20173jsdkf788jsldfksdf9008';
+    /*alert(re.lastIndex)
+    alert(re.exec(str))
+    alert(re.lastIndex)
+    alert(re.exec(str))*/
+    /*var res=re.exec(str);
+    var ary=[];
+    while(res){
+        ary.push(res[0]);
+        res=re.exec(str);
+    }
+    alert(ary);*/
+    //alert(str.match(re))
+    alert(re.exec(str))
+    alert(re.exec(str))
+    /*String.prototype.match=function(reg){
+        /!*1.参数 2.this 3.返回值*!/
+        var res=reg.exec(this);
+        var ary=[];
+        while(res){//reg.lastIndex
+            ary[ary.length]=res[0];
+            res=reg.exec(this);
+        }
+        return ary;
+    }
+
+    console.log(str.match(re))*/
+</script>
+</body>
+</html>
+
+
+
+
+
+

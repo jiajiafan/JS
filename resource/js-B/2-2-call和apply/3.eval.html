@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary = [12, 3, 4, 22, 45, 15];
+    //石晓东思想1:
+    //console.log(Math.max(ary));//NaN
+    //console.log(Math.min(ary));//NaN
+    //石晓东思想2:ary->字符串
+    //console.log(Math.max(ary.toString()))//Math.max("12,3,4,33,45,15")
+    //石晓东思想3:ary->字符串->Number
+    //console.log(Math.max(Number(ary.toString())))//NaN
+
+    //徐忠臣思想:
+    //console.log(Math.max.apply(null,ary));
+
+    console.log(Math.max(eval(ary.toString())));
+    //eval -->将字符串转换成js表达式
+    //eval(ary.toString) ->括号表达式(12,3,4,33,45,15) ->Math.max(15)->15
+    //括号表达式:()里有多项组成,每一项之间以逗号连接,最终的返回结果是最后一项的值
+
+    console.log(eval("Math.max("+ary.toString()+")"));
+    //"Math.max(12,3,4,33,45,15)"
+
+    // (function fn1(){console.log(1)},function fn2(){console.log(2)})();
+
+    var obj = {fn1:fn};
+    function fn(){
+        console.log(this);
+    }
+    //obj.fn();
+    //(obj.fn)();//obj
+    (2,obj.fn1)();//window  相当于fn复制了一份放在括号表达式的最后一项,括号表达式得出最后一项的值,然后再运行,也就是相当于fn();
+    (3,function fn1(){console.log(this)})()//window
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Fn(){
+        this.x=100;
+    }
+    Fn.prototype.showX=function(){
+        alert(this.x)
+    };
+    var f1=new Fn;
+    var f2=new Fn;
+    //alert(hasPubProperty('x',f1));
+    //alert(hasPubProperty('showX',f1));
+    //需求：求对象上的公有属性；
+    function hasPubProperty(attr,obj){
+        return attr in obj && !obj.hasOwnProperty(attr)
+        //思路：1）必须是对象上的一个属性；2）他一定不是私有属性；1和2是&&的关系；
+        //返回值：一定是布尔值；
+    }
+
+</script>
+</body>
+</html>

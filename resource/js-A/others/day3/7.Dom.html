@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+DOM:document object model 文档 对象 模型
+文档下所有元素属性和方法的操作；
+DOM树
+1.获取元素的方式：
+    1)document.getElementById('id名'); ID是唯一的，它只能在document下获取，如果写了多个ID，默认只能获取到第一个
+    2)context(上下文）.getElementsByTagName('标签名')；这里获取的是一系列元素，他是一个类数组，有.length属性；
+    3)context(上下文）.getElementsByName('name名字');-name就用于表单元素的获取
+    4)context(上下文）.getElementsByClassName('class名')通过className来获取元素，不兼容
+    5）document.documentElement 整个HTML
+    document.body 整个body
+    document.documentElement.clientHeight||document.body.clientHeight;
+    document.documentElement.clientWidth||document.body.clientWidth;
+    6)document.querySelector()//获取一个元素
+    document.querySelectorAll()//获取一组元素（虽然不兼容，但移动端经常用到）
+2.标签 元素 元素节点
+-->
+<p id="p1">3333</p>
+<ul id="ul1" class="list">
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<ul class="list">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<div id="div">
+    <input type="text" name="sex"/>
+    <input type="text" name="sex"/>
+    <input type="text" name="sex"/>
+</div>
+<script>
+    /*var oP1=document.getElementById('p1');
+    var oUl1=document.getElementById('ul1');
+    var aLi=oUl1.getElementsByTagName('li');
+    var aInput=document.getElementsByName('input');
+    var aSclass=document.getElementsByClassName('list');
+    console.log(oP1.innerHTML)*/
+    var oP=document.querySelector('#p1');
+    var aLi=document.querySelectorAll('#ul1 li')
+    //console.log(oP.innerHTML)
+    console.log(aLi)
+</script>
+</body>
+</html>

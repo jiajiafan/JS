@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    为什么要使用闭包:a防止变量名冲突;b可以通过传参,对全局变量在私有作用域里重新赋值;
+    //方法运行的时候产生的私有作用域-->闭包
+    //能保护方法体里的内容不受外界的干扰,这种保护机制-->闭包
+//    var name = "lily";
+//    var age = 18;
+//    (function(){
+//        var name = "lucy";
+//        var age = 20;
+//        console.log(name,age);
+//    })();
+//    console.log(name,age);
+    //传参方式,把闭包外面的值传给闭包里面的值
+
+//  (function (name,age){
+//        var name1 = name;
+//        var age1 = age;
+//        console.log(name1,age1);
+//        return name1;
+//    })(name,age);
+
+
+    //怎样把闭包里面的值传给闭包外面的变量,可以通过给window添加属性的方式
+    (function (){
+         name = "lucy";
+         var age = 30;
+        //window.name = name;
+        //window.age  = age;
+    })()
+    //name = "lucy";
+    //age = 30;
+        var a =  name;
+        var b = age;
+        console.log(a,b);
+
+    (function(global,factory){
+        var jQuery = function(){console.log(11)};
+        window.jQuery = window.$ = jQuery;
+    })();
+    jQuery();
+    $();
+
+    (function(){//模块化
+        for(var i = 0;i<10;i++){
+            //...
+        }
+    })();
+    console.log(i);
+
+</script>
+</body>
+</html>

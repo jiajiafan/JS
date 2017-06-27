@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height:200px;
+            border: 1px solid black;
+            margin:10px;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div></div>
+<div></div>
+<div></div>
+<script>
+    var oDiv=document.getElementById('div1');
+    var aDiv=document.getElementsByTagName('div');
+    //通过length属性知道Div的个数；
+    //流程控制语句：判断，循环
+    //for 循环:1.定义一个变量 2.条件判断 3.执行语句
+    for(var i=0; i<aDiv.length; i++){
+        //aDiv[0];aDiv[1];
+        var cur=aDiv[i];
+        cur.style.background='red';
+    }
+    /*oDiv.style.background='red';*/
+</script>
+</body>
+</html>
+
+
+
+

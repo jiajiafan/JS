@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input{
+            width: 150px;
+            height:40px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+<!--
+1.为什么报错？
+2.程序正常执行，为什么i在赋值前是-undefined；
+3.为什么加VAR和不加VAR程序都能正常执行；
+-->
+<input type="button" value="按钮1"/>
+<input type="button" value="按钮2"/>
+<input type="button" value="按钮3"/>
+<script>
+    //需求：点击任何一个元素，让所有的元素都变红
+    var aBtn=document.getElementsByTagName('input');
+    for(var i=0; i<aBtn.length; i++){
+        aBtn[i].onclick=function(){
+            alert(i)
+            //aBtn[i].style.background='red';
+            for(i=0; i<aBtn.length; i++){
+                aBtn[i].style.background='red';
+            }
+        }
+    }
+</script>
+</body>
+</html>

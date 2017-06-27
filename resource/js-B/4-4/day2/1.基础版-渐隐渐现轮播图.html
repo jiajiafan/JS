@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<div id="box" class="box">
+    <div class="imgWrap">
+        <div><img src="img/banner1.jpg" alt=""/></div>
+        <div><img src="img/banner2.jpg" alt=""/></div>
+        <div><img src="img/banner3.jpg" alt=""/></div>
+        <div><img src="img/banner4.jpg" alt=""/></div>
+    </div>
+    <ul>
+        <li class="bg"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <a href="javascript:;" class="btnLeft"></a>
+    <a href="javascript:;" class="btnRight"></a>
+</div>
+<script src="js/utils.js"></script>
+<script src="js/move.js"></script>
+<script>
+    var oBox=document.getElementById('box');
+    var oImgWrap=oBox.getElementsByTagName('div')[0];
+    var aDiv=oImgWrap.getElementsByTagName('div');
+    var aImg=oImgWrap.getElementsByTagName('img');
+    var oUl=oBox.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    var oBtnLeft=oBox.getElementsByTagName('a')[0];
+    var oBtnRight=oBox.getElementsByTagName('a')[1];
+    var autoTimer=null;
+    var step=0;
+    var interval=2000;
+    utils.css(aDiv[0],'zIndex',1);
+    zhufengAnimate(aDiv[0],{'opacity':1},500);
+    //1.自动播放的轮播图
+    autoTimer=setInterval(autoMove,interval);
+    function autoMove(){
+        if(step>=aDiv.length-1){
+            step=-1;
+        }
+        step++;
+        setBanner();
+    }
+    function setBanner(){
+        for(var i=0;i<aDiv.length; i++){
+            var curDiv=aDiv[i];
+            if(i===step){
+                utils.css(curDiv,'zIndex',1);
+                zhufengAnimate(curDiv,{'opacity':1},600,function(){
+                    var siblings=utils.siblings(this);
+                    for(var i=0; i<siblings.length; i++){
+                        utils.css(siblings[i],'opacity',0);
+                    }
+                });
+                continue;
+            }
+            utils.css(curDiv,'zIndex',0)
+        }
+        bannerTip();
+    }
+    //2.焦点图自动切换
+    function bannerTip(){
+        for(var i=0; i<aLi.length; i++){
+            var curLi=aLi[i];
+            i===step?utils.addClass(curLi,'bg'):utils.removeClass(curLi,'bg');
+        }
+    }
+    //3.鼠标移入停止，移出继续
+    stopStart();
+    function stopStart(){
+        oBox.onmouseover=function(){
+            clearInterval(autoTimer)
+            utils.css(oBtnLeft,'display','block');
+            utils.css(oBtnRight,'display','block');
+        };
+        oBox.onmouseout=function(){
+            autoTimer=setInterval(autoMove,interval);
+            utils.css(oBtnLeft,'display','none');
+            utils.css(oBtnRight,'display','none');
+        };
+    }
+    //4.点击焦点，手动切换
+    handleChange();
+    function handleChange(){
+        for(var i=0; i<aLi.length; i++){
+            var curLi=aLi[i];
+            curLi.index=i;
+            curLi.onclick=function(){
+                step=this.index;
+                setBanner();
+            }
+        }
+    }
+    //5.左右轮播
+    oBtnRight.onclick=autoMove;
+    oBtnLeft.onclick=function(){
+        if(step<=0){
+            step=aDiv.length;
+        }
+        step--;
+        setBanner();
+    }
+</script>
+</body>
+</html>

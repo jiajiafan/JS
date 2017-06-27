@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .ifr {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<iframe src="http://www.jd.com/" class="ifr"></iframe>
+
+
+<!--
+  页面之间的通信：A页面、B页面，我需要在B页面中获取到A页面中的一些信息
+    ->URL传参:从A页面跳转到B页面,我们把A页面的一些操作信息通过地址栏URL问号传参的方式传递给B页面，这样的话B页面就可以获取到A页面中的操作信息了，获取到不同的信息进行不同的操作...(列表跳转详细基本上都是这样的操作步骤)
+
+    ->IFRAME:嵌套,我们可以在A页面中把B页面嵌套进来,然后利用一些IFRAME提供的方法获取到B页面中的内容等(目前IFRAME的应用正在逐步减少)
+
+    ->本地存储:客户端访问一个页面,把一些信息存储到客户端浏览器中(其实就是存到客户的本地了)
+-->
+<script type="text/javascript">
+    var str = "http://kbs.sports.qq.com/kbsweb/game.htm?mid=100000:1468573&name=kbs#nba";//->这个就是B页面地址栏中的地址,我们需要获取的是{mid:"100000:1468573",name:"kbs"}
+
+    //->第一种解决方案:字符串的截取和拼接
+    //    var strIndex = str.indexOf("?"),
+    //            endIndex = str.lastIndexOf("#"),
+    //            resStr = "";
+    //    if (strIndex > -1) {
+    //        if (endIndex === -1) {
+    //            resStr = str.substring(strIndex + 1);
+    //        } else {
+    //            resStr = str.substring(strIndex + 1, endIndex);
+    //        }
+    //    }
+    //    var ary = resStr.split("&"),
+    //            obj = {};
+    //    for (var i = 0; i < ary.length; i++) {
+    //        var cur = ary[i],
+    //                curAry = cur.split("=");
+    //        obj[curAry[0]] = curAry[1];
+    //    }
+    //    console.log(obj);
+
+    //->正则处理
+    var obj = {};
+    str.replace(/([^?=&#]+)=([^?=&#]+)/g, function () {
+        obj[arguments[1]] = arguments[2];
+    });
+    console.log(obj);
+
+    //->对于传递过来的参数值,我们首先需要确定是否进行了编码(如果传递过来的参数值出现中文或者其他的特殊符号...我们一般都会进行编码),如果编码了需要先解码然后在解析
+    //encodeURIComponent()
+    //decodeURIComponent()
+</script>
+</body>
+</html>

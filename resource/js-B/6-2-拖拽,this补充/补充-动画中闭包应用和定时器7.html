@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+#div1{ width:100px; height:100px; position:absolute; left:100px; top:100px; background:red;}
+</style>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>
+<script>
+function move(ele,target){
+	
+	if(ele.offsetLeft>target){
+		ele.style.left=ele.offsetLeft-5+"px";
+	}else if(ele.offsetLeft<target){
+		ele.style.left=ele.offsetLeft+5+"px";
+	}else{
+		
+	}
+	window.setTimeout(function(){move(ele,target)},15);
+	window.setTimeout(function(){
+		target=600;
+		},10);
+	move(ele,target);
+	function fn(){ move(ele,target) }
+	window.setTimeout(fn,15);
+	//作用域积累
+	//1、第一次执行move-->定义了一个匿名方法-->过15ms，匿名方法执行--->move执行,move方法里又用到了上一级move作用域的变量。这样：匿名方法、ele、target这些变量都是当次的这个move运行的作用域中定义的，并且被里边匿名方法里的move占用了（匿名方法本身也在被占用，因为匿名方法运行了），则出现第一个move方法的作用域释放不掉
+	//2、在第二次执行move时，重复第一步的所有动作，这次运行move产生的作用域再次释放不掉
+	//3、第三次、重复第二次的情况
+	//4、假设此动画执行100次后结束，则会出现100次如上所述的作用域的积累。这就是闭包的危害（其实也和递归的危害有关）
+}
+
+function move(ele,target){
+	function _move(){
+		if(ele.offsetLeft>target){
+			ele.style.left=ele.offsetLeft-5+"px";
+		}else if(ele.offsetLeft<target){
+			ele.style.left=ele.offsetLeft+5+"px";
+		}else{
+			window.clearTimeout(ele.timer);
+		}
+	}
+	
+	ele.timer=window.setInterval(_move,15);
+	/*
+		
+		在move里定义的_move方法一直被定时器占用，则本次move方法执行的作用域消毁不了.
+		但_move作用里没有被占用的变量或值，所以每隔15ms运行一次的_move方法都不会作用域积累。
+		move运行的作用域不会释放，但_move运行的作用域每次都释放了。这样的写法不会出现作用的嵌套积累，性能上会比上一样写法好很多
+	
+	*/
+		
+}
+var ele=document.getElementById("div1");
+ele.onclick=function(){
+	move(this,800);	
+}
+
+</script>

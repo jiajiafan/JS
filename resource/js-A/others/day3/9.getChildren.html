@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul1">11111111111111
+    <li></li><!--33333333-->
+    <li></li><!--33333333-->
+    <li></li><!--33333333-->
+    <li></li>
+</ul>
+<script>
+    var oUl=document.getElementById('ul1');
+    var aLi=getChildren(oUl);
+    function getChildren(oEle){
+        var aChild=oEle.childNodes;
+        var ary=[];
+        for(var i=0; i<aChild.length; i++){
+            if(aChild[i].nodeType===1){
+                ary.push(aChild[i])
+            }
+        }
+        return ary;
+    }
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].style.background='red'
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>
+<script>
+	bind,unbind,on,off,run
+	bind,unbind,
+	on,off,run
+	
+	function bind(ele,type,fn){
+		if(ele.addEventListener){
+			ele.addEventListener(type,fn,false);
+			//一个方法不能重复绑定在同一个元素的同一个事件上
+			//当事件触发绑定的方法时，这个方法里的this指向当前的元素
+			//先绑定的方法要先执行
+		}else{
+			ele.attachEvent("on"+type,fn);
+			ele.attachEvent("on"+type,function(){fn.call(ele)});
+			//如果想this的指向，function(){fn.call(ele)}
+			
+			if(!ele["aBind"+type]){
+				ele["aBind"+type]=[]	
+			}
+			//3、解决fn不能被重复绑定的问题（就是数组里不能重复保存同一个方法的变形方法）
+			for(var i=0;i<ele["aBind"+type].length;i++){
+				if(ele["aBind"+type][i].abcd==fn)return;	
+			}
+			
+			var fnTemp=function(){fn.call(ele)}
+			fnTemp.abcd=fn;
+			ele["aBind"+type].push(fnTemp);
+			ele.attachEvent("on"+type,fnTemp);
+			//在解决IE的this指向问题中，只有这一句是有效的代码。如果不考虑在type事件上移除fn，这个bind方法就到此结束了
+			
+			
+		}
+	}
+
+bind(ele,"click",fn1);
+bind(ele,"click",fn2);
+bind(ele,"click",fn3);
+bind(ele,"click",fn4);
+bind(ele,"click",fn5);
+
+function unbind(ele,type,fn){
+	if(ele.removeEventListener){
+		ele.removeEventListener(type,fn,false);
+	}else{
+		ele["aBind"+type];//这个数组有五个变形（就是经过call方法变化的方法）的方法，但是，这五个方法，已经没有一个是fn了。这里的方法是fn的变形，而不是fn本身了
+		//需要想个办法，能够识辨出数组中的那一项是fn变形而来的
+		var a=ele["aBind"+type];
+		
+		for(var i=0;i<a.length;i++){
+			if(a[i].abcd==fn){
+				ele.detachEvent("on"+type,a[i]);
+				//虽然在ele的type这个事件上，把某个fnTemp移除了，但是在a这个数组里，这个方法还是存在的
+				//在事件上移除此方法，和在数组中移除此方法是两码事
+				//这有什么危害呢？下次再绑定fn则绑定不上了
+				
+				bind(ele,"click",fn1);
+				//经过若干时间后，把fn1在click事件上移除了
+				unbind(ele,"click",fn1);
+				//再经过若干年，再把fn1绑定在click事件上
+				bind(ele,"click",fn1);//这样就绑定不上了，因为在bind中有一个循环判断
+				
+				//所以，当我们移除事件上的这个方法的同时，还在数组中将其移除
+				//下面的代码，就是解决第三个问题的
+				a.splice(i,1);
+				return;
+				
+				//1、如果只解决this指向问题，则在bind方法绑定fnTemp就够了
+						//重要补充:如果不需要移除绑定，则以下解决方案统统不需要。其实也就是说：如果不需要移除绑定，unbind都可以不要
+				
+				//2、如果考虑移除的问题，则还需要更复杂一点点：
+					//先要给fnTemp增加一个识别的属性（在bind里叫abcd）
+					//再把fnTemp保存到当前元素(ele)的自定义属性上
+					//以上两步是预先做的工作，是为了unbind能够正确的移除方法做的准备
+					
+					//在unbind里面，要移除的不是fn，而是fn的变形方法
+					//要在ele上的那个数组里，找到fn变形的那个方法来，然后再把这个方法移除
+				//3、重复绑定的方法，需要在bind里，在保存fnTemp之前，加一个循环判断：如果fn的变形方法已经被保存过了，则退出。
+				     //在unbind，则需要在事件上移除此方法的同时，还要在数组中将其移除
+				ele.addEventListener(type,fn1);
+				ele.addEventListener(type,fn1);
+				ele.addEventListener(type,fn1);
+				bind(ele,type,fn1);
+				bind(ele,type,fn1);
+				bind(ele,type,fn1);
+				
+			}
+			
+		}
+		
+		//ele.detachEvent("on"+type,fn)
+	}
+	
+}
+</script>

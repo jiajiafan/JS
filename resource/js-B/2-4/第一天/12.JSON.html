@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.什么要解析JSON：
+后台给我们的数据都是JSON类型的字符串；我们必须把他转成对象才能进行数据绑定；
+2.JSON是window的属性：
+1）JSON.parse(str) =>JSON类型的字符串转成对象类型；
+2）JSON.stringify(json)=>把JSON类型的对象，转成JSON类型的字符串；
+
+<script>
+    var obj={name:'zhufeng',age:8};
+    /*var json={"name":'zhufeng',"age":8};
+    alert(typeof JSON.stringify(json))*/
+    var jsonStr='{"name":"zhufeng","age":8}';
+     //alert(typeof JSON.parse(jsonStr))
+    //alert(typeof eval("("+jsonStr+")"))
+    /*alert('JSON' in window)*/
+    alert(jsonParse(jsonStr));
+    function jsonParse(str){
+        /*try..catch思想封装；
+        try{
+            return JSON.parse(str);
+        }catch(e){
+            return eval('('+str+')');
+        }*/
+        /*if('JSON' in window){
+            return JSON.parse(str);
+        }else{
+            return eval('('+str+')');
+        }*/
+        return 'JSON' in window?JSON.parse(str):eval('('+str+')');
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var ready = (function () {
+            var isReady = false;
+            if (window.addEventListener) {
+                return function (callback) {
+                    if (isReady) {
+                        callback();
+                        return;
+                    }
+                    window.addEventListener('DOMContentLoaded', function () {
+                        isReady = true;
+                        callback();
+                    }, false);
+                }
+            }
+            return function (callback) {
+                if (isReady) {
+                    callback();
+                }
+                document.attachEvent('onreadystatechange', function () {
+                    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+                        isReady = true;
+                        callback();
+                    }
+                })
+            }
+        })();
+    </script>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+        ready(function () {
+            console.log('my ready')
+        });
+
+        // dom树加载完成之后执行此函数  只是html代码加载完成
+        $(document).ready(function () {
+            console.log('ready');
+            console.log(Date.now())
+        });
+
+        // 在整个html结构加载完成之后执行此函数 整个页面的全部资源加载完成
+        window.onload = function () {
+            console.log('onload');
+            console.log(Date.now())
+        };
+
+
+    </script>
+</head>
+<body>
+<img src="https://www.baidu.com/img/2016_6_19newlogo_c147fc62fc6cd744f330849501b04301.png?1">
+<img src="https://www.baidu.com/img/2016_6_19newlogo_c147fc62fc6cd744f330849501b04301.png?2">
+<img src="https://www.baidu.com/img/2016_6_19newlogo_c147fc62fc6cd744f330849501b04301.png?3">
+<img src="https://www.baidu.com/img/2016_6_19newlogo_c147fc62fc6cd744f330849501b04301.png?4">
+<img src="https://www.baidu.com/img/2016_6_19newlogo_c147fc62fc6cd744f330849501b04301.png?5">
+<img src="https://www.baidu.com/img/2016_6_19newlogo_c147fc62fc6cd744f330849501b04301.png?6">
+<img src="https://www.baidu.com/img/2016_6_19newlogo_c147fc62fc6cd744f330849501b04301.png?7">
+<img src="https://www.baidu.com/img/2016_6_19newlogo_c147fc62fc6cd744f330849501b04301.png?8">
+<img src="https://www.baidu.com/img/2016_6_19newlogo_c147fc62fc6cd744f330849501b04301.png?9">
+<img src="https://www.baidu.com/img/2016_6_19newlogo_c147fc62fc6cd744f330849501b04301.png?10">
+</body>
+</html>

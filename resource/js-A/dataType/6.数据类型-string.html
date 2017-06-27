@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //双引号或者单引号包起来的就是字符串,单引号或者双引号必须是成对出现的,不成对出现就会报错!
+    var str = "aaaa";
+    var str2 = '111';
+    var str3 = "object";
+    console.log(typeof  str);
+    //在字符串里表示双引号或者是单引号?
+    var str4 = "aaa'bbb"; //在双引号里用单引号也是可以的
+    var str5 = 'aaa"bbb'; //在单引号里用双引号也是可以的
+   // var str6 = 'aaa'bb'; 在双引号里不能再用双引号来表示双引号,在单引号里不能再用单引号来表示单引号
+    //\用来表示转义  \\-->\  \" -->"  \'-->' \r(回车)\n(换行)\t(制表符)
+    var str6 = 'aa\tbb';
+    console.log(str6);// aa\'bb
+
+    //+在字符串这边不再是运算符,而表示拼接的意思(在拼接的时候会自动的把其他的数据类型转换成字符串类型)
+    var str7 = "aaa"+"111";//"aaa111"
+    var str8 = "aaa"+111; //111->"111"  "aaa111"
+    console.log(str8);
+
+    //回去预习:字符串常用的11个方法
+
+</script>
+</body>
+</html>

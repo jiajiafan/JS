@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.所有的类都是函数数据类型；也说明这些类都是构造函数Function()的实例（实例都是对象）；
+2.原型图上的各种关系：
+1）任何对象(new 出来的任何实例对象)最终都能通过__ptoto__找到Object;
+2)所有类都是构造函数Function()的实例；
+3）Function 是 Object 的爹；
+   Object.prototype 是 Function.prototype 的爹
+3.函数的三种角色：
+1）普通函数：形成私有作用域-（形参赋值-预解释-JS代码执行）-作用域释放
+2）构造函数：实例（对象），类，原型prototype,__protot__
+    构造函数中的属性和方法，都是私有的；
+    原型prototype，都是公有的属性和方法；
+    __protot__：原型链查找机制；
+3）对象：就跟普通的对象obj={}一样，都有自己私有的属性和方法；公有的属性和方法等；
+4.Function.prototype 上存放所有函数公有的方法：
+例如：call,apply,bind
+<script>
+    function Fn(){
+        var num=100;
+        this.x=100;
+    }
+    Fn.aa='123';
+    alert(Fn.aa)
+    Fn.prototype.showX=function(){};
+    var f1=new Fn;
+    var ary=new String;
+    //console.dir(ary.__proto__)
+   //alert(Fn.constructor)
+   // alert(Object.constructor)
+   //alert(Array.constructor)
+</script>
+</body>
+</html>

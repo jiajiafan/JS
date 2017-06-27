@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        .btn {
+            margin: 20px auto;
+            width: 200px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            font-size: 16px;
+            border: 1px solid green;
+            cursor: pointer;
+        }
+
+        /*--在PC端我们很多时候当鼠标划入按钮的时候都会给一个颜色差--*/
+        .btn:hover {
+            background: lightpink;
+        }
+
+        /*--在移动端当用户点击一个按钮的时候我们一般都会给一个按下态(触觉回馈)--*/
+        .btn:active {
+            background: #ccc;
+        }
+
+        .box {
+            margin: 0 auto;
+            padding-left: 10px;
+            padding-top: 10px;
+            width: 120px;
+            border: 1px solid red;
+        }
+
+        .box span {
+            float: left;
+            margin: 0 10px 10px 0;
+            width: 18px;
+            height: 18px;
+            border: 1px solid green;
+        }
+
+        /*--第一个 OR 最后一个--*/
+        /*.box > span:first-child {
+            background: red;
+        }
+
+        .box > span:last-child {
+            background: green;
+        }*/
+
+        /*--第N个--*/
+        /*.box > span:nth-child(2) {/!*--第二个而不是索引为二--*!/*/
+        /*background: orange;*/
+        /*}*/
+
+        /*.box > span:nth-child(even) {*/
+        /*/!*--所有的偶数个--*!/*/
+        /*background: orange;*/
+        /*}*/
+        /*.box > span:nth-child(odd) {*/
+        /*/!*--所有的奇数个--*!/*/
+        /*background: pink;*/
+        /*}*/
+
+        /*--n是从零开始的正整数--*/
+        /*.box > span:nth-child(4n+1) {
+            background: orange;
+        }
+
+        .box > span:nth-child(4n+2) {
+            background: red;
+        }
+
+        .box > span:nth-child(4n+3) {
+            background: green;
+        }
+
+        .box > span:nth-child(4n) {
+            background: blue;
+        }*/
+
+        /*--倒着数第一个--*/
+        /* .box > span:nth-last-child(1) {
+             background: black;
+         }*/
+
+        /*--:not实现二次筛选--*/
+        span:not(.green) {
+            /*--所有的span中没有.green这个样式类名的,我们让他们的背景颜色变为红色--*/
+            background: rgba(255, 0, 0, 0.2);
+            /*--rgba:指定背景颜色透明,里面的子元素是不透明的--*/
+
+            /* background: red;
+             opacity: 0.2;*/
+            /*--把背景颜色及里面所有的内容都设置了透明--*/
+        }
+
+        /*div[name|='zhufeng']{
+            /!*<div name="zhufeng或者zhufeng-peixun">*!/
+        }*/
+    </style>
+</head>
+<body>
+<div class="btn">立即注册</div>
+<div class="box clear">
+    <span class="box-top">珠</span><span></span><span></span><span></span><span></span><span></span><span
+        class="green"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: red;
+        }
+
+        #temp {
+            width: 1px;
+            height: 200px;
+            position: absolute;
+            left: 1200px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<div id="temp"></div>
+<script src="js/utils.js"></script>
+<script>
+    /*
+    * t:time 累加的时间
+    * begin：起始位置
+    * c:change 要走的距离 （target-begin）
+    * d:duration 总时间
+    * */
+    //Linear 公式
+    function Linear(t,b,c,d){
+        return c*t/d+b;
+    }
+    var oDiv = document.getElementById('div');
+    //提前给要传的参数设置初始值；
+    var time=null;
+    var begin=utils.css(oDiv,'left');
+    var target=1200;
+    var change=target-begin;
+    var duration=1000;
+    //开启定时器，每次累加时间，当时间累加到>=duration总时间时；
+    var timer=setInterval(move,10);
+    function move(){
+        //停止条件：当时间累加到>=duration总时间时；
+        if(time>=duration){
+            //让位置直接设置成target目标值
+            utils.css(oDiv,'left',target);
+            //停止定时器；
+            clearInterval(timer);
+            //后面语句不再执行
+            return;
+        }
+        time+=10;//每次执行定时器，累加时间
+        var curPos=Linear(time,begin,change,duration);//通过公式求出最新位置
+        //设置元素到最新的位置；
+        utils.css(oDiv,'left',curPos);
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

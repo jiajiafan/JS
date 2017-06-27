@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            list-style: none;
+        }
+        #list{
+            width: 270px;
+            margin:20px auto;
+        }
+        #list h2{
+            background: url("img/ico1.gif") 5px center no-repeat lightblue;
+            text-indent: 20px;
+            height:40px;
+            line-height: 40px;
+        }
+        #list ul{
+            display: none;
+        }
+        #list ul li{
+            text-indent: 20px;
+            height:30px;
+            line-height: 30px;
+            border-bottom: 1px  solid #ccc;
+        }
+        #list ul li.on{
+            background: orange;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li class="lis">
+        <h2>我的好友</h2>
+        <ul>
+            <li>赵瑞军</li>
+            <li>连江印</li>
+            <li>王宗旭</li>
+        </ul>
+    </li>
+    <li class="lis">
+        <h2>我的坏友</h2>
+        <ul>
+            <li>赵小军</li>
+            <li>连小印</li>
+            <li>王小旭</li>
+        </ul>
+    </li>
+    <li class="lis">
+        <h2>黑名单</h2>
+        <ul>
+            <li>小小军</li>
+            <li>小小印</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    //最外层的ul；
+    var oUl=document.getElementById('list');
+    //第二层的ul;
+    var aH2=oUl.getElementsByTagName('h2');
+    var aUl=oUl.getElementsByTagName('ul');
+    var aLi=[];
+    for(var i=0; i<aUl.length; i++){
+        //得到最底层li的类数组集合；
+        var cur=aUl[i].getElementsByTagName('li');
+        for(var j=0; j<cur.length; j++){
+            aLi.push(cur[j]);//cur[j]:就是我们要拿到的每个li;
+        }
+    }
+    //选项卡中的按钮思想：先让所有都灭，再让当前这个亮；
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].onclick=function(){
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].className='';
+            }
+            this.className='on';
+        }
+    }
+    for(var i=0; i<aH2.length; i++){
+        aH2[i].index=i;
+        aH2[i].bOk=true;
+        //1.点击每个按钮时，让他对应的ul显示；属性值为number
+        //2.自定义属性运用：每个元素上都加一个开关 属性值为boolean
+        aH2[i].onclick=function(){
+            if(this.bOk){
+                aUl[this.index].style.display='block';
+            }else{
+                aUl[this.index].style.display='none';
+            }
+            this.bOk=!this.bOk;
+        }
+    }
+
+</script>
+</body>
+</html>

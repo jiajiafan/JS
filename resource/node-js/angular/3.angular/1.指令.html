@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-controller="ctrl">
+Element:<my-directive></my-directive>
+Attribute:<div my-directive></div>
+<!--class : <div class="my-directive"></div>
+comment: &lt;!&ndash; directive:my-directive &ndash;&gt;-->
+<script src="angular.js"></script>
+<script>
+    //param1 模块的名字
+    //param2 依赖的数组
+    //param3 配置
+    var app = angular.module('appModule',[]);
+    app.controller('ctrl',['$scope', function ($scope) {
+        //$scope.name = 'zfpx';
+    }]);
+    //声明的指令默认不会创建作用域，不是独立作用域，找到最近的作用域
+    app.directive('myDirective', function () {
+        return {
+            restrict:'EA',//限定指令的使用范围
+            template:'<div>Hello angular {{name}}</div>',//指定的模板
+            replace:true,//替换掉原有的指令
+            //连接视图和scope的
+            link: function (scope,element,attrs) {
+                scope.name = 'zfpx';//在当前作用域下声明一个name属性
+                //scope表示当前指令所在的作用域
+                //element当前元素(jq对象)
+                //attrs 当前指令上的属性
+            }
+        }
+    })
+</script>
+</body>
+</html>

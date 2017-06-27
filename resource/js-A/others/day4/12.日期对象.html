@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+new Date() 得到的时间，是我们自己电脑上的时间，不能拿来当作参考标准；
+oDate.getFullYear() 获取年份
+oDate.getMonth()+1 获取月份
+oDate.getDate();获取日
+oDate.getDay(); 获取星期
+oDate.getHours();小时
+oDate.getMinutes(); 分钟
+oDate.getSeconds(); 秒
+new Date().getTime():当前距离1970年1月1日 00:00:00:00的毫秒数 格林尼治时间
+new Date(xxxx/xx/xx/ 00:00:00).getTime() :未来距离1970年1月1日 00:00:00:00的毫秒数
+-->
+<script>
+    var oDate=new Date();//
+    var year=oDate.getFullYear();
+    var month=oDate.getMonth()+1;
+    var date=oDate.getDate();
+    var week=oDate.getDay();
+    var hour=oDate.getHours();
+    var minite=oDate.getMinutes();
+    var second=oDate.getSeconds();
+    alert(second)
+</script>
+</body>
+</html>

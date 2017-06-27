@@ -1,0 +1,22 @@
+CORS
+跨域资源共享
+
+cross origin resource sharing
+
+利用浏览器提供的跨域API实现跨域请求
+
+注意事项:
+1 兼容性 ie8+
+2 需要server设置响应首部Access-Control-Allow-Origin
+3 可以使用get post head delete put options这些http方法
+
+jsonp和跨域资源共享的相同点和不同点:
+
+相同点:
+1 都是用来解决接口级别跨域请求的
+2 只要是跨域就需要对方server强配合*
+
+不同点:
+1 实现方式不同;jsonp使用script实现的,而cors使用浏览器提供的API实现的
+2 http方法使用不同;jsonp只能使用get方法,而cors是get post head put delete options都可以用
+3 兼容性不同;jsonp没有兼容性,而cors是ie8+

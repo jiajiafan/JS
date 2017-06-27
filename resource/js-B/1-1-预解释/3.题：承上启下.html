@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+考察点：
+1.带var和不带var的应用
+2.运算符的优先级 算术运算符》比较运算符》逻辑运算符》赋值运算符
+3.对象==布尔值 都转成数字 []==false; 0==0
+ 对象==对象 地址；
+4.预解释
+-->
+<script>
+    //自执行函数不进行预解释：只有执行到他的时候，定义+声明+执行一步完成；
+    //if语句无论他是否成立，都进行预解释；
+    f=function(){return true};
+    g=function(){return false};
+    (function(){
+        if(g()&&[]==![]){//true && true
+            f=function(){return false;}
+            function g(){return true;}
+        }
+    })();
+    alert(f());
+    alert(g());
+</script>
+</body>
+</html>

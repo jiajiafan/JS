@@ -1,0 +1,97 @@
+1.css盒子模型：内容（宽高）+填充（padding）+border+margin
+2.JS盒子模型：用JS的属性和方法，去获取元素的样式和信息值；
+3.JS的属性
+1)client系列：clientWidth clientHeight clientLeft clientTop;
+2)offset系列：offsetParent offsetWidth offsetHeight offsetLeft offsetTop;
+3)scroll系列：scrollWidth scrollHeight scrollLeft scrollTop;
+4.JS盒子模型属性的详细解释：
+1）client系列
+与内容溢出的关系：无关系
+clientWidth、clientHeight:内容的宽高+padding
+clientLeft/top:border的宽度
+2)offset系列
+与内容溢出的关系：无关系
+offsetWidth offsetHeight:clientWidth/height+border
+offsetLeft/top:当前元素的外边框距离上级元素的内边框之间的距离；
+offsetParent:有定位的父级
+3）scroll系列
+与内容溢出的关系：有关系
+scrollWidth scrollHeight：
+在无内容溢出的情况下：等于clientWidht/Height
+在有内容溢出的情况下：约等于内容实际的高度+上padding值；
+    约等于：1）在各大浏览器下获取的值不同；
+           2)在同一浏览器下，是否加overflow:hidden获取的值也不同；
+scrollLeft,scrollTop:被浏览器卷去的距离；
+5.以上属性的一些思考问题：
+1）以上属性无法获取到小数，只能得到四舍五入的整数
+2）以上属性得到的都是复合值，无法取到单独的宽高等。。 getCss()
+3）在有父级定位的情况下，只能获取到上级内边框的距离，无法无获取到body顶部和left的距离 offset()
+4）浏览器盒子模型的兼容处理；win();
+6.JS中处理兼容的几种思想
+1）try。。catch。。 不建议使用，因为无论浏览器是否支持，都要走一遍try里的语句；性能比较差
+2）属性判断，可以使用attr in obj/ obj[attr]; 建议使用：因为if和else里只会走一个；
+3）大招：浏览器判断 ；一般情况不用；
+7.判断IE6|7|8的几种方法
+1）/MSIE (6|7|8)/i.test(navigator.userAgent)
+2)str.search(正则)； 如果找到，返回下标； 找不到，返回-1；
+8.判断浏览器版本信息window.navigator.userAgent
+9.区分结构父级和定位父级
+结构父级的祖师爷 按标签找祖师爷: html   如果不是按标签找祖师爷：htmlDocument HTML文档；
+定位父级的祖师爷 祖师爷：body
+找不到的时候，结构父级和定位父级都会出现null；
+10.定时器复习：
+1）用setTimeout来实现一个setInterval
+function fn(){//递归
+        clearTimeout(timer);
+        n++;
+        alert(n);
+        if(n==5){
+            return;
+        }
+        var timer=setTimeout(fn,10);
+    }
+2）开定时器前，最好先关闭定时器；关闭定时器，定时器一定要有名字；
+3)定时器有返回值，他的返回值是：开的定时器的个数；
+4）各大浏览器都为定时器设定了最短时间，所以，即使你把定时器时间设定为0； 也无法立即执行；
+注意：定时器的时间不是越小越好；有时候，时间越小越不稳定；
+11.JS思想编程：同步和异步
+同步：必须从上到下，一件件做事情；当前事情没有干完，无法开始下个事情；
+循环都是同步编程；(JS大部分都是同步编程)
+异步：可以同时干好多事情；后面的事情做完回过头，再执行之前既定的事情；如果后面的事情没做完，无论前面的事情是否完成，都不会被执行；
+异步编程包含哪些：
+1.事件；
+2.定时器；
+3.ajax；
+4.回调函数
+12.伪类
+1):before :after ->在当前元素的前面或后面添加一个虚拟标签，可以给这个标签上设置各种样式，也可以给他添加内容；
+2）用伪类来清楚浮动
+ul:after
+{
+    display: block;
+    height: 0;
+    clear: both;
+    content: '';
+    /*visibility: hidden;*/
+}
+13.关于a标签：
+1)href:如果不写或者写了"#",默认跳转到页面最顶端
+2）href:写了“#div”；会跳转到对应的模块；---》这是对锚点的运用；
+3）href:实现各个页面之间的链接跳转
+14.图片懒加载
+1）求出：scrollTop+clientHeight
+2）求出：图片距离页面顶部的位置+图片自身的高度
+3）把1和2进行比较；当1《=2； 让图片预加载；加载成功，图片显示；
+15.瀑布流涉及知识点：
+1）取随机数
+2）动态创建元素，并且给其高度和背景色都是随机的
+3）类数组转数组；
+4）浏览器缩放和滚动事件；
+5）根据条件判断，往里面批量插入新元素
+
+
+
+
+
+
+

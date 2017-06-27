@@ -1,0 +1,45 @@
+1、前端路由
+   ->服务器端接收到客户端的请求后,根据客户端请求资源文件(HTML、CSS、JS、IMG、AUDIO、VIDEO...)的不同,服务器端进行不同的处理(例如:请求是的HTML页面,我们需要把页面中的内容返回;请求的是CSS样式,我们需要把样式文件中的代码返回)
+
+
+2、http内置模块
+   ->在NODE环境中,http模块提供了一系列的方法,我们使用这些方法可以创建服务,服务创建成功后,就可以把我们的项目资源文件进行发布
+
+   ->在本地创建一个服务后,我们就可以通过 "http://localhost:80/" OR http://192.168.0.5(本机的IP):80(服务器设置的端口号)/ 这个URL地址向当前创建的服务器发送一个请求
+   (如果无法访问,尝试关掉本机的防火墙)
+
+3、URL模块
+  ->url.parse:用来解析URL地址的([URL],[false(默认)/true])
+  [例如]
+  url.parse("http://192.168.0.5:80/video/index.html?name=zhufeng")
+
+  Url {
+    protocol: 'http:', ->协议
+    slashes: true,
+    auth: null,
+    host: '192.168.0.5:80', ->当前解析地址中的域名+端口号
+    port: '80', ->当前解析地址中的端口号
+    hostname: '192.168.0.5', ->当前解析地址中的域名
+    hash: null,
+    search: '?name=zhufeng',
+    query: 'name=zhufeng', ->当前解析地址中的问号后面所传递的内容
+    pathname: '/video/index.html', ->当前解析地址中的需要请求的文件的目录和名称
+    path: '/video/index.html?name=zhufeng', ->路径地址+问号后的参数值
+    href: 'http://192.168.0.5:80/video/index.html?name=zhufeng' ->完整的URL地址
+  }
+
+  [例如]
+  第二个参数传递了true
+  url.parse("http://192.168.0.5:80/video/index.html?name=zhufeng",true);
+
+  Url {
+    query: { name: 'zhufeng' }, ->和不传true的区别只有这一块,不传true获取的只是一个简单的字符串,传递了true,会默认的把传递进来的参数队列"name=zhufeng&age=7"解析成对象的键值对方式进行存储
+    pathname: '/video/index.html'
+  }
+
+4、资源文件的MIME类型
+  文本 ->text/plain
+  HTML ->text/html
+  CSS ->text/css
+  JS ->text/javascript
+

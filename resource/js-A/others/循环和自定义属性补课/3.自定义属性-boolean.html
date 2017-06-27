@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            list-style: none;
+        }
+        #ul1 li{
+            width: 200px;
+            height:200px;
+            background: url('img/on.png') no-repeat;
+            background-size:100% 100%;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul1">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    //不能拿来判断的两种情况：1.背景颜色 2.相对地址；
+    var oUl=document.getElementById('ul1');
+    var aLi=oUl.getElementsByTagName('li');
+    //var bOk=true;
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].bOk=true;
+        aLi[i].onclick=function(){
+            if(this.bOk){
+                this.style.background="url('img/off.png') no-repeat";
+                this.style.backgroundSize='100% 100%';
+            }else{
+                this.style.background="url('img/on.png') no-repeat";
+                this.style.backgroundSize='100% 100%';
+            }
+            this.bOk=!this.bOk;
+        }
+    }
+</script>
+</body>
+</html>

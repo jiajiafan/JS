@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0px;
+            padding:0px;
+        }
+        div{
+            border: 10px solid #333;
+            padding:50px;
+
+        }
+        #div3{
+            width: 200.93333px;
+            height: 200px;
+            background: lightpink;
+            overflow: hidden;
+        }
+        #div2{
+            width: 300px;
+            height: 300px;
+            background: lightgoldenrodyellow;
+            position: relative;
+        }
+        #div1{
+            width: 400px;
+            height: 400px;
+            background: lightblue;
+            margin:50px auto;
+            position: relative;
+        }
+    </style>
+</head>
+<body id="body">
+<div id="div1">
+    <div id="div2">
+        <div id="div3">
+            就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于9K退学费。
+            就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于
+            就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于
+            就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于
+            就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于
+            就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于
+            就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于
+            就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于
+            就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于
+            就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于
+            就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于
+            就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于
+        </div>
+    </div>
+</div>
+<script>
+    var oDiv3=document.getElementById('div3');
+    /*alert(oDiv3.offsetParent)
+    alert(oDiv3.parentNode)*/
+    //找结构父级最大的
+    /*var oPar=oDiv3.parentNode;
+    while(oPar){
+        alert(oPar)
+        oPar=oPar.parentNode;
+    }
+    alert(oPar)*/
+    //找定位父级最大的；
+    /*var oPar=oDiv3.offsetParent;
+    while(oPar){
+        alert(oPar)
+        oPar=oPar.offsetParent;
+    }
+    alert(oPar)*/
+   // alert(oDiv3.offsetLeft)
+    alert(offset(oDiv3).top);
+    function offset(curEle){
+        var l=0;
+        var t=0;
+        var par=curEle.offsetParent;
+        l+=curEle.offsetLeft;
+        t+=curEle.offsetTop;
+        while(par){
+            //IE8 offsetLeft/top已经包含了边框，但是其他浏览器不包含边框；
+            if(navigator.userAgent.indexOf('MSIE 8.0')===-1){
+                l+=par.clientLeft;
+                t+=par.clientTop;
+            }
+            l+=par.offsetLeft;
+            t+=par.offsetTop;
+            par=par.offsetParent;
+
+        }
+        return {left:l,top:t}
+    }
+
+
+</script>
+</body>
+</html>

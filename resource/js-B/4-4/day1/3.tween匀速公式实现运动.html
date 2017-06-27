@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 300px;
+            top: 0;
+            background: red;
+        }
+
+        #temp {
+            width: 1px;
+            height: 200px;
+            position: absolute;
+            left: 1000px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<div id="temp"></div>
+<script src="js/utils.js"></script>
+<script>
+    //t:time b:begin c:change d:duration
+    function linear(t,b,c,d){
+        return c*t/d+b;
+    }
+    var oDiv = document.getElementById('div');
+    var target=1000;
+    var begin=utils.css(oDiv,'left');
+    var change=target-begin;
+    var time=null;
+    var duration=1000;
+    var timer=setInterval(move,10);
+    function move(){
+        if(time>=duration){
+            utils.css(oDiv,'left',target);
+            clearInterval(timer);
+            return;
+        }
+        time+=10;
+        var curPos=linear(time,begin,change,duration);
+        utils.css(oDiv,'left',curPos);
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

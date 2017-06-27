@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*var ary=[1,2,3,4]
+    Array.prototype.push={};
+    ary.push(5);
+    alert(ary)*/
+    function Fn1(){
+        this.x=100;
+    }
+    Fn1.prototype.show=function(){
+        alert(this.x);
+    }
+    var f1=new Fn1();
+    f1.__proto__.show=function(){
+        alert('hello,我就把你改了')
+    }
+    f1.show();
+    //__proto__ IE不让你找到他；
+</script>
+</body>
+</html>

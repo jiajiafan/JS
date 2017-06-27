@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <ul id="list">
+        <li>张浩</li>
+        <li>陈旭</li>
+        <li>李鹏飞</li>
+        <li>曹晓阳</li>
+    </ul>
+</body>
+</html>
+<script>
+    //DOM映射
+    //获取的元素/元素集合 和页面上的标签/容器 是一一对应的,当有一个发生变化,另一个也会发生变化 --->DOM映射
+    var oUl = document.getElementById("list");
+    var oLis = oUl.getElementsByTagName("li");
+    //    oLis[0].style.backgroundColor  = "red";
+    //    console.log(oLis.length);//4
+    var oLi = document.createElement("li");
+    oUl.appendChild(oLi);//容器的li标签变成5个-->元素集合也应该变成5个
+    //    console.log(oLis.length);//5
+
+    oUl.appendChild(oLis[1]); //appendChild/insertBefore 如果在页面在页面已经有这个标签了,则移动位置,没有这个标签的时候,才是把元素添加到最后的位置
+
+</script>

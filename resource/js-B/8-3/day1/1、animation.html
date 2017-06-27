@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3动画</title>
+    <link type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        html, body {
+            overflow: hidden;
+        }
+
+        .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+
+            width: 200px;
+            height: 200px;
+
+            /*--CSS3中的发射性背景颜色渐变--*/
+            background: #6699cc;
+            background: -webkit-radial-gradient(at right top, orange, red, green);
+            background: -moz-radial-gradient(at right top, orange, red, green);
+            background: -ms-radial-gradient(at right top, orange, red, green);
+            background: -o-radial-gradient(at right top, orange, red, green);
+            background: radial-gradient(at right top, orange, red, green);
+
+            /*--CSS3过渡动画:第一步给当前元素设置一个过渡的效果--*/
+            /*-webkit-transition: all 1s linear 0s;
+            -moz-transition: all 1s linear 0s;
+            -o-transition: all 1s linear 0s;
+            transition: all 1s linear 0s;*/
+        }
+
+        /*--CSS3过渡动画:第二步触发元素的样式发生改变--*/
+        /*.box:hover {
+            -webkit-transform: scale(1.2);
+            -moz-transform: scale(1.2);
+            -o-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
+        }*/
+
+        /*--CSS3帧动画--*/
+        /*--第一步:设置运动的轨迹/设置关键帧--*/
+        /*@-webkit-keyframes myFirstMove {
+            from {
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+            }
+            to {
+                -webkit-transform: translate(-100px, 100px);
+                transform: translate(-100px, 100px);
+            }
+        }
+
+        @keyframes myFirstMove {
+            from {
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+            }
+            to {
+                -webkit-transform: translate(-100px, 100px);
+                transform: translate(-100px, 100px);
+            }
+        }*/
+
+        /*--第二步:触发动画执行--*/
+        /*.box {
+            -webkit-animation-name: myFirstMove;
+            animation-name: myFirstMove;
+
+            -webkit-animation-duration: .5s;
+            animation-duration: .5s;
+
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+
+            /!*--当前动画运动的次数:infinite代表无限次运动--*!/
+            -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+
+            /!*--animation属于模拟的帧动画,默认情况下动画运动完成会回到第一帧的位置(本质是虽然看到元素在运动,但是元素的位置其实是没有变化的),如果想要让动画运动完成停留在最后一帧的位置,我们需要增加如下的属性--*!/
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }*/
+
+        @-webkit-keyframes myTwoMove {
+            0%, 50%, 100% {
+                -webkit-transform: translateX(0) rotate(0deg);
+                transform: translateX(0) rotate(0deg);
+            }
+            25% {
+                -webkit-transform: translateX(-200px) rotate(-360deg);
+                transform: translateX(-200px) rotate(-360deg);
+            }
+            75% {
+                -webkit-transform: translateX(200px) rotate(360deg);
+                transform: translateX(200px) rotate(360deg);
+            }
+        }
+
+        @keyframes myTwoMove {
+            0%, 50%, 100% {
+                -webkit-transform: translateX(0) rotate(0deg);
+                transform: translateX(0) rotate(0deg);
+            }
+            25% {
+                -webkit-transform: translateX(-200px) rotate(-360deg);
+                transform: translateX(-200px) rotate(-360deg);
+            }
+            75% {
+                -webkit-transform: translateX(200px) rotate(360deg);
+                transform: translateX(200px) rotate(360deg);
+            }
+        }
+
+        .box {
+            border-radius: 50%;
+            -webkit-animation: myTwoMove 2s linear 0s infinite both;
+            animation: myTwoMove 2s linear 0s infinite both;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+
+</body>
+</html>

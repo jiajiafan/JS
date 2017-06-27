@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" ng-model="name">
+<input type="text" ng-model="age"> <br>
+<div ng-bind-template="{{name}}{{age}}"></div>
+{{name}}
+<div ng-non-bindable>{{age}}</div>
+<!--将{{age原封不动的显示出来}}-->
+<div ng-bind="name?name:'zfpx'"></div>
+<script src="angular.js"></script>
+<script>
+    //所有带ng开头的都是angular自带的指令
+    //ng-bind用法等同于{{}} 好处在于不会出现闪烁
+    //如果不是angular中的变量 要用''包起来变成字符串
+    //ng-non-bindable 取消绑定
+        //{{age}}在angular中会被当作数据查找 没有的话就空
+    //ng-bind-template 绑定多组模板。仍然可以解决闪烁问题
+
+
+</script>
+</body>
+</html>

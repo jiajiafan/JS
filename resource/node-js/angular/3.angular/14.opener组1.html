@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .title{
+            width: 200px;
+            height: 30px;
+            line-height:30px;
+            background: -webkit-linear-gradient(pink,yellow);
+            outline: 1px salmon solid;
+        }
+        .content{
+            width: 200px;
+            height:200px;
+            background: yellow;
+            box-shadow: inset 1px 1px 1px #ccc,1px 1px 1px #ccc;
+            -webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 50%,rgba(255,255,255,.3));
+        }
+    </style>
+</head>
+<body>
+<group>
+<open title="这是第一个内容">这是开关里的内容</open>
+<open title="这是第二个内容">这是开关里的内容</open>
+<open title="这是第二个内容">这是开关里的内容</open>
+</group>
+<group>
+    <open title="这是第first个内容">这是开关里的内容</open>
+    <open title="这是第second个内容">这是开关里的内容</open>
+</group>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.directive('group', function () {
+        //让open和group交互，group里面存着open所有的作用域
+        //我们点击open时候，让当前的进行切换，其他的全部隐藏，scope.flag = flase
+        return {
+            restrict:'E',
+            controller: function ($scope) {
+                //收集作用域上的方法
+                var scopeList = [];
+                this.add = function (scope) {
+                    scopeList.push(scope)
+                };
+                this.show = function (scope) {//当前被点击的作用域
+                    //其他人遍历出来全部隐藏
+                    scopeList.forEach(function (item) {
+                        //item代表每一个open的作用域
+                        if(item!=scope)
+                            item.flag = false;
+                    })
+                }
+            }
+        }
+    })
+    app.directive('open', function () {
+        return {
+            restrict:'E',
+            require:'^group',
+            templateUrl:'open.html',
+            transclude:true,
+            scope:{
+                title:'@'
+            },
+            link: function (scope,element,attrs,groupCtrl) {
+                scope.flag = false;
+                scope.show = function () {
+                    scope.flag = !scope.flag;
+                    //在这里要调用groupCtrl的让其他人都隐藏的方法
+                    groupCtrl.show(scope);
+                }
+                //当所有指令一执行的时候，就要将所有的作用域交给group
+                groupCtrl.add(scope);
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

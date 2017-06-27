@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<title>无标题文档</title>
+<style type="text/css">
+#outer{ width:75%; height:200px; margin:0 auto; overflow:hidden; font-size:98px; text-align:center; line-height:200px;}
+#inner{ width:500%; height:200px;transition-duration:1s  }
+/*  inner是五个outer宽，inner里要放五个图片（五个div）  */
+#inner div{ width:20%; height:200px; float:left; background:black; color:white; }
+
+
+</style>
+</head>
+
+<body>
+	<div id="outer">
+    	<div id="inner">
+        	<div>1</div>
+            <div style="background:red;">2</div>
+            <div style="background:deepSkyBlue;">3</div>
+            <div style="background:yellow;">4</div>
+            <div style="background:green;">5</div>
+        </div>
+    
+    </div>
+</body>
+</html>
+<script>
+//移动端的效果多数使用CSS3属性完成，最常用的几个CSS3属性
+//transform:变形
+//transform:translate(Xpx,Ypx);指当前元素向左平移x像素，向上（重直方向）移动Y像素
+//transition-duration:0.5s;变形变换所需的周期0.5秒
+
+
+//touchstart,touchmove,touchend
+var eles=document.querySelectorAll("#inner>div");
+[].forEach.call(eles,function(ele,i){
+	ele.i=i;
+	ele.addEventListener("touchstart",start,false);
+	ele.addEventListener("touchmove",move,false);
+	ele.addEventListener("touchend",end,false);
+});
+
+function start(e){
+	//触点集合对象 changedTouches
+	//e.changedTouches[0].pageX;
+	//拖拽中要保存：盒子的原始坐标、鼠标的原始坐标
+	//当前这个盒子的起始坐标是：-1*(盒子的宽*盒子的索引号)
+	this.x=-this.i*this.offsetWidth;//当前显示的盒子的起始位移（其实不是this的位移，是this.parentNode的位移）
+	this.mx=e.changedTouches[0].pageX;
+}
+
+function move(e){
+	//计算手指滑动时的偏移位置
+	var val=this.x+e.changedTouches[0].pageX-this.mx;
+	this.parentNode.style.transform="translate("+val+"px,0)";
+	
+}
+
+function end(e){
+	//当end的时候，要计算出手势是向左的还是向左的
+	//this.mx;//原来的
+	//e.changedTouches[0].pageX;//这是现在的
+	if(e.changedTouches[0].pageX>this.mx){//向右，索引号越来越小
+		//this.i==4
+		var next=this.i-1;
+		if(next<=0)next=0;
+	}else if(e.changedTouches[0].pageX<this.mx){//向左，索引号越来越大
+		var next=this.i+1;
+		if(next>=eles.length-1)next=eles.length-1;
+	}
+	
+	this.parentNode.style.transform="translate("+-next*this.offsetWidth+"px,0)";
+	
+}
+
+</script>

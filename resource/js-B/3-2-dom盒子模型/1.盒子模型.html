@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        /*css样式一定要记得初始化,防止在每个浏览器里获得值都不一样*/
+        #div1 {
+            height: 100px;
+            background: red;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+在js当中提供了一个方法,凡是css样式都可以计算出来
+标准浏览器 :window.getComputedStyle(ele,null)[attr]
+语法 : window.getComputedStyle(当前的元素,伪类)[属性名]
+ie6-8不支持getComputedStyle这个方法
+ie提供了currentStyle这个方法来获得所有css样式 ele.currentStyle[attr]
+语法 : 当前元素.currentStyle[属性名]
+因此需要封装getCss这个方法,处理兼容问题
+1)try...catch...
+2)通过判断属性是否存在的方式
+3)直接判断是什么浏览器-浏览器的类型和浏览器的版本
+<div id="div1">1111</div>
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById("div1");
+    console.log(window.getComputedStyle(oDiv, null)["paddingTop"])
+    //返回值是一个css样式集 CSSStyleDeclaration --对象,可以通过打点或者[]的方式获得到浏览器支持的所有的css属性的值
+    // console.log(oDiv.currentStyle["width"]);
+    /*
+     * @parameter ele :当前元素
+     * @parameter attr :属性名
+     * @return res : 属性值
+     * */
+    function getCss(ele, attr) {
+        var res = null;
+        try {
+            res = window.getComputedStyle(ele, null)[attr]
+        } catch (e) {
+            res = ele.currentStyle[attr];
+        }
+        return res;
+    }
+    console.log(getCss(oDiv, "opacity"));
+
+    //一个属性是否存在这个对象中,有几种判断方式
+    //window.getComputedStyle
+    //"getComputedStyle" in window
+    /**
+     *
+     * @param ele
+     * @param attr
+     * @returns {*}
+     */
+    function getCss(ele, attr) {
+        //方案一:
+//        var res = null;
+//        if(window.getComputedStyle){//不是window的属性则会返回undefined
+//            res = window.getComputedStyle(ele,null)[attr];
+//        }else{
+//            res = ele.currentStyle[attr];
+//        }
+//        return res;
+        //方案二:
+        res = "getComputedStyle" in window ? window.getComputedStyle(ele, null)[attr] : ele.currentStyle[attr];
+        return res;
+    }
+
+    //"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)"
+
+    //"Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)"
+    function getCss(ele, attr) {
+        var str = window.navigator.userAgent;//获得浏览器类型和版本信息
+        var reg = /MSIE [6-8]\.0/;//匹配是ie6-ie8
+        if(reg.test(str)){
+            return ele.currentStyle[attr];
+        }else{
+            return window.getComputedStyle(ele,null)[attr];
+        }
+    }
+
+
+</script>

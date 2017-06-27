@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+数据类型：
+    基本数据类型：字符串类型string ; 数字类型number;布尔boolean;null;undefined
+    引用数据类型:
+        对象object：[],new Date(); /^\d+$/,{}.... 特点：属性名不重复
+        函数function
+            函数两部分：定义和调用
+            return：1.函数返回值 2.阻断程序执行
+            封装：
+            参数：1.形参 2.arguments
+    基本数据类型和引用数据类型的区别：
+    基本数据类型-操作的是值；
+    引用数据类型-操作的是地址；
+数据类型检测：
+    typeof
+    constructor
+    instanceOf
+    Object.prototype.toString.call();
+数据类型检测：
+    1.其他数据类型转为number数据类型
+        转换的方式：
+        严格转换：Number();
+        非严格转换：parseInt()-整数/parseFloat();-浮点数、小数
+        isNaN():1)首先通过Number()严格转换 2）判断是不是数字类型
+        规律：
+        1.boolean布尔值 true:1; false:0;
+        2.null/undefined null->0; undefined:NaN;
+        3.[]->toString:''->0;
+    2.其他数据类型转为boolean数据类型
+        转换方式：Boolean(); !; !!; if(运算表达式)； if(单独的值)；
+        如果前面有！，一定会首先进行布尔值的转换
+        ![]->false
+        if('13px'*3){//-,*,/ 只有一个功能就是进行数学运算；-》NaN
+            alert(true)
+            }else{
+            alert(false)
+        }
+        if('13px'+3){//+两个作用：1.字符串拼接 2.数学运算
+            alert(true)
+            }else{
+            alert(false)
+        }
+        规律：除了NaN,0,null,undefined,''为false，其他都为true；
+    3.两个值的比较（==,===）==:会隐式类型转换，比较的只是“值”； ===:不仅比较“值”，还要比较“数据类型”
+        1）object==object 他们比较的是地址,地址不同两个对象就不同 []==[]-》false；
+        2) object==string 都转成字符串   []==''-》true；
+        3）object==number 都转成数字   []==0->true;
+        4) object==boolean 都转成数字  []==false-》true ; ![]==false->true;
+        5)string==number   都转成数字 ''==0->true;
+        6)string==boolean  都转成数字  ''==false-》true；
+        7）number==boolean 都转成数字  2==true->false;
+        8)null==undefined->true  null===undefined->false;
+        null和undefined他们和其他任何值比较都不相等
+        9）NaN==NaN NaN跟任何值比较都不相等，包括他自己比较
+<script>
+    //var obj={name:'zhufeng',age:9,age:1}
+    //console.log(obj)
+    //alert(Number(undefined))
+    //alert(10+null)
+   // alert(10+undefined)
+    /*if('13px'*3){//-,*,/ 只有一个功能就是进行数学运算；-》NaN
+        alert(true)
+    }else{
+        alert(false)
+    }*/
+    /*if('13px'+3){//+两个作用：1.字符串拼接 2.数学运算
+        alert(true)
+    }else{
+        alert(false)
+    }*/
+    //alert([]==[])
+    //alert([]=='')
+    //alert(![]==false)
+    //alert(''==0)
+   // alert(''==false)
+    //alert(2==true)
+    //alert(undefined==undefined)
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

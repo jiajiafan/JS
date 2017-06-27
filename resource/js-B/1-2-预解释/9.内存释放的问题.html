@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //只有页面关闭的时候,这两个变量才能被释放掉
+    var obj = {"a":11,"b":22};
+    var num = 12;
+    obj = null;//空引用
+    num = null;
+    //浏览器在空闲的时候,会释放掉变量名是null的这些变量
+
+    //关于函数的释放
+    //1.立即销毁 当方法内部的内容(变量/函数)没有被其他作用域给占有的时候
+    //2.不销毁 - 当方法内部的内容(变量/函数)被其他作用域给占有的时候
+    //3.不立即销毁
+    function fn(){
+        var num = 1;
+      return function(){
+          num++;
+          console.log(num);
+      }
+    }
+
+//    fn()();
+//    fn()();
+
+    var f = fn();//f = function(){num++};
+    f();
+    f();
+
+
+
+
+</script>
+</body>
+</html>

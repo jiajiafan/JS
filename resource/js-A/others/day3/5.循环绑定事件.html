@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #div{
+            width: 600px;
+            margin:20px auto;
+        }
+        input{
+            float: left;
+            width: 150px;
+            height:40px;
+            line-height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <input type="button" value="按钮1" abc="123" id="input1"/>
+    <input type="button" value="按钮2"/>
+    <input type="button" value="按钮3"/>
+    <input type="button" value="按钮4"/>
+</div>
+<script>
+    //点击页面上每个按钮的时候都弹出他对应的索引
+    //思路：自定义属性
+    /*var oInput=document.getElementById('input1');
+    alert(oInput.id)*/
+    var oDiv=document.getElementById('div');
+    var aInput=oDiv.getElementsByTagName('input');
+
+    /*for(var i=0; i<aInput.length; i++){
+        aInput[i].index=i;
+        aInput[i].onclick=function(){
+            alert(this.index)
+        }
+    }*/
+    for(var i=0; i<aInput.length; i++){
+        aInput[i].index=i;
+        aInput[i].onclick=function(){
+           alert(this.index)
+           // alert(this.value)
+        }
+    }
+    for(var i=0; i<aInput.length; i++){
+        (function(index){
+            aInput[index].onclick=function(){
+                //alert(index)
+                alert(this.value)
+            }
+        })(i)
+    }
+    /*for(var i=0; i<aInput.length; i++){
+       // alert()
+        aaa(i);
+    }
+    function aaa(index){
+        aInput[index].onclick=function(){
+            alert(index)
+        }
+    }*/
+    /*function fn1(a){
+        alert(a)
+    }(1)*/
+    function fn1(){
+        arguments.push(3);
+        console.log(arguments)
+    }
+    fn1(1,2)
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+函数的三种角色:
+1.普通函数:当方法运行的时候,形成一个私有的作用域,1.形参赋值 2.预解释 3. 代码从上往下执行
+2.构造函数(类):new+函数名执行,通过这种方式运行的函数就称为是构造函数,构造函数有自己原型对象(prototype),构造函数里通过this.xx = xx 设置的属性都是实例的私有属性,this表示某一个实例 ,hasOwnProperty可以判断是私有的属性还是公有的属性
+3.函数也是对象,只是函数比较特殊,因此单独独立成function类型
+ fn instanceof Object->true  可以像对象一样设置自己属性和值
+这三种角色之间相互独立,没有关系
+所有的函数都是Function类的实例 fn instanceof Function ->true
+所有的对象都是Object类的实例
+<script>
+    function Fn(){};
+    console.log(Fn instanceof  Function);//true
+    console.log(Fn instanceof  Object);//true
+
+    console.dir(Function.prototype);
+    //apply ...call ...bind...toString....
+
+
+
+
+</script>
+</body>
+</html>

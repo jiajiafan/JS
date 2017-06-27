@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script src="js/utils.js"></script>
+<script src="js/move2.js"></script>
+<script>
+    /*//需求：在一定时间内；让物体上的所有运动都完成；
+    function Linear(t,b,c,d){
+        return c*t/d+b;
+    }*/
+    var oDiv = document.getElementById('div');
+    zhufengAnimate(oDiv,{
+        'left':'1000',
+        'top':'400',
+        'opacity':0.1
+    },1000,function(){
+        this.style.background='green';
+    });
+    /*//参数初始值的设置；
+    var time=null;
+    var beginLeft=utils.css(oDiv,'left'),beginTop=utils.css(oDiv,'top');
+    var targetLeft=1000,targetTop=500;
+    var changeLeft=targetLeft-beginLeft,changeTop=targetTop-beginTop;
+    var duration=2000;
+    var timer=setInterval(move,10);//开启一个定时器，进行时间累加
+    function move(){
+        //判断停止条件：当累加的事件>=duration总时间的时候
+        if(time>=duration){
+            //把元素直接设置到目标位置target上；
+            utils.css(oDiv,{
+                'left':targetLeft,
+                'top':targetTop
+            });
+            //停止定时器
+            clearInterval(timer);
+            //同时后面语句不再执行；
+            return;
+        }
+        //每次进行时间的累加
+        time+=10;
+        //通过公式拿到最新的位置；
+        var curPosLeft=Linear(time,beginLeft,changeLeft,duration);
+        var curPosTop=Linear(time,beginTop,changeTop,duration);
+        //设置最新位置；
+        utils.css(oDiv,{
+            'left':curPosLeft,
+            'top':curPosTop
+        })
+    }*/
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

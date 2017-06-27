@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--vm就代表当前控制器的实例-->
+<body ng-controller="myctrl as vm">
+<my mytile ="vm.title"></my>
+<!--相当于声明了一个title = 'hello zfpx'-->
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.controller('myctrl', function () {
+        this.title = 'hello zfpx1';//为了省略$scope
+    });
+    app.directive('my', function () {
+         return {
+             template:'<div>hello {{title}}</div>',
+             scope:{
+                 title:'=mytile' //等号取得是变量，在当前作用域下查找到的变量对应的值
+             },
+         }
+    });
+    /*function myctrl(){
+        this.name = 123;
+    }
+    var vm = new myctrl();
+    vm.name*/
+
+</script>
+</body>
+</html>

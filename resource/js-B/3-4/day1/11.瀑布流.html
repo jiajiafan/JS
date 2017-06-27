@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        #box{
+            width: 80%;
+            margin:0 auto;
+        }
+        #box ul{
+            width: 25%;
+            float: left;
+            margin:1%;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+<script src="../../练习/utils.js"></script>
+<script>
+    //瀑布流思路：1.创建1个元素（背景色和高度都不固定）；2.每次创建50个元素，每次循环，每个元素都往ul最短的里面插入 3.滚轮滑动，判断条件，往页面中添加一堆新的元素；
+    var oBox=document.getElementById('box');
+    var oUl=oBox.getElementsByTagName('ul');
+
+    function rnd(n,m){
+        return Math.round(Math.random()*(m-n)+n)
+    }
+    //1.创建1个元素（背景色和高度都不固定）
+    function creatEle(){
+        var oLi=document.createElement('li');
+        oLi.style.height=rnd(100,400)+'px';
+        oLi.style.background='rgb('+rnd(0,255)+','+rnd(0,255)+','+rnd(0,255)+')';
+        return oLi;
+    }
+    createEle50();
+    //2.每次创建50个元素，每次循环，每个元素都往ul最短的里面插入
+    function createEle50(){
+        for(var i=0; i<50; i++){
+            var oLi=creatEle();
+            var ary=utils.listToArray(oUl);
+            ary.sort(function(a,b){
+                a= a.offsetHeight;
+                b= b.offsetHeight;
+                return a-b;
+            })
+            ary[0].appendChild(oLi);
+        }
+    }
+    //3.滚轮滑动，判断条件，往页面中添加一堆新的元素；
+    window.onresize=window.onscroll=function(){
+        var winBottom=utils.win('scrollTop')+utils.win('clientHeight');
+        if(winBottom>=document.body.scrollHeight-50){
+            createEle50();
+        }
+    }
+console.log(window.navigator.userAgent)
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

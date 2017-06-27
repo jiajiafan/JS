@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+call作用：用来改变this指向；
+-->
+<div id="div"></div>
+<script>
+    var oDiv=document.getElementById('div');
+    function fn(n,m){
+        alert(this+','+(n+m))
+    }
+    //fn(2,1) //window
+    fn.call(document.documentElement,2,1)
+</script>
+</body>
+</html>

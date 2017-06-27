@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+关于fn1.apply()this指向问题：
+1）在非严格模式下：
+fn1(); //this-window;
+fn1.apply(null);//this-winow;
+fn1.apply(undefined);//this-winow;
+fn1.apply();//this-winow;
+2)在严格模式下'use strict':
+fn1(); //this-undefined;(函数前面没有点)
+    //以下严格模式下，apply中this指向传谁，this就是谁，不传-undefined；
+fn1.apply(null);//this-null;
+fn1.apply(undefined);//this-undefined;
+fn1.apply();//this-undefined;
+3）在工作中相对来说，非严格模式用的最多；
+<script>
+    'use strict'
+    function fn1(){
+        alert(this);
+    }
+    //fn1(); //this-window;
+    //fn1.apply(null);//this-winow;
+    //fn1.apply(undefined);//this-winow;
+    //fn1.apply();//this-winow;
+    fn1(); //this-undefined;
+    fn1.apply(null);//this-null;
+    fn1.apply(undefined);//this-undefined;
+    fn1.apply();//this-undefined;
+</script>
+</body>
+</html>

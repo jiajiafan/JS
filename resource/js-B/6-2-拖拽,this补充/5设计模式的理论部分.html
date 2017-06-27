@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+鼠标点了一下（这是个行为，并且是个客观存在的行为,function） 它可以通过某种方式（某种途径）  和另一个行为（function）  协作
+
+当鼠标点在某个按钮上的时候------动画执行了
+在鼠标点击的动作和动画这间要有一个连接的途径
+btn.onclick=animate;
+btn.addEventListener("click",animate,false);
+
+animate是随着 鼠标点击动作发生而发生的
+有一个主动的行为，附属的行为
+
+可以把世界任何一件事看成事件，或叫发布成事件，其实所谓的事件，就是“一件事”，可以约定的一件事
+
+完成“事件”模式所需要几个要素
+1、主行为：click,mousedown,mousemove,mouseup（让主行为具备以下的功能）
+2、这个主行为的标识符，就是代表这个行为的字符串:"click"-->硬件的鼠标点一下的这个动作
+3、通过这个标识符（字符串）约定这个主行为的方法。（这个方法在脱离主行为方法之上的第三方的方法。）
+btn.addEventListener这个方法，或我们自己写的on方法
+比如：在btn.addEventListener("click",animate,false);这句表达式中
+animate通过“click”这个标识符字符，用addEventListener这个方法，约定了鼠标点了一下的这个硬件行为
+4、当主行为发生的时候（或理解为主function执行的时候），有一个方法“通知”已经用第3点中约定方法  已经约好的那些  辅行为 来执行
+
+---------- 通过一个具体事例来演示一下------------------
+王延召结婚这件事
+
+主行为：王延召.marry=function(){
+
+	/*此处省略50万行代码*/
+    run.call(this,"marry");//发布事件，也叫通知
+    //思考：我们是怎么知道绑定点击事件的事件类型的字符串叫“click”的呢？也就是说为什么我们在绑定点击事件的时候，要用"click"这个事件类型（或者说：为什么要使用"click"这个字符串？换别的不行吗？"click"这个字符串在那儿规定的？）
+
+}
+
+要用"marry"来表示王延召.marry这个行为，也就是说"marry"是事件类型
+
+王延召.addEventListener("abcd",习近平.drink,false);
+王延召.addEventListener("marry",obama.drink,false);
+王延召.addEventListener("marry",jianjian.drink,false);
+以下省略50万人
+
+500年后。。。。。。
+王延召.marry();
+
+//只要marry方法执行，则原来通过addEventListener方法约定的那些drink，都会随之执行。为什么能执行呢？因为在marry的时候，要有一个“通知”的功能--run，fire
+
+
+我们现在的重点是：如果实现约定的方法，addEventListener和run方法是怎么实现并且什么时候执行的
+
+约定的方法代码大体实现如下：
+（方法名比如叫addEventListener或on）
+此记事本只记录marry相关事宜
+
+{
+	ele["marry"]=[];
+    
+	ele["marry"].push(xx.drink);
+    ele["marry"].push(xx.drink);
+    ele["marry"].push(xx.drink);
+    ele["marry"].push(xx.drink);
+
+}
+
+通知的方法怎么写：就是去对应的数组里遍历执行已经保存好的那些方法（按顺序执行已经约定好的方法）
+function run(type){
+	var a=this["marry"]
+    
+    for(var i=0;i<a.length;i++){
+    	a[i]();
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

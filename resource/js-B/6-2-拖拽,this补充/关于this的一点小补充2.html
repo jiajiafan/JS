@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>
+<script>
+//请思考以下方法的运行中，this分别是什么？
+var a=["a","b","c",function(){alert(this)}];
+a[3]();//方括号是点的另一种表现形式，等同于点。但有些情况下我们无法用点来表示对象的属性，只能用方括号，比如数组或数字属性，但它等同于用点来调用
+
+var obj={attr1:"a",attr2:"b",attr3:function(){alert(this)}}
+obj.attr3();//和下面的是不是等同
+obj["attr3"]();
+var obj2={1:"a",2:"b",3:function(){alert(this)}}
+obj2[3]();//这种情况下无法用打点的方法来表达3这个属性，但等同于用打点的方法来表达
+</script>

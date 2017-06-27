@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>复习事件</title>
+<style type="text/css">
+#div1{ height:200px; background:red;}
+</style>
+</head>
+
+<body>
+<div id="div1">逗你玩</div>
+</body>
+</html>
+<script>
+	//bind,unbind,on,run,off
+	/*
+		on，run，off这个方案解决的是执行顺序问题的
+		on方法负责创建一个数组（程序池、事件池），把原来直接绑定到事件的方法，保存在这此数组，这样就自然达到按顺序保存的目标。
+		真正绑定在此事件的方法是run方法。当事件触发的时候，运行run方法
+		run方法的功能：找到和此事件类型相对应的那个数组，遍历执行数组里的方法
+	用最精简的话来描述on和run的功能：on就是负责有序保存方法，run负责有序的执行这些方法
+	还要有一步：还要能够当系统的事件触发的时候，run可以执行。这就要求：浏览器的事件上，真正要绑定的是run方法。也就是说在IE里需要有一句事件绑定的表达式：ele.attachEvent("on"+type,run);
+	*/
+function on(ele,type,fn){
+	if(!ele["aEvent"+type]){
+		//"aEvent"是一个字符前缀，加一个前缀的原因是让此属性名变的更长，目地防止自定义属性和系统属性冲突。
+		//比如说不加"aEvent"，这个数组就被定义成ele.click了,则和系统原有的属性冲突了，本次定义就会失败。
+	
+		//后边的type是这个数组区别符，目的是了以事件类型为保存方法的分类
+		ele["aEvent"+type]=[];//核心代码一：首先要创建一个数组
+		ele.attachEvent("on"+type,function(){run.call(ele)});//无论on方法在相同的元素的同一个事件上，执行多少次，run只能被绑定一次（其实就是只能是第一次绑定有效）
+	}
+	
+	//首先要做避免fn被重复保存（被重复绑定）的判断
+		for(var i=0;i<ele["aEvent"+type].length;i++){
+			if(ele["aEvent"+type][i]==fn)return;	
+		}
+	
+	ele["aEvent"+type].push(fn);//核心代码二：把方法保存在数组里
+	//bind(ele,type,run);//它是解决this的指向问题的
+	//ele.attachEvent("on"+type,function(){run.call(ele)});//无论on方法在相同的元素的同一个事件上，执行多少次，run只能被绑定一次（其实就是只能是第一次绑定有效）
+	
+}
+function fn1(){alert(this.innerHTML+":1")}
+function fn2(){alert(this.innerHTML+":2")}
+
+var flag=1;
+function fn3(){
+	flag++;
+	if(flag==3){
+		off(this,"click",fn1);
+		off(this,"click",fn2);
+		/*
+		[fn1,fn2,fn3,fn4];
+		
+		[fn1,fn2,fn3,fn4]
+		当第二次执行，执行到fn3的时候,i==2,把fn1,fn2删除了
+		[fn3,fn4];
+		接下来i再累加，i==3,则现在length是2,循环结束了，则fn4没有执行的机会
+		
+		
+		
+		*/
+	}
+	alert(this.innerHTML+":3")}
+function fn4(e){
+	//var e=window.event;//在run方法里，给事件对象e上定义了一个属性叫pageX,
+	//在不同的方法里，那怕是由同一个事件触发的方法，它们的window.event事件对象不通用。
+	//应该注意的：如果在run里已经解决了事件对象兼容性问题了，就会run里传过来的那个事件对象，在fn4里就不要再使用window.event了
+	alert(e.pageX);
+	}
+var ele=document.getElementById("div1");
+on(ele,"click",fn1);
+on(ele,"click",fn2);
+
+
+on(ele,"click",fn3);
+on(ele,"click",fn4);
+
+function run(){
+	var e=window.event;
+	var type=e.type;
+	var a=this["aEvent"+type];//1、把原来在on方法里保存好的数组找到
+	
+	/*
+		解决IE中其它更多的兼容性问题
+		不支持一系列的方法
+		IE中事件对象不是通过系统自动传一个事件对象的方式得到的
+		ele.onclick=fn1;
+		window.event;
+	
+	*/
+	if(!e.target){
+		e.target=e.srcElement;
+		e.preventDefault=function(){e.returnValue=false;}
+		e.stopPropagation=function(){e.cancelBubble=true;};
+		//以我们的努力程度之低，还轮不到拼天赋
+		e.pageX=(document.documentElement.scrollLeft||document.body.scrollLeft)+e.clientX;
+		e.pageY=(document.documentElement.scrollTop||document.body.scrollTop)+e.clientY;
+	}
+	if(a){
+		for(var i=0;i<a.length;i++){
+			if(typeof a[i]=="function"){//在确保执行之前，先要确定数组项是方法
+				//a[i]();	//2、遍历数组并执行保存在数组里的方法
+				//数组里的方法是绑定在事件上的方法，那应该遵循一个原则：这些方法执行的时候，this关键字应该指定当前绑定这些方法的元素
+				//也就是说要确保a[i]在执行的时候，要指向这个元素
+				a[i].call(this,e);
+				//a[3].call(this,e);
+			}else{
+				a.splice(i,1);
+				
+				i--;	
+			}
+		}		
+	}
+	
+}
+
+function off(ele,type,fn){
+	var a=ele["aEvent"+type];
+	if(a){//在没有绑定方法的情况下（就是on没执行），我们也是可以执行off方法的，所以这里要做一下判断，以免出现意外
+		for(var i=0;i<a.length;i++){
+			if(a[i]==fn){
+				//a.splice(i,1);
+				a[i]=null;
+				//i--;
+				return;	
+			}
+		}
+	}
+	
+}
+
+
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 200px;
+            height:200px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var oDiv1=document.createElement('div');
+    oDiv1.id='div1';
+    oDiv1.className='box';
+    oDiv1.style.background='red';
+    document.body.appendChild(oDiv1);
+
+    var oDiv2=document.createElement('div');
+    //oDiv2.id='div2';
+    oDiv2.setAttribute('id','div2');
+    oDiv2.className='box';
+    oDiv2.style.background='yellow';
+    document.body.insertBefore(oDiv2,oDiv1);
+
+    var oDiv3=oDiv2.cloneNode();
+    oDiv3.removeAttribute('id');
+    document.body.insertBefore(oDiv3,oDiv2);
+    oDiv3.onclick=function(){
+        document.body.removeChild(oDiv3);
+    }
+</script>
+</body>
+</html>

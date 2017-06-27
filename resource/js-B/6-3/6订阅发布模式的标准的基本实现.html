@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>
+<script>
+
+//烧水的故事 
+//烧水（一小时）-->泡方便面--洗澡---喝水
+//扫地--看会书--打电话
+//充电（一晚上）
+//非阻塞异步编程
+//三个进程--->异步的
+
+//餐馆的服务员和JS编程机制特别像
+//服务员1名，cooker 9名
+
+//nodeJS---高并发---
+//1请求打开某文件--接到请求--去读文件（300ms）--把文件写回到浏览器中 --大约400
+//下一个400ms处理第二个请求
+//
+
+function EventEmitter(){};//在浏览器的名称叫EventTarget，在nodeJS中，也是叫这个名字
+EventEmitter.prototype.on=function(type,fn){
+	if(!this["aEmitter"+type]){
+		this["aEmitter"+type]=[];	
+	}
+	var a=this["aEmitter"+type];
+	for(var i=0;i<a.length;i++){
+		if(a[i]==fn)return;	
+	}
+	a.push(fn);
+}
+EventEmitter.prototype.run=function(e){
+	var a=this["aEmitter"+e.type];
+	if(a){
+		for(var i=0;i<a.length;i++){
+			if(typeof a[i]=="function"){
+				a[i].call(this,e);	
+			}else{
+				a.splice(i,1);	
+				i--;
+			}
+		}
+	}
+	
+}
+EventEmitter.prototype.off=function(type,fn){
+	var a=this["aEmitter"+type];
+	if(a){
+		for(var i=0;i<a.length;i++){
+			if(a[i]==fn){
+				a[i]=null;
+				return;	
+			}
+		}
+			
+	}
+}
+
+
+function Kettle(){};
+//如果让Kettle具备on,run,off这三个功能，则让Kettle类继承EventEmitter类
+Kettle.prototype=new EventEmitter;//会破坏原有的原型引用
+Kettle.prototype.boiling=function(){
+	console.log("水放到火上开始烧了！");
+	var that=this;
+	setTimeout(function(){
+		console.log("水开啦");
+		//主行为完成，“通知”应该在这儿完成
+		that.run({type:"boiling",message:"水烧开啦！"});
+	},5000);
+}
+
+	//Kettle.prototype=new EventEmitter;//会破坏原有的原型引用
+	//Kettle.prototype.__proto__=EventEmitter.prototype;//以后在node中的继承多数采用这种，这种更安全一点（不会破坏Kettle类上原有的prototype）。但IE不支持
+var obj=new Kettle;
+obj.on("boiling",noodles);
+obj.on("boiling",drink);
+obj.on("boiling",shower);
+//ele.addEventListener("click",fn,false);
+obj.boiling();
+obj.on
+obj.run
+obj.off;
+
+
+function noodles(e){
+	console.log("开水泡面条"+"当前的事件信息是："+e.message);	
+}
+
+function drink(){
+	console.log("喝点开水");	
+}
+
+function shower(){
+	console.log("冲个澡");
+}
+
+//当水开的时候，当boiling方法执行完毕的时候，去执行下边的三个方法
+
+
+
+</script>

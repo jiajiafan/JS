@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            margin:30px auto;
+            width:200px;
+            height: 200px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+            background: lightblue;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+        }
+    </style>
+</head>
+<body>
+<!--
+点击自增效果：总共4种思想，5种方法来实现:
+1.全局变量不释放实现；-弊端：公司禁止大家都在全局变量来操作；
+2.闭包：函数执行完时，里面的返回值被外面的变量占用，所以不销毁；-不建议
+3.Dom取值，改值，再重新赋值 - 不建议：DOM的操作非常昂贵；
+4.通过自定义属性的思想实现-最推荐；
+-->
+<div id="div">0</div>
+<script>
+    //需求：点击自增；
+    var oDiv=document.getElementById('div');
+    /*
+    1.全局变量不释放实现；-弊端：公司禁止大家都在全局变量来操作；
+    var i=0;
+    oDiv.onclick=function(){
+        i++;
+        this.innerHTML=i;
+    }*/
+    //2.闭包：函数执行完时，里面的返回值被外面的变量占用，所以不销毁；-不建议
+    /*oDiv.onclick=(function(){
+        var i=0;
+        return function(){
+            this.innerHTML=++i;
+        }
+    })();*/
+    /*(function(){
+        var i=0;
+        oDiv.onclick=function(){
+            this.innerHTML=++i;
+        }
+    })();*/
+    /*3.Dom取值，改值，再重新赋值 - 不建议：DOM的操作非常昂贵；
+    oDiv.onclick=function(){
+        //this.innerHTML=this.innerHTML+1; 字符串拼接
+        this.innerHTML++;
+    }*/
+    //4.通过自定义属性的思想实现-最推荐；
+    oDiv.num=0;
+    oDiv.onclick=function(){
+        this.innerHTML=++this.num;
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

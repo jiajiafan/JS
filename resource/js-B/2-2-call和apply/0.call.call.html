@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function fn1(){
+        console.log(1);
+    }
+    function fn2(){
+        console.log(2);
+    }
+    fn1.call.call.call(fn2)
+    var zhufeng = fn1.call.call  //fn1.__proto__.call ->Function.prototype.call
+    zhufeng.call(fn2);
+    //最后一个call运行的时候,首先让zhufeng里this变成fn2 ,然后让zhufeng运行
+
+    //zhufeng运行 -->Function.prototype.call运行
+    Function.prototype.call =function(){
+        //this ->"."前面的那个方法
+        //this ->fn2
+
+        //1.让"."前面的方法里的this关键字变成第一个参数
+        //2.让"."前面的方法运行 ->this()->fn2();
+    }
+
+
+
+</script>
+</body>
+</html>

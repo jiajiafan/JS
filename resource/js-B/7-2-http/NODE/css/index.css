@@ -1,0 +1,17 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    background: orange;
+    cursor: pointer;
+    border-radius: 0;
+
+    -webkit-transition: all 1s linear 0s;
+    transition: all 1s linear 0s;
+}

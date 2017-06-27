@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+创建一个对象三步骤：
+1.开辟一个空间地址；
+2.把属性和属性值放在这个空间中（堆内存）；
+3.把这个空间地址赋值给变量名
+所以，在赋值之前我们拿不到变量名对应的堆内存地址，即：自执行函数时，拿不到obj.num;
+<script>
+    var num = 10;
+    var obj = {
+        num: 20,
+        fn: (function (num) {
+            this.num *= 2;
+            num += 10;
+            return function () {
+                this.num *= 3;
+                num += 1;
+                console.log(num);
+            }
+        })(window.num)
+    };
+    var fn = obj.fn;
+    fn();
+    obj.fn();
+    console.log(window.num, obj.num);
+</script>
+</body>
+</html>

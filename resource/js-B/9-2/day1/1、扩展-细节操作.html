@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        input {
+            display: block;
+        }
+
+        .box {
+            position: relative;
+            margin: 10px;
+        }
+
+        #userEmail {
+            padding: 0 5px 0 35px;
+            height: 28px;
+            line-height: 28px;
+            border: 1px solid #ccc;
+        }
+
+        /*--HTML中的INPUT设置了新的特殊类型(email、tel、number...)我们可以在CSS中完成验证格式操作--*/
+        #userEmail:valid {
+            /*输入的格式正确*/
+            background: #98E0E6;
+        }
+
+        #userEmail:invalid {
+            /*输入的格式错误*/
+            background: #ff4340;
+        }
+
+        #userEmailIcon {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 28px;
+            height: 28px;
+            background: lightblue;
+        }
+
+        #userEmailTip {
+            display: block;
+            margin: 10px 0 0 30px;
+            padding-left: 5px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px dashed green;
+            color: green;
+        }
+
+        #userEmailTip.error {
+            border: 1px dashed red;
+            color: red;
+        }
+
+        #userAge {
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        #rangeAge {
+            margin-top: 10px;
+        }
+
+        #colorBg {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <input type="email" id="userEmail" placeholder="请输入您常用的邮箱！"/>
+    <span id="userEmailIcon"></span>
+    <span id="userEmailTip" class=""></span>
+</div>
+<div class="box">
+    <input type="number" id="userAge" disabled value="25"/>
+    <input type="range" id="rangeAge" max="65" min="18" step="1" value="25"/>
+</div>
+<input type="color" id="colorBg"/>
+
+
+<script type="text/javascript">
+    var userAge = document.getElementById("userAge"),
+            rangeAge = document.getElementById("rangeAge");
+    rangeAge.addEventListener("input", function () {
+        userAge.value = this.value;
+    }, false);
+
+    var colorBg = document.querySelector("#colorBg");
+    colorBg.value="#ffffff";
+    colorBg.addEventListener("input", function () {
+        console.log(this.value);
+        document.body.style.backgroundColor = this.value;
+    }, false);
+</script>
+
+<script type="text/javascript">
+    //->移动端设备上不存在物理键盘,所使用都是虚拟的键盘,所以移动端大部分手机都没有keyup/keydown事件行为,我们需要使用input事件行为代替他们...
+    var userEmail = document.getElementById("userEmail"),
+            userEmailTip = document.getElementById("userEmailTip");
+    userEmail.addEventListener("input", function () {
+        var val = this.value.trim();//->去除字符串首尾空格
+        //->HTML5为表单元素新提供的方法:this.checkValidity() ->如果当前的INPUT设定了特殊的类型，例如:email、number...那么浏览器天生自带验证机制，执行这个方法返回true说明格式是正确的反之是错误的
+        if (this.checkValidity()) {
+            userEmailTip.innerHTML = "输入正确";
+            userEmailTip.className = "";
+        } else {
+            userEmailTip.innerHTML = "输入错误";
+            userEmailTip.className = "error";
+        }
+    }, false);
+
+    //[使用正则的传统验证方式]
+    //    userEmail.addEventListener("input", function () {
+    //        var val = this.value.trim();//->去除字符串首尾空格
+    //        var reg = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+    //        if (reg.test(val)) {
+    //            userEmailTip.innerHTML = "输入正确";
+    //            userEmailTip.className = "";
+    //        } else {
+    //            userEmailTip.innerHTML = "输入错误";
+    //            userEmailTip.className = "error";
+    //        }
+    //    }, false);
+</script>
+</body>
+</html>

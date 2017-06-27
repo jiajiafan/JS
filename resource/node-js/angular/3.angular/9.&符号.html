@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-controller="ctrl">
+<my add="add(person,personage)" name="{{name}}" age="age"></my>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.controller('ctrl', function ($scope) {
+         $scope.add = function (who,age) {
+             alert(who+age)
+         };
+         $scope.name = 'zfpx';
+        $scope.age =8
+    });
+    app.directive('my', function () {
+        return {
+            scope:{
+                add:'&',
+                name:'@',
+                myage:'=age'
+            },
+            //当前ng-click引用的是控制器上的方法
+            //传递参数时，要通过对象传递 键代表的是名字
+            template:'{{name}}{{myage}}<div ng-click="add({person:name,personage:myage})">angular MM</div>'
+        }
+    })
+
+
+</script>
+</body>
+</html>

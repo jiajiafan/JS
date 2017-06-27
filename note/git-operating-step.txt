@@ -1,0 +1,81 @@
+首先配置信息
+git config —-global user.name jiajiafan  
+git config —-global user.email 623254517@qq.com
+
+查看配置信息
+git config —-global user.name  查看配置用户
+git config —-global user.email 查看配置邮箱
+git config —-list/git config -l 查看全局配置
+
+查看目录
+ls
+
+查看路径
+pwd index.txt
+
+进入文件
+cd frist1
+
+初始化本地仓库，
+git init
+
+新建文件
+touch index.txt
+
+新建文件夹
+mkdir ajia
+
+往文件中添加内容
+echo hello > index.txt
+
+再次向文件中添加内容
+echo world >> index.txt
+
+查看文件中的内容
+cat index.txt
+
+查看git状态
+git status
+
+添加内容到缓存区
+git add index.txt
+
+从缓存区中把内容拉回来
+git rm ——cached 文件的名字
+git checkout index.txt
+
+提交内容到仓库
+git commit -m “注释”
+
+查看commit过的内容
+git log
+git log —online 显示成一行
+
+跟远程仓库建立联系
+git remote add origin http://�.(地址)
+
+解除与远程仓库的关联
+git remote rm origin
+
+查看关联的远程地址
+git remote -v
+
+第一次提交
+git push -u origin master
+-u(u—upstream) 把本地的主分支(master)和远程的主分支(master)关联起来 (-u只需要第一次写,下一次就不需要写了)直接 git push origin master就可以了
+
+从git上往下拉文件
+git pull origin master
+
+处理冲突
+去掉所有<<<<<<<<<<=======>>>>>>>保留正确代码
+再进行提交
+git add . git commit git push origin master
+
+创建忽略文件
+touch.gitgnore
+
+
+
+
+

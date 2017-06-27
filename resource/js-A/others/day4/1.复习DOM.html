@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height:300px;
+            padding:20px;
+            border: 1px solid #333;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<!--
+DOM获取元素方法：
+1.document.getElementByID
+2.context.getElementsByTagName('标签名')//-组元素
+3.context.getElementsByName('name名')//主用于表单元素的获取
+4.context.getElementsByClassName('class名')
+5.document.documentElement 整个HTML
+6.document.body整个body
+7.document.querySelector()通过选择器获得一个元素,只能获得第一个
+8.document.querySelectorAll();通过选择器获得一组元素
+-->
+<div id="div"></div>
+<script>
+    //需求：用JS让div在页面中垂直居中
+    //思路：（可视区的宽-div的宽）/2
+    var oDiv=document.getElementById('div');
+    var clientWidth=document.documentElement.clientWidth||document.body.clientWidth;
+    var clientHeight=document.documentElement.clientHeight||document.body.clientHeight;
+    var l=(clientWidth-342)/2;
+    var t=(clientHeight-342)/2;
+    oDiv.style.left=l+'px';
+    oDiv.style.top=t+'px';
+
+</script>
+</body>
+</html>

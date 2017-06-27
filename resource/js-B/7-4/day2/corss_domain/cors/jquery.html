@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+        $.ajax({
+            url: 'http://localhost:12345/cors',
+            data: {a: 1, b: 2},
+            dataType: 'text',// 和ajax的一样
+            crossDomain: true,// 表示该请求为跨域资源共享
+            success: function (data) {
+                console.log(data)
+            },
+            method: 'post'
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

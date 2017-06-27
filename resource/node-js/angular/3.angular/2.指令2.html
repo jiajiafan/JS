@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-controller="ctrl">
+<my-directive></my-directive>
+<div>Hello angular {{name}}</div>
+<script src="angular.js"></script>
+<script>
+    var app = angular.module('appModule',[]);
+    app.controller('ctrl',['$scope', function ($scope) {
+        $scope.name = 'zfpx'
+    }]);
+    app.directive('myDirective', function () {
+        return {
+            restrict:'E',
+            template:'<div>Hello angular {{name}}</div>',//指定的模板
+            replace:true,
+            link: function (scope,element,attrs) {
+                //scope.name = 'zfpx1';//给当前指令所在作用域设置值
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

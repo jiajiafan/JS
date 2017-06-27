@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1"></div>
+<script>
+    //页面在加载时，会首先干掉不是系统里规定的元素属性；只有一次
+    var oDiv=document.getElementById('div1');
+    //自定义属性：给一个元素上添加一个属性并给他赋值
+    oDiv.peng='11111';
+    oDiv.lining='3333';
+    alert(oDiv.peng)
+    alert(oDiv.lining)
+</script>
+</body>
+</html>

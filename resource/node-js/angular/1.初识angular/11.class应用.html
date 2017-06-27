@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+</head>
+<body>
+<ul class="nav nav-tabs" ng-init="name='profile'">
+    <li role="presentation" ng-class="{active:'home'==name}"><a href="#">Home</a></li>
+    <li role="presentation" ng-class="{active:'profile'==name}"><a href="#">Profile</a></li>
+    <li role="presentation"><a href="#">Messages</a></li>
+</ul>
+<script src="angular.js"></script>
+<script>
+    //默认的是home 点击哪个 对应的li上就有active样式
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+@charset "utf-8";
+html, body {
+    width: 100%;
+    background: #f7f7f7;
+    overflow-x: hidden;
+}
+
+a, a:active, a:hover, a:target, a:visited {
+    display: block;
+    color: #000;
+}
+
+html {
+    font-size: 100px;
+}
+
+/*--header start--*/
+.header {
+    height: .44rem;
+    background: #1c90f2;
+}
+
+.header > h1, .header > h2, .header > a {
+    float: left;
+    height: 100%;
+    line-height: .44rem;
+}
+
+.header > h1 > a, .header > h2 > a {
+    font-size: .16rem;
+    color: #fff;
+    font-weight: normal;
+}
+
+.header > h1 {
+    width: 1.18rem;
+    border-right: .01rem solid #61b2f6;
+}
+
+.header > h1 > a {
+    padding-left: .35rem;
+    background: url("../img/icon-logo.png") no-repeat .05rem center;
+    background-size: .24rem .24rem;
+    border-right: 0.01rem solid #066dc4;
+}
+
+.header > h2 {
+    padding: 0 .1rem;
+}
+
+.header > a {
+    float: right;
+    width: .44rem;
+    background: url("../img/btn-nav-fold.png") no-repeat center center;
+    background-size: 50% 50%;
+}
+
+/*--nav start--*/
+.nav {
+    display: none;
+    padding: .05rem 0;
+    border-bottom: .01rem solid #ddd;
+}
+
+.nav.move {
+    -webkit-animation: navMove .2s linear 0s 1 both;
+    animation: navMove .2s linear 0s 1 both;
+}
+
+.nav.move2 {
+    -webkit-animation: navMove2 .2s linear 0s 1 both;
+    animation: navMove2 .2s linear 0s 1 both;
+}
+
+@-webkit-keyframes navMove {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes navMove {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes navMove2 {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes navMove2 {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.nav li {
+    float: left;
+    width: 16%;
+    height: .37rem;
+    line-height: .37rem;
+    text-align: center;
+}
+
+.nav li a {
+    font-size: .15rem;
+}
+
+.nav li:nth-child(6n+1) {
+    margin-left: 2%;
+}
+
+.nav li.navBtn {
+    position: relative;
+}
+
+.nav li.navBtn i {
+    position: absolute;
+    top: .11rem;
+    right: 0;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    border: .05rem solid transparent;
+    border-bottom-color: #000;
+}
+
+.nav li.hide i {
+    top: .16rem;
+    border-bottom-color: transparent;
+    border-top-color: #000;
+}
+
+/*--video start--*/
+.video {
+    height: 1.8rem;
+    background: #000;
+}
+
+.video video {
+    width: 100%;
+    height: 100%;
+}
+
+/*--support start--*/
+/*
+  传统的盒子模型(content-box):容器的宽度=BORDER+PADDING+WIDTH(内容宽度)
+  CSS3新盒子模型(border-box):容器的宽度=WIDTH 不管给当前容器的BORDER/PADDING设置多少容器的宽度始终是我们设定的WIDTH,只是默认的会把内容区域的宽度调整
+*/
+.support {
+    padding: .15rem;
+    height: .62rem;
+    background: #fff;
+}
+
+.teamInfo {
+    height: .3rem;
+}
+
+.teamInfo > * {
+    float: left;
+    width: 34%;
+    height: 100%;
+    line-height: .3rem;
+    text-align: center;
+}
+
+.teamInfo > span {
+    width: 32%;
+    color: #999;
+}
+
+.teamInfo > .home, .teamInfo > .away {
+    position: relative;
+    color: #333;
+    font-size: 20px;
+}
+
+.teamInfo > .home {
+    text-align: left;
+}
+
+.teamInfo > .home span {
+    display: inline-block;
+    margin-left: .35rem;
+}
+
+.teamInfo > .away {
+    text-align: right;
+}
+
+.teamInfo > .away span {
+    display: inline-block;
+    margin-right: .35rem;
+}
+
+.teamInfo img {
+    position: absolute;
+    top: 0;
+    width: .32rem;
+    height: 100%;
+}
+
+.teamInfo > .home img {
+    left: 0;
+}
+
+.teamInfo > .away img {
+    right: 0;
+}
+
+.count {
+    position: relative;
+    margin: .05rem 0;
+    height: .02rem;
+    background: #1c90f2;
+}
+
+.count span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #f82d2d;
+
+    -webkit-transition: all .3s ease-in-out 0s;
+    transition: all .3s ease-in-out 0s;
+}
+
+.sup {
+    height: .2rem;
+}
+
+.sup > span {
+    float: left;
+    width: 34%;
+    height: 100%;
+    line-height: .2rem;
+    text-align: center;
+    color: #999;
+}
+
+.sup > span:nth-child(2) {
+    width: 32%;
+}
+
+.sup > span:first-child {
+    background: url("../img/support-left.png") no-repeat left center;
+    background-size: .15rem .15rem;
+}
+
+.sup > span:last-child {
+    background: url("../img/support-right.png") no-repeat right center;
+    background-size: .15rem .15rem;
+}
+
+.sup > span:first-child.bg {
+    background: url("../img/support-red.png") no-repeat left center;
+    background-size: .15rem .15rem;
+    color: #f82d2d;
+}
+
+.sup > span:last-child.bg {
+    background: url("../img/support-blue.png") no-repeat right center;
+    background-size: .15rem .15rem;
+    color: #1c90f2;
+}
+
+

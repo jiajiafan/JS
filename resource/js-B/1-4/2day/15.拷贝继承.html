@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+继承：子类继承父类的属性和方法；
+call继承：实现私有属性和私有方法的继承；
+拷贝继承：for in 循环实现；
+-->
+<script>
+    function extend(b,a){
+        for(var key in a){
+            b[key]=a[key];
+        }
+    }
+    function Person(name,age){ //父类
+        this.name=name;
+        this.age=age;
+    }
+    Person.prototype.showName=function(){
+        alert('我的名字是'+this.name)
+    }
+    Person.prototype.showAge=function(){
+        alert('我的年龄是'+this.age)
+    }
+    var p1=new Person('大哥',16);
+    /*p1.showName();
+    p1.showAge();*/
+    console.dir(p1);
+
+    function Worker(name,age,job){//子类
+        Person.call(this,name,age);
+        this.job=job;
+    }
+    //Worker.prototype=Person.prototype;
+    extend(Worker.prototype,Person.prototype)
+    Worker.prototype.showWork=function(){
+        alert('我的工作是'+this.job)
+    }
+    var work1=new Worker('张镇',20,'前端工程师');
+    console.dir(work1)
+</script>
+</body>
+</html>

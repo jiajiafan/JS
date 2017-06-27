@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.处理数字的方法toFixed(2)；参数传几，就保留几位小数；
+toFixed(2)：四舍五入保留固定位数的小数；
+<script>
+    //var ary=[9.8,9.7,6,1,8.8,6.6];
+     // var ary1=avg(9.8,9.7,6,1,8.8,6.6);
+    //alert(Array.prototype.sort==[].sort)
+    /*function avg(){
+        /!*var ary=[];
+        for(var i=0; i<arguments.length; i++){
+            //ary.push(arguments[i]);
+            ary[ary.length]=arguments[i];
+        }*!/
+        var ary=Array.prototype.slice.call(arguments);
+        //2.排序
+        ary.sort(function(n1,n2){
+            return n1-n2;
+        })
+        ary.shift();
+        ary.pop();
+        //3.计算
+        return (eval(ary.join('+'))/ary.length).toFixed(2);
+    }
+    alert(ary1)*/
+    var ary1=avg(9.8,9.7,6,1,8.8,6.6);
+    function avg(){
+        //1.类数组转数组,用数组sort方法；
+        [].sort.call(arguments,function(a,b){
+            return a-b;
+        });
+        console.log(arguments);
+        //2.类数组转数组,用数组shift方法；
+        [].shift.call(arguments);
+        [].pop.call(arguments);
+        return (eval([].join.call(arguments,'+'))/arguments.length).toFixed(2);
+    }
+    alert(ary1)
+</script>
+</body>
+</html>

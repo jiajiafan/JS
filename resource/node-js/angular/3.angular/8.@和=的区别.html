@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-controller="ctrl">
+<input type="text" ng-model="name">
+<input type="text" ng-model="age">
+<my innername="{{name}}" innerage="age"></my>
+<script src="angular.js"></script>
+<script>
+    //@符是不支持双向数据绑定 取到的只是字符串
+    //=支持双向数据绑定，引用的是当前作用域下对应的变量
+    var app = angular.module('appModule',[]);
+    app.controller('ctrl', function ($scope) {
+        $scope.name = 'zfpx';
+        $scope.age = 8;
+    });
+    app.directive('my', function () {
+        return {
+            template:'<div>内部的input<input type="text" ng-model="innername" ><input type="text" ng-model="innerage"></div>', //绑定的innername 如果更改了不会改变外层的值
+            scope:{
+                innername:'@',//绑定的是字符串
+                innerage:'=',//绑定的是同一个变量
+            }
+        }
+    })
+
+
+</script>
+</body>
+</html>

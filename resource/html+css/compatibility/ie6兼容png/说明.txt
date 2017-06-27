@@ -1,0 +1,9 @@
+<!--[if IE 6]>
+		<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+		<script type="text/javascript" src="js/ie6Fixpng.js"></script>
+<![endif]-->
+
+
+
+
+将这段代码放置在head标签中

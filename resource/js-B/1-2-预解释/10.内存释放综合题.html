@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function fo(){
+        var  i = 0;
+        return function (n){
+            return n+i++;
+        }
+
+
+    }
+    var f = fo();//fo()运行之后的返回值赋值给f
+    var a =f(15);
+    var b = fo()(15);//15
+    var c = fo()(20);//20
+    var d = f(20);//
+    //i++是先运算后累加
+    //++i是先累加后运算
+    //i++/++i没有做运算则是自身累加
+
+
+</script>
+</body>
+</html>

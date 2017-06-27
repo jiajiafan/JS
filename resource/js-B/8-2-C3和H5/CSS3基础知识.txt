@@ -1,0 +1,50 @@
+CSS3:
+   ->新增加一些强大的CSS选择器
+   ->常用的一些属性(盒子圆角、盒子阴影、盒子背景颜色渐变、多列布局、文本裁切)
+   ->对于background的变革:background-size、background-origin、RGBA...
+   ->CSS3变形:2D/3D  transform:translate(X/Y/Z)、rotate(X/Y/Z)、scale、skew、matrix...
+   ->CSS3动画:transition过渡动画 animation帧动画(@key-frames)
+   ->CSS3盒子模型:box-sizing、flexbox(伸缩盒子模型)
+   ->CSS3媒体查询:@media
+   ->CSS3导入网络字体包(但是这个消耗性能,使用的不多,而且语法也很简单)
+
+1、选择器
+   .box.bg{} ->二次筛选:先把所有.box的找到,在找到的集合中把拥有.bg的筛选出来
+   .box .bg{} ->后代筛选:把具有.box样式的元素的后代元素中具有.bg样式的元素找出来
+
+   .box span{} ->所有后代中的span
+   .box>span{} ->所有儿子中的span
+   .box+span{} ->下一个弟弟并且是span标签
+   .box~span{} ->所有弟弟中的span标签
+
+2、CSS3的动画分为两种:过渡动画/帧动画
+   A(起始位置)->B(结束位置)
+   过渡动画:从A到B是按照既定的运动效果过渡过去
+   帧动画:可以实现A到B之间的多方向多重运动,它和播放的影片一样是一帧帧运动的
+
+   过渡动画:给当前的元素设置一个过渡的效果,以后只要当前元素的样式等发生改变,都会按照之前设定的过渡效果实现运动
+   /*--设置过渡动画-webkit-transition--*/
+   -webkit-transition-property: all; /*--设置需要执行过渡动画的样式属性,一般都写all,所有的样式属性都需要执行过渡动画--*/
+   -webkit-transition-duration: 1s; /*--设置动画运动的总时间 1s or 1000ms--*/
+   -webkit-transition-timing-function: linear; /*--设置运动的方式,例如:linear就是匀速运动 ease-in就是加速运动 ease-out ease-in-out cubic-bezier三次贝塞尔曲线...--*/
+   -webkit-transition-delay: 0s; /*--设置动画延迟时间,0s是没有延迟立即执行动画效果--*/
+
+   只要是使用CSS3实现的动画都需要触发才会执行
+   ->假设开始我给#box设置了过渡效果,然后在样式中又立马把它的样式发生了改变,这样的话我们其实是看不到动画执行的
+       #box {
+         width: 170px;
+         height: 225px;
+         /*--设置过渡动画-webkit-transition--*/
+         -webkit-transition: all 1s linear 0s;
+         transition: all 1s linear 0s;
+       }
+       #box{
+         -webkit-transform: scale(2);
+         transform: scale(2);
+       }
+       这样是看不到动画效果的
+
+     ->需要有触发执行这样的契机才可以
+       1)可以使用动态操作伪类 :hover / :active ...
+       2)使用媒体查询触发 @media
+       3)使用JS触发

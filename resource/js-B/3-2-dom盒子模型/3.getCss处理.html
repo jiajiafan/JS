@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1 {
+            width: 200px;
+            height: 100px;
+            background: red;
+            padding-top: 20px;
+            margin-top: 20px;
+            opacity: 0.5;
+
+        }
+    </style>
+</head>
+<body>
+<div id="div1">111</div>
+<script>
+    /**
+     *
+     * @param ele  当前的元素
+     * @param attr 属性名
+     * @returns 属性值
+     */
+
+    function getCss(ele, attr) {
+        var res = null, reg = null;//定义了两个私有的变量
+        if ("getComputedStyle" in  window) {
+            res = window.getComputedStyle(ele, null)[attr];
+        } else {
+            //1.ie里首先通过filter 获得alpha(opacity = 50)
+            //2.alpha(opacity = 50)->50->50/100=0.5
+            if (attr == "opacity") {
+                var str = ele.currentStyle["filter"];
+                reg = /alpha\(opacity\s*=\s*(\d+(?:\.\d+)?)\)/;
+                res = reg.test(str) ? RegExp.$1 / 100 : 1;//如果不匹配,则返回opacity默认的值是 1 ,RegExp.$1是获得第一个分组里的内容
+            }else{
+                res = ele.currentStyle[attr];  //res是个字符串
+            }
+        }
+        /*
+         * 1.有效数
+         * 2.带单位(px|pt|rem|em)可有可无
+         * */
+        reg = /^[+-]?(\d|[1-9]\d+)(\.\d+)?(px|pt|rem|em)?$/;
+        return reg.test(res) ? parseFloat(res) : res
+    }
+    var oDiv = document.getElementById("div1");
+    console.log(getCss(oDiv, "opacity"));//0.5 -0.1-0
+</script>
+</body>
+</html>

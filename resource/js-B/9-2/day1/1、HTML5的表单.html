@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        .textarea {
+            display: block;
+            margin: 20px auto;
+            width: 300px;
+            height: 100px;
+            resize: none; /*禁止文本域的自主调节大小*/
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 0 10px;
+            width: 200px;
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<!--
+    传统的表单元素:
+    form、input(text、password、radio、checkbox、button、submit、reset、hidden、file)、label、select、textarea
+-->
+<form>
+    <!--<input type="file"/>-->
+    <!--<input type="radio" name="sex" id="sexMan" checked/><label for="sexMan">男</label>
+    <input type="radio" name="sex" id="sexWoman"/><label for="sexWoman">女</label>-->
+    <!--省市县的三级联动-->
+    <!--<select id="province">
+        <option>北京</option>
+        <option>河北</option>
+        <option>上海</option>
+        <option>广州</option>
+    </select>
+    <select id="city">
+        <option>海淀</option>
+        <option>石景山</option>
+        <option>通州</option>
+        <option>丰台</option>
+    </select>-->
+    <!--<textarea class="textarea"></textarea>-->
+</form>
+<!--
+    HTML5中对于表单元素的升级(在IE6~8下不兼容):
+    ->给表单元素增加了一个叫做placeholder的属性,用来设置默认的提示信息
+    ->给INPUT增加了很多新的类型：search、url、email、tel、number、range、color、date、time...(PC端目前使用新类型的不多,主要原因就是无法处理IE下的兼容;但是移动端这些类型中的部分是必用的;)
+      1)根据不同的类型,手机会调取出最符合用户输入的虚拟键盘,方便用户的输入不需要在切换键盘一个个找需要的字符了...
+      2)增加了CSS和JS新的验证方式(移动端的keyup/keydown用input事件代替)
+-->
+<!--<input type="password" class="userEmail" placeholder="请输入六位密码~"/>-->
+<!--<input type="number" max="100" min="0" step="10" value="30"/>-->
+<!--<input type="date"/>
+<input type="time"/>-->
+
+<input type="color"/>
+<input type="range" max="65" min="18" step="1" value="25"/>
+</body>
+</html>

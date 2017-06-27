@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+    * 预解释：
+    * Var a;
+    * var fn=function(){}
+    *代码执行：
+    * a=xxff00; xxff00-[1,2,3,4]
+    * arguments[0]=xxff00;
+    * arguments[0]=1;
+    * alert(a) // xxff00-[1,2,3,4]
+    * a=2;
+    * alert(a)->2
+    * */
+    var a=[1,2,3,4];//xxff00
+    function fn(a){
+        //形参a=地址；
+        a[0]=6;//这里改地址里的值；[6,2,3,4]
+        alert(a);//6,2,3,4
+        a=2;//形参=2；形参a=2;
+    }
+    fn(a);
+    alert(a);//6,2,3,4
+</script>
+</body>
+</html>

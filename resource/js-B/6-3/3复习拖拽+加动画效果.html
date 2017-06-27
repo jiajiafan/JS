@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<style type="text/css">
+div{ width:100px; height:100px; position:absolute; top:0; left:0; background:red; overflow:hidden; cursor:move; -webkit-user-select:none;}
+</style>
+</head>
+
+<body>
+<div id="div1">div,div,div</div>
+<div id="div2" style="left:200px; "><img src="img.jpg" width="100" height="100"></div>
+<div id="div3"  style="left:200px; top:100px; "><img src="img2.jpg" width="100" height="100"></div>
+<div id="div4"  style="left:300px; top:300px; "><img src="img3.jpg" width="100" height="100"></div>
+</body>
+</html>
+<script src="event1.js"></script>
+<script>
+
+var eles=document.getElementsByTagName("div");
+for(var i=0;i<eles.length;i++){
+	on(eles[i],"mousedown",down);	
+}
+
+function down(e){
+	this.x=this.offsetLeft;
+	this.y=this.offsetTop;
+	this.mx=e.pageX;
+	this.my=e.pageY;
+	
+	if(this.setCapture){
+		this.setCapture();
+		on(this,"mousemove",move);
+		on(this,"mouseup",up);
+	}else{
+		
+		this.MOVE=move.bind(this);
+		this.UP=up.bind(this);
+		on(document,"mousemove",this.MOVE);//我们设计的拖拽模块里的this的指向和事件绑定原则里的this指向冲突了，则必须把this“抢回来”
+		on(document,"mouseup",this.UP);
+	}
+	e.preventDefault();
+	clearTimeout(this.flyTimer);
+}
+
+function move(e){
+	this.style.left=this.x+(e.pageX-this.mx)+"px";
+	this.style.top=this.y+(e.pageY-this.my)+"px";	
+	
+	//首先要在mousemove的时候计算出两次mousemove事件之间的鼠标的位移，把这个位移当前速度
+	
+	if(this.prevPosition){
+		this.flySpeed=e.pageX-this.prevPosition;
+		this.prevPosition=e.pageX;
+		
+	}else{
+		//如果没有“上一次的位置”this.prvePostion这个属性，则把本次的位置赋给它，到了下一次，则这个它就成了上一次的位置了。
+		this.prevPosition=e.pageX;	
+	}
+	
+}
+
+
+function up(e){
+	if(this.releaseCapture){
+		this.releaseCapture();
+		off(this,"mousemove",move);
+		off(this,"mouseup",up);	
+	}else{
+		off(document,"mousemove",this.MOVE);
+		off(document,"mouseup",this.UP);	
+	}
+	fly.call(this);
+	drop.call(this);
+}
+
+function fly(){
+	//首先要在mousemove的时候计算出两次mousemove事件之间的鼠标的位移，把这个位移当前速度
+	this.flySpeed*=.98;
+	
+	var maxRight=(document.documentElement.clientWidth||document.body.clientWidth)-this.offsetWidth;
+	
+	var current=this.offsetLeft+this.flySpeed;
+	if(current>=maxRight){
+		this.style.left=maxRight+"px";
+		this.flySpeed*=-1;
+	}else if(current<=0){
+		this.style.left=0;
+		this.flySpeed*=-1;
+	}else{
+		this.style.left=current+"px";
+	}
+	
+	if(Math.abs(this.flySpeed)>=0.5){
+		this.flyTimer=window.setTimeout(processThis(fly,this),20);
+	}else{
+		this.flySpeed=null;
+		this.prevPosition=null;	
+	}
+	/*
+	fly.bind;
+	Function.prototype.bind;//H5中实现
+	
+	window.setTimeout(fly,20);
+	var that=this;
+	window.setTimeout(function(){fly.call(that)},20);
+	*/
+}
+
+function drop(){
+	if(this.dropSpeed){
+		this.dropSpeed+=9;
+	}else{
+		this.dropSpeed=9;
+	}
+	this.dropSpeed*=.98;
+	
+	var bottom=(document.documentElement.clientHeight||document.body.clientHeight)-this.offsetHeight;
+	if(this.offsetTop+this.dropSpeed>=bottom){
+		this.style.top=bottom+"px";
+		this.dropSpeed*=-1;	
+		this.flag++;
+	}else{
+		this.style.top=this.offsetTop+this.dropSpeed+"px";
+		this.flag=0;
+	}
+	if(this.flag<2){
+		this.dropTimer=window.setTimeout(processThis(drop,this),20);
+	}
+	
+}
+</script>

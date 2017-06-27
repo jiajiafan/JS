@@ -1,0 +1,241 @@
+HTTP
+超文本传输协议
+
+作用:在http服务器和http客户端之间传输数据
+
+七层协议
+
+1 物理层 网卡
+2 链路层 网卡驱动
+3 网络层 ip
+4 传输层 tcp udp
+5 会话层 保持会话 断开回话 (系统给维护的)
+6 表示层 加密解密
+7 应用层 http ftp https
+
+http:
+http是一个事务 包含N+1个事件 ,只有这N+1个事件全部完成之后该事务才算完成,否则事务失败.
+
+http包含两个事件 request response ; 现有request后有response
+
+
+request和response的内容称为报文
+报文包含三部分
+1 起始行 (请求或者响应的基本信息)
+request: http_method request_URL http_version
+response: http_version http_status_code http_status_text
+2 首部 (请求或者响应的摘要信息)
+格式固定: (key:value1,value2...)
+请求首部 响应首部 通用首部 实体首部 扩展首部
+3 主体 (请求或者响应的数据)
+
+
+http方法
+'CHECKOUT',
+'CONNECT',
+'COPY',
+'DELETE',
+'GET',
+'HEAD',
+'LOCK',
+'M-SEARCH',
+'MERGE',
+'MKACTIVITY',
+'MKCALENDAR',
+'MKCOL',
+'MOVE',
+'NOTIFY',
+'OPTIONS',
+'PATCH',
+'POST',
+'PROPFIND',
+'PROPPATCH',
+'PURGE',
+'PUT',
+'REPORT',
+'SEARCH',
+'SUBSCRIBE',
+'TRACE',
+'UNLOCK',
+'UNSUBSCRIBE'
+
+因为ajax可以成功请求的http方法只有get post head delete put options这六个.
+
+
+get系方法
+get 从服务器获取资源(浏览器地址栏,html中所有的src和href都是get方法请求)
+head 只获取服务器响应报文中的起始行和首部
+delete 让服务器删除一段资源(请求成功返回状态码为202)
+特点:
+1 把参数放到url后面
+2 没有请求主体
+3 有大小限制(浏览器对url的长度有大小限制,所以决定了get系方法有大小限制)
+4 容易被缓存
+5 明文发送
+
+post系方法
+post 往服务器发送一段资源
+put 往服务器推送一段资源(请求成功返回状态码为202)
+特点:
+1 有请求主体
+2 没有大小限制
+3 不会被缓存
+4 不是明文发送
+
+options 检验当前服务器支持哪些http方法
+
+restful 表征状态转移 (服务器接口的软件架构)
+
+CRUD(增删改查) 操作学生用户的接口 /rest/1.0/userinfo
+
+增加一个id为1的用户 post /rest/1.0/userinfo {id:1,name:'张三'}
+删除id为1的用户  delete /rest/1.0/userinfo?id=1
+修改id为1的用户 put /rest/1.0/userinfo?id=1 {id:1,name:'李四'}
+查询所有用户 get /rest/1.0/userinfo
+查询id为1的用户信息 get /rest/1.0/userinfo?id=1
+
+
+http状态码
+服务器通过http response返回给浏览器的状态标识
+'100': 'Continue',
+'101': 'Switching Protocols',
+'102': 'Processing',
+'200': 'OK',
+'201': 'Created',
+'202': 'Accepted',
+'203': 'Non-Authoritative Information',
+'204': 'No Content',
+'205': 'Reset Content',
+'206': 'Partial Content',
+'207': 'Multi-Status',
+'208': 'Already Reported',
+'226': 'IM Used',
+'300': 'Multiple Choices',
+'301': 'Moved Permanently',
+'302': 'Found',
+'303': 'See Other',
+'304': 'Not Modified',
+'305': 'Use Proxy',
+'307': 'Temporary Redirect',
+'308': 'Permanent Redirect',
+'400': 'Bad Request',
+'401': 'Unauthorized',
+'402': 'Payment Required',
+'403': 'Forbidden',
+'404': 'Not Found',
+'405': 'Method Not Allowed',
+'406': 'Not Acceptable',
+'407': 'Proxy Authentication Required',
+'408': 'Request Timeout',
+'409': 'Conflict',
+'410': 'Gone',
+'411': 'Length Required',
+'412': 'Precondition Failed',
+'413': 'Payload Too Large',
+'414': 'URI Too Long',
+'415': 'Unsupported Media Type',
+'416': 'Range Not Satisfiable',
+'417': 'Expectation Failed',
+'418': 'I\'m a teapot',
+'421': 'Misdirected Request',
+'422': 'Unprocessable Entity',
+'423': 'Locked',
+'424': 'Failed Dependency',
+'425': 'Unordered Collection',
+'426': 'Upgrade Required',
+'428': 'Precondition Required',
+'429': 'Too Many Requests',
+'431': 'Request Header Fields Too Large',
+'500': 'Internal Server Error',
+'501': 'Not Implemented',
+'502': 'Bad Gateway',
+'503': 'Service Unavailable',
+'504': 'Gateway Timeout',
+'505': 'HTTP Version Not Supported',
+'506': 'Variant Also Negotiates',
+'507': 'Insufficient Storage',
+'508': 'Loop Detected',
+'509': 'Bandwidth Limit Exceeded',
+'510': 'Not Extended',
+'511': 'Network Authentication Required'
+
+
+1xx http事务正在初始化
+101 切换协议 在http2.0已经把1xx都删掉了,只保留了101
+2xx 客户端请求成功
+200 ok http事务成功
+202 接受 put和delete方法 状态码为202
+3xx 缓存或者重定向
+301 永久转移
+站点之间跳转
+a.com 永久转移到 b.com
+降低搜索引擎的搜索权重 SEO优化
+
+302 临时转移
+可以站点之间跳转也可以站点内跳转 a.com/login.html -> a.com/index.html
+登录功能
+
+304 未修改
+缓存
+涉及到两个响应首部
+last-modified 请求的静态资源最后一次修改的时间 GMT格式
+etag 把请求的静态资源通过摘要算法计算得到的散列值
+涉及到两个请求首部
+If-Modified-Sincee 和 last-modified 对应
+if-none-match 和 etag 对应
+
+强缓存设计两个响应首部
+expires 静态资源过期时间 浏览器端GMT时间
+cache-contorl 缓存多少秒
+
+4xx 客户端错误
+400 错误的请求 参数错误 url长度超过限制 请求端口或者协议错误
+401 未认证 没有登录,或者登录信息无效
+403 禁止访问 没有权限
+404 未找到 该资源不存在
+
+5xx 服务器错误
+
+URL scheme:
+http 默认端口是80
+https 默认端口是443  https=http+SSL/STL 加密方式:非对称加密 RSA算法(质数)
+ftp 默认端口是21
+smtp 邮件传输协议
+file 本地打开文件预览 因为file是不通过网络请求的.所以无法使用ajax
+
+MIME type:
+多媒体因特网邮件扩展
+告诉服务器或者浏览器以什么样的格式来解析该数据.
+
+通过http事务中的通用首部content-type来表示MIME type.
+
+格式是固定的:
+html text/html; charset=gbk
+js text/javascript; charset=utf-8
+css text/css
+png image/png
+git image/gif
+json application/json
+表单提交 application/x-www-form-urlencoded
+
+大类型/小类型
+
+文本格式是可以设置字符集(charset)
+
+URL的格式
+scheme://hostname:port/path?querystring#hash
+
+URL中的组件component(分割字符):/?#
+
+URL中querystring的格式
+http://www.baidu.com?a=1&b=2&c=2&名称=张亚涛
+
+格式:key1=valu1&key2=value2...
+
+query中只能使用英文字符,如果遇到非英文字符则需要转换为URI字符串格式
+
+通过encodeURI方法或encodeURIComponent方法来转换为URI字符串
+
+
+encodeURI:只转义非英文字符
+encodeURIComponent:除了非英文字符还会转义URL组件

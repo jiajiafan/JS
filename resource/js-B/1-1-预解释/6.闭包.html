@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+1.为什么要使用闭包：
+1）防止变量名冲突
+2）可以通过传参的方式，对全局变量的在私有作用域里重新赋值；
+2.闭包里面的值，如果想修改全局的值，window.xx=xx;
+3.闭包可以用来封装方法，最后通过window.方法名=方法名；把封装好的函数，让外面可以用到；
+-->
+<ul>
+    <li></li>
+    <li id="li1"></li>
+    <li></li>
+</ul>
+<script>
+    /*var name='杨浩';
+    var age='28';
+    (function (name,age){
+        name='高旭';
+        age='18';
+        window.name=name;
+        window.age=age;
+        alert(name+','+age);
+    })(name,age);
+    alert(name+','+age);*/
+    var oLi=document.getElementById('li1');
+    (function(){
+        function getPrev(oEle){
+            if(oEle.previousElementSibling){
+                return oEle.previousElementSibling;
+            }
+            var prev=oEle.previousSibling;
+            while(prev && prev.nodeType!=1){
+                prev=prev.previousSibling;
+            }
+            return prev;
+        }
+        window.prev=getPrev;
+    })();
+    var prevLi=prev(oLi);
+    prevLi.innerHTML='我是找到的哥哥元素节点' ;
+</script>
+</body>
+</html>

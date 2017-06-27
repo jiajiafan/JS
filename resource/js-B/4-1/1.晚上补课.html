@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型链</title>
+</head>
+<body>
+<script>
+    //JS中内置类:Number/String/Boolean/(Null/Undefined)/Object/Function/Array/RegExp/Date/HTMLDivElement(div元素对象类,并且每一个HTML标签都有一个自己对应的类)/
+    //HTMLElement元素标签类,所有元素对象类都是元素标签类的子类
+    //HTMLElement->Element->Node->EventTarget->Object
+    //DocumentElement->Docuemnt->Node->EventTarget->Object
+    //HTMLCollection(元素集合类,getElementByTagName/getElementByClassName);NodeList(节点集合类getElementsByName;childNodes)
+    //Math:不是一个类,他只是一个对象,对象中存储了操作数学/数字的常用方法
+    //1.什么叫面向对象:研究类和实例
+        JS就是面向对象的思想开发的,浏览器提供了很多类,我们还可以自己定义类(构造函数模式),我们平时所用的一般都是某一个类的实例,如果想把Js学号,只需要按照面向对象的思想,研究实例和具体的类即可
+    //需要我们掌握类的继承;封装;多态
+//2.研究原型,只需要记住:prototype.constructor.__proto__
+    原型继承:子类继承了父类
+    类的重写:子类重写父类的方法
+    //3.Object.prototype.toString.call()最权威最全的检测方法,没有任何漏洞
+    //4.Null,Undefined这两个特殊类型的类是存在的,在其原型上依然有toString的方法,只不过浏览器屏蔽了我们的主动调用,但是我们可以隐形调用
+    console.log("钱包"+null+undefined)-->钱包nullundefined
+    5.Object.prototype.toString()返回当前对象所属类的详细信息
+    结果是:"[object Object]",其中,中括号,第一个object是固定的,第二个Object代表当前的对象是Object的一个实例
+    深入
+</script>
+</body>
+</html>

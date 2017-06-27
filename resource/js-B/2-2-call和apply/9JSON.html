@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //JSON是一种数据格式,JSON格式字符串和JSON格式的对象
+    var obj = {name: "lily", age: 18}//普通的对象
+    //JSON格式的对象,对象里的属性必须以""括起来,单引号不行
+    var obj2 = {"name": "lily", "age": 18};//JSON格式的对象
+    //JSON格式的字符串
+    var str = "aa";//JSON格式的字符串
+    var str2 = 'a';//普通的字符串
+
+    var obj3 = '{"name":"lily","age":18}';//jSON格式的字符串
+    //window天生有个属性是JSON,属性值是一个对象,这个对象里有两个方法:parse()和stringify();
+
+    //parse() :把JSON格式的字符串转化成JSON格式的对象
+    //stringify():把JSON格式的对象转化成JSON格式的字符串
+    //    var obj4 = JSON.parse(obj3);
+    //    console.log(obj4);
+    //    var str = JSON.stringify(obj4);
+
+    //ie6-7中window没有一个属性是JSON,因此会报错
+    var obj5 = eval("(" + obj3 + ")");
+    console.log(obj5);
+
+    //封装一个方法:将字符串转化成JSON格式的对象
+    function toJSON(str) {
+        //方案一:
+        try {
+            return JSON.parse(str)
+        } catch (e) {
+            return eval("(" + str + ")");
+        }
+        //方案二:
+        //判断下JSON是否是window的属性,如果是的话通过JSON.parse(str)转化成对象,不是的话通过eval()转化下
+        "JSON" in window ? JSON.parse(str) : eval("(" + str + ")");
+    }
+
+
+</script>
+
+</body>
+</html>

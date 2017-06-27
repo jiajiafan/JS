@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!--1.toUpperCase() 字符串转大写
+2.charAt(索引)-->
+
+<script>
+    //获取验证码思想：随机取四个数字，把四个数字分别作为字符串下标，找到对应的字符拼接起来；
+    var strCode='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    getCode();//获取验证码方法的调用
+    function getCode(){
+        var str='';//用来拼接每次找到的字符；
+        //需要多少个随机数就循环多少次
+        for(var i=0; i<4; i++){
+            var getRan=random(0,61);
+            //通过每次找到的数字，把他作为下标，找到对应字符
+            str+=strCode.charAt(getRan)
+        }
+        //最后把找到的字符展示在页面上；
+        document.body.innerHTML=str;
+    }
+    function random(n,m){
+        //把所有传进来的参数，都转成数字类型；
+        n=Number(n);
+        m=Number(m);
+        //判断是否为有效数字，如果不是有效数字，返回0-1之间随机小数；
+        if(isNaN(n)||isNaN(m)){
+            return Math.random();
+        }
+        //如果n>m，我们就让n和m交换位置：注-》这种交换位置的思想很重要
+        if(n>m){
+            var tmp=n;
+            n=m;
+            m=tmp;
+        }
+        //四舍五入得到一定范围内的随机数；
+        return Math.round(Math.random()*(m-n)+n);
+
+    }
+
+</script>
+</body>
+</html>

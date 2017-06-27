@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var n1=sum(1,2);
+    var n2=sum(1,2,3,'3','12px');
+    function sum(){//参数不确定的情况下，用arguments
+        var total=0;
+        //循环遍历参数中的每一项
+        for(var i=0; i<arguments.length; i++){
+            var cur=arguments[i];
+            //判断参数必须是数字才能进行相加
+            if(!isNaN(cur)){
+                total+=Number(cur);//Number()严格转换，避免字符串拼接；
+            }
+        }
+        return total;//一定要同return返回我们的求和结果
+    }
+    alert(n1);
+    alert(n2);
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1 {
+            height: 300px;
+            width: 100px;
+            border: 10px solid green;
+            overflow: auto;
+
+        }
+    </style>
+</head>
+<body>
+<div id="div1"><span style="color: red">美猴王为求长生不老，四处四海求师，在西牛贺洲得到菩提祖师指授，得名孙悟空，学会地煞数七十二般变化，一个筋斗云可行十万八千里。归来打败混世魔王，收复七十二洞妖王，结义六大魔王，去龙宫借兵器，得大禹定海神针（原著作“神珍”），化作如意金箍棒，可大可小，重一万三千五百斤。又去阴曹地府，把猴属名字从生死簿上勾销。龙王、秦广王去天庭告状，玉帝欲遣兵捉拿。[1] 
+</div>
+<script>
+
+    var oDiv = document.getElementById("div1");
+    var timer = null;
+    //1.滚动到最大值时不再滚动
+    //    ~(function (){
+    //        var val = oDiv.scrollTop;
+    //        oDiv.scrollTop++;
+    //        if(val == oDiv.scrollTop){
+    //            window.clearTimeout(timer);
+    //            return;
+    //        }
+    //      timer =  window.setTimeout(arguments.callee,15)
+    //    })()
+
+    //2.滚动到最大值时到开始的位置
+    //    var boxH = oDiv.scrollHeight-oDiv.clientHeight;
+    //    ~(function (){
+    //        oDiv.scrollTop++;
+    //        if(oDiv.scrollTop == boxH){
+    //            oDiv.scrollTop = 0;
+    //        }
+    //        timer =  window.setTimeout(arguments.callee,15)
+    //    })()
+
+    //3.到最大值时倒着走
+//    var flag = 1;
+//    ~(function () {
+//        var val = oDiv.scrollTop;
+//        oDiv.scrollTop = oDiv.scrollTop + flag;
+//        if (oDiv.scrollTop == val) {
+//            flag *= -1;
+//        }
+//        timer = window.setTimeout(arguments.callee, 10)
+//    })();
+
+    //4.一直往下走
+    var innerHTML = oDiv.innerHTML;
+    ~(function () {
+        var val = oDiv.scrollTop;
+        oDiv.scrollTop++;
+        if (val == oDiv.scrollTop) {
+            oDiv.innerHTML += innerHTML;
+        }
+        window.setTimeout(arguments.callee, 10)
+    })();
+
+
+</script>
+
+</body>
+</html>

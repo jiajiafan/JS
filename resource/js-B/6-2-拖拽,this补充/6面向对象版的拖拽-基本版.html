@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+div{ width:100px; height:100px; position:absolute; left:100px; top:100px; background:red; cursor:move; -webkit-user-select:none; }
+
+</style>
+</head>
+
+<body>
+<div id="div1" style="background:blue; top:0;">div1</div>
+<div id="div2" style="background:green; top:0; left:0;">div2</div>
+<div id="div3">div3</div>
+<div id="div4" style="background:blue; top:200px; left:200px;"><img src="img.png" width="100" height="100"></div>
+</body>
+</html>
+<script src="event-2.js"></script>
+<script>
+var eles = document.getElementsByTagName("div");
+/*
+	this的原则：在Drag类上的方法里，this都表示的是当前这个类的实例，如果和此原则冲突，则强制遵守此原则
+	构造函数是初始化
+	实例上保存所有的相关信息
+*/
+function Drag(ele){
+	this.ele=ele;//在类的方法中，都可以访问到的对象是当前的实例，所以把被拖拽的元素保存到this的ele属性上，就是把元素保存到当前类的实例上，以便所有的类上的方法都可以操作它
+	this.x=null;
+	this.y=null;
+	this.mx=null;
+	this.my=null;
+	/*
+		第一种绑定方法的思考
+	on(this.ele,"mousedown",this.down);
+	//把this.down绑定给了ele，那mousedonw触发时，这个方法里的this是谁呢？
+	//A：被拖拽的元素   B：当前类的实例
+	
+	//选A的道理：绑定的只是个引用地址，绑定上之后和运用的时候，和前边的那个this就没什么关系了。把方法绑定给那个元素，则按着事件绑定的原则，down里的this指向被拖拽的元素ele
+	//选B的道理：你绑定的是this上的down，所以执行的是this.down，相当于this.down()执行，所以down在执行的时候this还是这里的this，即类的实例
+	//正确答案是A
+	
+	this的原则：在Drag类上的方法里，this都表示的是当前这个类的实例，如果和此原则冲突，则强制使其指向类的实例
+	
+	//当前类的实例是被拖拽的元素嘛？当然不是。this是当前类的实例，而被拖拽的元素只是被传进来的那个ele，传进来之后被保存到this的属性ele上了。也就是说：被拖拽的元素只是实例上的一个属性。
+	*/
+	
+	this.DOWN=processThis(this.down,this);
+	on(this.ele,"mousedown",this.DOWN);
+	//1、甭管方法定义在那儿，这个方法里的this是谁，只能由运行的时候才能确定。
+	//2、但是，我们在写项目的时候，能够确保每个方法里的this的指向应该是固定的。
+	this.MOVE=processThis(this.move,this);
+	this.UP=processThis(this.up,this);
+	
+}
+Drag.prototype.down=function(e){
+	this.x=this.ele.offsetLeft;
+	this.y=this.ele.offsetTop;
+	this.mx=e.pageX;
+	this.my=e.pageY;
+	
+	if(this.ele.setCapture){
+		this.ele.setCapture();
+		on(this.ele,"mousemove",this.MOVE);
+		on(this.ele,"mouseup",this.UP);
+	}else{
+		on(document,"mousemove",this.MOVE);
+		on(document,"mouseup",this.UP);
+	}
+	e.preventDefault();
+	
+}
+
+Drag.prototype.move=function(e){
+	this.ele.style.left=this.x+e.pageX-this.mx+"px";
+	this.ele.style.top=this.y+e.pageY-this.my+"px";
+}
+
+Drag.prototype.up=function(e){
+	if(this.ele.releaseCapture){
+		this.ele.releaseCapture();
+		off(this.ele,"mousemove",this.MOVE);
+		off(this.ele,"mouseup",this.UP);
+	}else{
+		off(document,"mousemove",this.MOVE);
+		off(document,"mouseup",this.UP)
+	}
+	
+}
+
+for(var i=0;i<eles.length;i++){
+	new Drag(eles[i]);	//创建Drag类的实例，并且把指定被拖拽的元素传进去，则这个元素就可以实现被拖拽了
+	//当new的时候，会创建一个实例（没有变量保存此实例，此实例叫匿名实例），这个实例上保存着所有的和当前拖拽ele的相关的信息，或者说：这个上下文上承载着所有的和拖拽此元素相关的行为和属性
+}
+
+
+</script>
